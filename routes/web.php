@@ -10,32 +10,22 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
- Route::get('/', function () {
-     return view('welcome');
- });
-  Route::any("/","Admin\AdminController@index");*/
 
-Route::any('/','Index\IndexController@index');//前台首页
 
-<<<<<<< HEAD
 Route::any('/','Index\IndexController@index');//前台首页 
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-//****************后台模块********
-=======
-//后台首页
->>>>>>> bd7f679b686ef26e1e843aaf1626c22ced3082b1
+ // Route::any("/","Admin\AdminController@index");
 Route::prefix("/admin")->group(function(){
 	Route::any("/index","Admin\AdminController@index");
-
-	//角色管理
-	Route::any("/role_add","Admin\RoleController@role_add");//添加、展示
-	Route::any("/role_adds","Admin\RoleController@role_adds");
-	Route::any("/role_Del","Admin\RoleController@role_Del");//删除
-	Route::any('/update/{id}', 'Admin\RoleController@update');//修改页
-	Route::any('/upd', 'Admin\RoleController@upd');//修改页
 });
 
+Route::prefix("/admin")->group(function(){
+	Route::any("/right/index","Admin\RightController@index");
+	Route::any("/right/add_right","Admin\RightController@add_right");
+	Route::any("/right/del","Admin\RightController@del");
+	Route::any("/right/updateajax","Admin\RightController@updateajax");
+	Route::any("/right/paginate","Admin\RightController@paginate");
+});

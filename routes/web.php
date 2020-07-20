@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -54,4 +55,3 @@ Route::prefix("/admin")->group(function(){
 	Route::any('/jup', 'Admin\RoleController@jup');//即点即改
 
 });
-

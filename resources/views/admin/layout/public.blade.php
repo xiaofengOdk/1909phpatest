@@ -305,11 +305,11 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu"  >
                     <li class="header">菜单</li>
-<<<<<<< HEAD
+
                     <li id="admin-index"><a href="/admin/index"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
-=======
+
                     <li id="admin-index"><a href="http://www.1909phpa3.com/index.php/admin/index"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
->>>>>>> 8b1a92ba326a81616021e64511b13afccb7110d5
+
 
                     <!-- 菜单 -->
                     <li class="treeview">
@@ -417,20 +417,11 @@
             </section>
             <!-- /.sidebar -->
         </aside>
-        <!-- 导航侧栏 /-->
-<<<<<<< HEAD
+
                         <div class="content-wrapper">
                 @yield("content")
                         </div>
-=======
 
-     <div class="content-wrapper">
-                @yield("content")
-
-        </div>
-
->>>>>>> 8b1a92ba326a81616021e64511b13afccb7110d5
-        <!-- 底部导航 -->
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
                 <b>Version</b> 1.0.8

@@ -416,10 +416,12 @@
             <!-- /.sidebar -->
         </aside>
         <!-- 导航侧栏 /-->
+
      <div class="content-wrapper">
                 @yield("content")
 
         </div>
+
         <!-- 底部导航 -->
         <footer class="main-footer">
             <div class="pull-right hidden-xs">

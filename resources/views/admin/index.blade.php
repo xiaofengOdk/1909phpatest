@@ -1,5 +1,6 @@
 @extends("admin.layout.public")
 @section("content")
+
                <section class="content">
 
 

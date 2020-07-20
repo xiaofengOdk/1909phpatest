@@ -13,9 +13,10 @@
                             <div class="pull-left">
                                 <div class="form-group form-inline">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-default" title="新建" data-toggle="modal" data-target="#esssditModal" ng-click="toAdd()"><i class="fa fa-file-o"></i> 新建</button>
-                                        <button type="button" class="btn btn-default" title="删除" ng-click="dele()"><i class="fa fa-trash-o"></i> 删除</button>
-                                        <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新</button>
+                                        <button type="button" class="btn btn-default" title="新建" data-toggle="modal" data-target="#esssditModal" ng-click="toAdd()">
+											<i class="fa fa-file-o"></i> 新建</button>
+                                        <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();">
+											<i class="fa fa-refresh"></i> 刷新</button>
                                     </div>
                                 </div>
                             </div>
@@ -45,8 +46,12 @@
 										  <td>{{$v['role_name']}}</td>
 										  <td>{{date("Y-m-d H:i:s",$v['add_time'])}}</td>
 										  <td class="text-center">
-											  <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal" >修改</button>
-										  </td>
+											  <button type="button" class="btn btn-primary" >修改</button>
+											  <button type="button" class="btn btn-danger del">删除</button>
+											  <button type="button" class="btn btn-warning">
+												  <a href="/role/prev/{{$v['role_id']}}">权限添加</a>
+											  </button>
+										   </td>
 									  </tr>
 								  @endforeach
 			                      </tbody>
@@ -111,6 +116,7 @@
 </body>
 </html>
 <script>
+	//添加
 	$(document).on('click','#add',function(){
 		var role_name=$("#role_name").val();
 		$.ajax({
@@ -127,5 +133,64 @@
 			}
 		});
 	});
+
+	//删除
+	$(document).on('click','.del',function(){
+		var role_id=$(this).parents('tr').attr('role_id');
+		var data={};
+		data.role_id=role_id;
+		var url="/admin/role_Del";
+		if(window.confirm("确认删除？")){
+			$.ajax({
+				url:url,
+				data:data,
+				type:'post',
+				dataType:'json',
+				success:function(result){
+					if(result['code']==00000){
+						alert(result['msg']);
+						location.href=result['url'];
+					}else{
+						alert(result['msg']);
+						location.href=result['url'];
+					}
+				}
+			})
+		}
+	});
+
+	//即点几改
+	$(document).ready(function(){
+		$(".span_test").click(function(){
+			var _this = $(this);
+			_this.hide();
+			_this.next("input").show();
+			$(".chang").blur(function(){
+				var _this = $(this);
+				var zi = _this.val();
+				var role_id = _this.parents("tr").attr("ids");
+				var role_name = _this.parent("td").attr("role_name");
+				var data = {};
+				data.role_name = role_name;
+				data.role_id = role_id;
+				data.zi = zi;
+				var url = "{{url('/admin/right/updateajax')}}";
+				$.ajax({
+					type:"get",
+					data:data,
+					url:url,
+					dataType:"json",
+					success:function(res){
+						if(res.success==true){
+							alert(res.message);
+							history.go(0);
+						}
+					}
+				})
+			})
+		})
+	})
+
+
 </script>
 	@endsection

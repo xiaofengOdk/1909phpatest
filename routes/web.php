@@ -16,7 +16,7 @@
 
     Route::any('/','Index\IndexController@index');//前台首页
 
-<<<<<<< HEAD
+
    Route::prefix("/admin")->group(function(){
 	Route::any("/index","Admin\AdminController@index");//后台首页
     Route::any("/reg","Admin\RegController@reg");//后台注册
@@ -28,7 +28,7 @@
     Route::any("/del","Admin\AdminController@del");//删除;
     Route::any("/jup","Admin\AdminController@jup");//即点击改;
     });
-=======
+
 
 Route::any('/','Index\IndexController@index');//前台首页 
 
@@ -55,4 +55,3 @@ Route::prefix("/admin")->group(function(){
 
 });
 
->>>>>>> 8b1a92ba326a81616021e64511b13afccb7110d5

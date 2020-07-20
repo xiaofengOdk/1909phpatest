@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+ // Route::any("/","Admin\AdminController@index");
+Route::prefix("/admin")->group(function(){
+	Route::any("/index","Admin\AdminController@index");
 });

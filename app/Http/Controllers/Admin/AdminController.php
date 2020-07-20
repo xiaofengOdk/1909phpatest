@@ -61,7 +61,7 @@ class AdminController extends Controller
         }
    }
 
-   public function jup(){
+   public function jupdo(){
        $admin_id=request()->admin_id;
        $admin_name=request()->field;
        $val=request()->_val;

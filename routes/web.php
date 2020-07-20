@@ -27,24 +27,8 @@
     Route::any("/ushow","Admin\AdminController@uShow");//后台执行登录;
     Route::any("/udo","Admin\AdminController@udo");//用户赋予角色;
     Route::any("/del","Admin\AdminController@del");//删除;
-    Route::any("/jup","Admin\AdminController@jup");//即点击改;
-    });
-
-
-Route::any('/','Index\IndexController@index');//前台首页 
-
-Route::any('/','Index\IndexController@index');//前台首页
-Route::any('/','Index\IndexController@index');//前台首页
-
-
-//****************后台模块********
-
-
-
-Route::prefix("/admin")->group(function(){
-	Route::any("/index","Admin\AdminController@index");
-
-	//角色管理
+    Route::any("/jupdo","Admin\AdminController@jupdo");//即点击改;
+    
 	Route::any("/role_add","Admin\RoleController@role_add");//添加、展示
 	Route::any("/role_adds","Admin\RoleController@role_adds");
 	Route::any("/role_Del","Admin\RoleController@role_Del");//删除

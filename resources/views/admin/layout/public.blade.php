@@ -305,9 +305,6 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu"  >
                     <li class="header">菜单</li>
-
-                    <li id="admin-index"><a href="/admin/index"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
-
                     <li id="admin-index"><a href="http://www.1909phpa3.com/index.php/admin/index"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
 

@@ -11,4 +11,14 @@
 |
 */
 
+
 Route::any('/','Index\IndexController@index');//前台首页 
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+ // Route::any("/","Admin\AdminController@index");
+Route::prefix("/admin")->group(function(){
+	Route::any("/index","Admin\AdminController@index");
+});
+

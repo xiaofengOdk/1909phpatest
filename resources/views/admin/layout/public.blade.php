@@ -416,17 +416,10 @@
             <!-- /.sidebar -->
         </aside>
         <!-- 导航侧栏 /-->
-<<<<<<< HEAD
      <div class="content-wrapper">
                 @yield("content")
 
         </div>
-
-=======
-        <div class="content-wrapper">
-                @yield("content")
-        </div>
->>>>>>> bd7f679b686ef26e1e843aaf1626c22ced3082b1
         <!-- 底部导航 -->
         <footer class="main-footer">
             <div class="pull-right hidden-xs">

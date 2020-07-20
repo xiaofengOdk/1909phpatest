@@ -18,16 +18,15 @@
 
 Route::any('/','Index\IndexController@index');//前台首页
 
-<<<<<<< HEAD
 Route::any('/','Index\IndexController@index');//前台首页 
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 //****************后台模块********
-=======
+
 //后台首页
->>>>>>> bd7f679b686ef26e1e843aaf1626c22ced3082b1
+
 Route::prefix("/admin")->group(function(){
 	Route::any("/index","Admin\AdminController@index");
 

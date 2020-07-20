@@ -34,9 +34,7 @@
 </head>
 
 <body class="hold-transition skin-green sidebar-mini" >
-
     <div class="wrapper">
-
         <!-- 页面头部 -->
         <header class="main-header">
             <!-- Logo -->
@@ -286,7 +284,6 @@
             </nav>
         </header>
         <!-- 页面头部 /-->
-
         <!-- 导航侧栏 -->
         <aside class="main-sidebar">
             <!-- sidebar: style can be found in sidebar.less -->
@@ -308,7 +305,7 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu"  >
                     <li class="header">菜单</li>
-                    <li id="admin-index"><a href="index.html"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
+                    <li id="admin-index"><a href="http://www.1909phpa3.com/index.php/admin/index"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
                     <!-- 菜单 -->
                     <li class="treeview">
@@ -419,9 +416,17 @@
             <!-- /.sidebar -->
         </aside>
         <!-- 导航侧栏 /-->
+<<<<<<< HEAD
+     <div class="content-wrapper">
+                @yield("content")
+
+        </div>
+
+=======
         <div class="content-wrapper">
                 @yield("content")
         </div>
+>>>>>>> bd7f679b686ef26e1e843aaf1626c22ced3082b1
         <!-- 底部导航 -->
         <footer class="main-footer">
             <div class="pull-right hidden-xs">

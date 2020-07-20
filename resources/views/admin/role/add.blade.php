@@ -49,7 +49,7 @@
 											  <button type="button" class="btn btn-primary" >修改</button>
 											  <button type="button" class="btn btn-danger del">删除</button>
 											  <button type="button" class="btn btn-warning">
-												  <a href="/role/prev/{{$vv['role_id']}}">权限添加</a>
+												  <a href="/role/prev/{{$v['role_id']}}">权限添加</a>
 											  </button>
 										   </td>
 									  </tr>
@@ -140,16 +140,18 @@
 		var data={};
 		data.role_id=role_id;
 		var url="/admin/role_Del";
-		if(window.confirm("确认删除啊？")){
+		if(window.confirm("确认删除？")){
 			$.ajax({
 				url:url,
 				data:data,
 				type:'post',
 				dataType:'json',
 				success:function(result){
-					if(result['success']==true){
+					if(result['code']==00000){
+						alert(result['msg']);
 						location.href=result['url'];
-					}else if(result['success']==false){
+					}else{
+						alert(result['msg']);
 						location.href=result['url'];
 					}
 				}
@@ -157,6 +159,37 @@
 		}
 	});
 
+	//即点几改
+	$(document).ready(function(){
+		$(".span_test").click(function(){
+			var _this = $(this);
+			_this.hide();
+			_this.next("input").show();
+			$(".chang").blur(function(){
+				var _this = $(this);
+				var zi = _this.val();
+				var role_id = _this.parents("tr").attr("ids");
+				var role_name = _this.parent("td").attr("role_name");
+				var data = {};
+				data.role_name = role_name;
+				data.role_id = role_id;
+				data.zi = zi;
+				var url = "{{url('/admin/right/updateajax')}}";
+				$.ajax({
+					type:"get",
+					data:data,
+					url:url,
+					dataType:"json",
+					success:function(res){
+						if(res.success==true){
+							alert(res.message);
+							history.go(0);
+						}
+					}
+				})
+			})
+		})
+	})
 
 
 </script>

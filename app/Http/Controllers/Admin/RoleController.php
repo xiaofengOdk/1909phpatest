@@ -126,4 +126,9 @@ class RoleController extends Controller
         return json_encode($message, JSON_UNESCAPED_UNICODE);
     }
 
+
+    public function updateajax(Request $request){
+        $da = $request->all();
+        dd($da);
+    }
 }

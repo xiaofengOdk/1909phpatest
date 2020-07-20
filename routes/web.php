@@ -10,15 +10,20 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+    // Route::get('/', function () {
+    //     return view('welcome');
+    // });
 
+    Route::any('/','Index\IndexController@index');//前台首页
 
-Route::any('/','Index\IndexController@index');//前台首页 
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
- // Route::any("/","Admin\AdminController@index");
-Route::prefix("/admin")->group(function(){
-	Route::any("/index","Admin\AdminController@index");
-});
-
+   Route::prefix("/admin")->group(function(){
+	Route::any("/index","Admin\AdminController@index");//后台首页
+    Route::any("/reg","Admin\RegController@reg");//后台注册
+    Route::any("/rdo","Admin\RegController@rdo");//后台注册执行
+    Route::any("/login","Admin\LoginController@login");//后台登录;
+    Route::any("/logdo","Admin\LoginController@logDo");//后台执行登录;
+    Route::any("/ushow","Admin\AdminController@uShow");//后台执行登录;
+    Route::any("/udo","Admin\AdminController@udo");//用户赋予角色;
+    Route::any("/del","Admin\AdminController@del");//删除;
+    Route::any("/jup","Admin\AdminController@jup");//即点击改;
+    });

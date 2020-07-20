@@ -1,5 +1,6 @@
 @extends("admin.layout.public")
 @section("content")
+<<<<<<< HEAD
                <section class="content">
 
 
@@ -68,4 +69,11 @@
                 </div>
                 <!-- /.row -->
             </section>
+=======
+
+            <iframe width="100%" id="iframe" name="iframe"  onload="SetIFrameHeight()" 
+                    frameborder="0" src="/static/admin/home.html"></iframe>
+ 
+
+>>>>>>> bd7f679b686ef26e1e843aaf1626c22ced3082b1
 @endsection

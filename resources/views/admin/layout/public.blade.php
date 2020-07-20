@@ -330,6 +330,7 @@
                             </li>
                         </ul>                        
                     </li>
+
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-folder"></i> 
@@ -390,6 +391,24 @@
                             </li>
                         </ul>                        
                     </li>
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-folder"></i>
+                            <span>角色管理</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li id="admin-login">
+                                <a href="/admin/role_add" target="iframe">
+                                    <i class="fa fa-circle-o"></i>查看
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <!-- 菜单 /-->
 
                 </ul>
@@ -397,11 +416,17 @@
             <!-- /.sidebar -->
         </aside>
         <!-- 导航侧栏 /-->
+<<<<<<< HEAD
      <div class="content-wrapper">
                 @yield("content")
 
         </div>
 
+=======
+        <div class="content-wrapper">
+                @yield("content")
+        </div>
+>>>>>>> bd7f679b686ef26e1e843aaf1626c22ced3082b1
         <!-- 底部导航 -->
         <footer class="main-footer">
             <div class="pull-right hidden-xs">

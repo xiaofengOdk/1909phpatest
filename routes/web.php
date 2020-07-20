@@ -12,12 +12,17 @@
 */
 
 
+
+Route::any('/','Index\IndexController@index');//前台首页 
+
 Route::any('/','Index\IndexController@index');//前台首页
 Route::any('/','Index\IndexController@index');//前台首页
+
 
 //****************后台模块********
 
-//后台首页
+
+
 Route::prefix("/admin")->group(function(){
 	Route::any("/index","Admin\AdminController@index");
 

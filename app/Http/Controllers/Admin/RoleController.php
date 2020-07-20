@@ -113,9 +113,6 @@ class RoleController extends Controller
         }
     }
 
-
-
-
     public function message($code,$msg,$url='')
     {
         $message = [
@@ -126,9 +123,31 @@ class RoleController extends Controller
         return json_encode($message, JSON_UNESCAPED_UNICODE);
     }
 
-
-    public function updateajax(Request $request){
-        $da = $request->all();
-        dd($da);
+    //即点即改
+    public function jup(){
+        $role_id=request()->role_id;
+        $role_name=request()->field;
+        $val=request()->_val;
+        $model=new RoleModel();
+        $reg=$model->where('role_id',$role_id)->update([$role_name=>$val]);
+        // dd($reg);
+        if($reg==1){
+            return [
+                "code"=>"00000",
+                "message"=>"修改成功"
+            ];
+        }elseif($reg==0){
+            return [
+                "code"=>"00001",
+                "message"=>"没有修改"
+            ];
+        }else{
+            return [
+                "code"=>"00002",
+                "message"=>"修改失败"
+            ];
+        }
     }
+
+
 }

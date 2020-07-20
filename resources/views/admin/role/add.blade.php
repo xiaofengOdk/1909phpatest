@@ -43,7 +43,12 @@
 											  <input id="selall" type="checkbox" class="icheckbox_square-blue">
 										  </th>
 										  <td>{{$v['role_id']}}</td>
-										  <td>{{$v['role_name']}}</td>
+
+										  <td pub="role_name">
+											 <span class="upp">{{$v['role_name']}}</span>
+											  <input class="updo" style="display: none;" value="{{$v->role_name}}"/>
+										  </td>
+
 										  <td>{{date("Y-m-d H:i:s",$v['add_time'])}}</td>
 										  <td class="text-center">
 											  <button type="button" class="btn btn-primary" >修改</button>
@@ -160,36 +165,39 @@
 	});
 
 	//即点几改
-	$(document).ready(function(){
-		$(".span_test").click(function(){
-			var _this = $(this);
-			_this.hide();
-			_this.next("input").show();
-			$(".chang").blur(function(){
-				var _this = $(this);
-				var zi = _this.val();
-				var role_id = _this.parents("tr").attr("ids");
-				var role_name = _this.parent("td").attr("role_name");
-				var data = {};
-				data.role_name = role_name;
-				data.role_id = role_id;
-				data.zi = zi;
-				var url = "{{url('/admin/right/updateajax')}}";
-				$.ajax({
-					type:"get",
-					data:data,
-					url:url,
-					dataType:"json",
-					success:function(res){
-						if(res.success==true){
-							alert(res.message);
-							history.go(0);
-						}
-					}
-				})
-			})
+	$('.upp').click(function(){//让input框显示  自己隐藏
+		var _this=$(this);
+		_this.hide();
+		_this.next('input').show();
+	});
+
+	$('.updo').blur(function(){  //当失去焦点的时候获取到 id 要修改的字段  值
+		var _this=$(this);
+		var role_id=_this.parents("tr").attr("role_id");//祖先级节点的自定义属性  id
+		var field=_this.parent("td").attr("pub");//父节点  字段
+		var _val=_this.val();  //获取值
+		//console.log(admin_id,field,_val);
+		//发送ajax 把这三个值传过去
+		var url="/admin/jup"
+		$.ajax({
+			url:url,
+			data:{'role_id':role_id,'field':field,'_val':_val},
+			dataType:'json',
+			success:function(reg){
+				//console.log(reg);
+				if(reg.code=='00000'){
+					window.location.reload()
+				}
+				if(reg.code=='00001'){
+					window.location.reload()
+				}
+				if(reg.code=='00002'){
+					alert(reg.message);
+					window.location.reload()
+				}
+			}
 		})
-	})
+	});
 
 
 </script>

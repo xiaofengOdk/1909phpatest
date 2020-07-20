@@ -37,7 +37,8 @@
                     <table class="table table-bordered table-striped"  width="800px">
                         <tr>
                             <td>角色名称</td>
-                            <td><input  class="form-control" id="role_name" placeholder="角色名称">  </td>
+                            <td>
+                                <input  class="form-control" id="role_name" placeholder="角色名称">  </td>
                         </tr>
                     </table>
 

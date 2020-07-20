@@ -253,7 +253,7 @@
         var _val=_this.val();  //获取值
         //console.log(admin_id,field,_val);
         //发送ajax 把这三个值传过去
-          var url="/admin/jup"
+          var url="/admin/jupdo"
             $.ajax({
                  url:url,
                  data:{'admin_id':admin_id,'field':field,'_val':_val},

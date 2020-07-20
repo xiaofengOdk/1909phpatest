@@ -9,7 +9,9 @@ class AdminController extends Controller
 {
     //
    public function index(){
+   	
     return view('admin.index');
+    // return view('admin.right.index');
    }
 
    public function uShow(){

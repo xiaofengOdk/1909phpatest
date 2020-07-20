@@ -34,9 +34,7 @@
 </head>
 
 <body class="hold-transition skin-green sidebar-mini" >
-
     <div class="wrapper">
-
         <!-- 页面头部 -->
         <header class="main-header">
             <!-- Logo -->
@@ -286,7 +284,6 @@
             </nav>
         </header>
         <!-- 页面头部 /-->
-
         <!-- 导航侧栏 -->
         <aside class="main-sidebar">
             <!-- sidebar: style can be found in sidebar.less -->
@@ -308,7 +305,11 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu"  >
                     <li class="header">菜单</li>
+<<<<<<< HEAD
                     <li id="admin-index"><a href="/admin/index"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
+=======
+                    <li id="admin-index"><a href="http://www.1909phpa3.com/index.php/admin/index"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
+>>>>>>> 8b1a92ba326a81616021e64511b13afccb7110d5
 
                     <!-- 菜单 -->
                     <li class="treeview">
@@ -331,6 +332,7 @@
                             </li>
                         </ul>
                     </li>
+
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-folder"></i>
@@ -391,6 +393,24 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-folder"></i>
+                            <span>角色管理</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li id="admin-login">
+                                <a href="/admin/role_add" target="iframe">
+                                    <i class="fa fa-circle-o"></i>查看
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <!-- 菜单 /-->
 
                 </ul>
@@ -398,9 +418,18 @@
             <!-- /.sidebar -->
         </aside>
         <!-- 导航侧栏 /-->
+<<<<<<< HEAD
                         <div class="content-wrapper">
                 @yield("content")
                         </div>
+=======
+
+     <div class="content-wrapper">
+                @yield("content")
+
+        </div>
+
+>>>>>>> 8b1a92ba326a81616021e64511b13afccb7110d5
         <!-- 底部导航 -->
         <footer class="main-footer">
             <div class="pull-right hidden-xs">

@@ -16,6 +16,7 @@
 
     Route::any('/','Index\IndexController@index');//前台首页
 
+<<<<<<< HEAD
    Route::prefix("/admin")->group(function(){
 	Route::any("/index","Admin\AdminController@index");//后台首页
     Route::any("/reg","Admin\RegController@reg");//后台注册
@@ -27,3 +28,31 @@
     Route::any("/del","Admin\AdminController@del");//删除;
     Route::any("/jup","Admin\AdminController@jup");//即点击改;
     });
+=======
+
+Route::any('/','Index\IndexController@index');//前台首页 
+
+Route::any('/','Index\IndexController@index');//前台首页
+Route::any('/','Index\IndexController@index');//前台首页
+
+
+//****************后台模块********
+
+
+
+Route::prefix("/admin")->group(function(){
+	Route::any("/index","Admin\AdminController@index");
+
+	//角色管理
+	Route::any("/role_add","Admin\RoleController@role_add");//添加、展示
+	Route::any("/role_adds","Admin\RoleController@role_adds");
+	Route::any("/role_Del","Admin\RoleController@role_Del");//删除
+
+	Route::any('/update/{id}', 'Admin\RoleController@update');//修改页
+	Route::any('/upd', 'Admin\RoleController@upd');//修改页
+
+	Route::any('/jup', 'Admin\RoleController@jup');//即点即改
+
+});
+
+>>>>>>> 8b1a92ba326a81616021e64511b13afccb7110d5

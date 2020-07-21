@@ -57,7 +57,8 @@
                 <td class="text-center">
                     {{--<a href="javascript:;"> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal">修改</button></a>--}}
 
-                    <a href="/admin/brandedit/{{$v->brand_id}}"><button type="button" class="btn btn-success">修改</button></a>
+                    <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal">修改</button> -->
+                    <a href="/admin/brandedit/{{$v->brand_id}}"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal">修改</button>
                     {{--<button type="button" class="btn bg-olive btn-xs" data-toggle="modal"  value="删除"></button>--}}
                     <button type="button" class="btn btn-danger del">删除</button>
                 </td>
@@ -78,7 +79,7 @@
 <!-- /.box-body -->
 {{$info->links()}}
 <!-- 编辑窗口 -->
-<form method="post" action="/admin/dobrand" enctype="multipart/form-data">
+<form method="post" action="/admin/brandupd" enctype="multipart/form-data">
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -113,7 +114,6 @@
                         </td>
                     </tr>
                 </table>
-
             </div>
             <div class="modal-footer">
                 <input type="submit" value="提交" class="btn btn-success"  aria-hidden="true">
@@ -159,7 +159,6 @@
                         </td>
                     </tr>
                 </table>
-
             </div>
             <div class="modal-footer">
                 <input type="submit" value="提交" class="btn btn-success"  aria-hidden="true">
@@ -259,14 +258,4 @@ $(document).on('blur','.editbrand_name',function(){
         })
     })
 </script>
-<<<<<<< HEAD
 @endsection
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 1d51503d5359745f47718cac0f4ebae98f92980f
-@endsection
-</body>
-</html>
->>>>>>> 19f923534bc3986d2eea4be01e5d40e95abd2003

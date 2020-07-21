@@ -101,7 +101,6 @@ class RoleController extends Controller
         ];
         return json_encode($message,JSON_UNESCAPED_UNICODE);
     }
-    
     //即点即改
     public function jup(){
         $role_id=request()->role_id;
@@ -127,5 +126,4 @@ class RoleController extends Controller
             ];
         }
     }
-
 }

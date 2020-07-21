@@ -1,11 +1,9 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
 use App\models\RoleModel;
+use App\models\Right;
 use Illuminate\Http\Request;
-
 class RoleController extends Controller
 {
     /**
@@ -17,7 +15,8 @@ class RoleController extends Controller
             'is_del'=>1
         ];
         $data=RoleModel::where($where)->get();
-        return view('admin.role.add',['data'=>$data]);
+        $right_model=Right::get();
+        return view('admin.role.add',['data'=>$data,'right_model'=>$right_model]);
     }
 
     //执行添加

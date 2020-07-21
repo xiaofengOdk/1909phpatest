@@ -16,7 +16,7 @@ class RoleController extends Controller
         $where=[
             'is_del'=>1
         ];
-        $data=RoleModel::where($where)->get();
+        $data=RoleModel::where($where)->paginate(3);
         return view('admin.role.add',['data'=>$data]);
     }
 
@@ -60,69 +60,48 @@ class RoleController extends Controller
         }
     }
 
-    /**
-     * 修改页
-     * @param $id
-     */
-    public function update($id){
+    //即点即改
+    public function pth(){
+        $role_id=request()->role_id;
+        $role_name=request()->field;
+        $val=request()->_val;
         $model=new RoleModel();
-        $res=$model::where(['role_id'=>$id])->first()->toArray();
-        return view('admin.role.update',['res'=>$res]);
-    }
-
-   //执行修改
-    public function upd(Request $request){
-        $id=$request->post('rid');
-//        echo $id;exit;
-        if(empty($id)){
-            $arr=[
-                'code'=>'300',
-                'msg'=>'非法操作',
-                'sult'=>[]
+        $reg=$model->where('role_id',$role_id)->update([$role_name=>$val]);
+        // dd($reg);
+        if($reg==1){
+            return [
+                "code"=>"00000",
+                "message"=>"修改成功"
             ];
-            return json_encode($arr,JSON_UNESCAPED_UNICODE);
-        }
-        $r_name=$request->post('rname');
-//        echo $r_name;exit;
-        if(empty($r_name)){
-            $arr=[
-                'code'=>'300',
-                'msg'=>'非法操作',
-                'sult'=>[]
+        }elseif($reg==0){
+            return [
+                "code"=>"00001",
+                "message"=>"没有修改"
             ];
-            return json_encode($arr,JSON_UNESCAPED_UNICODE);
-        }
-
-        $model=new Role();
-        $res=$model::where(['rid'=>$id])->first();
-        $res->r_name=$r_name;
-        if($res->save()){
-            $arr=[
-                'code'=>'200',
-                'msg'=>'修改成功',
-                'sult'=>[]
-            ];
-            return json_encode($arr,JSON_UNESCAPED_UNICODE);
         }else{
-            $arr=[
-                'code'=>'300',
-                'msg'=>'修改失败',
-                'sult'=>[]
+            return [
+                "code"=>"00002",
+                "message"=>"修改失败"
             ];
-            return json_encode($arr,JSON_UNESCAPED_UNICODE);
         }
     }
 
+<<<<<<< Updated upstream
     public function message($code,$msg,$url='')
     {
+=======
+    //错误提示
+    public function message($code,$msg,$url=''){
+>>>>>>> Stashed changes
         $message = [
-            'code' => $code,
-            'msg' => $msg,
-            'url' => $url
+            'code'=> $code,
+            'msg'=> $msg,
+            'url'=> $url
         ];
-        return json_encode($message, JSON_UNESCAPED_UNICODE);
+        return json_encode($message,JSON_UNESCAPED_UNICODE);
     }
 
+<<<<<<< Updated upstream
     //即点即改
     public function jup(){
         $role_id=request()->role_id;
@@ -148,6 +127,8 @@ class RoleController extends Controller
             ];
         }
     }
+=======
+>>>>>>> Stashed changes
 
 
 }

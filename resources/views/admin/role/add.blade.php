@@ -1,10 +1,13 @@
 @extends("admin.layout.public")
 @section("content")
-                    <div class="box-header with-border">
+  
+</head>
+   <div class="box-header with-border">
                         <h3 class="box-title">角色管理</h3>
                     </div>
 
                     <div class="box-body">
+
 
                         <!-- 数据表格 -->
                         <div class="table-box">
@@ -42,16 +45,19 @@
 										  <th class="" style="padding-right:0px">
 											  <input id="selall" type="checkbox" class="icheckbox_square-blue">
 										  </th>
+
 										  <td>{{$v['role_id']}}</td>
 
 										  <td pub="role_name">
-											 <span class="upp">{{$v['role_name']}}</span>
-											  <input class="updo" style="display: none;" value="{{$v->role_name}}"/>
+											  <span class="upp">
+													{{$v['role_name']}}
+											  </span>
+											  <input type="text" class="updo" style="display: none;" value="{{$v->role_name}}"/>
 										  </td>
 
 										  <td>{{date("Y-m-d H:i:s",$v['add_time'])}}</td>
 										  <td class="text-center">
-											  <button type="button" class="btn btn-primary" >修改</button>
+											  {{--<button type="button" class="btn btn-primary" >修改</button>--}}
 											  <button type="button" class="btn btn-danger del">删除</button>
 											  <button type="button" class="btn btn-warning">
 												  <a href="/role/prev/{{$v['role_id']}}">权限添加</a>
@@ -67,7 +73,7 @@
                      </div>
                     <!-- /.box-body -->
 	            <!-- 分页 -->
-				
+				{{$data->links()}}
 				                
 <!-- xugai窗口 -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -176,9 +182,10 @@
 		var role_id=_this.parents("tr").attr("role_id");//祖先级节点的自定义属性  id
 		var field=_this.parent("td").attr("pub");//父节点  字段
 		var _val=_this.val();  //获取值
-		//console.log(admin_id,field,_val);
+
+
 		//发送ajax 把这三个值传过去
-		var url="/admin/jup"
+		var url="/admin/pth"
 		$.ajax({
 			url:url,
 			data:{'role_id':role_id,'field':field,'_val':_val},
@@ -198,7 +205,5 @@
 			}
 		})
 	});
-
-
 </script>
-	@endsection
+@endsection

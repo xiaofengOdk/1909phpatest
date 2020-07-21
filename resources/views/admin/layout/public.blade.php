@@ -28,16 +28,15 @@
                 iframeid.height =document.documentElement.clientHeight;
               }
          }
-
-    </script>
-
+    
+    </script>  
 </head>
 
 <body class="hold-transition skin-green sidebar-mini" >
     <div class="wrapper">
         <!-- 页面头部 -->
         <header class="main-header">
-            <!-- Logo -->
+            <!-- Logo -->`
             <a href="index.html" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>品优购</b></span>
@@ -283,7 +282,6 @@
                 </div>
             </nav>
         </header>
-        <!-- 页面头部 /-->
         <!-- 导航侧栏 -->
         <aside class="main-sidebar">
             <!-- sidebar: style can be found in sidebar.less -->
@@ -409,18 +407,18 @@
             </section>
             <!-- /.sidebar -->
         </aside>
+
         <!-- 导航侧栏 /-->
            <div class="content-wrapper">
                 @yield("content")
-                        </div>
+            </div>
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
                 <b>Version</b> 1.0.8
             </div>
             <strong>Copyright &copy; 2014-2017 <a href="http://www.itcast.cn">研究院研发部</a>.</strong> All rights reserved.
         </footer>
-        <!-- 底部导航 /-->
-
+        
     </div>
 
 </body>

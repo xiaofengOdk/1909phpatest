@@ -1,13 +1,9 @@
 @extends("admin.layout.public")
 @section("content")
-<<<<<<< HEAD
-
          <section class="content">
                 <!-- 统计数值 -->
-=======
                <section class="content">
                <!-- 统计数值 -->
->>>>>>> 19f923534bc3986d2eea4be01e5d40e95abd2003
                 <div class="row">
                     <div class="col-lg-3 col-xs-6">
                         <!-- small box -->
@@ -43,11 +39,7 @@
                         <!-- small box -->
                         <div class="small-box bg-yellow">
                             <div class="inner">
-                                <h3></h3>
-<<<<<<< HEAD
-
-=======
->>>>>>> 19f923534bc3986d2eea4be01e5d40e95abd2003
+                 
                                 <p>日PV</p>
                             </div>
                             <div class="icon">
@@ -75,7 +67,4 @@
                 <!-- /.row -->
             </section>
 @endsection
-<<<<<<< HEAD
 
-=======
->>>>>>> 19f923534bc3986d2eea4be01e5d40e95abd2003

@@ -308,7 +308,7 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu"  >
                     <li class="header">菜单</li>
-                    <li id="admin-index"><a href="index.html"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
+                    <li id="admin-index"><a href="/admin/index"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
                     <!-- 菜单 -->
                     <li class="treeview">
@@ -344,7 +344,7 @@
                         <ul class="treeview-menu">
                 
                             <li id="admin-login">
-                                <a href="brand.html" target="iframe">
+                                <a href="/admin/brand" target="iframe">
                                     <i class="fa fa-circle-o"></i>品牌管理
                                 </a>
                             </li>
@@ -359,7 +359,7 @@
                                 </a>
                             </li>
                             <li id="admin-login">
-                                <a href="item_cat.html" target="iframe">
+                                <a href="/admin/category" target="iframe">
                                     <i class="fa fa-circle-o"></i>分类管理
                                 </a>
                             </li>
@@ -400,8 +400,9 @@
             <!-- /.sidebar -->
         </aside>
         <!-- 导航侧栏 /-->
-
+        <div class="content-wrapper">
                 @yield("content")
+        </div>
         <!-- 底部导航 -->
         <footer class="main-footer">
             <div class="pull-right hidden-xs">

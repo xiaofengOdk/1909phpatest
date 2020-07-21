@@ -1,20 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>品牌管理</title>
-    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="/static/admin/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/admin/plugins/adminLTE/css/AdminLTE.css">
-    <link rel="stylesheet" href="/static/admin/plugins/adminLTE/css/skins/_all-skins.min.css">
-    <link rel="stylesheet" href="/static/admin/css/style.css">
-    <script src="/static/admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <script src="/static/admin/plugins/bootstrap/js/bootstrap.min.js"></script>
 
-
-</head>
-<body class="hold-transition skin-red sidebar-mini">
+@extends("admin.layout.public")
+@section("content")
 
 <!-- .box-body -->
 <div class="box-header with-border">
@@ -31,7 +17,8 @@
             <div class="form-group form-inline">
                 <div class="btn-group">
                     <button type="button" class="btn btn-default" title="新建" data-toggle="modal" data-target="#createModal" ><i class="fa fa-file-o"></i> 新建</button>
-                </div>
+                    <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新</button>
+              </div>
             </div>
         </div>
         <div class="box-tools pull-right">
@@ -232,3 +219,4 @@ $(document).on('blur','.editbrand_name',function(){
         })
     })
 </script>
+@endsection

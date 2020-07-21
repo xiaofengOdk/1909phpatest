@@ -20,7 +20,7 @@
     Route::any('/','Index\IndexController@index');//前台首页
 
 
-<<<<<<< HEAD
+
 Route::prefix("/admin")->group(function(){
 	Route::any("/index","Admin\AdminController@index");//后台首页
     Route::any("/reg","Admin\RegController@reg");//后台注册
@@ -66,7 +66,7 @@ Route::prefix("/admin")->group(function(){
 	Route::any("/right/del","Admin\RightController@del");
 	Route::any("/right/updateajax","Admin\RightController@updateajax");
 	Route::any("/right/paginate","Admin\RightController@paginate");
-=======
+});
    Route::prefix("/admin")->group(function(){
         Route::any("/index","Admin\AdminController@index");//后台首页
         Route::any("/reg","Admin\RegController@reg");//后台注册
@@ -106,5 +106,4 @@ Route::prefix("/admin")->group(function(){
 
 	Route::any('/jup', 'Admin\RoleController@jup');//即点即改
 
->>>>>>> 3659546f8682a56e00ba0b2f1c3c00d02d05f763
 });

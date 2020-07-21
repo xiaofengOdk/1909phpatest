@@ -28,7 +28,7 @@
 			                      <thead>
 			                          <tr>
 			                              <th class="" style="padding-right:0px">
-			                                  <input id="selall" type="checkbox" class="icheckbox_square-blue">
+			                                  <!-- <input id="selall" type="checkbox" class="icheckbox_square-blue"> -->
 			                              </th> 
 										  <th class="sorting_asc">角色ID</th>
 									      <th class="sorting">角色名称</th>
@@ -40,7 +40,7 @@
 								  @foreach($data as $k=>$v)
 									  <tr role_id="{{$v['role_id']}}">
 										  <th class="" style="padding-right:0px">
-											  <input id="selall" type="checkbox" class="icheckbox_square-blue">
+											  <!-- <input id="selall" type="checkbox" class="icheckbox_square-blue"> -->
 										  </th>
 										  <td>{{$v['role_id']}}</td>
 

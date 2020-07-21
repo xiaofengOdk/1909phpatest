@@ -25,7 +25,7 @@
                                 <div class="form-group form-inline">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-default" title="添加权限" data-toggle="modal" data-target="#editModal" ><i class="fa fa-file-o"></i> 添加权限</button>
-                                        <button type="button" class="btn btn-default" title="刷新" ><i class="fa fa-check"></i><a href="{{url('admin/right/index')}}">刷新</a> </button>
+                                        <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();"><i class="fa fa-check"></i> 刷新</button>
                                        
                                     </div>
                                 </div>

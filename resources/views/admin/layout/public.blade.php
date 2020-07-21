@@ -305,10 +305,7 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu"  >
                     <li class="header">菜单</li>
-<<<<<<< HEAD
 
-=======
->>>>>>> 3659546f8682a56e00ba0b2f1c3c00d02d05f763
                     <li id="admin-index"><a href="/admin/index"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
 
@@ -415,15 +412,11 @@
             <!-- /.sidebar -->
         </aside>
         <!-- 导航侧栏 /-->
-<<<<<<< HEAD
+
            <div class="content-wrapper">
                 @yield("content")
                         </div>
-=======
-        <div class="content-wrapper">
-                @yield("content")
-        </div>
->>>>>>> 3659546f8682a56e00ba0b2f1c3c00d02d05f763
+      
         <!-- 底部导航 -->
 
         <footer class="main-footer">

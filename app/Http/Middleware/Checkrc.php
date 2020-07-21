@@ -64,26 +64,20 @@ class Checkrc
                     $infosss=Right::where("right_id",$infoone['right_id'])->first();
                     // dd($infosss['right_url']);
 // 
+
                     if($infosss['right_url'] !='/create' ){
                         // return redirect('/admin/ushow');
-                     echo "<script>alert('没有权限');location.href='http://www.1909phpa3.com/admin/login'</script>";die;
-
-                    }else{
-                                                return redirect('right/index');
+                     echo "<script>alert('没有权限');location.href='http://www.1909a3.com/admin/login'</script>";die;
 
                     }
                     if($infosss['right_url'] !='/add' ){
-                        echo "<script>alert('没有权限');location.href='http://www.1909phpa3.com/admin/login'</script>";     die;  
-                         }else{
-                                                    return redirect('admin/brand');
-                         }
-                     if($infosss['right_url'] !='/del' ){
-                    echo "<script>alert('没有权限');location.href='http://www.arbitration.com/admin/login'</script>";die;
-                    }else{
-                        return redirect('admin/role_add');
+                        echo "<script>alert('没有权限');location.href='http://www.1909a3.com/admin/login'</script>";     die;  
+                         }                  
+                   if($infosss['right_url'] !='/del' ){
+                    echo "<script>alert('没有权限');location.href='http://www.1909a3.com/admin/login'</script>";die;
                     }
                 }
-                
+
                     return $next($request);
 
         }

@@ -18,6 +18,7 @@
     // });
 
     Route::any('/','Index\IndexController@index');//前台首页
+    Route::any('/show','Index\IndexController@show');//前台首页
 
    Route::prefix("/admin")->group(function(){
 	Route::any("/index","Admin\AdminController@index");//后台首页
@@ -29,7 +30,6 @@
     Route::any("/udo","Admin\AdminController@udo");//用户赋予角色;
     Route::any("/del","Admin\AdminController@del");//删除;
     Route::any("/jupdo","Admin\AdminController@jupdo");//即点击改;
-
 	//角色管理
 	Route::any("/role_add","Admin\RoleController@role_add");//添加、展示
 	Route::any("/role_adds","Admin\RoleController@role_adds");
@@ -63,4 +63,4 @@
 	##########################商品模块###############################
 	Route::any('/jup', 'Admin\RoleController@jup');//即点即改
 	Route::any("/pth","Admin\RoleController@pth");//即点即改
-});
+    });

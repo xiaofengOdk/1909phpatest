@@ -413,6 +413,7 @@
                 @yield("content")
             </div>
         <!-- 导航侧栏 /-->
+        <!-- 导航侧栏 /-->
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
                 <b>Version</b> 1.0.8

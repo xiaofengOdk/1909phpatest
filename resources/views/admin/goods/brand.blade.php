@@ -260,9 +260,6 @@ $(document).on('blur','.editbrand_name',function(){
         })
     })
 </script>
-<<<<<<< Updated upstream
 @endsection
-=======
 </body>
 </html>
->>>>>>> Stashed changes

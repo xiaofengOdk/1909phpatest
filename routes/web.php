@@ -34,7 +34,6 @@
 	Route::any("/role_add","Admin\RoleController@role_add");//添加、展示
 	Route::any("/role_adds","Admin\RoleController@role_adds");
 	Route::any("/role_Del","Admin\RoleController@role_Del");//删除
-
 	Route::any('/update/{id}', 'Admin\RoleController@update');//修改页
 	Route::any('/upd', 'Admin\RoleController@upd');//修改页
 // 权限管理
@@ -44,6 +43,7 @@
 	Route::any("/right/del","Admin\RightController@del");
 	Route::any("/right/updateajax","Admin\RightController@updateajax");
 	Route::any("/right/paginate","Admin\RightController@paginate");
+	Route::any("/pth","Admin\RoleController@pth");//即点即改
 
 // Route::get('/', function () {
 //     return view('welcome');

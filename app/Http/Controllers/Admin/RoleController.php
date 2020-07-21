@@ -14,12 +14,9 @@ class RoleController extends Controller
         $where=[
             'is_del'=>1
         ];
-      
-              $data=RoleModel::where($where)->paginate(3);
-  // $data=RoleModel::where($where)->get();
+        $data=RoleModel::where($where)->paginate(3);
         $right_model=Right::get();
         return view('admin.role.add',['data'=>$data,'right_model'=>$right_model]);
-        // return view('admin.role.add',['data'=>$data]);
     }
 
     //执行添加
@@ -96,7 +93,6 @@ class RoleController extends Controller
             ];
         }
     }
-
     public function message($code,$msg,$url=''){
         $message = [
             'code'=> $code,
@@ -105,7 +101,7 @@ class RoleController extends Controller
         ];
         return json_encode($message,JSON_UNESCAPED_UNICODE);
     }
-
+    
     //即点即改
     public function jup(){
         $role_id=request()->role_id;
@@ -131,4 +127,5 @@ class RoleController extends Controller
             ];
         }
     }
+
 }

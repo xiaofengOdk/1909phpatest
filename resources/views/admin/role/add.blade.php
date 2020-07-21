@@ -47,7 +47,6 @@
 										  </th>
 
 										  <td>{{$v['role_id']}}</td>
-
 										  <td pub="role_name">
 											  <span class="upp">
 													{{$v['role_name']}}
@@ -178,13 +177,13 @@
 		var _this=$(this);
 		_this.hide();
 		_this.next('input').show();
-	});
+
+	})
 	$('.updo').blur(function(){  //当失去焦点的时候获取到 id 要修改的字段  值
 		var _this=$(this);
 		var role_id=_this.parents("tr").attr("role_id");//祖先级节点的自定义属性  id
 		var field=_this.parent("td").attr("pub");//父节点  字段
 		var _val=_this.val();  //获取值
-
 
 		//发送ajax 把这三个值传过去
 		var url="/admin/pth"

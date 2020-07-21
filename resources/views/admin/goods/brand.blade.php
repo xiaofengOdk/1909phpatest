@@ -260,7 +260,10 @@ $(document).on('blur','.editbrand_name',function(){
         })
     })
 </script>
+<<<<<<< HEAD
+=======
 
+>>>>>>> 1d51503d5359745f47718cac0f4ebae98f92980f
 @endsection
 </body>
 </html>

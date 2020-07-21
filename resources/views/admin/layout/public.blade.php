@@ -28,8 +28,8 @@
                 iframeid.height =document.documentElement.clientHeight;
               }
          }
-    
-    </script>  
+
+    </script>
 </head>
 
 <body class="hold-transition skin-green sidebar-mini" >
@@ -303,7 +303,7 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu"  >
                     <li class="header">菜单</li>
-                    <li id="admin-index"><a href="http://www.1909phpa3.com/index.php/admin/index"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
+                    <li id="admin-index"><a href="/admin/index"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
                     <!-- 菜单 -->
                     <li class="treeview">
                         <a href="#">
@@ -319,7 +319,7 @@
 
                             </li>
                             <li id="admin-login">
-                                <a href="http://www.1909phpa3.com/admin/ushow" target="iframe">
+                                <a href="/admin/ushow" target="iframe">
                                     <i class="fa fa-circle-o"></i>用户展示
                                 </a>
                             </li>
@@ -379,7 +379,7 @@
                                     <i class="fa fa-circle-o"></i>权限展示
                                 </a>
                             </li>
-                           
+
                         </ul>
                     </li>
 
@@ -420,7 +420,7 @@
             </div>
             <strong>Copyright &copy; 2014-2017 <a href="http://www.itcast.cn">研究院研发部</a>.</strong> All rights reserved.
         </footer>
-        
+
     </div>
 
 </body>

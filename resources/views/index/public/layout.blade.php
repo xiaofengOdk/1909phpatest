@@ -99,10 +99,7 @@
 						</div>
 					</div>
 				</div>
-
-			
-					<div class="yui3-u Right"></div>
-				</div>
+              </div>
 			</div>
 		</div>
 	</div>

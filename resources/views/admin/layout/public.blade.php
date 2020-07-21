@@ -36,7 +36,7 @@
     <div class="wrapper">
         <!-- 页面头部 -->
         <header class="main-header">
-            <!-- Logo -->`
+            <!-- Logo -->
             <a href="index.html" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>品优购</b></span>

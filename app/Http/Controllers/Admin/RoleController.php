@@ -24,26 +24,35 @@ class RoleController extends Controller
     public function  role_adds(Request $request)
     {
         $role_name=$request->post('role_name');
-        $data=[
-            'role_name'=>$role_name,
-            'add_time'=>time(),
-        ];
-        $bol=RoleModel::insert($data);
-        if($bol){
-            $success=[];
-            $success['success']=true;
-            $success['code']=0000;
-            $success['msg']='角色添加成功';
-            $success['url']='/admin/role_list';
-            echo json_encode($success);
-        }else{
+        if(empty($role_name)){
             $success=[];
             $success['success']=false;
-            $success['code']=0001;
-            $success['msg']='角色添加失败';
-            $success['url']='/admin/role_add';
+            $success['code']=0000;
+            $success['msg']='角色名称不能为空';
             echo json_encode($success);
+        }else{
+            $data=[
+                'role_name'=>$role_name,
+                'add_time'=>time(),
+            ];
+            $bol=RoleModel::insert($data);
+            if($bol){
+                $success=[];
+                $success['success']=true;
+                $success['code']=0000;
+                $success['msg']='角色添加成功';
+                $success['url']='/admin/role_list';
+                echo json_encode($success);
+            }else{
+                $success=[];
+                $success['success']=false;
+                $success['code']=0001;
+                $success['msg']='角色添加失败';
+                $success['url']='/admin/role_add';
+                echo json_encode($success);
+            }
         }
+      
     }
 
     /**
@@ -86,13 +95,8 @@ class RoleController extends Controller
         }
     }
 
-<<<<<<< Updated upstream
-    public function message($code,$msg,$url='')
-    {
-=======
     //错误提示
     public function message($code,$msg,$url=''){
->>>>>>> Stashed changes
         $message = [
             'code'=> $code,
             'msg'=> $msg,
@@ -101,7 +105,6 @@ class RoleController extends Controller
         return json_encode($message,JSON_UNESCAPED_UNICODE);
     }
 
-<<<<<<< Updated upstream
     //即点即改
     public function jup(){
         $role_id=request()->role_id;
@@ -127,8 +130,4 @@ class RoleController extends Controller
             ];
         }
     }
-=======
->>>>>>> Stashed changes
-
-
 }

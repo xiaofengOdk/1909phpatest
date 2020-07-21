@@ -20,10 +20,14 @@
 			<div class="loginform">
 
 				<ul class="sui-nav nav-tabs tab-wraped">
-
+					<li>
+						<a href="#index" data-toggle="tab">
+							<h3>账户注册</h3>
+						</a>
+					</li>
 					<li class="active">
 						<a href="#profile" data-toggle="tab">
-							<h3>账户注册</h3>
+						<h3><a href='/admin/login' style='color:blue;'>已有账号！登录</a></h3>
 						</a>
 					</li>
 				</ul>

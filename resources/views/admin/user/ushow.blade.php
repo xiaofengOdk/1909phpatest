@@ -54,7 +54,7 @@
                                           <td>
 		                                  <td class="text-center">
 
-                                              <button type="button" class="btn bg-olive btn-xs " data-toggle="modal" data-target="#roleModal"   >赋予角色</button>
+                                              <button type="button" class="btn bg-olive btn-xs  fu" data-toggle="modal" data-target="#roleModal" data-admin_id="{{$v->admin_id}}">赋予角色</button>
                                               <button type="button" class="btn bg-olive btn-xs " data-toggle="modal" data-target="#delModal"   >删除</button>
 		                                  </td>
 			                          </tr>
@@ -105,24 +105,31 @@
 </div>
 
 <div class="modal fade" id="roleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog" >
+  <div class="modal-dialog " >
+  <input type="hidden" name="admin_id">
 	<div class="modal-content">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 			<h3 id="myModalLabel">赋予角色</h3>
 		</div>
-		<div class="modal-body">
+		<div class="modal-body admin_user_id">
 			<table class="table table-bordered table-striped"  width="800px">
-                @foreach($regs as $k=>$v)
+                
 		      	<tr>
 
-		      		<td><input type="checkbox" > {{$v->role_name}} </td>
+		      		<td>
+                      <select name="role" style='width:150px; padding-left:50px; ' >
+                      @foreach($regs as $k=>$v)
+                      <option  value="{{$v->role_id}}">{{$v->role_name}}</option>
+                      @endforeach
+                      </select>
+                      </td>
 		      	</tr>
-		        @endforeach
+
 			 </table>
 		</div>
 		<div class="modal-footer">
-			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">保存</button>
+			<button class="btn btn-success ro" data-dismiss="modal" aria-hidden="true" >保存</button>
 			<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
 		</div>
 	  </div>
@@ -150,14 +157,18 @@
 </html>
 
 <script>
-    $(document).on("click","#fu",function(){
-             rid = $("input:checkbox[name='message']:checked").map(function(index,elem) {
-                    return $(elem).val();
-                }).get().join(',');
-            admin_id= $("input:checkbox[name='admin_id']:checked").map(function(index,elem) {
-                    return $(elem).val();
-                }).get().join(',');
-        var url="http://www.1909a3.com/admin/udo"
+    $(document).on("click",".fu",function(){
+        var admin_id = $(this).data("admin_id");
+        $("input[name='admin_id']").val(admin_id);
+       
+        // return false;
+        
+    })
+
+    $(document).on('click',".ro",function(){
+       var admin_id= $("input[name='admin_id']").val();
+       var rid=$("select[name='role']").val();
+       var url="http://www.1909a3.com/admin/udo"
         var data={rid:rid,admin_id:admin_id}
               $.ajax({
                   data:data,
@@ -179,11 +190,15 @@
     })
 
 
+
+
     $(document).on("click","#del",function(){
 
             admin_id= $("input:checkbox[name='admin_id']:checked").map(function(index,elem) {
                     return $(elem).val();
                 }).get().join(',');
+        // console.log(admin_id)
+        // return false
         var url="http://www.1909a3.com/admin/del"
         var data={admin_id:admin_id}
               $.ajax({

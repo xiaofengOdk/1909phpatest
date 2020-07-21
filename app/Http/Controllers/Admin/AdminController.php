@@ -10,7 +10,7 @@ class AdminController extends Controller
     //
    public function index(){
     return view('admin.index');
-    // return view('admin.right.index');
+    // return view('admin.right.index');·
    }
 
    public function ushow(){
@@ -24,7 +24,7 @@ class AdminController extends Controller
        // echo request()->role_id;die;
     $adminrole_model=new Admin_role;
     $adminrole_model->admin_id=request()->admin_id;
-    $adminrole_model->role_id=json_encode(request()->rid);
+    $adminrole_model->role_id=request()->rid;
     $result=$adminrole_model->save();
     if($result){
         return [

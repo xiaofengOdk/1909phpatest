@@ -75,7 +75,7 @@
 <!-- xugai窗口 -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" >
-	  <input type="text" name="role_id"/>
+	  <input type="hidden" name="role_id"/>
 	<div class="modal-content">
 			<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>

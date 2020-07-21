@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use App\Models\Role_right;
 use App\models\RoleModel;
 use App\models\Right;
 use Illuminate\Http\Request;
@@ -51,7 +52,6 @@ class RoleController extends Controller
                 echo json_encode($success);
             }
         }
-      
     }
 
     /**
@@ -93,6 +93,8 @@ class RoleController extends Controller
             ];
         }
     }
+
+    //错误提示
     public function message($code,$msg,$url=''){
         $message = [
             'code'=> $code,
@@ -101,6 +103,7 @@ class RoleController extends Controller
         ];
         return json_encode($message,JSON_UNESCAPED_UNICODE);
     }
+
     //即点即改
     public function jup(){
         $role_id=request()->role_id;
@@ -126,4 +129,28 @@ class RoleController extends Controller
             ];
         }
     }
+
+    //角色赋予权限
+    public function upd(){
+         $data=request()->all();
+         //dd($data);
+         $RgModel=new Role_right();
+         $reg=$RgModel->insert($data);
+          //dd($reg);
+        if($reg){
+            return [
+                'code'=>'000000',
+                'message'=>'权限赋予成功',
+                'result'=>''
+            ];
+        }else{
+            return [
+                'code'=>'000001',
+                'message'=>'权限赋予失败',
+                'result'=>''
+            ];
+        }
+
+    }
+
 }

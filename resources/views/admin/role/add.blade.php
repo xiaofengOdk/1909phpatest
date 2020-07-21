@@ -1,6 +1,5 @@
 @extends("admin.layout.public")
 @section("content")
-  
 </head>
    <div class="box-header with-border">
                         <h3 class="box-title">角色管理</h3>
@@ -56,11 +55,11 @@
 
 										  <td>{{date("Y-m-d H:i:s",$v['add_time'])}}</td>
 										  <td class="text-center">
-											  {{--<button type="button" class="btn btn-primary" >修改</button>--}}
 											  <button type="button" class="btn btn-danger del">删除</button>
-   <button type="button" class="btn btn-default" title="新建" data-toggle="modal" data-target="#editModal"  ng-click="toAdd()">									
-
-												  权限添加</button>										   </td>
+											  <button type="button" class="btn btn-primary ro" title="新建" data-toggle="modal"
+													  data-target="#editModal"  ng-click="toAdd()" data-role_id="{{$v->role_id}}">权限添加
+											  </button>
+										  </td>
 									  </tr>
 								  @endforeach
 			                      </tbody>
@@ -76,6 +75,7 @@
 <!-- xugai窗口 -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" >
+	  <input type="text" name="role_id"/>
 	<div class="modal-content">
 			<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -85,26 +85,28 @@
 			<table class="table table-bordered table-striped"  width="800px">
 		      	<tr>
 		      		<td>权限名称</td>
-		      		@foreach($right_model as $k=>$v)
+
 		      		<td>
 		      			<select name="r_id">
+							@foreach($right_model as $k=>$v)
 		      				<option   value="{{$v->right_id}}">{{$v->right_name}}</option>
+							@endforeach
 		      			</select>
 		      		 </td>
-		      		@endforeach
+
 		      	</tr>
 			 </table>				
 			
 		</div>
 		<div class="modal-footer">						 
-			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true"  id="right_id" >赋予</button>
+			<button class="btn btn-success fu" data-dismiss="modal" aria-hidden="true"   >赋予</button>
 			<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
 		</div>
 			
 	  </div>
 	</div>
 </div>
-<div class="modal fade" id="esssditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						<div class="modal-dialog" >
 							<div class="modal-content">
 								<div class="modal-header">
@@ -206,9 +208,31 @@
 			}
 		})
 	});
-	// $(document).on('click','#right_id',function(){
-	// 	var right_id=$(".r_id").val()
-		
-	// })
-;</script>
+	//赋权限
+    $(document).on("click",".ro",function(){
+		var role_id=$(this).data('role_id');
+        $("input[name='role_id']").val(role_id);
+	});
+	$(document).on("click",".fu",function(){
+		var r_id=$("select[name='r_id']").val();//权限id
+		var role_id=$("input[name='role_id']").val();//角色id
+		var url='/admin/upd';
+		var data={'role_id':role_id,'right_id':r_id};
+		$.ajax({
+			url:url,
+			data:data,
+			type:'post',
+			dataType:'json',
+			success:function(reg){
+				if(reg.code=='000000'){
+					 alert(reg.message);
+					history.go(0);
+				}
+				if(reg.code=='000001'){
+					alert(reg.message);
+				}
+			}
+		})
+	});
+</script>
 	@endsection

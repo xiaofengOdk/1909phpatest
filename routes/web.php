@@ -38,6 +38,7 @@
 	Route::any('/update/{id}', 'Admin\RoleController@update');//修改页
 	Route::any('/upd', 'Admin\RoleController@upd');//修改页
 // 权限管理
+    Route::any("/right/right_add","Admin\RightController@right_add");//权限赋予的路由
 	Route::any("/right/index","Admin\RightController@index");
 	Route::any("/right/add_right","Admin\RightController@add_right");
 	Route::any("/right/del","Admin\RightController@del");

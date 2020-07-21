@@ -18,7 +18,11 @@ class BrandController extends Controller
     }
     public function brand(){
         $info = BrandModel::where('is_del',1)->paginate(2);
+<<<<<<< HEAD
 		//dd($info);
+=======
+        // dd($info);
+>>>>>>> 1d51503d5359745f47718cac0f4ebae98f92980f
         return view('admin/goods/brand',['info'=>$info]);
 
     }

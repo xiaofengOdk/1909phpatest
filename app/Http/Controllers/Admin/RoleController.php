@@ -86,13 +86,8 @@ class RoleController extends Controller
         }
     }
 
-<<<<<<< Updated upstream
-    public function message($code,$msg,$url='')
-    {
-=======
-    //错误提示
+
     public function message($code,$msg,$url=''){
->>>>>>> Stashed changes
         $message = [
             'code'=> $code,
             'msg'=> $msg,
@@ -101,7 +96,6 @@ class RoleController extends Controller
         return json_encode($message,JSON_UNESCAPED_UNICODE);
     }
 
-<<<<<<< Updated upstream
     //即点即改
     public function jup(){
         $role_id=request()->role_id;
@@ -127,8 +121,4 @@ class RoleController extends Controller
             ];
         }
     }
-=======
->>>>>>> Stashed changes
-
-
 }

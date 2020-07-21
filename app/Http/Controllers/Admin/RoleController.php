@@ -150,7 +150,5 @@ class RoleController extends Controller
                 'result'=>''
             ];
         }
-
     }
-
 }

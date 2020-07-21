@@ -1,5 +1,6 @@
 @extends("admin.layout.public")
 @section("content")
+<<<<<<< HEAD
          <section class="content">
                 <!-- 统计数值 -->
                 <div class="row">
@@ -38,22 +39,16 @@
                         <div class="small-box bg-yellow">
                             <div class="inner">
                                 <h3></h3>
+=======
 
-                                <p>新注册用户</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-person-add"></i>
-                            </div>
-                            <a href="all-member-manage-list.html" class="small-box-footer">详细 <i class="fa fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-lg-3 col-xs-6">
-                        <!-- small box -->
-                        <div class="small-box bg-red">
-                            <div class="inner">
-                                <h3></h3>
 
+            <iframe width="100%" id="iframe" name="iframe"  onload="SetIFrameHeight()" 
+                    frameborder="0" src="/static/admin/home.html"></iframe>
+ 
+>>>>>>> 3659546f8682a56e00ba0b2f1c3c00d02d05f763
+
+
+<<<<<<< HEAD
                                 <p>日PV</p>
                             </div>
                             <div class="icon">
@@ -67,3 +62,6 @@
                 <!-- /.row -->
             </section>
 @endsection
+=======
+@endsection
+>>>>>>> 3659546f8682a56e00ba0b2f1c3c00d02d05f763

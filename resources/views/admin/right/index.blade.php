@@ -33,9 +33,9 @@
                        		
                         
 							<!--数据列表-->
-							<form action="">
-								权限：<input type="text" name="right_name">
-								<input type="submit" value="搜索">
+						<form action="" >
+								<input type="text"  style="height:35px"name="right_name">
+								<input type="submit" style="height:35px" class="btn bg-olive btn-xs" value="搜索">
 							</form>
 			                  <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
 			                      <thead>

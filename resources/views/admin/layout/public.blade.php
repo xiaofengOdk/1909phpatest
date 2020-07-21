@@ -28,16 +28,15 @@
                 iframeid.height =document.documentElement.clientHeight;
               }
          }
-
-    </script>
-
+    
+    </script>  
 </head>
 
 <body class="hold-transition skin-green sidebar-mini" >
     <div class="wrapper">
         <!-- 页面头部 -->
         <header class="main-header">
-            <!-- Logo -->
+            <!-- Logo -->`
             <a href="index.html" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>品优购</b></span>
@@ -283,7 +282,6 @@
                 </div>
             </nav>
         </header>
-        <!-- 页面头部 /-->
         <!-- 导航侧栏 -->
         <aside class="main-sidebar">
             <!-- sidebar: style can be found in sidebar.less -->
@@ -303,10 +301,9 @@
 
 
                 <!-- sidebar menu: : style can be found in sidebar.less -->
-                <ul class="sidebar-menu"  > 
-                    <li class="header">菜单</li>                    <li id="admin-index"><a href="/admin/index"target="iframe" ><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
-
-
+                <ul class="sidebar-menu"  >
+                    <li class="header">菜单</li>
+                    <li id="admin-index"><a href="http://www.1909phpa3.com/index.php/admin/index"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
                     <!-- 菜单 -->
                     <li class="treeview">
                         <a href="#">
@@ -409,18 +406,21 @@
             </section>
             <!-- /.sidebar -->
         </aside>
+
+
         <!-- 导航侧栏 /-->
            <div class="content-wrapper">
                 @yield("content")
-                        </div>
+            </div>
+        <!-- 导航侧栏 /-->
+        <!-- 导航侧栏 /-->
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
                 <b>Version</b> 1.0.8
             </div>
             <strong>Copyright &copy; 2014-2017 <a href="http://www.itcast.cn">研究院研发部</a>.</strong> All rights reserved.
         </footer>
-        <!-- 底部导航 /-->
-
+        
     </div>
 
 </body>

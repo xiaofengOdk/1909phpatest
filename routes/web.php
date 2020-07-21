@@ -18,7 +18,9 @@
     // });
 
     Route::any('/','Index\IndexController@index');//前台首页
-Route::prefix("/admin")->group(function(){
+    Route::any('/show','Index\IndexController@show');//前台首页
+
+   Route::prefix("/admin")->group(function(){
 	Route::any("/index","Admin\AdminController@index");//后台首页
     Route::any("/reg","Admin\RegController@reg");//后台注册
     Route::any("/rdo","Admin\RegController@rdo");//后台注册执行
@@ -59,7 +61,6 @@ Route::prefix("/admin")->group(function(){
 	Route::any('/editbrand_name','Admin\BrandController@editbrand_name');
 	Route::any('/editbrand_show','Admin\BrandController@editbrand_show');
 	##########################商品模块###############################
-
 	Route::any('/jup', 'Admin\RoleController@jup');//即点即改
-
-});
+	Route::any("/pth","Admin\RoleController@pth");//即点即改
+    });

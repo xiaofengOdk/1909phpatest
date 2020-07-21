@@ -18,6 +18,8 @@ class AdminController extends Controller
         $reg=$AdminModel->where('is_del',1)->paginate(2);
         $RoleModel=new RoleModel();
         $regs=$RoleModel->get();
+        // $page=request()->page??1;
+        // echo $page;exit;
         return view('admin.user.ushow',['reg'=>$reg,'regs'=>$regs]);
    }
    public function udo(){

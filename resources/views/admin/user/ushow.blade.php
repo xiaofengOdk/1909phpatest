@@ -55,7 +55,7 @@
 		                                  <td class="text-center">
 
                                               <button type="button" class="btn bg-olive btn-xs  fu" data-toggle="modal" data-target="#roleModal" data-admin_id="{{$v->admin_id}}">赋予角色</button>
-                                              <button type="button" class="btn bg-olive btn-xs " data-toggle="modal" data-target="#delModal"   >删除</button>
+                                              <button type="button" class="btn bg-olive btn-xs fl" data-toggle="modal" data-target="#delModal" data-admin_id="{{$v->admin_id}}"  >删除</button>
 		                                  </td>
 			                          </tr>
 									  @endforeach
@@ -73,7 +73,7 @@
 
                      </div>
                     <!-- /.box-body -->
-                    {{$reg->links()}}
+             
 
 <!-- 编辑窗口 -->
 
@@ -138,6 +138,7 @@
 
 <div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" >
+  <input type="hidden" name="admin_id">
 	<div class="modal-content">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -146,7 +147,7 @@
 
 
 		<div class="modal-footer">
-			<button class="btn btn-success" data-dismiss="modal" id="del" aria-hidden="true">确定</button>
+			<button class="btn btn-success del" data-dismiss="modal"  aria-hidden="true">确定</button>
 			<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button>
 		</div>
 	  </div>
@@ -155,9 +156,19 @@
 
 </body>
 </html>
-
+       {{$reg->links()}}
 <script>
+     //用户赋予角色的用户id
     $(document).on("click",".fu",function(){
+        var admin_id = $(this).data("admin_id");
+        $("input[name='admin_id']").val(admin_id);
+       
+        // return false;
+        
+    })
+
+    //删除的用户id
+    $(document).on("click",".fl",function(){
         var admin_id = $(this).data("admin_id");
         $("input[name='admin_id']").val(admin_id);
        
@@ -179,7 +190,7 @@
                    // console.log(reg)
                        if(reg.code=='00000'){
                            alert(reg.message);
-                           history.go(0);
+                           location.href=reload();
                        }
                        if(reg.code=='00004'){
                            alert(reg.message);
@@ -192,11 +203,9 @@
 
 
 
-    $(document).on("click","#del",function(){
-
-            admin_id= $("input:checkbox[name='admin_id']:checked").map(function(index,elem) {
-                    return $(elem).val();
-                }).get().join(',');
+    $(document).on("click",".del",function(){
+        var admin_id= $("input[name='admin_id']").val();
+           
         // console.log(admin_id)
         // return false
         var url="http://www.1909a3.com/admin/del"
@@ -207,10 +216,11 @@
                   type:'post',
                   dataType:'json',
                   success:function(reg){
-                   //console.log(reg)
+                //    console.log(reg)
                        if(reg.code=='00000'){
                            alert(reg.message);
-                             history.go(0);
+                            //  history.go(0);
+                            location.href="http://www.1909a3.com/admin/ushow?page=1"
                        }
                        if(reg.code=='00001'){
                            alert(reg.message);

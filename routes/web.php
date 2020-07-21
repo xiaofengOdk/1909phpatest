@@ -34,14 +34,14 @@ Route::prefix("/admin")->group(function(){
     Route::any("/del","Admin\AdminController@del");//删除;
     Route::any("/jupdo","Admin\AdminController@jupdo");//即点击改;
 	//角色管理
-	Route::any("/role_add","Admin\RoleController@role_add");//添加、展示
+	Route::any("/role_add","Admin\RoleController@role_add")->middleware("islogin");//添加、展示
 	Route::any("/role_adds","Admin\RoleController@role_adds");
 	Route::any("/role_Del","Admin\RoleController@role_Del");//删除
 	Route::any('/update/{id}', 'Admin\RoleController@update');//修改页
 	Route::any('/upd', 'Admin\RoleController@upd');//修改页
 // 权限管理
     Route::any("/right/right_add","Admin\RightController@right_add");//权限赋予的路由
-	Route::any("/right/index","Admin\RightController@index");
+	Route::any("/right/index","Admin\RightController@index")->middleware("islogin");
 	Route::any("/right/add_right","Admin\RightController@add_right");
 	Route::any("/right/del","Admin\RightController@del");
 	Route::any("/right/updateajax","Admin\RightController@updateajax");
@@ -56,7 +56,7 @@ Route::prefix("/admin")->group(function(){
 	//商品分类
 	Route::any('/category','Admin\CategoryController@category');
 	//商品品牌
-	Route::any('/brand','Admin\BrandController@brand');
+	Route::any('/brand','Admin\BrandController@brand')->middleware("islogin");
 	Route::any('/dobrand','Admin\BrandController@dobrand');
 	Route::any('/delbrand','Admin\BrandController@delbrand');
 	Route::any('/brandedit/{id}','Admin\BrandController@brandedit');

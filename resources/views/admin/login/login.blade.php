@@ -46,10 +46,11 @@
 								<input id="prependedInput" type="password" placeholder="请输入密码" class="span2 input-xfat" name="admin_pwd">
 							</div>
 							<div class="setting">
-								 <div id="slider">
+							   <a href='/admin/reg'>没有账号！去注册</a>
+								 <!-- <div id="slider">
 									<div id="slider_bg"></div>
 									<span id="label">>></span> <span id="labelTip">拖动滑块验证</span>
-									</div>
+									</div> -->
 							</div>
 							<div class="logined">
 								<button class="sui-btn btn-block btn-xlarge btn-danger"  type="submit">登&nbsp;&nbsp;录</a>

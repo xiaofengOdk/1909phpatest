@@ -9,8 +9,8 @@
 	 <link rel="icon" href="../assets/img/favicon.ico">
 
 
-    <link rel="stylesheet" type="text/css" href="/static/admin/css/webbase.css" />
-    <link rel="stylesheet" type="text/css" href="/static/admin/css/pages-login-manage.css" />
+    <link rel="stylesheet" type="text/css" href="/static/index/css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="/static/index/css/pages-login-manage.css" />
 </head>
 
 <body>
@@ -97,6 +97,3 @@
         slider.init();
 	})
 	</script>
-</body>
-
-</html>

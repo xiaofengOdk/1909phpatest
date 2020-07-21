@@ -18,6 +18,7 @@ class BrandController extends Controller
     }
     public function brand(){
         $info = BrandModel::where('is_del',1)->paginate(2);
+        // dd($info);
         return view('admin/goods/brand',['info'=>$info]);
     }
     //添加品牌

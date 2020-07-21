@@ -1,8 +1,7 @@
 @extends("admin.layout.public")
 @section("content")
 <body class="hold-transition skin-red sidebar-mini">
-
-<!-- .box-body -->
+  <!-- .box-body -->
 <div class="box-header with-border">
     <h3 class="box-title">品牌管理</h3>
 </div>
@@ -80,7 +79,51 @@
 <!-- /.box-body -->
 {{$info->links()}}
 <!-- 编辑窗口 -->
+<form method="post" action="/admin/dobrand" enctype="multipart/form-data">
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">品牌编辑</h3>
+            </div>
+            <div class="modal-body">
 
+                <table class="table table-bordered table-striped"  width="800px">
+                    <tr>
+                        <td>品牌名称</td>
+                        <td><input  class="form-control" placeholder="品牌名称" name="brand_name"> </td>
+                    </tr>
+                    <tr>
+                        <td>品牌log</td>
+                        <td><input  class="form-control" type="file" name="brand_log">  </td>
+                    </tr>
+                    <tr>
+                        <td>是否展示</td>
+                        <td>
+                            <input  type="radio" value="1" name="brand_show" checked>是
+                            <input  type="radio" value="2" name="brand_show">否
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>品牌分类</td>
+                        <td>
+                            <select name="cate_id">
+                                <option></option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <input type="submit" value="提交" class="btn btn-success"  aria-hidden="true">
+                <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
 <!-- 添加窗口 -->
 <form method="post" action="/admin/dobrand" enctype="multipart/form-data">
 <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -127,8 +170,7 @@
     </div>
 </div>
 </form>
-</body>
-</html>
+
 <script>
     //删除
     $(document).on('click','.del',function(){
@@ -218,4 +260,7 @@ $(document).on('blur','.editbrand_name',function(){
         })
     })
 </script>
+
 @endsection
+</body>
+</html>

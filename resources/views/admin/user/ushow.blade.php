@@ -59,9 +59,7 @@
 		                                  </td>
 			                          </tr>
 									  @endforeach
-                                       <tr>
-                                           <td>{{$reg->links()}}</td>
-                                       </tr>
+                                      
 			                      </tbody>
 			                  </table>
 			                  <!--数据列表/-->
@@ -75,6 +73,7 @@
 
                      </div>
                     <!-- /.box-body -->
+                    {{$reg->links()}}
 
 <!-- 编辑窗口 -->
 
@@ -105,23 +104,21 @@
 	</div>
 </div>
 
-<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="roleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" >
 	<div class="modal-content">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			<h3 id="myModalLabel">品牌添加</h3>
+			<h3 id="myModalLabel">赋予角色</h3>
 		</div>
 		<div class="modal-body">
 			<table class="table table-bordered table-striped"  width="800px">
+                @foreach($regs as $k=>$v)
 		      	<tr>
-		      		<td>品牌名称</td>
-		      		<td><input  class="form-control" placeholder="品牌名称" >  </td>
+
+		      		<td><input type="checkbox" > {{$v->role_name}} </td>
 		      	</tr>
-		      	<tr>
-		      		<td>首字母</td>
-		      		<td><input  class="form-control" placeholder="首字母">  </td>
-		      	</tr>
+		        @endforeach
 			 </table>
 		</div>
 		<div class="modal-footer">
@@ -131,37 +128,6 @@
 	  </div>
 	</div>
 </div>
-
-
-<div class="modal fade" id="roleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog" >
-	<div class="modal-content">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			<h3 id="myModalLabel">赋予角色</h3>
-		</div>
-		<div class="modal-body">
-            <form action="/admin/ru" method="post">
-			<table class="table table-bordered table-striped"  width="800px">
-                @foreach($regs as $k=>$v)
-		      	<tr>
-
-		      		<td><input type="checkbox" value="{{$v->role_id}}" name="message"> {{$v->role_name}}</td>
-		      	</tr>
-                @endforeach
-
-			 </table>
-             </form>
-		</div>
-		<div class="modal-footer">
-			<button class="btn btn-success" data-dismiss="modal" id="fu" aria-hidden="true">保存</button>
-			<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
-		</div>
-	  </div>
-	</div>
-</div>
-
-
 
 <div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" >

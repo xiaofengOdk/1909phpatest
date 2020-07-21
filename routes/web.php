@@ -18,7 +18,9 @@
     // });
 
     Route::any('/','Index\IndexController@index');//前台首页
-Route::prefix("/admin")->group(function(){
+    Route::any('/show','Index\IndexController@show');//前台首页
+
+   Route::prefix("/admin")->group(function(){
 	Route::any("/index","Admin\AdminController@index");//后台首页
     Route::any("/reg","Admin\RegController@reg");//后台注册
     Route::any("/rdo","Admin\RegController@rdo");//后台注册执行
@@ -36,6 +38,7 @@ Route::prefix("/admin")->group(function(){
 	Route::any('/update/{id}', 'Admin\RoleController@update');//修改页
 	Route::any('/upd', 'Admin\RoleController@upd');//修改页
 // 权限管理
+    Route::any("/right/right_add","Admin\RightController@right_add");//权限赋予的路由
 	Route::any("/right/index","Admin\RightController@index");
 	Route::any("/right/add_right","Admin\RightController@add_right");
 	Route::any("/right/del","Admin\RightController@del");
@@ -61,5 +64,4 @@ Route::prefix("/admin")->group(function(){
 	##########################商品模块###############################
 	Route::any('/jup', 'Admin\RoleController@jup');//即点即改
 	Route::any("/pth","Admin\RoleController@pth");//即点即改
-});
-
+    });

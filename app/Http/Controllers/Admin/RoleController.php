@@ -1,11 +1,9 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
 use App\models\RoleModel;
+use App\models\Right;
 use Illuminate\Http\Request;
-
 class RoleController extends Controller
 {
     /**
@@ -16,8 +14,12 @@ class RoleController extends Controller
         $where=[
             'is_del'=>1
         ];
-        $data=RoleModel::where($where)->paginate(3);
-        return view('admin.role.add',['data'=>$data]);
+      
+              $data=RoleModel::where($where)->paginate(3);
+  // $data=RoleModel::where($where)->get();
+        $right_model=Right::get();
+        return view('admin.role.add',['data'=>$data,'right_model'=>$right_model]);
+        // return view('admin.role.add',['data'=>$data]);
     }
 
     //执行添加
@@ -95,7 +97,6 @@ class RoleController extends Controller
         }
     }
 
-    //错误提示
     public function message($code,$msg,$url=''){
         $message = [
             'code'=> $code,

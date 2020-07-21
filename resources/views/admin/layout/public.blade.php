@@ -28,9 +28,7 @@
                 iframeid.height =document.documentElement.clientHeight;
               }
          }
-
     </script>
-
 </head>
 
 <body class="hold-transition skin-green sidebar-mini" >
@@ -283,7 +281,7 @@
                 </div>
             </nav>
         </header>
-        <!-- 页面头部 /-->
+
         <!-- 导航侧栏 -->
         <aside class="main-sidebar">
             <!-- sidebar: style can be found in sidebar.less -->
@@ -305,10 +303,7 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu"  >
                     <li class="header">菜单</li>
-
                     <li id="admin-index"><a href="/admin/index"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
-
-
                     <!-- 菜单 -->
                     <li class="treeview">
                         <a href="#">
@@ -384,7 +379,7 @@
                                     <i class="fa fa-circle-o"></i>权限展示
                                 </a>
                             </li>
-                           
+
                         </ul>
                     </li>
 
@@ -411,12 +406,12 @@
             </section>
             <!-- /.sidebar -->
         </aside>
-        <!-- 导航侧栏 /-->
 
+
+        <!-- 导航侧栏 /-->
            <div class="content-wrapper">
                 @yield("content")
-                        </div>
-      
+             </div>
         <!-- 底部导航 -->
 
         <footer class="main-footer">
@@ -425,8 +420,6 @@
             </div>
             <strong>Copyright &copy; 2014-2017 <a href="http://www.itcast.cn">研究院研发部</a>.</strong> All rights reserved.
         </footer>
-        <!-- 底部导航 /-->
-
     </div>
 
 </body>

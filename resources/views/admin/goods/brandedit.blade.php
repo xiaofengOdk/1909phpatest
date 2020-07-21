@@ -1,4 +1,18 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>品牌管理</title>
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="/static/admin/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/admin/plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet" href="/static/admin/plugins/adminLTE/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/static/admin/css/style.css">
+    <script src="/static/admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="/static/admin/plugins/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body class="hold-transition skin-red sidebar-mini" >
 <form method="post" action="/admin/brandupd/{{$info->brand_id}}" enctype="multipart/form-data">
     @csrf
         <div class="modal-dialog" >
@@ -47,3 +61,5 @@
             </div>
         </div>
 </form>
+</body>
+</html>

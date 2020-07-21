@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use App\Models\Admin_role;
-use App\Models\Role;
+use App\Models\RoleModel;
 class AdminController extends Controller
 {
     //
@@ -16,10 +16,8 @@ class AdminController extends Controller
    public function ushow(){
         $AdminModel=new Admin();
         $reg=$AdminModel->where('is_del',1)->paginate(2);
-        $RoleModel=new Role();
+        $RoleModel=new RoleModel();
         $regs=$RoleModel->get();
-
-        //dd($regs);
         return view('admin.user.ushow',['reg'=>$reg,'regs'=>$regs]);
    }
    public function udo(){
@@ -65,6 +63,7 @@ class AdminController extends Controller
        $admin_name=request()->field;
        $val=request()->_val;
        $AdminModel=new Admin();
+
        $reg=$AdminModel->where('admin_id',$admin_id)->update([$admin_name=>$val]);
        // dd($reg);
        if($reg==1){

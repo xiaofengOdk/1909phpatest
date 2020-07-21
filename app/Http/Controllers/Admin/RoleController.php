@@ -14,9 +14,12 @@ class RoleController extends Controller
         $where=[
             'is_del'=>1
         ];
-        $data=RoleModel::where($where)->get();
+      
+              $data=RoleModel::where($where)->paginate(3);
+  // $data=RoleModel::where($where)->get();
         $right_model=Right::get();
         return view('admin.role.add',['data'=>$data,'right_model'=>$right_model]);
+        // return view('admin.role.add',['data'=>$data]);
     }
 
     //执行添加

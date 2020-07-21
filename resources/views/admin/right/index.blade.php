@@ -69,7 +69,7 @@
 											  <span class="span_test"> {{$v->right_desc}}</span>
 											  <input class="chang" type="text" value="{{$v->right_desc}}" style="display:none">
 											</td>		
-											<td class="span_test">{{date("Y-m-d",$v->add_time)}}</td>							      
+											<td>{{date("Y-m-d",$v->add_time)}}</td>							      
 		                                  <td class="text-center">		                                     
 		                                      <button type="button" class="btn bg-olive btn-xs" id="del" rid="{{$v->right_id}}">删除</button> 		                                     
 		                                 	  <!-- <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal" >修改</button>                                            -->

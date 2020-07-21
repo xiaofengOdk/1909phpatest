@@ -78,7 +78,7 @@
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" >
 	<div class="modal-content">
-		<div class="modal-header">
+			<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 			<h3 id="myModalLabel">赋予权限</h3>
 		</div>
@@ -88,7 +88,7 @@
 		      		<td>权限名称</td>
 		      		@foreach($right_model as $k=>$v)
 		      		<td>
-		      			<select class="r_id">
+		      			<select name="r_id">
 		      				<option   value="{{$v->right_id}}">{{$v->right_name}}</option>
 		      			</select>
 		      		 </td>
@@ -101,6 +101,7 @@
 			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true"  id="right_id" >赋予</button>
 			<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
 		</div>
+			
 	  </div>
 	</div>
 </div>
@@ -206,9 +207,9 @@
 			}
 		})
 	});
-	$(document).on('click','#right_id',function(){
-		var right_id=$(".r_id").val()
+	// $(document).on('click','#right_id',function(){
+	// 	var right_id=$(".r_id").val()
 		
-	})
+	// })
 ;</script>
 	@endsection

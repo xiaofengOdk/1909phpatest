@@ -8,35 +8,33 @@
     <title>运营商后台管理系统</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-  
+
 
     <link rel="stylesheet" href="/static/admin/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/admin/plugins/adminLTE/css/AdminLTE.css">
     <link rel="stylesheet" href="/static/admin/plugins/adminLTE/css/skins/_all-skins.min.css">
     <link rel="stylesheet" href="/static/admin/css/style.css">
-    
+
     <script src="/static/admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
     <script src="/static/admin/plugins/jQueryUI/jquery-ui.min.js"></script>
     <script src="/static/admin/plugins/bootstrap/js/bootstrap.min.js"></script>
-  
+
     <script src="/static/admin/plugins/adminLTE/js/app.min.js"></script>
-    
-    <script type="text/javascript">   
+
+    <script type="text/javascript">
          function SetIFrameHeight(){
               var iframeid=document.getElementById("iframe"); //iframe id
               if (document.getElementById){
-                iframeid.height =document.documentElement.clientHeight;                
+                iframeid.height =document.documentElement.clientHeight;
               }
          }
-    
-    </script>    
- 
+
+    </script>
+
 </head>
 
 <body class="hold-transition skin-green sidebar-mini" >
-
     <div class="wrapper">
-
         <!-- 页面头部 -->
         <header class="main-header">
             <!-- Logo -->
@@ -268,7 +266,7 @@
                                         <small>最后登录 11:20AM</small>
                                     </p>
                                 </li>
-                                
+
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
@@ -286,7 +284,6 @@
             </nav>
         </header>
         <!-- 页面头部 /-->
-
         <!-- 导航侧栏 -->
         <aside class="main-sidebar">
             <!-- sidebar: style can be found in sidebar.less -->
@@ -301,7 +298,7 @@
                         <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
                     </div>
                 </div>
-              
+
                 <!-- /.search form -->
 
 
@@ -310,39 +307,39 @@
                     <li class="header">菜单</li>
                     <li id="admin-index"><a href="/admin/index"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
+
                     <!-- 菜单 -->
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-folder"></i> 
-                            <span>商家管理</span>
+                            <i class="fa fa-folder"></i>
+                            <span>用户管理</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                
+
                             <li id="admin-login">
-                                <a href="seller_1.html" target="iframe">
-                                    <i class="fa fa-circle-o"></i>商家审核
-                                </a>
+
                             </li>
                             <li id="admin-login">
-                                <a href="seller.html" target="iframe">
-                                    <i class="fa fa-circle-o"></i>商家管理
+                                <a href="/admin/ushow" target="iframe">
+                                    <i class="fa fa-circle-o"></i>用户展示
                                 </a>
                             </li>
-                        </ul>                        
+                        </ul>
                     </li>
+
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-folder"></i> 
+                            <i class="fa fa-folder"></i>
                             <span>商品管理</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                
+
                             <li id="admin-login">
                                 <a href="/admin/brand" target="iframe">
                                     <i class="fa fa-circle-o"></i>品牌管理
@@ -352,7 +349,7 @@
                                 <a href="specification.html" target="iframe">
                                     <i class="fa fa-circle-o"></i>规格管理
                                 </a>
-                            </li>                           
+                            </li>
                             <li id="admin-login">
                                 <a href="type_template.html" target="iframe">
                                     <i class="fa fa-circle-o"></i>模板管理
@@ -368,19 +365,19 @@
                                     <i class="fa fa-circle-o"></i>商品审核
                                 </a>
                             </li>
-                        </ul>                        
+                        </ul>
                     </li>
-                    
+
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-folder"></i> 
+                            <i class="fa fa-folder"></i>
                             <span>广告管理</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                
+
                             <li id="admin-login">
                                 <a href="content_category.html" target="iframe">
                                     <i class="fa fa-circle-o"></i>广告类型管理
@@ -391,8 +388,26 @@
                                     <i class="fa fa-circle-o"></i>广告管理
                                 </a>
                             </li>
-                        </ul>                        
+                        </ul>
                     </li>
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-folder"></i>
+                            <span>角色管理</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li id="admin-login">
+                                <a href="/admin/role_add" target="iframe">
+                                    <i class="fa fa-circle-o"></i>查看
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <!-- 菜单 /-->
 
                 </ul>
@@ -404,6 +419,7 @@
                 @yield("content")
         </div>
         <!-- 底部导航 -->
+
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
                 <b>Version</b> 1.0.8

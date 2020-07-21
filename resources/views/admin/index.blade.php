@@ -1,9 +1,6 @@
 @extends("admin.layout.public")
 @section("content")
-
-               <section class="content">
-
-
+         <section class="content">
                 <!-- 统计数值 -->
                 <div class="row">
                     <div class="col-lg-3 col-xs-6">
@@ -69,8 +66,4 @@
                 </div>
                 <!-- /.row -->
             </section>
-            <iframe width="100%" id="iframe" name="iframe"  onload="SetIFrameHeight()" 
-                    frameborder="0" src="/static/admin/home.html"></iframe>
- 
-
 @endsection

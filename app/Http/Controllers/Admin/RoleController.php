@@ -54,19 +54,9 @@ class RoleController extends Controller
         $role_id=$request->post('role_id');
         $bol=RoleModel::where('role_id',$role_id)->update(['is_del'=>2]);
         if($bol){
-            $success=[];
-            $success['success']=true;
-            $success['code']=0000;
-            $success['msg']='角色删除成功';
-            $success['url']='/admin/role_add';
-            echo json_encode($success);
+            return $this->message('00000','小伙子，拜拜！','/admin/role_add');
         }else{
-            $success=[];
-            $success['success']=false;
-            $success['code']=0001;
-            $success['msg']='角色删除失败';
-            $success['url']='/admin/role_add';
-            echo json_encode($success);
+            return $this->message('00001','角色删除失败','/admin/role_add');
         }
     }
 
@@ -120,6 +110,42 @@ class RoleController extends Controller
                 'sult'=>[]
             ];
             return json_encode($arr,JSON_UNESCAPED_UNICODE);
+        }
+    }
+
+    public function message($code,$msg,$url='')
+    {
+        $message = [
+            'code' => $code,
+            'msg' => $msg,
+            'url' => $url
+        ];
+        return json_encode($message, JSON_UNESCAPED_UNICODE);
+    }
+
+    //即点即改
+    public function jup(){
+        $role_id=request()->role_id;
+        $role_name=request()->field;
+        $val=request()->_val;
+        $model=new RoleModel();
+        $reg=$model->where('role_id',$role_id)->update([$role_name=>$val]);
+        // dd($reg);
+        if($reg==1){
+            return [
+                "code"=>"00000",
+                "message"=>"修改成功"
+            ];
+        }elseif($reg==0){
+            return [
+                "code"=>"00001",
+                "message"=>"没有修改"
+            ];
+        }else{
+            return [
+                "code"=>"00002",
+                "message"=>"修改失败"
+            ];
         }
     }
 

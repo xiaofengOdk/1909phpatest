@@ -41,12 +41,12 @@
 			                      <thead>
 			                          <tr>
 			                              <th class="" style="padding-right:0px">
-			                                  <input type="checkbox" class="icheckbox_square-blue">
 			                              </th> 
 										  <th class="sorting_asc">ID</th>
 									      <th class="sorting">权限</th>									   
 									      <th class="sorting">url</th>
-										  <th class="sorting">描述</th>					
+										  <th class="sorting">描述</th>		
+										  <th class="sorting">时间</th>			
 					                      <th class="text-center">操作</th>
 			                          </tr>
 			                      </thead>
@@ -68,7 +68,8 @@
 											  
 											  <span class="span_test"> {{$v->right_desc}}</span>
 											  <input class="chang" type="text" value="{{$v->right_desc}}" style="display:none">
-											</td>									      
+											</td>		
+											<td class="span_test">{{date("Y-m-d",$v->add_time)}}</td>							      
 		                                  <td class="text-center">		                                     
 		                                      <button type="button" class="btn bg-olive btn-xs" id="del" rid="{{$v->right_id}}">删除</button> 		                                     
 		                                 	  <!-- <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal" >修改</button>                                            -->

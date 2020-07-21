@@ -1,6 +1,5 @@
 @extends("admin.layout.public")
 @section("content")
-<<<<<<< HEAD
          <section class="content">
                 <!-- 统计数值 -->
                 <div class="row">
@@ -39,16 +38,6 @@
                         <div class="small-box bg-yellow">
                             <div class="inner">
                                 <h3></h3>
-=======
-
-
-            <iframe width="100%" id="iframe" name="iframe"  onload="SetIFrameHeight()" 
-                    frameborder="0" src="/static/admin/home.html"></iframe>
- 
->>>>>>> 3659546f8682a56e00ba0b2f1c3c00d02d05f763
-
-
-<<<<<<< HEAD
                                 <p>日PV</p>
                             </div>
                             <div class="icon">
@@ -62,6 +51,3 @@
                 <!-- /.row -->
             </section>
 @endsection
-=======
-@endsection
->>>>>>> 3659546f8682a56e00ba0b2f1c3c00d02d05f763

@@ -323,7 +323,7 @@
 
                             </li>
                             <li id="admin-login">
-                                <a href="/admin/ushow" target="iframe">
+                                <a href="http://www.1909phpa3.com/admin/ushow" target="iframe">
                                     <i class="fa fa-circle-o"></i>用户展示
                                 </a>
                             </li>

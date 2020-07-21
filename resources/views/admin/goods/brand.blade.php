@@ -57,9 +57,8 @@
                 <td class="text-center">
                     {{--<a href="javascript:;"> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal">修改</button></a>--}}
 
-                    <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal">修改</button> -->
-                    <a href="/admin/brandedit/{{$v->brand_id}}"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal">修改</button>
-                    {{--<button type="button" class="btn bg-olive btn-xs" data-toggle="modal"  value="删除"></button>--}}
+                    <a href="/admin/brandedit/{{$v->brand_id}}"><button type="button" class="btn btn-success">修改</button></a>
+                    <!-- <button type="button" class="btn btn-success brand_ids" data-toggle="modal" data-target="#editModal">修改</button> -->
                     <button type="button" class="btn btn-danger del">删除</button>
                 </td>
             </tr>
@@ -257,5 +256,22 @@ $(document).on('blur','.editbrand_name',function(){
             }
         })
     })
+        // $(document).on('click','.brand_ids',function(){
+        //     var _this=$(this)
+        //     // console.log(_this)
+        //     var brand_id=_this.parents("tr").attr("brand_id")
+        //     // console.log(brand_id);
+        //     var url="/admin/brandedit/"+brand_id;
+        //     var data={brand_id:brand_id};
+        //     $.ajax({
+        //         url:url,
+        //         data:data,
+        //         type:'post',
+        //         dataType:'json',
+        //         success:function(res){
+        //             console.log(res);
+        //         }
+        //     })
+    // })
 </script>
 @endsection

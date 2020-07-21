@@ -67,14 +67,14 @@ class Checkrc
 
                     if($infosss['right_url'] !='/create' ){
                         // return redirect('/admin/ushow');
-                     echo "<script>alert('没有权限');location.href='http://www.1909phpa3.com/admin/login'</script>";die;
+                     echo "<script>alert('没有权限');location.href='http://www.1909a3.com/admin/login'</script>";die;
 
                     }
                     if($infosss['right_url'] !='/add' ){
-                        echo "<script>alert('没有权限');location.href='http://www.1909phpa3.com/admin/login'</script>";     die;  
+                        echo "<script>alert('没有权限');location.href='http://www.1909a3.com/admin/login'</script>";     die;  
                          }                  
                    if($infosss['right_url'] !='/del' ){
-                    echo "<script>alert('没有权限');location.href='http://www.arbitration.com/admin/login'</script>";die;
+                    echo "<script>alert('没有权限');location.href='http://www.1909a3.com/admin/login'</script>";die;
                     }
                 }
 

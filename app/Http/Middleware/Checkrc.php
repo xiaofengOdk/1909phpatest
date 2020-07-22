@@ -29,13 +29,13 @@ class Checkrc
                 $uid=$user['admin_id'];
             // $Admin=new Admin();
              $quanxian=Admin_role::
-                leftjoin("admin","admin_role.admin_id","=","admin.admin_id")
+                    leftjoin("admin","admin_role.admin_id","=","admin.admin_id")
                 ->leftjoin("role","admin_role.role_id","=","role.role_id")
                 ->leftjoin("role_right","admin_role.role_id","=","role_right.role_id")
                 ->where("admin.admin_id",$uid)
                 ->get()->toArray();
             // dd($quanxian['right_url']);    
-                $stringsss="";
+                // $stringsss="";
             foreach($quanxian as  $k=>$v){
                 // print_Rol
 
@@ -44,15 +44,15 @@ class Checkrc
                     // $stringsss .= "," . $result->right_url . ",";
                 // var_dump($result);
             } 
-            // print_R(count($result));
+            // print_R(count($result));exit;
              $info=Admin_role::
                 leftjoin("admin","admin_role.admin_id","=","admin.admin_id")
                 ->leftjoin("role","admin_role.role_id","=","role.role_id")
                 ->leftjoin("role_right","admin_role.role_id","=","role_right.role_id")
                 ->where("admin.admin_id",$uid)
                 ->get();
-                // print_R(count($info));
-            if(count($info)<=2){
+                // dd($info);exit;
+            if(count($info)<2){
                 // echo 1;
                  $infoone=Admin_role::
                     leftjoin("admin","admin_role.admin_id","=","admin.admin_id")

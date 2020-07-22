@@ -65,4 +65,32 @@ Route::prefix("/admin")->group(function(){
 	Route::any('/editbrand_show','Admin\BrandController@editbrand_show');
 	##########################商品模块###############################
 	Route::any('/jup', 'Admin\RoleController@jup');//即点即改
+    Route::any('/gadd', 'Admin\GoodsController@gadd');//商品添加   李彤
+    Route::any('/gdo', 'Admin\GoodsController@gdo');//商品添加执行   李彤
+
+
+
+    Route::any('/adtg_index', 'Admin\AdtgController@adtg_index');//广告添加   李丹阳
+    Route::any('/adtg_adds', 'Admin\AdtgController@adtg_adds');//广告添加   李丹阳
+    Route::any('/adtg_dels', 'Admin\AdtgController@adtg_dels');//广告添加   李丹阳
+    Route::any('/pol', 'Admin\AdtgController@pol');//广告添加   李丹阳
+
+
+
+
+    Route::any('/nav_add', 'Admin\NavController@nav_add');//导航添加   阴晓菲
+    Route::any('/nav_adds', 'Admin\NavController@nav_adds');//导航执行方法   阴晓菲
+    Route::any('/nav_jidian', 'Admin\NavController@nav_jidian');//即点即改   阴晓菲
+    Route::any('/nav_dels', 'Admin\NavController@nav_dels');//导航删除  阴晓菲
+
+
+
+
+
+    Route::any('/slide_add', 'Admin\SlideController@slide_add');//轮播图添加   刘远浩
+    Route::any('/slide_show', 'Admin\SlideController@slide_show');//轮播图展示   刘远浩
+    Route::any('/slide_upd', 'Admin\SlideController@slide_upd');//轮播图修改 刘远浩
+    Route::any('/slide_upddo', 'Admin\SlideController@slide_upddo');//轮播图修改执行 刘远浩
+
+   
 });

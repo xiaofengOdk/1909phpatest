@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use App\Models\Role_right;
 use App\models\RoleModel;
 use App\models\Right;
 use Illuminate\Http\Request;
@@ -94,7 +93,6 @@ class RoleController extends Controller
         }
     }
 
-
     //错误提示
     public function message($code,$msg,$url=''){
         $message = [
@@ -152,4 +150,6 @@ class RoleController extends Controller
             ];
         }
     }
+
 }
+

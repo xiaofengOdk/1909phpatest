@@ -398,6 +398,40 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-folder"></i>
+                            <span>导航管理</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li id="admin-login">
+                                <a href="/admin/nav_add" target="iframe">
+                                    <i class="fa fa-circle-o"></i>导航展示
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-folder"></i>
+                            <span>广告管理</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li id="admin-login">
+                                <a href="/admin/adtg_add" target="iframe">
+                                    <i class="fa fa-circle-o"></i>查看
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
 
                     <li class="treeview">
                         <a href="#">

@@ -94,6 +94,6 @@ Route::prefix("/admin")->group(function(){
     Route::any('/slide_show', 'Admin\SlideController@slide_show');//轮播图展示   刘远浩
     Route::any('/slide_upd', 'Admin\SlideController@slide_upd');//轮播图修改 刘远浩
     Route::any('/slide_upddo', 'Admin\SlideController@slide_upddo');//轮播图修改执行 刘远浩
+	Route::any("/pth","Admin\RoleController@pth");//即点即改
 
-   
 });

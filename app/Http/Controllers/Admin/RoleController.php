@@ -128,7 +128,6 @@ class RoleController extends Controller
             ];
         }
     }
-
     //角色赋予权限
     public function upd(){
          $data=request()->all();
@@ -150,6 +149,5 @@ class RoleController extends Controller
             ];
         }
     }
-
 }
 

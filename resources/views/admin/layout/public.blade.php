@@ -29,7 +29,6 @@
          }
     </script>
 </head>
-
 <body class="hold-transition skin-green sidebar-mini" >
     <div class="wrapper">
         <!-- 页面头部 -->
@@ -470,12 +469,11 @@
             </section>
             <!-- /.sidebar -->
         </aside>
-
-
         <!-- 导航侧栏 /-->
            <div class="content-wrapper">
                 @yield("content")
              </div>
+        </div>
         <!-- 底部导航 -->
 
         <footer class="main-footer">

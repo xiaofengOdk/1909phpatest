@@ -70,10 +70,10 @@ Route::prefix("/admin")->group(function(){
 
 
 
-    Route::any('/adtg_index', 'Admin\AdtgController@adtg_index');//广告添加   李丹阳
+    Route::any('/adtg_index', 'Admin\AdtgController@adtg_index');//广告展示   李丹阳
     Route::any('/adtg_adds', 'Admin\AdtgController@adtg_adds');//广告添加   李丹阳
-    Route::any('/adtg_dels', 'Admin\AdtgController@adtg_dels');//广告添加   李丹阳
-    Route::any('/pol', 'Admin\AdtgController@pol');//广告添加   李丹阳
+    Route::any('/adtg_dels', 'Admin\AdtgController@adtg_dels');//广告删除   李丹阳
+    Route::any('/pol', 'Admin\AdtgController@pol');//广告即点即改   李丹阳
 
 
 

@@ -1,6 +1,5 @@
 @extends("admin.layout.public")
 @section("content")
-</head>
    <div class="box-header with-border">
                         <h3 class="box-title">角色管理</h3>
                     </div>
@@ -55,6 +54,7 @@
 
 										  <td>{{date("Y-m-d H:i:s",$v['add_time'])}}</td>
 										  <td class="text-center">
+
 											  <button type="button" class="btn btn-danger del">删除</button>
 											  <button type="button" class="btn btn-primary ro" title="新建" data-toggle="modal"
 													  data-target="#editModal"  ng-click="toAdd()" data-role_id="{{$v->role_id}}">权限添加
@@ -186,32 +186,6 @@
 		var field=_this.parent("td").attr("pub");//父节点  字段
 		var _val=_this.val();  //获取值
 
-		//发送ajax 把这三个值传过去
-		var url="/admin/pth"
-		$.ajax({
-			url:url,
-			data:{'role_id':role_id,'field':field,'_val':_val},
-			dataType:'json',
-			success:function(reg){
-				//console.log(reg);
-				if(reg.code=='00000'){
-					window.location.reload()
-				}
-				if(reg.code=='00001'){
-					window.location.reload()
-				}
-				if(reg.code=='00002'){
-					alert(reg.message);
-					window.location.reload()
-				}
-			}
-		})
-	});
-	$('.updo').blur(function(){  //当失去焦点的时候获取到 id 要修改的字段  值
-		var _this=$(this);
-		var role_id=_this.parents("tr").attr("role_id");//祖先级节点的自定义属性  id
-		var field=_this.parent("td").attr("pub");//父节点  字段
-		var _val=_this.val();  //获取值
 
 		//发送ajax 把这三个值传过去
 		var url="/admin/pth"
@@ -261,4 +235,4 @@
 		})
 	});
 </script>
-	@endsection
+@endsection

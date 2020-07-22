@@ -28,6 +28,7 @@
               }
          }
     </script>
+
 </head>
 
 <body class="hold-transition skin-green sidebar-mini" >
@@ -485,11 +486,12 @@
             <!-- /.sidebar -->
         </aside>
 
-
         <!-- 导航侧栏 /-->
            <div class="content-wrapper">
                 @yield("content")
              </div>
+        </div>
+
         <!-- 底部导航 -->
 
         <footer class="main-footer">

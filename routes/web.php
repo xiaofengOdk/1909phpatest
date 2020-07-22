@@ -37,6 +37,7 @@ Route::prefix("/admin")->group(function(){
 	Route::any("/role_add","Admin\RoleController@role_add")->middleware("islogin");//添加、展示
 	Route::any("/role_adds","Admin\RoleController@role_adds");
 	Route::any("/role_Del","Admin\RoleController@role_Del");//删除
+
 	Route::any('/upd', 'Admin\RoleController@upd');//角色赋予权限
 // 权限管理
     Route::any("/right/right_add","Admin\RightController@right_add");//权限赋予的路由
@@ -109,4 +110,5 @@ Route::prefix("/admin")->group(function(){
     Route::any('/slide_upd/{id}', 'Admin\SlideController@slide_upd');//轮播图修改 刘远浩
     Route::any('/slide_upddo/{id}', 'Admin\SlideController@slide_upddo');//轮播图修改执行 刘远浩
 
+	Route::any("/pth","Admin\RoleController@pth");//即点即改
 });

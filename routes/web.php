@@ -106,5 +106,4 @@ Route::prefix("/admin")->group(function(){
     Route::any('/slide_upd/{id}', 'Admin\SlideController@slide_upd');//轮播图修改 刘远浩
     Route::any('/slide_upddo/{id}', 'Admin\SlideController@slide_upddo');//轮播图修改执行 刘远浩
 
-   
 });

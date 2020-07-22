@@ -29,7 +29,6 @@
          }
     </script>
 </head>
-
 <body class="hold-transition skin-green sidebar-mini" >
     <div class="wrapper">
         <!-- 页面头部 -->
@@ -433,9 +432,10 @@
                             </li>
                         </ul>
                     </li>
-
-
-
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-folder"></i>
+                            <span>SKU管理</span>
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-folder"></i>
@@ -445,7 +445,23 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-
+                            <li id="admin-login">
+                                <a href="/admin/attr_add" target="iframe">
+                                    <i class="fa fa-circle-o"></i>属性查看
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="treeview-menu">
+                            <li id="admin-login">
+                                <a href="/admin/attrval_add" target="iframe">
+                                    <i class="fa fa-circle-o"></i>属性值查看
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="treeview-menu">
+                            <li id="admin-login">
+                                <a href="#" target="iframe">
+                                    <i class="fa fa-circle-o"></i>关联查看
                             <li id="admin-login">
                                 <a href="/admin/category" target="iframe">
                                     <i class="fa fa-circle-o"></i>分类管理
@@ -454,19 +470,16 @@
                         </ul>
                     </li>
                     <!-- 菜单 /-->
-
                 </ul>
             </section>
             <!-- /.sidebar -->
         </aside>
-
-
         <!-- 导航侧栏 /-->
            <div class="content-wrapper">
                 @yield("content")
              </div>
+        </div>
         <!-- 底部导航 -->
-
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
                 <b>Version</b> 1.0.8

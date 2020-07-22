@@ -15,7 +15,11 @@
   <component name="BookmarkManager">
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <bookmark url="file://$PROJECT_DIR$/routes/web.php" description="});" line="33" />
+=======
+    <bookmark url="file://$PROJECT_DIR$/routes/web.php" description="});" line="29" />
+>>>>>>> Stashed changes
 =======
     <bookmark url="file://$PROJECT_DIR$/routes/web.php" description="});" line="29" />
 >>>>>>> Stashed changes
@@ -31,8 +35,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/role/add.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/role/add.blade.php" />
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/role/update.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/role/update.blade.php" />
 >>>>>>> 5cecd36373a84f517627d6e2e427e1c813871e30
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -105,6 +112,7 @@
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             <state vertical-scroll-proportion="0.0">
               <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
 >>>>>>> 5cecd36373a84f517627d6e2e427e1c813871e30
@@ -132,10 +140,16 @@
               <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
               <folding />
 >>>>>>> Stashed changes
+=======
+            <state vertical-scroll-proportion="-4.957143">
+              <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+              <folding />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
       <file leaf-file-name="BrandController.php" pinned="false" current-in-tab="false">
@@ -165,12 +179,20 @@
             <state vertical-scroll-proportion="0.26339287">
               <caret line="62" column="10" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
 >>>>>>> Stashed changes
+=======
+      <file leaf-file-name="RoleController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/RoleController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.26339287">
+              <caret line="62" column="10" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
+>>>>>>> Stashed changes
               <folding>
                 <element signature="e#46#82#0#PHP" expanded="true" />
                 <element signature="e#185#285#0#PHP" expanded="false" />
                 <element signature="e#290#477#0#PHP" expanded="false" />
                 <element signature="e#494#1224#0#PHP" expanded="false" />
                 <element signature="e#1230#1253#0#PHP" expanded="false" />
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
                 <element signature="e#1622#1662#0#PHP" expanded="false" />
@@ -185,11 +207,16 @@
                 <element signature="e#1258#1616#0#PHP" expanded="false" />
                 <element signature="e#1633#2275#0#PHP" expanded="false" />
 >>>>>>> Stashed changes
+=======
+                <element signature="e#1258#1616#0#PHP" expanded="false" />
+                <element signature="e#1633#2275#0#PHP" expanded="false" />
+>>>>>>> Stashed changes
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< HEAD
@@ -225,6 +252,11 @@
         <entry file="file://$PROJECT_DIR$/resources/views/admin/role/add.blade.php">
           <provider selected="true" editor-type-id="text-editor">
 >>>>>>> Stashed changes
+=======
+      <file leaf-file-name="add.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/role/add.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+>>>>>>> Stashed changes
             <state vertical-scroll-proportion="-5.370968">
               <caret line="158" column="52" selection-start-line="158" selection-start-column="52" selection-end-line="158" selection-end-column="52" />
               <folding>
@@ -234,6 +266,9 @@
                 <element signature="e#5929#6550#0#HTML" expanded="false" />
               </folding>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -274,7 +309,10 @@
         <option value="$PROJECT_DIR$/resources/views/admin/role/update.blade.php" />
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
         <option value="$PROJECT_DIR$/config/app.php" />
@@ -314,7 +352,10 @@
     <option name="height" value="876" />
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> 5cecd36373a84f517627d6e2e427e1c813871e30
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -358,6 +399,7 @@
     <panes>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
       <pane id="Scratches" />
       <pane id="Scope" />
@@ -365,6 +407,10 @@
       <pane id="Scope" />
       <pane id="Scratches" />
 >>>>>>> 5cecd36373a84f517627d6e2e427e1c813871e30
+=======
+      <pane id="Scope" />
+      <pane id="Scratches" />
+>>>>>>> Stashed changes
 =======
       <pane id="Scope" />
       <pane id="Scratches" />
@@ -401,6 +447,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< HEAD
@@ -689,6 +736,9 @@
 =======
               <option name="myItemId" value="config" />
 >>>>>>> Stashed changes
+=======
+              <option name="myItemId" value="config" />
+>>>>>>> Stashed changes
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -734,8 +784,11 @@
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -747,7 +800,10 @@
       <envs />
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> 5cecd36373a84f517627d6e2e427e1c813871e30
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -784,6 +840,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< HEAD
@@ -845,6 +902,12 @@
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21979435" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> Stashed changes
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -904,6 +967,7 @@
     <breakpoint-manager>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
       <option name="time" value="1" />
 =======
@@ -915,10 +979,14 @@
 =======
       <option name="time" value="5" />
 >>>>>>> Stashed changes
+=======
+      <option name="time" value="5" />
+>>>>>>> Stashed changes
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< HEAD
@@ -1005,6 +1073,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
 >>>>>>> Stashed changes
+=======
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+>>>>>>> Stashed changes
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
 >>>>>>> Stashed changes
@@ -1014,6 +1087,7 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/RoleController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1103,6 +1177,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/role/add.blade.php">
 >>>>>>> Stashed changes
+=======
+          <caret line="125" column="10" selection-start-line="125" selection-start-column="6" selection-end-line="125" selection-end-column="10" />
+          <folding>
+            <element signature="e#46#82#0#PHP" expanded="true" />
+            <element signature="e#185#285#0#PHP" expanded="false" />
+            <element signature="e#290#477#0#PHP" expanded="false" />
+            <element signature="e#494#1224#0#PHP" expanded="false" />
+            <element signature="e#1230#1253#0#PHP" expanded="false" />
+            <element signature="e#1258#1616#0#PHP" expanded="false" />
+            <element signature="e#1633#2275#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/role/add.blade.php">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1112,6 +1202,7 @@
             <element signature="e#5812#5900#0#HTML" expanded="false" />
             <element signature="e#5929#6550#0#HTML" expanded="false" />
           </folding>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
         </state>
       </provider>
@@ -1124,11 +1215,14 @@
           <folding />
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../website/app/Http/Controllers/RoleController.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.6394641">
           <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
@@ -1141,6 +1235,24 @@
         <state vertical-scroll-proportion="-14.705882">
           <caret line="56" column="111" selection-start-line="56" selection-start-column="111" selection-end-line="56" selection-end-column="111" />
           <folding />
+=======
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Index/IndexController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -1182,6 +1294,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< Updated upstream
         </state>
       </provider>
     </entry>
@@ -1214,6 +1327,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
         </state>
@@ -1260,6 +1375,7 @@
           <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> 5cecd36373a84f517627d6e2e427e1c813871e30
         </state>
       </provider>
@@ -1273,6 +1389,8 @@
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
           <folding />
         </state>
       </provider>
@@ -1281,8 +1399,12 @@
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.3909866">
           <caret line="404" column="14" selection-start-line="404" selection-start-column="14" selection-end-line="404" selection-end-column="14" />
+=======
+        <state vertical-scroll-proportion="-0.20028012">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
 =======
         <state vertical-scroll-proportion="-0.20028012">
           <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
@@ -1298,6 +1420,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5671642">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+>>>>>>> Stashed changes
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/role/update.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11764706">
+          <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.5671642">
           <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
 >>>>>>> Stashed changes
@@ -1329,11 +1468,17 @@
           <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
           <folding />
 >>>>>>> Stashed changes
+=======
+        <state vertical-scroll-proportion="-4.957143">
+          <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+          <folding />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/role/update.blade.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.11764706">
           <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
         </state>
@@ -1375,6 +1520,8 @@
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
         <state vertical-scroll-proportion="-5.370968">
           <caret line="158" column="52" selection-start-line="158" selection-start-column="52" selection-end-line="158" selection-end-column="52" />
           <folding>
@@ -1384,6 +1531,9 @@
             <element signature="e#5929#6550#0#HTML" expanded="false" />
           </folding>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -1394,8 +1544,13 @@
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.0">
           <caret line="125" column="10" selection-start-line="125" selection-start-column="6" selection-end-line="125" selection-end-column="10" />
+=======
+        <state vertical-scroll-proportion="0.26339287">
+          <caret line="62" column="10" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
+>>>>>>> Stashed changes
 =======
         <state vertical-scroll-proportion="0.26339287">
           <caret line="62" column="10" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
@@ -1412,6 +1567,7 @@
             <element signature="e#1230#1253#0#PHP" expanded="false" />
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             <element signature="e#1622#1662#0#PHP" expanded="false" />
             <element signature="e#1871#3013#0#PHP" expanded="false" />
             <element signature="e#3019#3250#0#PHP" expanded="false" />
@@ -1424,10 +1580,15 @@
             <element signature="e#1258#1616#0#PHP" expanded="false" />
             <element signature="e#1633#2275#0#PHP" expanded="false" />
 >>>>>>> Stashed changes
+=======
+            <element signature="e#1258#1616#0#PHP" expanded="false" />
+            <element signature="e#1633#2275#0#PHP" expanded="false" />
+>>>>>>> Stashed changes
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/routes/web.php">
@@ -1478,6 +1639,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======

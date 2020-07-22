@@ -59,8 +59,10 @@
                     {{--<a href="javascript:;"> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal">修改</button></a>--}}
 
 
+
                     <a href="/admin/brandedit/{{$v->brand_id}}"><button type="button" class="btn btn-success">修改</button></a>
                     <!-- <button type="button" class="btn btn-success brand_ids" data-toggle="modal" data-target="#editModal">修改</button> -->
+
 
                     <button type="button" class="btn btn-danger del">删除</button>
                 </td>

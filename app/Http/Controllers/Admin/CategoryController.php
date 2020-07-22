@@ -8,7 +8,7 @@ use App\models\Cate;
 class CategoryController extends Controller
 {
     public function category(){
-    	$res=Cate::get();
+    	$res=Cate::where("cate_show",1)->get();
     	$cate_info=self::list_level($res);
 
     	// dd($cate_info);
@@ -48,6 +48,34 @@ class CategoryController extends Controller
             ];
         }
     }
+     public function cate_del(){
+        $id=request()->all();
+        $AdminModel=new Cate();
+        // dd($id);
+        $res=$AdminModel->where("cate_id",$id)->get();
+        $cate_info=self::list_level($res);
+        // dd($cate_info);
+        if($cate_info!=null){
+            return [
+                "code"=>"00005",
+                "message"=>"分类下内容不可删除"
+            ]; 
+        }
+        // foreach($pid as $k=>$v)
+        $reg=$AdminModel->where('cate_id',$id)->update(['cate_show'=>2]);
+        // dd($reg);
+        if($reg){
+            return [
+                "code"=>"00000",
+                "message"=>"删除成功"
+            ];
+        }else{
+           return [
+               "code"=>"00001",
+               "message"=>"删除失败"
+           ];
+        }
+   }
     public function cate_adds(){
     	 $da = request()->all();
         $data = [

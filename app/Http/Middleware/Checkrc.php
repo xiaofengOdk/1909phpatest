@@ -22,7 +22,26 @@ class Checkrc
         if(!$user){
             return redirect('/admin/login');
         }
+         $uid=$user['admin_id'];
         $result=Admin::where("admin_name",$user['admin_name'])->first();
+    //      $quanxian=Admin_role::
+    //                 leftjoin("admin","admin_role.admin_id","=","admin.admin_id")
+    //             ->leftjoin("role","admin_role.role_id","=","role.role_id")
+    //             ->leftjoin("role_right","admin_role.role_id","=","role_right.role_id")
+    //             ->where("admin.admin_id",$uid)
+    //             ->get();
+    //       // dd($quanxian);      
+    // foreach($quanxian as $k=>$v){
+    //         // if($v->role_name == '后台经理'){
+    //         //     return $next($request);
+    //         // }
+    //         print_R($v->role_name);
+    //     }
+
+
+
+
+
         $url=$request->url();
          if($result){
             // echo 1;exit;
@@ -81,6 +100,7 @@ class Checkrc
                     return $next($request);
 
         }
+
                     return $next($request);
     }
 

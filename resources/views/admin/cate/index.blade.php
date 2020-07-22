@@ -163,10 +163,10 @@
                     'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content'),
                 },
 				success:function(res){
-					console.log(res)
+					// console.log(res)
 					// if(res.success==true){
-					// 	alert(res.message);
-					// 	history.go(0);
+						alert(res.message);
+						history.go(0);
 					// }
 				}
 			})

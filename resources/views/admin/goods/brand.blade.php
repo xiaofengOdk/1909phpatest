@@ -1,5 +1,6 @@
 @extends("admin.layout.public")
 @section("content")
+
 <div class="box-header with-border">
     <h3 class="box-title">品牌管理</h3>
 </div>
@@ -207,6 +208,7 @@ $(document).on('blur','.editbrand_name',function(){
         $('.brand_name').show();
         $(this).hide();
 //                loaction.reload(false);
+        window.location.reload();
         return false;
     }
     var url = '/admin/editbrand_name';

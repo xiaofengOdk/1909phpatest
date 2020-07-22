@@ -1,26 +1,11 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <!-- 页面meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>广告分类管理</title>
-    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../plugins/adminLTE/css/AdminLTE.css">
-    <link rel="stylesheet" href="../plugins/adminLTE/css/skins/_all-skins.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
-
+@extends("admin.layout.public")
+@section("content")
 </head>
-
 <body class="hold-transition skin-red sidebar-mini"  >
 <!-- .box-body -->
 
 <div class="box-header with-border">
-    <h3 class="box-title">广告分类管理</h3>
+    <h3 class="box-title">属性值管理</h3>
 </div>
 
 <div class="box-body">
@@ -32,17 +17,15 @@
         <div class="pull-left">
             <div class="form-group form-inline">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-default" title="新建" data-toggle="modal" data-target="#editModal" ng-click="toAdd()"><i class="fa fa-file-o"></i> 新建</button>
-                    <button type="button" class="btn btn-default" title="删除" ng-click="dele()"><i class="fa fa-trash-o"></i> 删除</button>
-                    <button type="button" class="btn btn-default" title="开启" onclick='confirm("你确认要开启吗？")'><i class="fa fa-check"></i> 开启</button>
-                    <button type="button" class="btn btn-default" title="屏蔽" onclick='confirm("你确认要屏蔽吗？")'><i class="fa fa-ban"></i> 屏蔽</button>
-                    <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新</button>
+                    <button type="button" class="btn btn-default" title="新建"
+                            data-toggle="modal" data-target="#editModal" ng-click="toAdd()">
+                        <i class="fa fa-file-o"></i> 新建
+                    </button>
+                    <button type="button" class="btn btn-default" title="刷新"
+                            onclick="window.location.reload();">
+                        <i class="fa fa-refresh"></i> 刷新
+                    </button>
                 </div>
-            </div>
-        </div>
-        <div class="box-tools pull-right">
-            <div class="has-feedback">
-                名称：<input >	<button class="btn btn-default" >查询</button>
             </div>
         </div>
         <!--工具栏/-->
@@ -51,32 +34,25 @@
         <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
             <thead>
             <tr>
-                <th class="" style="padding-right:0px">
-                    <input id="selall" type="checkbox" class="icheckbox_square-blue">
-                </th>
-                <th class="sorting_asc">分类ID</th>
-                <th class="sorting">分类名称</th>
-                <th class="sorting">分组</th>
-                <th class="sorting">KEY</th>
-                <th class="sorting">状态</th>
+                <th class="sorting_asc">属性值ID</th>
+                <th class="sorting">属性名称</th>
+                <th class="sorting">创建时间</th>
+                <th class="sorting">属性名称</th>
                 <th class="text-center">操作</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td><input  type="checkbox" ng-click="updateSelection($event,entity.id)"></td>
-                <td>1</td>
-                <td>首页轮播广告</td>
-                <td>首页广告</td>
-                <td>index</td>
-                <td>
-                    <span>无效</span>
-                    <span>有效</span>
-                </td>
-                <td class="text-center">
-                    <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal" >修改</button>
-                </td>
-            </tr>
+            @foreach($data as $k=>$v)
+                <tr id="{{$v['id']}}">
+                    <td>{{$v['id']}}</td>
+                    <td>{{$v['attrval_name']}}</td>
+                    <td>{{date("Y-m-d H:i:s",$v['add_time'])}}</td>
+                    <td>{{$v['attr_name']}}</td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-danger del">删除</button>
+                    </td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
         <!--数据列表/-->
@@ -93,41 +69,79 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="myModalLabel">广告分类编辑</h3>
+                <h3 id="myModalLabel">属性编辑</h3>
             </div>
             <div class="modal-body">
-
                 <table class="table table-bordered table-striped"  width="800px">
                     <tr>
-                        <td>分类名称</td>
-                        <td><input  class="form-control" placeholder="分类名称">  </td>
+                        <td>属性值名称</td>
+                        <td><input  class="form-control" id="attrval_name" placeholder="属性值名称"></td>
                     </tr>
                     <tr>
-                        <td>分组</td>
-                        <td><input  class="form-control" placeholder="分组">  </td>
-                    </tr>
-                    <tr>
-                        <td>KEY</td>
-                        <td><input  class="form-control" placeholder="KEY">  </td>
-                    </tr>
-                    <tr>
-                        <td>是否有效</td>
+                        <td>属性ID</td>
                         <td>
-                            <input type="checkbox" class="icheckbox_square-blue" >
+                            <select id="attr_id">
+                                @foreach($res as $k=>$v)
+                                    <option   value="{{$v->attr_id}}">{{$v->attr_name}}</option>
+                                @endforeach
+                            </select>
                         </td>
                     </tr>
                 </table>
-
             </div>
             <div class="modal-footer">
-                <button class="btn btn-success" data-dismiss="modal" aria-hidden="true">保存</button>
+                <button class="btn btn-success" data-dismiss="modal" aria-hidden="true" id="add">提交</button>
                 <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
             </div>
         </div>
     </div>
 </div>
-
-
 </body>
-
 </html>
+<script>
+    //添加
+    $(document).on('click','#add',function(){
+        var attrval_name=$("#attrval_name").val();
+        var attr_id=$('#attr_id').val();
+//        console.log(attr_id);
+//        return false;
+        $.ajax({
+            url: "/admin/attrval_adds",
+            type: 'post',
+            data: {attrval_name:attrval_name,attr_id:attr_id},
+            dataType: 'json',
+            success: function (res) {
+                if(res.code=='200'){
+                    window.location.href=res.url;
+                }else{
+                    alert(res.msg);
+                }
+            }
+        })
+    });
+    //删除
+    $(document).on('click','.del',function(){
+        var id=$(this).parents('tr').attr('id');
+        var data={};
+        data.id=id;
+        var url="/admin/attrval_del";
+        if(window.confirm("确认删除？")){
+            $.ajax({
+                url:url,
+                data:data,
+                type:'post',
+                dataType:'json',
+                success:function(result){
+                    if(result['code']==200){
+                        alert(result['msg']);
+                        location.href=result['url'];
+                    }else{
+                        alert(result['msg']);
+                        location.href=result['url'];
+                    }
+                }
+            })
+        }
+    });
+</script>
+@endsection

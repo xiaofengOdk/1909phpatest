@@ -70,12 +70,15 @@ Route::prefix("/admin")->group(function(){
 
 
 
-    Route::any('/adtg_index', 'Admin\AdtgController@adtg_index');//广告展示   李丹阳
+    Route::any('/adtg_add', 'Admin\AdtgController@adtg_add');//广告展示   李丹阳
     Route::any('/adtg_adds', 'Admin\AdtgController@adtg_adds');//广告添加   李丹阳
-    Route::any('/adtg_dels', 'Admin\AdtgController@adtg_dels');//广告删除   李丹阳
+    Route::any('/adtg_del', 'Admin\AdtgController@adtg_del');//广告删除   李丹阳
     Route::any('/pol', 'Admin\AdtgController@pol');//广告即点即改   李丹阳
 
-
+    Route::any('/cate_add', 'Admin\CategoryController@cate_add');//分类展示  邢慧峰
+    Route::any('/cate_adds', 'Admin\CategoryController@cate_adds');//分类添加  邢慧峰
+    Route::any('/cate_del', 'Admin\CategoryController@cate_del');//分类删除  邢慧峰
+    Route::any('/cate_ji', 'Admin\CategoryController@cate_ji');//分类即点即改  邢慧峰
 
 
     Route::any('/nav_add', 'Admin\NavController@nav_add');//导航添加   阴晓菲

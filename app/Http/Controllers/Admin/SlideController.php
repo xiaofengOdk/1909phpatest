@@ -37,6 +37,28 @@ class SlideController extends Controller
        
     }
    
+   
+    // 修改
+    public function slide_upd($id){
+        $res = Slide::find($id);
+        return view("admin.slide.slide_upd",compact("res"));
+    }
+    public function slide_upddo($id){
+        $data = request()->all();
+        
+        if(request()->hasFile('slide_log')){ //hasFile 方法判断文件在请求中是否存在
+            $data['slide_log'] = $this->Moreupload('slide_log');
+        }
+      
+        $res = Slide::where("slide_id",$id)->update($data);
+        if($res){
+            return Redirect("admin/slide_show");
+        }
+        if($res==0){
+            return Redirect("admin/slide_show");
+        }
+        
+    }
     public function Moreupload($img){
         $file = request()->file($img);
         // dd($file);
@@ -44,10 +66,5 @@ class SlideController extends Controller
             $info = $file->store('upload');
         }
         return $info;
-    }
-    // 修改
-    public function slide_upd(){
-        // echo $id;
-        return view("admin.slide.slide_upd");
     }
 }

@@ -4,7 +4,7 @@
 	<script src="/static/chajian/jquery.js"></script>
 	<script src="/static/chajian/jquery.uploadify.js"></script>
                     <div class="box-header with-border">
-                        <h3 class="box-title">商品分类管理     
+                        <h3 class="box-title">轮播图管理     
                        	</h3>
                     </div>
 
@@ -26,7 +26,7 @@
                             <div class="pull-left">
                                 <div class="form-group form-inline">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-default" title="新建" data-toggle="modal" data-target="#editModal" ><i class="fa fa-file-o"></i> 新建</button>
+                                        <button type="button" class="btn btn-default" title="添加" data-toggle="modal" data-target="#editModal" ><i class="fa fa-file-o"></i> 添加</button>
                                         <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();" ><i class="fa fa-check"></i> 刷新</button>
                                        
                                     </div>
@@ -47,11 +47,9 @@
 					                      <th class="text-center">操作</th>
 			                          </tr>
 			                      </thead>
-								 
 			                      <tbody>
 								  @foreach($res as $k=>$v)
 			                          <tr >
-			                           		                              
 				                          <td>{{$v->slide_id}}</td>
 									      <td>
 										  <img src="{{env('UPLOAD_URL')}}{{$v->slide_log}}" width="150px" height="100px">
@@ -66,37 +64,27 @@
 										  </td>
 									      <td>{{$v->slide_weight}}</td>									    
 									      <td>{{date("Y-m-d",$v->add_time)}}</td>
-									     									      
 		                                  <td class="text-center">		                                     
-		                                      <button type="button" class="btn bg-olive btn-xs" >查询下级</button> 	
-											                            
-		                                 	  <a href="{{url('/admin/slide/slide_upd/'.$v->slide_id)}}" class="btn bg-olive btn-xs">修改</a>                                         
+		                                      <button type="button" slide_id="{{$v->slide_id}}" class="btn bg-olive btn-xs" del>删除</button> 	
+		                                 	  <a href="{{url('/admin/slide_upd/'.$v->slide_id)}}" class="btn bg-olive btn-xs">修改</a>                                         
 		                                  </td>
 			                          </tr>
-									 
 									@endforeach
 			                      </tbody>
 			                  </table>
 							  <p>{{$res->links()}}</p>
 			                  <!--数据列表/-->                      
-						
                         </div>
                         <!-- 数据表格 /-->
-                        
-                        
-                        
-                        
                      </div>
                     <!-- /.box-body -->
-              
-                                
 <!-- 编辑窗口 -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" >
 	<div class="modal-content">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			<h3 id="myModalLabel">商品分类编辑</h3>
+			<h3 id="myModalLabel">轮播图添加</h3>
 		</div>
 		<form action="{{url('/admin/slide_add')}}" method="post" enctype="multipart/form-data">
 		<div class="modal-body">							

@@ -28,6 +28,7 @@
               }
          }
     </script>
+
 </head>
 
 <body class="hold-transition skin-green sidebar-mini" >
@@ -346,8 +347,8 @@
                                 </a>
                             </li>
                             <li id="admin-login">
-                                <a href="type_template.html" target="iframe">
-                                    <i class="fa fa-circle-o"></i>模板管理
+                                <a href="/admin/gadd" target="iframe">
+                                    <i class="fa fa-circle-o"></i>商品管理
                                 </a>
                             </li>
                             <li id="admin-login">
@@ -398,8 +399,72 @@
                             </li>
                         </ul>
                     </li>
+
                     <li class="treeview">
                         <a href="#">
+                            <i class="fa fa-folder"></i>
+                            <span>分类管理</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+
+                            <li id="admin-login">
+                                <a href="/admin/category" target="iframe">
+                                    <i class="fa fa-circle-o"></i>分类管理
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                   <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-folder"></i>
+                            <span>Sku管理</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+
+                            <li id="admin-login">
+                                <a href="/admin/attr_add" target="iframe">
+                                    <i class="fa fa-circle-o"></i>属性查看
+                                </a>
+                            </li>
+                            <li id="admin-login">
+                                <a href="/admin/attrval_add" target="iframe">
+                                    <i class="fa fa-circle-o"></i>属性值查看
+                                </a>
+                            </li>
+                            <li id="admin-login">
+                                <a href="javascript:;" target="iframe">
+                                    <i class="fa fa-circle-o"></i>关联查看
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                  
+                   <li class="treeview">
+                      <a href="#">
+                            <i class="fa fa-folder"></i>
+                            <span>轮播图管理</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+
+                            <li id="admin-login">
+                                <a href="/admin/slide_show" target="iframe">
+                                    <i class="fa fa-circle-o"></i>轮播图管理
+                                </a>
+                            </li>
+                        </ul>
+                   </li>
+                   <li class="treeview">
+                      <a href="#">
                             <i class="fa fa-folder"></i>
                             <span>导航管理</span>
                             <span class="pull-right-container">
@@ -409,30 +474,11 @@
                         <ul class="treeview-menu">
                             <li id="admin-login">
                                 <a href="/admin/nav_add" target="iframe">
-                                    <i class="fa fa-circle-o"></i>导航展示
+                                    <i class="fa fa-circle-o"></i>导航管理
                                 </a>
                             </li>
                         </ul>
                     </li>
-
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-folder"></i>
-                            <span>广告管理</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li id="admin-login">
-                                <a href="/admin/adtg_add" target="iframe">
-                                    <i class="fa fa-circle-o"></i>查看
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-
                     <!-- 菜单 /-->
 
                 </ul>
@@ -440,11 +486,12 @@
             <!-- /.sidebar -->
         </aside>
 
-
         <!-- 导航侧栏 /-->
            <div class="content-wrapper">
                 @yield("content")
              </div>
+        </div>
+
         <!-- 底部导航 -->
 
         <footer class="main-footer">

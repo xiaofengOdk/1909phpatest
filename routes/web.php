@@ -37,6 +37,7 @@ Route::prefix("/admin")->group(function(){
 	Route::any("/role_add","Admin\RoleController@role_add")->middleware("islogin");//添加、展示
 	Route::any("/role_adds","Admin\RoleController@role_adds");
 	Route::any("/role_Del","Admin\RoleController@role_Del");//删除
+
 	Route::any('/upd', 'Admin\RoleController@upd');//角色赋予权限
 // 权限管理
     Route::any("/right/right_add","Admin\RightController@right_add");//权限赋予的路由
@@ -74,6 +75,17 @@ Route::prefix("/admin")->group(function(){
     Route::any('/adtg_adds', 'Admin\AdtgController@adtg_adds');//广告添加   李丹阳
     Route::any('/adtg_del', 'Admin\AdtgController@adtg_del');//广告删除   李丹阳
     Route::any('/pol', 'Admin\AdtgController@pol');//广告即点即改   李丹阳
+  
+    Route::any('/attr_add', 'Admin\SkuController@attr_add');//attr展示   李丹阳
+    Route::any('/attrval_add', 'Admin\SkuController@attrval_add');//attrval展示   李丹阳
+    Route::any('/attr_adds', 'Admin\SkuController@attr_adds');//attr添加   李丹阳
+    Route::any('/attrval_adds', 'Admin\SkuController@attrval_adds');//attrval添加   李丹阳
+    Route::any('/attr_del', 'Admin\SkuController@attr_del');//attr删除   李丹阳
+    Route::any('/attrval_del', 'Admin\SkuController@attrval_del');//attrval删除   李丹阳
+
+
+
+
 
     Route::any('/category', 'Admin\CategoryController@category');//分类展示  邢慧峰
     Route::any('/cate_adds', 'Admin\CategoryController@cate_adds');//分类添加  邢慧峰
@@ -89,11 +101,14 @@ Route::prefix("/admin")->group(function(){
 
 
 
+    Route::any('/gimgs_add', 'Admin\GimgsController@gimgs_add');//商品添加   刘远浩
+    Route::any('/gimgs_adds', 'Admin\GimgsController@gimgs_adds');//商品添加   刘远浩
 
     Route::any('/slide_add', 'Admin\SlideController@slide_add');//轮播图添加   刘远浩
     Route::any('/slide_show', 'Admin\SlideController@slide_show');//轮播图展示   刘远浩
-    Route::any('/slide_upd', 'Admin\SlideController@slide_upd');//轮播图修改 刘远浩
-    Route::any('/slide_upddo', 'Admin\SlideController@slide_upddo');//轮播图修改执行 刘远浩
+    Route::any('/slide_del', 'Admin\SlideController@slide_del');//轮播删除   刘远浩
+    Route::any('/slide_upd/{id}', 'Admin\SlideController@slide_upd');//轮播图修改 刘远浩
+    Route::any('/slide_upddo/{id}', 'Admin\SlideController@slide_upddo');//轮播图修改执行 刘远浩
 
-   
+	Route::any("/pth","Admin\RoleController@pth");//即点即改
 });

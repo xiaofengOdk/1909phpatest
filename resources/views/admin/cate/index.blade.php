@@ -142,7 +142,7 @@
 				}
 				if(res.success=="success"){
 					alert(res.message);
-					location.href=reload()
+						history.go(0);
 				}
 			}
 		 })

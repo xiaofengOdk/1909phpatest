@@ -3,7 +3,7 @@
 <body class="hold-transition skin-red sidebar-mini" >
             <!-- 正文区域 -->
             <section class="content">
-            <form method='post' action='/admin/gdo'>
+            <!-- <form method='post' action='/admin/gdo' enctype="multipart/form-data"> -->
                 <div class="box-body">
 
                     <!--tab页-->
@@ -54,22 +54,20 @@
 									
 		                           <div class="col-md-2 title">商品名称</div>
 		                           <div class="col-md-10 data">
-		                               <input type="text" class="form-control"    placeholder="商品名称" name="goods_name" value="">
+		                               <input type="checked" class="form-control"    placeholder="商品名称" name="goods_name" >
 		                           </div>
 		                           
 		                           <div class="col-md-2 title">品牌</div>
 		                           <div class="col-md-10 data">
 		                              <select class="form-control" name="brand_id" >
+                                         <option>请选择</option>
                                          @foreach($Bdata as $k=>$v)
                                             <option value="{{$v->brand_id}}">{{$v->brand_name}}</option>
                                          @endforeach
                                       </select>
 		                           </div>
 		
-								   <div class="col-md-2 title">商品号</div>
-		                           <div class="col-md-10 data">
-		                               <input type="text" class="form-control"   placeholder="商品号" name="goods_sn" value="">
-		                           </div>
+								
 		                           
 		                           <div class="col-md-2 title">商品价格</div>
 		                           <div class="col-md-10 data">
@@ -81,7 +79,7 @@
 		                           
 		                           <div class="col-md-2 title editer">商品介绍</div>
                                    <div class="col-md-10 data editer">
-                                       <textarea name="goods_dese" style="width:800px;height:400px;visibility:hidden;" ></textarea>
+                                       <textarea name="goods_dese" style="width:800px;height:400px; border:1px solid #fff" ></textarea>
                                    </div>
 		                           
 		                           <div class="col-md-2 title">商品数量</div>
@@ -92,7 +90,10 @@
                                    <div class="col-md-2 title">商品图片</div>
 		                           <div  class="col-md-10 data">
 		                               
-                                   <input type="file" class="form-control" name="goods_img">
+                                   <input type="file" name="title_picture" id ="file_upload">
+                                    <div class="baTop">
+                            
+                                    </div>
 		                           </div>  
 
                                    <div class="col-md-2 title">是否展示</div>
@@ -138,135 +139,70 @@
                             	
 	                                <div class="row data-type">
 	                                
-		                                <div>
-			                                <div class="col-md-2 title">屏幕尺寸</div>
+		                                <!-- <div>
+                                            @foreach($Adata as $k=>$v)
+                                           
+			                                <div class="col-md-2 title Aname">{{$v->attr_name}}</div>
+                                            <input type='hidden' name="attr_id" value="{{$v->attr_id}}"/>
 					                        <div class="col-md-10 data">
-					                               
+					                            @foreach($Vdata as $key=>$val)
+                                                 @if($val->attr_id==$v->attr_id)
 					                            <span>
-					                            	<input  type="checkbox" >4.0					                            				                            	
-					                            </span>  	
-												<span>
-					                            	<input  type="checkbox" >4.5					                            				                            	
+					                            	<input  name="attr_val" type="checkbox"  value="{{$val->id}}" >{{$val->attrval_name}}					                            				                            	
 					                            </span>
-												<span>
-					                            	<input  type="checkbox" >5.0					                            				                            	
-					                            </span>												
+                                                @endif
+                                                @endforeach  	
+																							
 					                            	
 					                        </div>
+                                            @endforeach
 		                                </div>   
-										<div>
-			                                <div class="col-md-2 title">网络制式</div>
-					                        <div class="col-md-10 data">
-					                               
-					                            <span>
-					                            	<input  type="checkbox" >2G					                            				                            	
-					                            </span>  	
-												<span>
-					                            	<input  type="checkbox" >3G					                            				                            	
-					                            </span>
-												<span>
-					                            	<input  type="checkbox" >4G					                            				                            	
-					                            </span>												
-					                            	
+										   -->
+                                        <div>
+                                            <div class="col-md-10 data">
+                                            <select name="attr_id" class="col-md-2 title Aname">
+                                            @foreach($Adata as $k=>$v)
+                                                <option value="{{$v->attr_id}}">{{$v->attr_name}}</option>
+                                            @endforeach
+                                             </select>
+			                                <!-- <div class="col-md-2 title Aname">{{$v->attr_name}}</div> -->
+                                          
+                                            <!-- <input type='hidden' name="attr_id" value="{{$v->attr_id}}"/> -->
+					                            <!-- <span> </span><br> -->
+                                            <select name="attr_val"  class="col-md-2 title Aname">
+                                            @foreach($Vdata as $key=>$val)
+                                                <option value="{{$val->id}}">{{$val->attrval_name}}</option>
+                                            @endforeach
+                                             </select>
+                                               
 					                        </div>
-		                                </div>  
-		                                                                                  
+                                        
+		                                </div>   
+										                                                  
 	                                </div>
 	
 	                                
 	                                <div class="row data-type">
 	                                	 <table class="table table-bordered table-striped table-hover dataTable">
 						                    <thead>
-						                        <tr>					                          
-												    <th class="sorting">屏幕尺寸</th>
-													<th class="sorting">网络制式</th>
+						                        <tr>					                         
 												    <th class="sorting">价格</th>
-												    <th class="sorting">库存</th>
-												    <th class="sorting">是否启用</th>
-												    <th class="sorting">是否默认</th>
+												    <th class="sorting">库存</th>									   
 											    </tr>
 								            </thead>
 						                    <tbody>
 						                      <tr>					                           
+										          
 										            <td>
-										            	4.0
-										            </td>
-													<td>
-										            	3G
+										           		<input class="form-control"  placeholder="价格" name="goods_price">
 										            </td>
 										            <td>
-										           		<input class="form-control"  placeholder="价格">
+										            	<input class="form-control" placeholder="库存数量" name="goods_store">
 										            </td>
-										            <td>
-										            	<input class="form-control" placeholder="库存数量">
-										            </td>
-										            <td>
-										             	<input type="checkbox" >
-										            </td>
-										            <td>
-										                <input type="checkbox" >									             	
-										            </td>
+										           
 						                      </tr>
-											  <tr>					                           
-										            <td>
-										            	4.0
-										            </td>
-													<td>
-										            	4G
-										            </td>
-										            <td>
-										           		<input class="form-control"  placeholder="价格">
-										            </td>
-										            <td>
-										            	<input class="form-control" placeholder="库存数量">
-										            </td>
-										            <td>
-										             	<input type="checkbox" >
-										            </td>
-										            <td>
-										                <input type="checkbox" >									             	
-										            </td>
-						                      </tr>
-											  <tr>					                           
-													<td>
-										            	5.0
-										            </td>
-													<td>
-										            	3G
-										            </td>
-										            <td>
-										           		<input class="form-control"  placeholder="价格">
-										            </td>
-										            <td>
-										            	<input class="form-control" placeholder="库存数量">
-										            </td>
-										            <td>
-										             	<input type="checkbox" >
-										            </td>
-										            <td>
-										                <input type="checkbox" >									             	
-										            </td>
-						                      </tr>
-											  <tr>					                           
-													<td>
-										            	5.0
-										            </td>
-													<td>
-										            	4G
-										            </td>
-										            <td>
-										           		<input class="form-control"  placeholder="价格">
-										            </td>
-										            <td>
-										            	<input class="form-control" placeholder="库存数量">
-										            </td>
-										            <td>
-										             	<input type="checkbox" >
-										            </td>
-										            <td>
-										                <input type="checkbox" >									             	
-										            </td>
-						                      </tr>
+											 
+											
 											  
 						                    </tbody>
 									 	</table>
@@ -287,10 +223,11 @@
                  	
                    </div>
                   <div class="btn-toolbar list-toolbar">
-				      <button class="btn btn-primary" ng-click="setEditorValue();save()"><i class="fa fa-save"></i>保存</button>
+				      <!-- <button class="btn btn-primary" ng-click="setEditorValue();save()"><i class="fa fa-save attr_info" ></i>保存</button> -->
+				      <button class="btn btn-primary attr_info" ><i class="fa fa-save " ></i>保存</button>
 				      <button class="btn btn-default" ng-click="goListPage()">返回列表</button>
 				  </div>
-                </form>	 
+                <!-- </form>	  -->
             </section>
             
             
@@ -315,10 +252,10 @@
 						<table>
 							<tr>
 								<td>
-								<input type="file" id="file" />				                
-					                <button class="btn btn-primary" type="button" ng-click="uploadFile()">
-				                   		上传
-					                </button>	
+                                <!-- <input type="file" name="title_picture" id ="file_upload">
+				        <div class="baTop">
+				
+		        		</div> -->
 					            </td>
 								<td> 
 									<img   width="200px" height="200px">
@@ -340,37 +277,6 @@
 
 
 
-<!-- 自定义规格窗口 -->
-<div class="modal fade" id="mySpecModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog" >
-	<div class="modal-content">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			<h3 id="myModalLabel">自定义规格</h3>
-		</div>
-		<div class="modal-body">							
-			
-			<table class="table table-bordered table-striped">
-		      	<tr>
-		      		<td>规格名称</td>
-		      		<td><input  class="form-control" placeholder="规格名称" ng-model="spec_entity.text">  </td>
-		      	</tr>			    
-		      	<tr>
-		      		<td>规格选项(用逗号分隔)</td>
-		      		<td>
-						<input  class="form-control" placeholder="规格选项" ng-model="spec_entity.values">
-		      		</td>
-		      	</tr>		      	
-			 </table>				
-			
-		</div>
-		<div class="modal-footer">						
-			<button class="btn btn-success" ng-click="add_spec_entity()" data-dismiss="modal" aria-hidden="true">保存</button>
-			<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
-		</div>
-	  </div>
-	</div>
-</div>
 
             <!-- 富文本编辑器 -->
 	<link rel="stylesheet" href="/static/admin/plugins/kindeditor/themes/default/default.css" />
@@ -385,9 +291,58 @@
 			allowFileManager : true
 		});
 	});
+$(document).on("click",".attr_info",function(){
+    var attr_id=$("select[name='attr_id']").val()
+    var attr_val=$("select[name='attr_val']").val()
+    var brand_id=$("select[name='brand_id']").val()
 
+    // console.log(attr_id)
+    // console.log(attr_val)
+    // return false
+    var sku=attr_id+":"+attr_val;
+    // console.log(sku);
+    // return false
+    var goods_name=$("input[name='goods_name']").val()
+    var goods_dese=$("input[name='goods_dese']").val()
+    var goods_price=$("input[name='goods_price']").val()
+    var goods_store=$("input[name='goods_store']").val()
+//    console.log(goods_store);
+    // return false
+    var url='/admin/gdo';
+          $.ajax({
+                     type:'post',
+                     url:url,
+                     data:{'sku':sku},
+                     dataType:'json',
+                     success:function(reg){
+                         console.log(reg);
+                        // if(reg.code=='00000'){
+                        //      alert(reg.message);
+                        //       window.location.reload();
+                        //      return false;
+
+                        // }
+                        
+                       
+                     }
+                 })
+
+})
+</script>    
+<script>
+    $(function() {
+        $('#file_upload').uploadify({
+            'swf'      : '/static/chajian/uploadify/', 
+            'uploader' : 'uploadadd',
+            'buttonText' : "上传",
+	onUploadSuccess:function(msg,newFilePath,info){
+				var video_str='<img src="'+newFilePath+'" controls="controls">';
+				$(".baTop").append(video_str);
+				// console.log(info)
+			}
+        });
+    });
 </script>
-       
 </body>
 
 @endsection

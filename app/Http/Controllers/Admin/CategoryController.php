@@ -53,14 +53,14 @@ class CategoryController extends Controller
         $data = [
             "cate_name"=>$da['cate_name'],
             "parent_id"=>$da['pid'],
-            "cate__show"=>1,
+            "cate_show"=>1,
         ];
         // dd($data);
         $res = Cate::insert($data);
          if($res){
             return $message = [
                 "message"=>"添加成功",
-                "success"=>success,
+                "success"=>'success',
                 "code"=>00000,
             ];
         }else{

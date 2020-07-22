@@ -140,7 +140,7 @@
 				if(res.success==false){
 					alert(res.message);
 				}
-				if(res.success==true){
+				if(res.success=="success"){
 					alert(res.message);
 					location.href=reload()
 				}
@@ -148,29 +148,30 @@
 		 })
 		
 	})
-	// $(document).on("click","#del",function(){
-	// 	var right_id = $(this).attr("rid");
-	// 	var url = "{{url('/admin/right/del')}}";
-	// 	var data = {};
-	// 	data.right_id = right_id; 
-	// 	if(window.confirm("是否删除")){
-	// 		$.ajax({
-	// 			type:"post",
-	// 			url:url,
-	// 			data:data,
-	// 			datetype:"json",
-	// 			headers: {
- //                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content'),
- //                },
-	// 			success:function(res){
-	// 				if(res.success==true){
-	// 					alert(res.message);
-	// 					history.go(0);
-	// 				}
-	// 			}
-	// 		})
-	// 	}
-	// })
+	$(document).on("click","#del",function(){
+		var cate_del = $(this).attr("rid");
+		var url = "{{url('/admin/cate_del')}}";
+		var data = {};
+		data.cate_del = cate_del; 
+		if(window.confirm("是否删除")){
+			$.ajax({
+				type:"post",
+				url:url,
+				data:data,
+				datetype:"json",
+				headers: {
+                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content'),
+                },
+				success:function(res){
+					console.log(res)
+					// if(res.success==true){
+					// 	alert(res.message);
+					// 	history.go(0);
+					// }
+				}
+			})
+		}
+	})
 	$(document).ready(function(){
 		$(".span_test").click(function(){
             var _this = $(this);

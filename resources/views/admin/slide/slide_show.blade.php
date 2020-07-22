@@ -65,7 +65,7 @@
 									      <td>{{$v->slide_weight}}</td>									    
 									      <td>{{date("Y-m-d",$v->add_time)}}</td>
 		                                  <td class="text-center">		                                     
-		                                      <button type="button" slide_id="{{$v->slide_id}}" class="btn bg-olive btn-xs" del>删除</button> 	
+		                                      <button type="button" slide_id="{{$v->slide_id}}" class="btn bg-olive btn-xs del" >删除</button> 	
 		                                 	  <a href="{{url('/admin/slide_upd/'.$v->slide_id)}}" class="btn bg-olive btn-xs">修改</a>                                         
 		                                  </td>
 			                          </tr>
@@ -110,18 +110,29 @@
 	</div>
 </div>
 <script>
-//     $(function() {
-//         $('#fileupload').uploadify({
-// 			swf : "/static/chajian/uploadify.swf",
-// 			   uploader: "slide_add",
-//             buttonText : "上传",
-// 	onUploadSuccess:function(msg,newFilePath,info){
-// 				// var video_str='<img src="'+newFilePath+'" controls="controls">';
-// 				// $(".baTop").append(video_str);
-// 				console.log(newFilePath)
-// 			}
-//         });
-//     });
+	$(document).on("click",".del",function(){
+		var slide_id = $(this).attr("slide_id");
+		var data = {};
+		data.slide_id = slide_id;
+		var url = "{{url('/admin/slide_del')}}";
+		if(window.confirm("是否删除")){
+			$.ajax({
+				type:"post",
+				data:data,
+				url:url,
+				dateType:"json",
+				success:function(res){
+					if(res.success==true){
+						alert(res.message);
+						history.go(0);
+					}
+				}
+			})
+
+		}
+		
+	})
+
 </script>
 
 @endsection

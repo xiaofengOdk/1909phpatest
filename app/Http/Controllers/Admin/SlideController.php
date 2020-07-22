@@ -9,7 +9,7 @@ class SlideController extends Controller
 {
     // 展示
     public function slide_show(){
-        $res = Slide::where("is_show",1)->paginate(2);
+        $res = Slide::where("is_del",1)->paginate(2);
 
         return view("admin.slide.slide_show",compact('res'));
     }
@@ -66,5 +66,18 @@ class SlideController extends Controller
             $info = $file->store('upload');
         }
         return $info;
+    }
+
+    // 删除
+    public function slide_del(Request $request){
+        $slide_id = $request->all();
+        $res = Slide::where("slide_id",$slide_id)->update(['is_del'=>2]);
+        if($res){
+            return $message = [
+                "code"=>00002,
+                "message"=>"删除成功",
+                "success"=>true,
+            ];
+        }
     }
 }

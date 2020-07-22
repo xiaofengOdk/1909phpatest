@@ -417,6 +417,33 @@
                         </ul>
                     </li>
 
+                   <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-folder"></i>
+                            <span>Sku管理</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+
+                            <li id="admin-login">
+                                <a href="/admin/attr_add" target="iframe">
+                                    <i class="fa fa-circle-o"></i>属性查看
+                                </a>
+                            </li>
+                            <li id="admin-login">
+                                <a href="/admin/attrval_add" target="iframe">
+                                    <i class="fa fa-circle-o"></i>属性值查看
+                                </a>
+                            </li>
+                            <li id="admin-login">
+                                <a href="javascript:;" target="iframe">
+                                    <i class="fa fa-circle-o"></i>关联查看
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
                     <!-- 菜单 /-->
 

@@ -1,5 +1,6 @@
 @extends("admin.layout.public")
 @section("content")
+
 <div class="box-header with-border">
     <h3 class="box-title">品牌管理</h3>
 </div>
@@ -57,8 +58,12 @@
                 <td class="text-center">
                     {{--<a href="javascript:;"> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal">修改</button></a>--}}
 
+
+
                     <a href="/admin/brandedit/{{$v->brand_id}}"><button type="button" class="btn btn-success">修改</button></a>
                     <!-- <button type="button" class="btn btn-success brand_ids" data-toggle="modal" data-target="#editModal">修改</button> -->
+
+
                     <button type="button" class="btn btn-danger del">删除</button>
                 </td>
             </tr>
@@ -207,6 +212,7 @@ $(document).on('blur','.editbrand_name',function(){
         $('.brand_name').show();
         $(this).hide();
 //                loaction.reload(false);
+        window.location.reload();
         return false;
     }
     var url = '/admin/editbrand_name';

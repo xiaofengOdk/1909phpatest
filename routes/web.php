@@ -70,12 +70,26 @@ Route::prefix("/admin")->group(function(){
 
 
 
-    Route::any('/adtg_index', 'Admin\AdtgController@adtg_index');//广告添加   李丹阳
+    Route::any('/adtg_add', 'Admin\AdtgController@adtg_add');//广告展示   李丹阳
     Route::any('/adtg_adds', 'Admin\AdtgController@adtg_adds');//广告添加   李丹阳
-    Route::any('/adtg_dels', 'Admin\AdtgController@adtg_dels');//广告添加   李丹阳
-    Route::any('/pol', 'Admin\AdtgController@pol');//广告添加   李丹阳
+    Route::any('/adtg_del', 'Admin\AdtgController@adtg_del');//广告删除   李丹阳
+    Route::any('/pol', 'Admin\AdtgController@pol');//广告即点即改   李丹阳
+  
+    Route::any('/attr_add', 'Admin\SkuController@attr_add');//attr展示   李丹阳
+    Route::any('/attrval_add', 'Admin\SkuController@attrval_add');//attrval展示   李丹阳
+    Route::any('/attr_adds', 'Admin\SkuController@attr_adds');//attr添加   李丹阳
+    Route::any('/attrval_adds', 'Admin\SkuController@attrval_adds');//attrval添加   李丹阳
+    Route::any('/attr_del', 'Admin\SkuController@attr_del');//attr删除   李丹阳
+    Route::any('/attrval_del', 'Admin\SkuController@attrval_del');//attrval删除   李丹阳
 
 
+
+
+
+    Route::any('/category', 'Admin\CategoryController@category');//分类展示  邢慧峰
+    Route::any('/cate_adds', 'Admin\CategoryController@cate_adds');//分类添加  邢慧峰
+    Route::any('/cate_del', 'Admin\CategoryController@cate_del');//分类删除  邢慧峰
+    Route::any('/cate_ji', 'Admin\CategoryController@cate_ji');//分类即点即改  邢慧峰
 
 
     Route::any('/nav_add', 'Admin\NavController@nav_add');//导航添加   阴晓菲
@@ -89,8 +103,8 @@ Route::prefix("/admin")->group(function(){
 
     Route::any('/slide_add', 'Admin\SlideController@slide_add');//轮播图添加   刘远浩
     Route::any('/slide_show', 'Admin\SlideController@slide_show');//轮播图展示   刘远浩
-    Route::any('/slide_upd', 'Admin\SlideController@slide_upd');//轮播图修改 刘远浩
-    Route::any('/slide_upddo', 'Admin\SlideController@slide_upddo');//轮播图修改执行 刘远浩
+    Route::any('/slide_upd/{id}', 'Admin\SlideController@slide_upd');//轮播图修改 刘远浩
+    Route::any('/slide_upddo/{id}', 'Admin\SlideController@slide_upddo');//轮播图修改执行 刘远浩
 
    
 });

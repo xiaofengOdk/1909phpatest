@@ -27,9 +27,9 @@ class AdminController extends Controller
         $regs=$RoleModel->get();
         // $page=request()->page??1;
         // echo $page;exit;
-        if(request()->ajax()){
-            return view('admin.user.ajaxpag',['reg'=>$reg,'regs'=>$regs]);
-        }
+        // if(request()->ajax()){
+        //     return view('admin.user.ajaxpag',['reg'=>$reg,'regs'=>$regs]);
+        // }
         return view('admin.user.ushow',['reg'=>$reg,'regs'=>$regs]);
    }
    public function udo(){

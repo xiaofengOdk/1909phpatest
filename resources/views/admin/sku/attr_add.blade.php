@@ -1,6 +1,5 @@
 @extends("admin.layout.public")
 @section("content")
-</head>
 <body class="hold-transition skin-red sidebar-mini"  >
   <!-- .box-body -->
                 
@@ -44,7 +43,10 @@
 								  @foreach($data as $k=>$v)
 									  <tr attr_id="{{$v['attr_id']}}">
 										  <td>{{$v['attr_id']}}</td>
-										  <td>{{$v['attr_name']}}</td>
+										  <td pp="attr_name">
+											 <span class="jd">{{$v['attr_name']}}</span>
+											  <input type="text" class="ad" style="display: none;" value="{{$v->attr_name}}"/>
+										  </td>
 										  <td>{{date("Y-m-d H:i:s",$v['add_time'])}}</td>
 										  <td class="text-center">
 											  <button type="button" class="btn btn-danger del">删除</button>
@@ -127,6 +129,39 @@
 				}
 			})
 		}
+	});
+	//即点即改
+	$('.jd').click(function(){//让input框显示  自己隐藏
+		var _this=$(this);
+		_this.hide();
+		_this.next('input').show();
+	})
+	$('.ad').blur(function(){  //当失去焦点的时候获取到 id 要修改的字段  值
+		var _this=$(this);
+		var attr_id=_this.parents("tr").attr("attr_id");//祖先级节点的自定义属性  id
+		var field=_this.parent("td").attr("pp");//父节点  字段
+		var _val=_this.val();  //获取值
+
+		//发送ajax 把这三个值传过去
+		var url="/admin/attr_pth";
+		$.ajax({
+			url:url,
+			data:{'attr_id':attr_id,'field':field,'_val':_val},
+			dataType:'json',
+			success:function(reg){
+				//console.log(reg);
+				if(reg.code=='00000'){
+					window.location.reload()
+				}
+				if(reg.code=='00001'){
+					window.location.reload()
+				}
+				if(reg.code=='00002'){
+					alert(reg.message);
+					window.location.reload()
+				}
+			}
+		})
 	});
 </script>
 @endsection

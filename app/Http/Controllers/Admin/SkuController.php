@@ -46,6 +46,31 @@ class SkuController extends Controller
             return $this->message('003','删除失败');
         }
     }
+    //即点即改
+    public function attr_pth()
+    {
+        $attr_id=request()->attr_id;
+        $attr_name=request()->field;
+        $val=request()->_val;
+        $reg=Attr::where('attr_id',$attr_id)->update([$attr_name=>$val]);
+        // dd($reg);
+        if($reg==1){
+            return [
+                "code"=>"00000",
+                "message"=>"修改成功"
+            ];
+        }elseif($reg==0){
+            return [
+                "code"=>"00001",
+                "message"=>"没有修改"
+            ];
+        }else{
+            return [
+                "code"=>"00002",
+                "message"=>"修改失败"
+            ];
+        }
+    }
 
     //属性值表
     //展示
@@ -56,6 +81,7 @@ class SkuController extends Controller
             ->get(['attrval.attrval_name','attrval.add_time','attr.attr_name','attrval.id'])
             ->toArray();
         $res = Attr::get();
+        //dd($data);
         return view('admin.sku.attrval_add',['data'=>$data,'res'=>$res]);
     }
     //添加
@@ -79,7 +105,6 @@ class SkuController extends Controller
             return $this->message('002','属性值添加失败','');
         }
     }
-
     //删除
     public function attrval_del(Request $request)
     {
@@ -91,7 +116,6 @@ class SkuController extends Controller
             return $this->message('003','删除失败');
         }
     }
-
     //错误提示
     public function message($code,$msg,$url=''){
         $message = [
@@ -101,5 +125,29 @@ class SkuController extends Controller
         ];
         return json_encode($message,JSON_UNESCAPED_UNICODE);
     }
-
+    //即点即改
+    public function attrval_pth()
+    {
+        $id=request()->id;
+        $attrval_name=request()->field;
+        $val=request()->_val;
+        $reg=AttrVal::where('id',$id)->update([$attrval_name=>$val]);
+        // dd($reg);
+        if($reg==1){
+            return [
+                "code"=>"00000",
+                "message"=>"修改成功"
+            ];
+        }elseif($reg==0){
+            return [
+                "code"=>"00001",
+                "message"=>"没有修改"
+            ];
+        }else{
+            return [
+                "code"=>"00002",
+                "message"=>"修改失败"
+            ];
+        }
+    }
 }

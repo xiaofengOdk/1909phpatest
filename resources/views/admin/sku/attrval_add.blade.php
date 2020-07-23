@@ -1,6 +1,5 @@
 @extends("admin.layout.public")
 @section("content")
-</head>
 <body class="hold-transition skin-red sidebar-mini"  >
 <!-- .box-body -->
 
@@ -35,7 +34,7 @@
             <thead>
             <tr>
                 <th class="sorting_asc">属性值ID</th>
-                <th class="sorting">属性名称</th>
+                <th class="sorting">属性值名称</th>
                 <th class="sorting">创建时间</th>
                 <th class="sorting">属性名称</th>
                 <th class="text-center">操作</th>
@@ -45,7 +44,10 @@
             @foreach($data as $k=>$v)
                 <tr id="{{$v['id']}}">
                     <td>{{$v['id']}}</td>
-                    <td>{{$v['attrval_name']}}</td>
+                    <td pp="attrval_name">
+                        <span class="jd">{{$v['attrval_name']}}</span>
+                        <input type="text" class="ad" style="display: none;" value="{{$v['attrval_name']}}"/>
+                    </td>
                     <td>{{date("Y-m-d H:i:s",$v['add_time'])}}</td>
                     <td>{{$v['attr_name']}}</td>
                     <td class="text-center">
@@ -142,6 +144,39 @@
                 }
             })
         }
+    });
+    //即点即改
+    $('.jd').click(function(){//让input框显示  自己隐藏
+        var _this=$(this);
+        _this.hide();
+        _this.next('input').show();
+    })
+    $('.ad').blur(function(){  //当失去焦点的时候获取到 id 要修改的字段  值
+        var _this=$(this);
+        var id=_this.parents("tr").attr("id");//祖先级节点的自定义属性  id
+        var field=_this.parent("td").attr("pp");//父节点  字段
+        var _val=_this.val();  //获取值
+
+        //发送ajax 把这三个值传过去
+        var url="/admin/attrval_pth";
+        $.ajax({
+            url:url,
+            data:{'id':id,'field':field,'_val':_val},
+            dataType:'json',
+            success:function(reg){
+                //console.log(reg);
+                if(reg.code=='00000'){
+                    window.location.reload()
+                }
+                if(reg.code=='00001'){
+                    window.location.reload()
+                }
+                if(reg.code=='00002'){
+                    alert(reg.message);
+                    window.location.reload()
+                }
+            }
+        })
     });
 </script>
 @endsection

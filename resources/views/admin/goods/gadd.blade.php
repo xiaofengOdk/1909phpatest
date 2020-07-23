@@ -285,9 +285,8 @@
 	<link rel="stylesheet" href="/static/admin/plugins/kindeditor/themes/default/default.css" />
 	<script charset="utf-8" src="/static/admin/plugins/kindeditor/kindeditor-min.js"></script>
 	<script charset="utf-8" src="/static/admin/plugins/kindeditor/lang/zh_CN.js"></script> 
-    <link rel="stylesheet" href="/static/chajian/uploadify.css">
-<script src="/static/chajian/jquery.uploadify.js"></script>
-            <!-- 正文区域 /-->
+       <link rel="stylesheet" href="/static/chajian/uploadify.css">
+	<script src="/static/chajian/jquery.uploadify.js"></script>
 <script type="text/javascript">
 
 	var editor;
@@ -318,7 +317,7 @@ $(document).on("click",".attr_info",function(){
           $.ajax({
                      type:'post',
                      url:url,
-                     data:{'sku':sku,brand_id:brand_id,goods_name:goods_name,goods_dese:goods_dese,goods_price:goods_price,goods_store:goods_store},
+                     data:{'sku':sku,baTop:baTop,brand_id:brand_id,goods_name:goods_name,goods_dese:goods_dese,goods_price:goods_price,goods_store:goods_store},
                      dataType:'json',
                      success:function(reg){
                          //console.log(reg);
@@ -336,19 +335,22 @@ $(document).on("click",".attr_info",function(){
 })
 </script>    
 <script>
-    $(function() {
-        $('#file_upload').uploadify({
-            swf      : '/static/chajian/uploadify.swf/', 
-            uploader : 'gdo',
-            buttonText : "上传",
-	onUploadSuccess:function(msg,newFilePath,info){
-				// var video_str='<img src="'+newFilePath+'" controls="controls">';
-				// $(".baTop").append(video_str);
-				console.log(newFilePath)
-			}
-        });
-    });
+ $(document).ready(function(){
+        $("#file_upload").uploadify({
+            swf : "/static/chajian/uploadify.swf",
+            uploader: "gdo",
+            onUploadSuccess:function(rest,data,info){
+				var video_str='<img src="'+data+'" controls="controls">';
+				$(".baTop").append(video_str);
+            	// console.log(info)
+            }
+        })
+
+    })
 </script>
+
+
+
 </body>
 
 @endsection

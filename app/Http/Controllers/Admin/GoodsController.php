@@ -47,12 +47,21 @@ class GoodsController extends Controller
         return view('admin.goods.gadd',['Bdata'=>$Bdata,'Adata'=>$Adata,'Vdata'=>$Vdata,'CateInfo'=>$CateInfo]);
     }
 
+    public function Moreupload($img){
+        $file = request()->file($img);
+        // dd($file);
+        if($file->isValid()){
+            $info = $file->store('upload');
+        }
+        return $info;
+    }
     public function gdo(){
-        // dd(request()->sku);
-        // json_decode()
-        // dd($_FILES);
-        $data=request()->all();
+         $data=request()->all();
         // dd($data);
+        //  if($request->hasFile('Filename')){ //hasFile 方法判断文件在请求中是否存在
+        //     $slide_log = $this->Moreupload('Filename');
+        // }
+        dd($data);
         $goods_model=new Goods;
 
         // dd($data['goods_name']);

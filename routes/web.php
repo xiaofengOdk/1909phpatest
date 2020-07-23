@@ -92,6 +92,8 @@
     Route::any('/nav_adds', 'Admin\NavController@nav_adds');//导航执行方法   阴晓菲
     Route::any('/nav_jidian', 'Admin\NavController@nav_jidian');//即点即改   阴晓菲
     Route::any('/nav_dels', 'Admin\NavController@nav_dels');//导航删除  阴晓菲
+    Route::any('/nav_upd/{id}', 'Admin\NavController@nav_upd');//修改  阴晓菲
+    Route::any('/nav_updo/{id}', 'Admin\NavController@nav_updo');//修改执行   阴晓菲
 
 
 

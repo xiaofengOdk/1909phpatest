@@ -79,7 +79,7 @@
 		                           
 		                           <div class="col-md-2 title editer">商品介绍</div>
                                    <div class="col-md-10 data editer">
-                                       <textarea name="goods_dese" style="width:800px;height:400px; border:1px solid #fff" ></textarea>
+                                       <textarea class="goods_dese" style="width:800px;height:400px; border:1px solid #fff" ></textarea>
                                    </div>
 		                           
 		                           <div class="col-md-2 title">商品数量</div>
@@ -90,7 +90,7 @@
                                    <div class="col-md-2 title">商品图片</div>
 		                           <div  class="col-md-10 data">
 		                               
-                                   <input type="file" name="title_picture" id ="file_upload">
+                                   <input type="file" name="goods_img" id ="file_upload">
                                     <div class="baTop">
                             
                                     </div>
@@ -252,10 +252,7 @@
 						<table>
 							<tr>
 								<td>
-                                <!-- <input type="file" name="title_picture" id ="file_upload">
-				        <div class="baTop">
-				
-		        		</div> -->
+
 					            </td>
 								<td> 
 									<img   width="200px" height="200px">
@@ -282,6 +279,8 @@
 	<link rel="stylesheet" href="/static/admin/plugins/kindeditor/themes/default/default.css" />
 	<script charset="utf-8" src="/static/admin/plugins/kindeditor/kindeditor-min.js"></script>
 	<script charset="utf-8" src="/static/admin/plugins/kindeditor/lang/zh_CN.js"></script> 
+    <link rel="stylesheet" href="/static/chajian/uploadify.css">
+<script src="/static/chajian/jquery.uploadify.js"></script>
             <!-- 正文区域 /-->
 <script type="text/javascript">
 
@@ -303,16 +302,17 @@ $(document).on("click",".attr_info",function(){
     // console.log(sku);
     // return false
     var goods_name=$("input[name='goods_name']").val()
-    var goods_dese=$("input[name='goods_dese']").val()
+    var goods_dese=$(".goods_dese").val()
     var goods_price=$("input[name='goods_price']").val()
     var goods_store=$("input[name='goods_store']").val()
+    var baTop=$(".baTop").children('img').attr('src')
 //    console.log(goods_store);
     // return false
     var url='/admin/gdo';
           $.ajax({
                      type:'post',
                      url:url,
-                     data:{'sku':sku},
+                     data:{'sku':sku,baTop:baTop,brand_id:brand_id,goods_name:goods_name,goods_dese:goods_dese,goods_price:goods_price,goods_store:goods_store},
                      dataType:'json',
                      success:function(reg){
                          console.log(reg);
@@ -332,13 +332,13 @@ $(document).on("click",".attr_info",function(){
 <script>
     $(function() {
         $('#file_upload').uploadify({
-            'swf'      : '/static/chajian/uploadify/', 
-            'uploader' : 'uploadadd',
-            'buttonText' : "上传",
+            swf      : '/static/chajian/uploadify.swf/', 
+            uploader : 'gdo',
+            buttonText : "上传",
 	onUploadSuccess:function(msg,newFilePath,info){
-				var video_str='<img src="'+newFilePath+'" controls="controls">';
-				$(".baTop").append(video_str);
-				// console.log(info)
+				// var video_str='<img src="'+newFilePath+'" controls="controls">';
+				// $(".baTop").append(video_str);
+				console.log(newFilePath)
 			}
         });
     });

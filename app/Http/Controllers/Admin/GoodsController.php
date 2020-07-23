@@ -49,7 +49,43 @@ class GoodsController extends Controller
     }
 
     public function gdo(){
-        $data=request()->all();
+        // dd(request()->sku);
+        // json_decode()
+        // dd($_FILES);
+        $data=request()->baTop;
         dd($data);
+        $goods_model=new Goods;
+        $sku_model=new Sku;
+        // dd($data['goods_name']);
+        $goods_model->goods_name=$data['goods_name'];
+        $goods_model->brand_id=$data['brand_id'];
+        $goods_model->goods_name=$data['goods_name'];
+        $goods_model->cate_id=1;
+        $goods_model->goods_sn=time();
+        $goods_model->goods_price=$data['goods_price'];
+        $goods_model->goods_dese=$data['goods_dese'];
+        $goods_model->goods_stor=$data['goods_store'];
+        $goods_model->is_show=1;
+        $goods_model->is_hot=1;
+        $goods_model->is_up=1;
+        $goods_model->is_new=1;
+        $goods_result=$goods_model->save();
+        // print_R;die;
+        $goods_id=Goods::where("goods_name",$data['goods_name'])->first();
+        dd(json_encode(request()->sku));
+        $sku_model=new Sku;
+        $sku_model->goods_id=$goods_id['goods_id'];
+        $goods_model->goods_price=$data['goods_price'];
+        $goods_model->goods_store=$data['goods_store'];
+        $sku_model->add_time=time();
+        
+        $sku_model->sku=request()->sku;
+        $sku_result=$sku_model->save();
+        dd($sku_result);
+        // if(){
+
+        // }else{
+
+        // }
     }
 }

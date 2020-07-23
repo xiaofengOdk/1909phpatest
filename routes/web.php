@@ -37,6 +37,8 @@ Route::prefix("/admin")->group(function(){
 	Route::any("/role_add","Admin\RoleController@role_add")->middleware("islogin");//添加、展示
 	Route::any("/role_adds","Admin\RoleController@role_adds");
 	Route::any("/role_Del","Admin\RoleController@role_Del");//删除
+	Route::any("/pth","Admin\RoleController@pth");//即点即改
+});
 
 	Route::any('/upd', 'Admin\RoleController@upd');//角色赋予权限
 // 权限管理

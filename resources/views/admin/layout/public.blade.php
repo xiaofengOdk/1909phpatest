@@ -27,8 +27,13 @@
                 iframeid.height =document.documentElement.clientHeight;
               }
          }
+<<<<<<< Updated upstream
     </script>
 
+=======
+    
+    </script>    
+>>>>>>> Stashed changes
 </head>
 
 <body class="hold-transition skin-green sidebar-mini" >
@@ -499,6 +504,10 @@
             </div>
             <strong>Copyright &copy; 2014-2017 <a href="http://www.itcast.cn">研究院研发部</a>.</strong> All rights reserved.
         </footer>
+<<<<<<< Updated upstream
+=======
+        
+>>>>>>> Stashed changes
     </div>
 
 </body>

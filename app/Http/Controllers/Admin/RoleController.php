@@ -15,8 +15,12 @@ class RoleController extends Controller
             'is_del'=>1
         ];
         $data=RoleModel::where($where)->paginate(3);
+<<<<<<< Updated upstream
         $right_model=Right::get();
         return view('admin.role.add',['data'=>$data,'right_model'=>$right_model]);
+=======
+        return view('admin.role.add',['data'=>$data]);
+>>>>>>> Stashed changes
     }
 
     //执行添加
@@ -103,6 +107,7 @@ class RoleController extends Controller
         return json_encode($message,JSON_UNESCAPED_UNICODE);
     }
 
+<<<<<<< Updated upstream
     //即点即改
     public function jup(){
         $role_id=request()->role_id;
@@ -149,5 +154,9 @@ class RoleController extends Controller
             ];
         }
     }
+=======
+
+
+>>>>>>> Stashed changes
 }
 

@@ -53,7 +53,8 @@
 				                          <td>{{$v->cate_id}}</td>
 									      <td cate_name="cate_name">
 											  <span class="span_test">
-											  	{{$v->cate_name}}
+												{{str_repeat("—",$v->level*3)}}{{$v->cate_name}}
+											  	<!-- {{$v->cate_name}} -->
 											  </span>
 											  <input class="chang" type="text" value="{{$v->cate_name}}" style="display:none">
 											</td>									    

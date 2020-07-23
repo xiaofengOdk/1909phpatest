@@ -95,10 +95,11 @@
 
 
 
-
-    Route::any('/gimgs_add', 'Admin\GimgsController@gimgs_add');//商品添加   刘远浩
-    Route::any('/gimgs_show', 'Admin\GimgsController@gimgs_show');//商品添加   刘远浩
     Route::any('/gimgs_adds', 'Admin\GimgsController@gimgs_adds');//商品添加   刘远浩
+    Route::any('/gimgs_add', 'Admin\GimgsController@gimgs_add');//商品添加   刘远浩
+    Route::any('/gimgs_del', 'Admin\GimgsController@gimgs_del');//商品删除 刘远浩
+    Route::any('/gimgs_upd/{id}', 'Admin\GimgsController@gimgs_upd');//商品删除 刘远浩
+    Route::any('/gimgs_upddo/{id}', 'Admin\GimgsController@gimgs_upddo');//商品添加   刘远浩
 
     Route::any('/slide_add', 'Admin\SlideController@slide_add');//轮播图添加   刘远浩
     Route::any('/slide_show', 'Admin\SlideController@slide_show');//轮播图展示   刘远浩

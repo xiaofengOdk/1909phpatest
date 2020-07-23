@@ -36,7 +36,10 @@
                             <td>品牌分类</td>
                             <td>
                                 <select name="cate_id">
-                                    <option></option>
+                                    <option value="">--请选择--</option>
+                                    @foreach($cateinfo as $k=>$v)
+                                        <option value="{{$v->cate_id}}" @if($v->cate_id==$info->cate_id) selected @endif>{{str_repeat('—',$v->level*3)}}{{$v->cate_name}}</option>
+                                    @endforeach
                                 </select>
                             </td>
                         </tr>

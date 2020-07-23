@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\BrandModel;
+use App\Models\Cate;
 use Illuminate\Http\Request;
 
 class BrandController extends Controller
@@ -16,10 +17,32 @@ class BrandController extends Controller
         ];
         return json_encode($message,JSON_UNESCAPED_UNICODE);
     }
+    //无限极分类的方法
+    public static function list_level($data,$pid=0,$level=0)//三个参数与上面index方法里面穿的参数相对应
+    {
+        static $array=[];
+        foreach($data as $k=>$v){
+            if($pid==$v->parent_id){
+                $v->level=$level;
+                $array[]=$v;
+                self::list_level($data,$v->cate_id,$level+1);
+            }
+        }
+        return $array;
+    }
     public function brand(){
-        $info = BrandModel::where('is_del',1)->paginate(2);
+        $brand_name=request()->brand_name;
+
+        $where=[
+            ['brand_name','like',"%$brand_name%"],
+            ['is_del','=',1]
+        ];
+        $info = BrandModel::leftjoin('cate','brand.cate_id','=','cate.cate_id')->where($where)->paginate(2);
 	//dd($info);
-        return view('admin/goods/brand',['info'=>$info]);
+        $cate = Cate::get();
+        $cateinfo = $this->list_level($cate);
+//        print_r($cateinfo);exit;
+        return view('admin/goods/brand',['info'=>$info,'cateinfo'=>$cateinfo]);
 
     }
     //添加品牌
@@ -58,7 +81,9 @@ class BrandController extends Controller
     }
     public function brandedit($id){
         $info = BrandModel::where('brand_id',$id)->first();
-        return view('admin/goods/brandedit',['info'=>$info]);
+        $cate = Cate::get();
+        $cateinfo = $this->list_level($cate);
+        return view('admin/goods/brandedit',['info'=>$info,'cateinfo'=>$cateinfo]);
     }
     public function brandupd($id){
         $data = request()->except('_token');

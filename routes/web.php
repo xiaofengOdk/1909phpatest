@@ -42,10 +42,6 @@
 	Route::any("/right/updateajax","Admin\RightController@updateajax");
 	Route::any("/right/paginate","Admin\RightController@paginate");
 	Route::any("/pth","Admin\RoleController@pth");//即点即改
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
  // Route::any("/","Admin\AdminController@index");
 	##########################商品模块###############################
 	//商品分类
@@ -77,6 +73,8 @@
     Route::any('/attrval_adds', 'Admin\SkuController@attrval_adds');//attrval添加   李丹阳
     Route::any('/attr_del', 'Admin\SkuController@attr_del');//attr删除   李丹阳
     Route::any('/attrval_del', 'Admin\SkuController@attrval_del');//attrval删除   李丹阳
+    Route::any('/attr_pth', 'Admin\SkuController@attr_pth');//attr即点即改 李丹阳
+    Route::any('/attrval_pth', 'Admin\SkuController@attrval_pth');//attrval即点即改   李丹阳
 
 
 

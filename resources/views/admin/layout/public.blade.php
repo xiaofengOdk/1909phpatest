@@ -28,9 +28,7 @@
               }
          }
     </script>
-
 </head>
-
 <body class="hold-transition skin-green sidebar-mini" >
     <div class="wrapper">
         <!-- 页面头部 -->
@@ -368,7 +366,6 @@
                             </li>
                         </ul>
                     </li>
-
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-folder"></i>
@@ -378,7 +375,6 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-
                             <li id="admin-login">
                                 <a href="{{url('/admin/right/index')}}" target="iframe">
                                     <i class="fa fa-circle-o"></i>权限展示
@@ -387,7 +383,6 @@
 
                         </ul>
                     </li>
-
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-folder"></i>
@@ -404,7 +399,6 @@
                             </li>
                         </ul>
                     </li>
-
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-folder"></i>
@@ -414,7 +408,6 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-
                             <li id="admin-login">
                                 <a href="/admin/category" target="iframe">
                                     <i class="fa fa-circle-o"></i>分类管理
@@ -422,7 +415,6 @@
                             </li>
                         </ul>
                     </li>
-
                    <li class="treeview">
                         <a href="#">
                             <i class="fa fa-folder"></i>
@@ -432,7 +424,6 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-
                             <li id="admin-login">
                                 <a href="/admin/attr_add" target="iframe">
                                     <i class="fa fa-circle-o"></i>属性查看
@@ -450,7 +441,6 @@
                             </li>
                         </ul>
                     </li>
-                  
                     <li class="treeview">
                       <a href="#">
                             <i class="fa fa-folder"></i>
@@ -514,7 +504,6 @@
                 @yield("content")
                         </div>
         <!-- 底部导航 -->
-
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
                 <b>Version</b> 1.0.8
@@ -522,7 +511,6 @@
             <strong>Copyright &copy; 2014-2017 <a href="http://www.itcast.cn">研究院研发部</a>.</strong> All rights reserved.
         </footer>
     </div>
-
 </body>
 
 </html>

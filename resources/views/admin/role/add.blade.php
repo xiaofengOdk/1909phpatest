@@ -76,7 +76,6 @@
                     <!-- /.box-body -->
 	            <!-- 分页 -->
 				{{$data->appends(request()->input())->links()}}
-				                
 <!-- xugai窗口 -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" >
@@ -211,27 +210,6 @@
 				}
 			}
 		})
-	});
-
-		//发送ajax 把这三个值传过去
-		var url="/admin/pth";
-		$.ajax({
-			url:url,
-			data:{'role_id':role_id,'field':field,'_val':_val},
-			dataType:'json',
-			success:function(reg){
-				//console.log(reg);
-				if(reg.code=='00000'){
-					window.location.reload()
-				}
-				if(reg.code=='00001'){
-					window.location.reload()
-				}
-				if(reg.code=='00002'){
-					alert(reg.message);
-					window.location.reload()
-				}
-			}
 	});
 
 	//赋权限

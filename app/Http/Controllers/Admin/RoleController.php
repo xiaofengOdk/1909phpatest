@@ -10,15 +10,16 @@ class RoleController extends Controller
      * 角色添加、角色展示
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function role_add(Request $request){
+    public function role_add(Request $request)
+    {
         $role_name = $request->role_name;
         $where = [];
-        if($role_name){
-            $where[] = ['role_name',"like","%$role_name%"];
+        if ($role_name) {
+            $where[] = ['role_name', "like", "%$role_name%"];
         }
-        $data=RoleModel::where( 'is_del',1)->where($where)->paginate(3);
-        $right_model=Right::get();
-        return view('admin.role.add',['data'=>$data,'right_model'=>$right_model]);
+        $data = RoleModel::where('is_del', 1)->where($where)->paginate(3);
+        $right_model = Right::get();
+        return view('admin.role.add', ['data' => $data, 'right_model' => $right_model]);
     }
     //执行添加
     public function  role_adds(Request $request)

@@ -67,4 +67,3 @@
                 <!-- /.row -->
             </section>
 @endsection
-

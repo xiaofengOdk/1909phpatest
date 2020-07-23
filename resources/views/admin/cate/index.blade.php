@@ -40,7 +40,6 @@
 			                              </th> 
 										  <th class="sorting_asc">ID</th>
 									      <th class="sorting">名称</th>									   
-									      <th class="sorting">是否</th>
 			                          </tr>
 			                      </thead>
 			                      <tbody>
@@ -57,7 +56,6 @@
 										  <td >
 											  <span class="span_test"> {{$v->right_url}}</span>
 										  </td>
-											<td>{{$v->cate_show=="1"?"是":"否"}}</td>							      
 		                                  <td class="text-center">		                                     
 		                                      <button type="button" class="btn bg-olive btn-xs" id="del" rid="{{$v->cate_id}}">删除</button> 		                                     
 		                                 	  <!-- <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal" >修改</button>                                            -->

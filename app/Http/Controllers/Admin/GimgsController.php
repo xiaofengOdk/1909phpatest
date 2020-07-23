@@ -10,7 +10,7 @@ class GimgsController extends Controller
 {
     public function gimgs_adds(){
         $res = Goods::get();
-        $res2 = Gimgs::get();
+        $res2 = Gimgs::leftjoin("goods","gimgs.goods_id","=","goods.goods_id")->get();
         return view("admin.gimgs.gimgs_adds",compact("res","res2"));
     }
     public function gimgs_add(Request $request){

@@ -41,7 +41,7 @@
 			                          <tr>
 			                             
 										  <th class="sorting_asc">ID</th>
-									      <th class="sorting">商品id</th>									   
+									      <th class="sorting">商品</th>									   
 									      <th class="sorting">商品子图片</th>
 										 
 			                          </tr>
@@ -50,7 +50,7 @@
 									  @foreach($res2 as $k=>$v)
 			                          <tr>
 			                              <td>{{$v->id}}</td>			                              
-				                          <td>{{$v->goods_id}}</td>	
+				                          <td>{{$v->goods_name}}</td>	
                                           <td>					      
 											  @php $goods_imgs = explode("|",$v->goods_imgs); @endphp   
 											@foreach($goods_imgs as $vv)

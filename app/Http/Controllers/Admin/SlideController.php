@@ -16,7 +16,7 @@ class SlideController extends Controller
     // 添加
     public function slide_add(Request $request){
         $ta = $request->all();
-        // dd($data);
+         
         // if($request->hasFile('Filename')){ //hasFile 方法判断文件在请求中是否存在
         //     $data['Filename'] = $this->uploads('Filename');
         // }
@@ -31,6 +31,7 @@ class SlideController extends Controller
             "slide_weight"=>$ta['slide_weight'],
         ];
         $res = Slide::insert($data);
+        // dd($res);
         if($res){
            return Redirect("admin/slide_show");
         }

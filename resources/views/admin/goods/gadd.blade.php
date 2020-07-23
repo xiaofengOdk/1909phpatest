@@ -34,10 +34,10 @@
 		                           	  	<table>
 		                           	  		<tr>
 		                           	  			<td>
-		                           	  				<select class="form-control" >	
+		                           	  				<select class="form-control" name="cate_id" >	
                                                          @foreach($CateInfo as $k=>$v)
                                                              
-                                                                <option>
+                                                                <option value="{{$v->cate_id}}">
                                                                 {{str_repeat('—',$v->level*3)}}
                                                                  {{$v->cate_name}}
                                                                 
@@ -79,7 +79,7 @@
 		                           <div class="col-md-10 data">
 		                           	   <div class="input-group">
 			                          	   <span class="input-group-addon">¥</span>
-			                               <input type="text" class="form-control" name="goods_price"  placeholder="价格" value="">
+			                               <input type="text" class="form-control" name="goods_price"  placeholder="价格" >
 		                           	   </div>
 		                           </div>
 		                           
@@ -299,6 +299,7 @@ $(document).on("click",".attr_info",function(){
     var attr_id=$("select[name='attr_id']").val()
     var attr_val=$("select[name='attr_val']").val()
     var brand_id=$("select[name='brand_id']").val()
+    var cate_id=$("select[name='cate_id']").val()
 
     // console.log(attr_id)
     // console.log(attr_val)
@@ -311,19 +312,20 @@ $(document).on("click",".attr_info",function(){
     var goods_price=$("input[name='goods_price']").val()
     var goods_store=$("input[name='goods_store']").val()
     var baTop=$(".baTop").children('img').attr('src')
-//    console.log(goods_store);
+   // console.log(goods_store);
+   // console.log(goods_price);
     // return false
     var url='/admin/gdo';
           $.ajax({
                      type:'post',
                      url:url,
-                     data:{'sku':sku,baTop:baTop,brand_id:brand_id,goods_name:goods_name,goods_dese:goods_dese,goods_price:goods_price,goods_store:goods_store},
+                     data:{'sku':sku,baTop:baTop,cate_id:cate_id,brand_id:brand_id,goods_name:goods_name,goods_dese:goods_dese,goods_price:goods_price,goods_store:goods_store},
                      dataType:'json',
                      success:function(reg){
                          //console.log(reg);
                         if(reg.code=='000000'){
                              alert(reg.message);
-                              window.location.reload();
+                             location.href="http://www.1909a3.com/admin/goods_show";
                             // return false;
 
                          }
@@ -338,11 +340,11 @@ $(document).on("click",".attr_info",function(){
  $(document).ready(function(){
         $("#file_upload").uploadify({
             swf : "/static/chajian/uploadify.swf",
-            uploader: "gdo",
+            uploader: "uploadadd",
             onUploadSuccess:function(rest,data,info){
 				var video_str='<img src="'+data+'" controls="controls">';
 				$(".baTop").append(video_str);
-            	// console.log(info)
+            	// console.log(data)
             }
         })
 

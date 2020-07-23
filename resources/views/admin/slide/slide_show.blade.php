@@ -1,5 +1,8 @@
 @extends("admin.layout.public")
 @section("content")
+	<link rel="stylesheet" href="/static/chajian/uploadify.css">
+	<script src="/static/chajian/jquery.js"></script>
+	<script src="/static/chajian/jquery.uploadify.js"></script>
                     <div class="box-header with-border">
                         <h3 class="box-title">轮播图管理     
                        	</h3>

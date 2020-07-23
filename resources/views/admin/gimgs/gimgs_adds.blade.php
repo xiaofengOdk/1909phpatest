@@ -1,8 +1,6 @@
 @extends("admin.layout.public")
 @section("content")
-    <link rel="stylesheet" href="/static/chajian/uploadify.css">
-	<script src="/static/chajian/jquery.js"></script>
-	<script src="/static/chajian/jquery.uploadify.js"></script>
+   
                     <div class="box-header with-border">
                         <h3 class="box-title">商品相册     
                        	</h3>
@@ -43,7 +41,8 @@
 										  <th class="sorting_asc">ID</th>
 									      <th class="sorting">商品</th>									   
 									      <th class="sorting">商品子图片</th>
-										 
+										  <th class="sorting">是否展示</th>
+										  <th class="sorting">操作</th>
 			                          </tr>
 			                      </thead>
 			                      <tbody>
@@ -57,6 +56,18 @@
 											<img src="{{env('UPLOAD_URL')}}{{$vv}}" with="60" height="60">
 											@endforeach
 											</td>	
+											<td>
+												@if($v->is_shows==1)
+										  			是
+										  		@endif
+												@if($v->is_shows==2)
+													否
+												@endif
+											</td>
+											<td>
+											<!-- <button type="button" class="btn bg-olive btn-xs" id="del" huo="{{$v->id}}">删除</button> 		                                      -->
+											   <a class="btn bg-olive btn-xs"  href="{{url('admin/gimgs_upd/'.$v->id)}}">修改</a>                                     
+											</td>
 			                          </tr>
 									@endforeach
 								  </tbody>
@@ -124,7 +135,7 @@
 //         })
 
 //     })
-
+	
 </script>
 
 @endsection

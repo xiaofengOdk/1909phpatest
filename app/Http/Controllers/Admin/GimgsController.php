@@ -27,15 +27,37 @@ class GimgsController extends Controller
         }
       
     }
-    public function Moreupload($img){
-        $file = request()->$img;
-        foreach($file as $k=>$v){
-            if($v->isValid()){
-                $info[$k] = $v->store("upload");
-            }else{
-                $info[$k] = '未获取到上传文件或上传过程错误';
-            }
+   
+   public function gimgs_upd($id){
+    $res = Gimgs::where("id",$id)->first();
+   
+    return view("admin.gimgs.gimgs_upd",compact("res"));
+   }
+   public function gimgs_upddo($id){
+       $data = request()->all();
+       if(request()->hasFile('goods_imgs')){ //hasFile 方法判断文件在请求中是否存在
+        $goods_imgs = $this->Moreupload('goods_imgs');
+        $data['goods_imgs'] = implode("|",$goods_imgs); //将数组转化为字符串
         }
-        return $info;
+       
+        $res = Gimgs::where("id",$id)->update($data);
+        // dd($res);
+        if($res){
+            return redirect("admin/gimgs_adds");
+        }
+   }
+
+
+
+   public function Moreupload($img){
+    $file = request()->$img;
+    foreach($file as $k=>$v){
+        if($v->isValid()){
+            $info[$k] = $v->store("upload");
+        }else{
+            $info[$k] = '未获取到上传文件或上传过程错误';
+        }
     }
+    return $info;
+  }
 }

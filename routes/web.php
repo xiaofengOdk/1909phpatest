@@ -102,6 +102,7 @@ Route::prefix("/admin")->group(function(){
 
 
     Route::any('/gimgs_add', 'Admin\GimgsController@gimgs_add');//商品添加   刘远浩
+    Route::any('/gimgs_show', 'Admin\GimgsController@gimgs_show');//商品添加   刘远浩
     Route::any('/gimgs_adds', 'Admin\GimgsController@gimgs_adds');//商品添加   刘远浩
 
     Route::any('/slide_add', 'Admin\SlideController@slide_add');//轮播图添加   刘远浩

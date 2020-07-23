@@ -342,8 +342,8 @@
                                 </a>
                             </li>
                             <li id="admin-login">
-                                <a href="specification.html" target="iframe">
-                                    <i class="fa fa-circle-o"></i>规格管理
+                                <a href="/admin/gimgs_adds" target="iframe">
+                                    <i class="fa fa-circle-o"></i>子图片管理
                                 </a>
                             </li>
                             <li id="admin-login">
@@ -446,7 +446,7 @@
                         </ul>
                     </li>
                   
-                   <li class="treeview">
+                    <li class="treeview">
                       <a href="#">
                             <i class="fa fa-folder"></i>
                             <span>轮播图管理</span>
@@ -455,14 +455,13 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-
                             <li id="admin-login">
                                 <a href="/admin/slide_show" target="iframe">
                                     <i class="fa fa-circle-o"></i>轮播图管理
                                 </a>
                             </li>
                         </ul>
-                   </li>
+                    </li>
                    <li class="treeview">
                       <a href="#">
                             <i class="fa fa-folder"></i>

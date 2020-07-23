@@ -13,7 +13,12 @@ class SkuController extends Controller
     //展示
     public function attr_add(Request $request)
     {
-        $data=Attr::where('is_del',1)->get();
+        $attr_name = $request->attr_name;
+        $where = [];
+        if($attr_name){
+            $where[] = ['attr_name',"like","%$attr_name%"];
+        }
+        $data=Attr::where('is_del',1)->where($where)->paginate(3);
         return view('admin.sku.attr_add',['data'=>$data]);
     }
     //添加
@@ -76,10 +81,16 @@ class SkuController extends Controller
     //展示
     public function attrval_add(Request $request)
     {
+        $attrval_name = $request->attrval_name;
+        $where = [];
+        if($attrval_name){
+            $where[] = ['attrval_name',"like","%$attrval_name%"];
+        }
         $data=AttrVal::leftjoin('attr','attrval.attr_id','=','attr.attr_id')
             ->where( 'attrval.is_del',1)
-            ->get(['attrval.attrval_name','attrval.add_time','attr.attr_name','attrval.id'])
-            ->toArray();
+            ->where($where)
+//            ->get(['attrval.attrval_name','attrval.add_time','attr.attr_name','attrval.id'])->toArray()
+            ->paginate(3,(['attrval.attrval_name','attrval.add_time','attr.attr_name','attrval.id']));
         $res = Attr::get();
         //dd($data);
         return view('admin.sku.attrval_add',['data'=>$data,'res'=>$res]);

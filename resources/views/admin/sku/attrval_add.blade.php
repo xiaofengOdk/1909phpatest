@@ -28,7 +28,12 @@
             </div>
         </div>
         <!--工具栏/-->
-
+        <div class="box-tools pull-right">
+            <form action="" >
+                <b>属性值名称</b><input type="text"  style="height:35px"name="attrval_name">
+                <input type="submit" style="height:35px" class="btn bg-olive btn-xs" value="属性值查询">
+            </form>
+        </div>
         <!--数据列表-->
         <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
             <thead>
@@ -45,8 +50,8 @@
                 <tr id="{{$v['id']}}">
                     <td>{{$v['id']}}</td>
                     <td pp="attrval_name">
-                        <span class="jd">{{$v['attrval_name']}}</span>
-                        <input type="text" class="ad" style="display: none;" value="{{$v['attrval_name']}}"/>
+                        <span class="jd">{{$v->attrval_name}}</span>
+                        <input type="text" class="ad" style="display: none;" value="{{$v->attrval_name}}"/>
                     </td>
                     <td>{{date("Y-m-d H:i:s",$v['add_time'])}}</td>
                     <td>{{$v['attr_name']}}</td>
@@ -63,7 +68,7 @@
 </div>
 <!-- /.box-body -->
 <!-- 分页 -->
-
+{{$data->appends(request()->input())->links()}}
 
 <!-- 编辑窗口 -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

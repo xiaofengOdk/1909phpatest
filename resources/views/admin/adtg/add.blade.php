@@ -1,7 +1,5 @@
 @extends("admin.layout.public")
 @section("content")
-</head>
-
 <body class="hold-transition skin-red sidebar-mini"  >
   <!-- .box-body -->
                 
@@ -84,7 +82,7 @@
                      </div>
                     <!-- /.box-body -->
 	            <!-- 分页 -->
- 				 {{$data->links()}}
+ 				 {{$data->appends(request()->input())->links()}}
 				                
 <!-- 编辑窗口 -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

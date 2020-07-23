@@ -23,7 +23,12 @@
                             </div>
 
                             <!--工具栏/-->
-
+							<div class="box-tools pull-right">
+								<form action="" >
+									<b>角色名称</b><input type="text"  style="height:35px"name="role_name">
+									<input type="submit" style="height:35px" class="btn bg-olive btn-xs" value="查询">
+								</form>
+							</div>
 			                  <!--数据列表-->
 			                  <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
 			                      <thead>
@@ -70,7 +75,7 @@
                      </div>
                     <!-- /.box-body -->
 	            <!-- 分页 -->
-				{{$data->links()}}
+				{{$data->appends(request()->input())->links()}}
 				                
 <!-- xugai窗口 -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

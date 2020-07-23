@@ -25,7 +25,7 @@ class GoodsController extends Controller
               $newArray[]=$v;
 
                //再次调用自己查找复合条件的孩子
-              CateInfo($Cate,$v->cate_id,$level+1);
+              $this->CateInfo($Cate,$v->cate_id,$level+1);
           }
         }
 
@@ -45,10 +45,11 @@ class GoodsController extends Controller
 
          $cModel=new Cate();
          $Cate=$cModel->get();//分类
-         dd($Cate);
-        //$CateInfo=CateInfo($Cate);
+         //dd($Cate);
+        $CateInfo=$this->CateInfo($Cate);
+         //dd($CateInfo);
          //dd($Vdata);
-        return view('admin.goods.gadd',['Bdata'=>$Bdata,'Adata'=>$Adata,'Vdata'=>$Vdata]);
+        return view('admin.goods.gadd',['Bdata'=>$Bdata,'Adata'=>$Adata,'Vdata'=>$Vdata,'CateInfo'=>$CateInfo]);
     }
 
     public function gdo(){

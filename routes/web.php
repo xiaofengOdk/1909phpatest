@@ -114,4 +114,3 @@ Route::prefix("/admin")->group(function(){
     Route::any('/slide_upddo/{id}', 'Admin\SlideController@slide_upddo');//轮播图修改执行 刘远浩
 
 	Route::any("/pth","Admin\RoleController@pth");//即点即改
-});

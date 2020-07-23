@@ -1,6 +1,11 @@
 @extends("admin.layout.public")
 @section("content")
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+  
+</head>
+>>>>>>> Stashed changes
 =======
   
 </head>
@@ -56,13 +61,20 @@
 											  </span>
 											  <input type="text" class="updo" style="display: none;" value="{{$v->role_name}}"/>
 										  </td>
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+										  <td>{{date("Y-m-d H:i:s",$v['add_time'])}}</td>
+										  <td class="text-center">
+=======
+=======
+>>>>>>> Stashed changes
 
 										  <td>{{date("Y-m-d H:i:s",$v['add_time'])}}</td>
 										  <td class="text-center">
-<<<<<<< Updated upstream
-
-=======
 											  {{--<button type="button" class="btn btn-primary" >修改</button>--}}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 											  <button type="button" class="btn btn-danger del">删除</button>
 											  <button type="button" class="btn btn-primary ro" title="新建" data-toggle="modal"
@@ -221,7 +233,6 @@
 
 >>>>>>> Stashed changes
 
-
 		//发送ajax 把这三个值传过去
 		var url="/admin/pth"
 		$.ajax({
@@ -243,6 +254,32 @@
 			}
 		})
 	});
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
+
+		//发送ajax 把这三个值传过去
+		var url="/admin/pth";
+		$.ajax({
+			url:url,
+			data:{'role_id':role_id,'field':field,'_val':_val},
+			dataType:'json',
+			success:function(reg){
+				//console.log(reg);
+				if(reg.code=='00000'){
+					window.location.reload()
+				}
+				if(reg.code=='00001'){
+					window.location.reload()
+				}
+				if(reg.code=='00002'){
+					alert(reg.message);
+					window.location.reload()
+				}
+			}
+	});
+
 	//赋权限
     $(document).on("click",".ro",function(){
 		var role_id=$(this).data('role_id');

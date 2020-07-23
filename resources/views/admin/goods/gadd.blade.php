@@ -312,16 +312,16 @@ $(document).on("click",".attr_info",function(){
           $.ajax({
                      type:'post',
                      url:url,
-                     data:{'sku':sku,baTop:baTop,brand_id:brand_id,goods_name:goods_name,goods_dese:goods_dese,goods_price:goods_price,goods_store:goods_store},
+                     data:{'sku':sku,brand_id:brand_id,goods_name:goods_name,goods_dese:goods_dese,goods_price:goods_price,goods_store:goods_store},
                      dataType:'json',
                      success:function(reg){
-                         console.log(reg);
-                        // if(reg.code=='00000'){
-                        //      alert(reg.message);
-                        //       window.location.reload();
-                        //      return false;
+                         //console.log(reg);
+                        if(reg.code=='000000'){
+                             alert(reg.message);
+                              window.location.reload();
+                            // return false;
 
-                        // }
+                         }
                         
                        
                      }

@@ -52,10 +52,10 @@ class GoodsController extends Controller
         // dd(request()->sku);
         // json_decode()
         // dd($_FILES);
-        $data=request()->baTop;
-        dd($data);
+        $data=request()->all();
+        // dd($data);
         $goods_model=new Goods;
-        $sku_model=new Sku;
+
         // dd($data['goods_name']);
         $goods_model->goods_name=$data['goods_name'];
         $goods_model->brand_id=$data['brand_id'];
@@ -72,7 +72,6 @@ class GoodsController extends Controller
         $goods_result=$goods_model->save();
         // print_R;die;
         $goods_id=Goods::where("goods_name",$data['goods_name'])->first();
-        dd(json_encode(request()->sku));
         $sku_model=new Sku;
         $sku_model->goods_id=$goods_id['goods_id'];
         $goods_model->goods_price=$data['goods_price'];
@@ -81,11 +80,19 @@ class GoodsController extends Controller
         
         $sku_model->sku=request()->sku;
         $sku_result=$sku_model->save();
-        dd($sku_result);
-        // if(){
-
-        // }else{
-
-        // }
+        //dd($sku_result);
+        if($sku_result){
+             return [
+                 'code'=>'000000',
+                 'message'=>'添加成功',
+                 'result'=>''
+             ];
+        }else{
+            return [
+                'code'=>'000000',
+                'message'=>'添加失败',
+                'result'=>''
+            ];
+        }
     }
 }

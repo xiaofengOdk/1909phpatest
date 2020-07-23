@@ -37,7 +37,11 @@
 		                           	  				<select class="form-control" >	
                                                          @foreach($CateInfo as $k=>$v)
                                                              
-                                                                <option>{{$v->cate_name}}</option>
+                                                                <option>
+                                                                {{str_repeat('—',$v->level*3)}}
+                                                                 {{$v->cate_name}}
+                                                                
+                                                                </option>
                                                            
                                                          @endforeach
                                                            

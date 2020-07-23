@@ -2,10 +2,11 @@
 @section("content")
 <body class="hold-transition skin-red sidebar-mini">
   <!-- .box-body -->
+        
                     <div class="box-header with-border">
                         <h3 class="box-title">用户管理</h3>
                     </div>
-
+        
                     <div class="box-body">
 
                         <!-- 数据表格 -->
@@ -21,20 +22,22 @@
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="box-tools pull-right">
                                 <div class="has-feedback">
 
                                 </div>
                             </div>
                             <!--工具栏/-->
-
+                            <form action=""  >
+								<input type="text"  style="height:35px"name="admin_name" style="margin-left:150px;">
+								<input type="submit" style="height:35px" class="btn bg-olive btn-xs" value="搜索">
+							</form>
 			                  <!--数据列表-->
 			                  <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
 			                      <thead>
 			                          <tr>
-			                              <th class="" style="padding-right:0px">
-			                                  <input id="selall" type="checkbox" class="icheckbox_square-blue">
-			                              </th>
+			                             
 										  <th class="sorting_asc">用户ID</th>
 									      <th class="sorting">用户名称</th>
 
@@ -44,7 +47,7 @@
 			                      <tbody>
                                       @foreach($reg as $k=>$v)
 			                          <tr admin_id="{{$v->admin_id}}">
-			                              <td><input  type="checkbox" name="admin_id" value="{{$v->admin_id}}"></td>
+			                           
 				                          <td>{{$v->admin_id}}</td>
 									      <td pub="admin_name" >
                                               <input type="text" value="{{$v->admin_name}}" class="updo" style="display: none;"/>
@@ -264,6 +267,19 @@
                  }
          })
     })
+
+
+      //无刷新页面
+      $(document).on('click','.pagination a',function(){
+       		//  alert('123');
+       		 var url=$(this).attr('href');
+
+       		    $.get(url,function(result){
+                  $('tbody').html(result);
+       			});
+       		return false;
+
+        })
 
 </script>
 @endsection

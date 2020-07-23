@@ -13,24 +13,19 @@ use App\Models\Cate;
 class GoodsController extends Controller
 {
 
-    //无限极分类
-     public function CateInfo($Cate,$pid=0,$level=0){
-        if(!$Cate){
-            return;
-        }
-          static $newArray=[];
-        foreach($Cate as $v){
-          if($v->pid==$pid){
-              $v->level=$level;
-              $newArray[]=$v;
-
-               //再次调用自己查找复合条件的孩子
-              $this->CateInfo($Cate,$v->cate_id,$level+1);
-          }
-        }
-
-        return $newArray;
-  }
+     //提供一个无限极分类的方法
+     public static function list_level($data,$pid=0,$level=0)//三个参数与上面index方法里面穿的参数相对应
+     {
+         static $array=[];
+         foreach($data as $k=>$v){
+             if($pid==$v->parent_id){
+                 $v->level=$level;
+                 $array[]=$v;
+                 self::list_level($data,$v->cate_id,$level+1);
+             }
+         }
+         return $array;
+     }
      
     
     public function gadd(){
@@ -46,7 +41,7 @@ class GoodsController extends Controller
          $cModel=new Cate();
          $Cate=$cModel->get();//分类
          //dd($Cate);
-        $CateInfo=$this->CateInfo($Cate);
+        $CateInfo=$this->list_level($Cate);
          //dd($CateInfo);
          //dd($Vdata);
         return view('admin.goods.gadd',['Bdata'=>$Bdata,'Adata'=>$Adata,'Vdata'=>$Vdata,'CateInfo'=>$CateInfo]);

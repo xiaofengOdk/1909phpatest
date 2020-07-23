@@ -171,11 +171,11 @@
                     url:url,
                     dataType:"json",
                     success:function(res){
-						console.log(res)
-					 //    if(res.success==true){
+						// console.log(res)
+					    if(res.success==true){
 						// alert(res.message);
-						// history.go(0);
-						// }
+						history.go(0);
+						}
                     }
             })
             })

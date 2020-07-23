@@ -9,6 +9,7 @@ class CategoryController extends Controller
 {
     public function category(){
     	$res=Cate::where("cate_show",1)->get();
+        // dd(request()->all());
     	$cate_info=self::list_level($res);
 
     	// dd($cate_info);

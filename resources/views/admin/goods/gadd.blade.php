@@ -34,15 +34,17 @@
 		                           	  	<table>
 		                           	  		<tr>
 		                           	  			<td>
-		                           	  				<select class="form-control" >														
+		                           	  				<select class="form-control" >	
+                                                         @foreach($CateInfo as $k=>$v)
+                                                             
+                                                                <option>{{$v->cate_name}}</option>
+                                                           
+                                                         @endforeach
+                                                           
+                                                         												
 		                           	  				</select>
 		                              			</td>
-		                              			<td>
-		                           	  				<select class="form-control select-sm" ></select>
-		                              			</td>
-		                              			<td>
-		                           	  				<select class="form-control select-sm" ></select>
-		                              			</td>
+		                              			
 		                              			<td>
 		                           	  				模板ID:19
 		                              			</td>

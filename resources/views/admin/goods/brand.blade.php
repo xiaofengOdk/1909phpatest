@@ -25,7 +25,10 @@
             </div>
         </div>
         <!--工具栏/-->
-
+            <form type="get">
+                &nbsp;&nbsp;&nbsp;品牌名称：<input  class="" style="width:200px;height:34px; border:1px solid #d2d6de" placeholder="品牌名称" name="brand_name">
+                <input type="submit" value="搜索">
+            </form>
         <!--数据列表-->
         <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
             <thead>
@@ -33,6 +36,7 @@
                 <th class="sorting_asc">品牌ID</th>
                 <th class="sorting">品牌名称</th>
                 <th class="sorting">品牌log</th>
+                <th class="sorting">所属分类</th>
                 <th class="sorting">是否展示</th>
                 <th class="text-center">操作</th>
             </tr>
@@ -46,6 +50,7 @@
                     <input type="text" value="{{$v->brand_name}}" class="editbrand_name" style="display:none" brand_id="{{$v->brand_id}}">
                 </td>
                 <td><img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" width="150px" height="100px"></td>
+                <td>{{$v->cate_name}}</td>
                 <td>
                     <span class="is_show">
                     @if($v->brand_show ==1)
@@ -81,52 +86,8 @@
 
 </div>
 <!-- /.box-body -->
-{{$info->links()}}
-<!-- 编辑窗口 -->
-<form method="post" action="/admin/brandupd" enctype="multipart/form-data">
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="myModalLabel">品牌编辑</h3>
-            </div>
-            <div class="modal-body">
+{{$info->appends(request()->input())->links()}}
 
-                <table class="table table-bordered table-striped"  width="800px">
-                    <tr>
-                        <td>品牌名称</td>
-                        <td><input  class="form-control" placeholder="品牌名称" name="brand_name"> </td>
-                    </tr>
-                    <tr>
-                        <td>品牌log</td>
-                        <td><input  class="form-control" type="file" name="brand_log">  </td>
-                    </tr>
-                    <tr>
-                        <td>是否展示</td>
-                        <td>
-                            <input  type="radio" value="1" name="brand_show" checked>是
-                            <input  type="radio" value="2" name="brand_show">否
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>品牌分类</td>
-                        <td>
-                            <select name="cate_id">
-                                <option></option>
-                            </select>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <input type="submit" value="提交" class="btn btn-success"  aria-hidden="true">
-                <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
-            </div>
-        </div>
-    </div>
-</div>
-</form>
 <!-- 添加窗口 -->
 <form method="post" action="/admin/dobrand" enctype="multipart/form-data">
 <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -158,7 +119,10 @@
                         <td>品牌分类</td>
                         <td>
                             <select name="cate_id">
-                                <option></option>
+                                <option value="">--请选择--</option>
+                                @foreach($cateinfo as $k=>$v)
+                                <option value="{{$v->cate_id}}">{{str_repeat('—',$v->level*3)}}{{$v->cate_name}}</option>
+                                @endforeach
                             </select>
                         </td>
                     </tr>

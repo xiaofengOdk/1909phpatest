@@ -159,7 +159,7 @@
 
 </body>
 </html>
-       {{$reg->links()}}
+       {{$reg->appends(request()->input())->links()}}
 <script>
      //用户赋予角色的用户id
     $(document).on("click",".fu",function(){
@@ -269,17 +269,17 @@
     })
 
 
-      //无刷新页面
-      $(document).on('click','.pagination a',function(){
-       		//  alert('123');
-       		 var url=$(this).attr('href');
+    //   //无刷新页面
+    //   $(document).on('click','.pagination a',function(){
+    //    		//  alert('123');
+    //    		 var url=$(this).attr('href');
 
-       		    $.get(url,function(result){
-                  $('tbody').html(result);
-       			});
-       		return false;
+    //    		    $.get(url,function(result){
+    //               $('tbody').html(result);
+    //    			});
+    //    		return false;
 
-        })
+    //     })
 
 </script>
 @endsection

@@ -19,11 +19,7 @@
 
     Route::any('/','Index\IndexController@index');//前台首页
     Route::any('/show','Index\IndexController@show');//前台首页
-
-
-
-
-Route::prefix("/admin")->group(function(){
+   Route::prefix("/admin")->group(function(){
 	Route::any("/index","Admin\AdminController@index");//后台首页
     Route::any("/reg","Admin\RegController@reg");//后台注册
     Route::any("/rdo","Admin\RegController@rdo");//后台注册执行
@@ -33,12 +29,11 @@ Route::prefix("/admin")->group(function(){
     Route::any("/udo","Admin\AdminController@udo");//用户赋予角色;
     Route::any("/del","Admin\AdminController@del");//删除;
     Route::any("/jupdo","Admin\AdminController@jupdo");//即点击改;
-	//角色管理
 	Route::any("/role_add","Admin\RoleController@role_add")->middleware("islogin");//添加、展示
 	Route::any("/role_adds","Admin\RoleController@role_adds");
 	Route::any("/role_Del","Admin\RoleController@role_Del");//删除
 	Route::any("/pth","Admin\RoleController@pth");//即点即改
-});
+
 
 	Route::any('/upd', 'Admin\RoleController@upd');//角色赋予权限
 // 权限管理
@@ -113,4 +108,4 @@ Route::prefix("/admin")->group(function(){
     Route::any('/slide_upd/{id}', 'Admin\SlideController@slide_upd');//轮播图修改 刘远浩
     Route::any('/slide_upddo/{id}', 'Admin\SlideController@slide_upddo');//轮播图修改执行 刘远浩
 
-	Route::any("/pth","Admin\RoleController@pth");//即点即改
+});

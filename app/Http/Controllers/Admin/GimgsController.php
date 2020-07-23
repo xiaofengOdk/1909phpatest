@@ -10,7 +10,8 @@ class GimgsController extends Controller
 {
     public function gimgs_adds(){
         $res = Goods::get();
-        return view("admin.gimgs.gimgs_adds",compact("res"));
+        $res2 = Gimgs::get();
+        return view("admin.gimgs.gimgs_adds",compact("res","res2"));
     }
     public function gimgs_add(Request $request){
     //   print_r($_FILES); 
@@ -22,7 +23,7 @@ class GimgsController extends Controller
         }
         $res = Gimgs::insert($data);
         if($res){
-            return redirect("admin/gimg_show");
+            return redirect("admin/gimgs_adds");
         }
       
     }

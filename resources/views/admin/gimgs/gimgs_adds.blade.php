@@ -39,26 +39,26 @@
 			                  <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
 			                      <thead>
 			                          <tr>
-			                              <th class="" style="padding-right:0px">
-			                              </th> 
+			                             
 										  <th class="sorting_asc">ID</th>
-									      <th class="sorting">权限</th>									   
-									      <th class="sorting">url</th>
+									      <th class="sorting">商品id</th>									   
+									      <th class="sorting">商品子图片</th>
 										 
 			                          </tr>
 			                      </thead>
 			                      <tbody>
-									  
+									  @foreach($res2 as $k=>$v)
 			                          <tr>
-			                              <td></td>			                              
-				                          <td></td>	
-                                          <td></td>						      
-		                                  <td class="text-center">		                                     
-		                                      <button type="button" class="btn bg-olive btn-xs" id="del" rid="">删除</button> 		                                     
-		                                 	  <!-- <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal" >修改</button>                                            -->
-		                                  </td>
+			                              <td>{{$v->id}}</td>			                              
+				                          <td>{{$v->goods_id}}</td>	
+                                          <td>					      
+											  @php $goods_imgs = explode("|",$v->goods_imgs); @endphp   
+											@foreach($goods_imgs as $vv)
+											<img src="{{env('UPLOAD_URL')}}{{$vv}}" with="60" height="60">
+											@endforeach
+											</td>	
 			                          </tr>
-									
+									@endforeach
 								  </tbody>
 								  
 							  </table>

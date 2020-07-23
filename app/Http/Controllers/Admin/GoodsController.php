@@ -9,6 +9,7 @@ use App\Models\Goods;
 use App\Models\Sku;
 use App\Models\Attr;
 use App\Models\AttrVal;
+use App\Models\Cate;
 class GoodsController extends Controller
 {
 
@@ -42,7 +43,9 @@ class GoodsController extends Controller
         $vModel=new AttrVal();//属性值
         $Vdata=$vModel->where("is_del",1)->get();//属性值数据
 
-        //$Cate=Category::get();//分类
+         $cModel=new Cate();
+         $Cate=$cModel->get();//分类
+         dd($Cate);
         //$CateInfo=CateInfo($Cate);
          //dd($Vdata);
         return view('admin.goods.gadd',['Bdata'=>$Bdata,'Adata'=>$Adata,'Vdata'=>$Vdata]);

@@ -64,6 +64,9 @@
 	Route::any('/jup', 'Admin\RoleController@jup');//即点即改
     Route::any('/gadd', 'Admin\GoodsController@gadd');//商品添加   李彤
     Route::any('/gdo', 'Admin\GoodsController@gdo');//商品添加执行   李彤
+    Route::any('/goods_show', 'Admin\GoodsController@goods_show');//商品添加   李彤
+    Route::any('/uploadadd', 'Admin\GoodsController@uploadadd');//商品添加   李彤
+    Route::any('/goods_del', 'Admin\GoodsController@goods_del');//商品添加   李彤
 
 
 

@@ -139,8 +139,8 @@ class GoodsController extends Controller
         $goods_model->goods_sn=time();
         $goods_model->goods_price=$data['goods_price'];
         $goods_model->goods_dese=$data['goods_dese'];
-        $goods_model->goods_stor=$data['goods_score'];
-        $goods_model->goods_score=$data['goods_score'];
+        $goods_model->goods_stor=$data['goods_store'];
+        $goods_model->goods_score=$data['goods_store'];
         $goods_model->is_show=1;
         $goods_model->is_hot=1;
         $goods_model->is_up=1;
@@ -174,6 +174,7 @@ class GoodsController extends Controller
       $goods_res=Goods::
       leftjoin("cate","goods.cate_id","=","cate.cate_id")
       ->leftjoin("brand","goods.brand_id","=","brand.brand_id")
+      ->where("goods.is_del",1)
       ->get();
       // dd($goods_res);
       return view('admin.goods.goods_show',['goods_res'=>$goods_res]);

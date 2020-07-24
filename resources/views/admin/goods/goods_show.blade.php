@@ -24,7 +24,7 @@
                             <div class="pull-left">
                                 <div class="form-group form-inline">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-default" title="添加商品" data-toggle="modal" data-target="#editModal" ><i class="fa fa-file-o"></i> 添加商品</button>
+                                        <button type="button" class="btn btn-default" title="添加商品" data-toggle="modal" data-target="#editModal" ><i class="fa fa-file-o"></i><a href="http://www.1909a3.com/admin/gadd">添加商品</a> </button>
                                         <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();"><i class="fa fa-check"></i> 刷新</button>
                                        
                                     </div>

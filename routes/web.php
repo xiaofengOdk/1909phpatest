@@ -31,6 +31,8 @@
     Route::any("/jupdo","Admin\AdminController@jupdo");//即点击改;
 	Route::any("/role_add","Admin\RoleController@role_add")->middleware("islogin");//添加、展示
 	Route::any("/role_adds","Admin\RoleController@role_adds");
+    Route::any("/role_upd/{id}","Admin\RoleController@role_upd");//修改
+    Route::any("/role_updo/{id}","Admin\RoleController@role_updo");//修改执行
 	Route::any("/role_Del","Admin\RoleController@role_Del");//删除
 	Route::any("/pth","Admin\RoleController@pth");//即点即改
 
@@ -64,19 +66,27 @@
 
 
 
-    Route::any('/adtg_add', 'Admin\AdtgController@adtg_add');//广告展示   李丹阳
-    Route::any('/adtg_adds', 'Admin\AdtgController@adtg_adds');//广告添加   李丹阳
-    Route::any('/adtg_del', 'Admin\AdtgController@adtg_del');//广告删除   李丹阳
-    Route::any('/pol', 'Admin\AdtgController@pol');//广告即点即改   李丹阳
-  
-    Route::any('/attr_add', 'Admin\SkuController@attr_add');//attr展示   李丹阳
-    Route::any('/attrval_add', 'Admin\SkuController@attrval_add');//attrval展示   李丹阳
-    Route::any('/attr_adds', 'Admin\SkuController@attr_adds');//attr添加   李丹阳
-    Route::any('/attrval_adds', 'Admin\SkuController@attrval_adds');//attrval添加   李丹阳
-    Route::any('/attr_del', 'Admin\SkuController@attr_del');//attr删除   李丹阳
-    Route::any('/attrval_del', 'Admin\SkuController@attrval_del');//attrval删除   李丹阳
-    Route::any('/attr_pth', 'Admin\SkuController@attr_pth');//attr即点即改 李丹阳
-    Route::any('/attrval_pth', 'Admin\SkuController@attrval_pth');//attrval即点即改   李丹阳
+    Route::any('/adtg_add', 'Admin\AdtgController@adtg_add');//广告展示   
+    Route::any('/adtg_adds', 'Admin\AdtgController@adtg_adds');//广告添加   
+    Route::any('/adtg_del', 'Admin\AdtgController@adtg_del');//广告删除   
+    Route::any('/pol', 'Admin\AdtgController@pol');//广告即点即改   
+    Route::any('/adtg_upd/{id}', 'Admin\AdtgController@adtg_upd');//广告修改 
+    Route::any('/adtg_updo/{id}', 'Admin\AdtgController@adtg_updo');//广告执行  
+
+
+
+    Route::any('/attr_add', 'Admin\SkuController@attr_add');//attr展示   
+    Route::any('/attrval_add', 'Admin\SkuController@attrval_add');//attrval展示   
+    Route::any('/attr_adds', 'Admin\SkuController@attr_adds');//attr添加   
+    Route::any('/attrval_adds', 'Admin\SkuController@attrval_adds');//attrval添加   
+    Route::any('/attr_del', 'Admin\SkuController@attr_del');//attr删除   
+    Route::any('/attr_upd/{id}', 'Admin\SkuController@attr_upd');//attrval修改  
+    Route::any('/attr_updo/{id}', 'Admin\SkuController@attr_updo');//attrval执行  
+    Route::any('/attrval_del', 'Admin\SkuController@attrval_del');//attrval删除   
+    Route::any('/attr_pth', 'Admin\SkuController@attr_pth');//attr即点即改 
+    Route::any('/attrval_pth', 'Admin\SkuController@attrval_pth');//attrval即点即改   
+    Route::any('/attrval_upd/{id}', 'Admin\SkuController@attrval_upd');//attrval修改
+    Route::any('/attrval_updo/{id}', 'Admin\SkuController@attrval_updo');//attrval修改执行
 
 
 
@@ -94,7 +104,10 @@
     Route::any('/nav_dels', 'Admin\NavController@nav_dels');//导航删除  阴晓菲
     Route::any('/nav_upd/{id}', 'Admin\NavController@nav_upd');//修改  阴晓菲
     Route::any('/nav_updo/{id}', 'Admin\NavController@nav_updo');//修改执行   阴晓菲
-
+    Route::any('/foot_add', 'Admin\FootController@foot_add');//添加  阴晓菲
+    Route::any('/foot_adds', 'Admin\FootController@foot_adds');//执行  阴晓菲
+    Route::any('/foot_show', 'Admin\FootController@foot_show');//展示  阴晓菲
+    Route::any('/foot_del', 'Admin\FootController@foot_del');//删除 阴晓菲
 
 
     Route::any('/gimgs_adds', 'Admin\GimgsController@gimgs_adds');//商品添加   刘远浩

@@ -1,7 +1,5 @@
 @extends("admin.layout.public")
 @section("content")
-         <section class="content">
-                <!-- 统计数值 -->
                <section class="content">
                <!-- 统计数值 -->
                 <div class="row">

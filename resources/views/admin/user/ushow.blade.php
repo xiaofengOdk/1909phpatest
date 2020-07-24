@@ -75,9 +75,7 @@
 
 
                      </div>
-                    <!-- /.box-body -->
-             
-
+                    {{$reg->links()}}
 <!-- 编辑窗口 -->
 
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -116,6 +114,8 @@
 			<h3 id="myModalLabel">赋予角色</h3>
 		</div>
 		<div class="modal-body admin_user_id">
+		<div class="modal-body">
+
 			<table class="table table-bordered table-striped"  width="800px">
                 
 		      	<tr>
@@ -133,6 +133,13 @@
 		</div>
 		<div class="modal-footer">
 			<button class="btn btn-success ro" data-dismiss="modal" aria-hidden="true" >保存</button>
+		      		<td><input type="checkbox" > {{$v->role_name}} </td>
+		      	</tr>
+		        @endforeach
+			 </table>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">保存</button>
 			<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
 		</div>
 	  </div>

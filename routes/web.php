@@ -19,6 +19,7 @@
 
     Route::any('/','Index\IndexController@index');//前台首页
     Route::any('/show','Index\IndexController@show');//前台首页
+
    Route::prefix("/admin")->group(function(){
 	Route::any("/index","Admin\AdminController@index");//后台首页
     Route::any("/reg","Admin\RegController@reg");//后台注册
@@ -46,7 +47,6 @@
 	Route::any("/right/del","Admin\RightController@del");
 	Route::any("/right/updateajax","Admin\RightController@updateajax");
 	Route::any("/right/paginate","Admin\RightController@paginate");
-	Route::any("/pth","Admin\RoleController@pth");//即点即改
  // Route::any("/","Admin\AdminController@index");
 	##########################商品模块###############################
 	//商品分类

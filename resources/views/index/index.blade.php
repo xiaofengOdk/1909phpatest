@@ -1,5 +1,7 @@
 @extends("index.layout.public")
 @section("content")
+@include("index.layout.top")
+
 	<!--列表-->
 	<div class="sort">
 		<div class="py-container">
@@ -963,4 +965,6 @@
 			</ul>
 		</div>
 	</div>
+	@include("index.layout.foot")
+
 @endsection

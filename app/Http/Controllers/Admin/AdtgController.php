@@ -19,7 +19,7 @@ class AdtgController extends Controller
         if($g_name){
             $where[] = ['g_name',"like","%$g_name%"];
         }
-        $data=AdtgModel::where("is_del",1)->where($where)->paginate(6);
+        $data=AdtgModel::where("is_del",1)->where($where)->paginate(3);
         return view('admin.adtg.add',['data'=>$data]);
     }
 

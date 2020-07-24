@@ -23,7 +23,12 @@
                             </div>
 
                             <!--工具栏/-->
-
+							<div class="box-tools pull-right">
+								<form action="" >
+									<b>角色名称</b><input type="text"  style="height:35px"name="role_name">
+									<input type="submit" style="height:35px" class="btn bg-olive btn-xs" value="查询">
+								</form>
+							</div>
 			                  <!--数据列表-->
 			                  <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
 			                      <thead>
@@ -70,8 +75,7 @@
                      </div>
                     <!-- /.box-body -->
 	            <!-- 分页 -->
-				{{$data->links()}}
-				                
+				{{$data->appends(request()->input())->links()}}
 <!-- xugai窗口 -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" >
@@ -206,27 +210,6 @@
 				}
 			}
 		})
-	});
-
-		//发送ajax 把这三个值传过去
-		var url="/admin/pth";
-		$.ajax({
-			url:url,
-			data:{'role_id':role_id,'field':field,'_val':_val},
-			dataType:'json',
-			success:function(reg){
-				//console.log(reg);
-				if(reg.code=='00000'){
-					window.location.reload()
-				}
-				if(reg.code=='00001'){
-					window.location.reload()
-				}
-				if(reg.code=='00002'){
-					alert(reg.message);
-					window.location.reload()
-				}
-			}
 	});
 
 	//赋权限

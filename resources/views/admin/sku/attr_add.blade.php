@@ -28,7 +28,12 @@
                                 </div>
                             </div>
                             <!--工具栏/-->
-
+							<div class="box-tools pull-right">
+								<form action="" >
+									<b>属性名称</b><input type="text"  style="height:35px"name="attr_name">
+									<input type="submit" style="height:35px" class="btn bg-olive btn-xs" value="属性查询">
+								</form>
+							</div>
 			                  <!--数据列表-->
 			                  <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
 			                      <thead>
@@ -61,7 +66,7 @@
                      </div>
                     <!-- /.box-body -->
 	            <!-- 分页 -->
-				
+ 				 {{$data->appends(request()->input())->links()}}
 				                
 <!-- 编辑窗口 -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

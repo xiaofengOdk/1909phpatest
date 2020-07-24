@@ -54,6 +54,9 @@
 										  </td>
 										  <td>{{date("Y-m-d H:i:s",$v['add_time'])}}</td>
 										  <td class="text-center">
+											  <a href="/admin/attr_upd/{{$v->attr_id}}">
+												  <button type="button" class="btn btn-success">修改</button>
+											  </a>
 											  <button type="button" class="btn btn-danger del">删除</button>
 										  </td>
 									  </tr>

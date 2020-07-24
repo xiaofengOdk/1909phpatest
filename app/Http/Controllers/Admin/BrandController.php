@@ -48,15 +48,6 @@ class BrandController extends Controller
     //添加品牌
     public function dobrand(Request $request){
         $data = $request->all();
-        $where=[
-            ['brand_name','=',$data['brand_name']]
-        ];
-        $oneinfo = BrandModel::where($where)->first();
-//        print_r($oneinfo);exit;
-        if(!empty($oneinfo)){
-            echo "<script>alert('品牌名称已存在,请重新添加');location.href='/admin/brand'</script>";
-            exit;
-        }
       //dd($data);
         //文件上传
         if($request->hasFile('brand_log')){

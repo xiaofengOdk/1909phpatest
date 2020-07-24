@@ -25,10 +25,6 @@
                 </div>
             </div>
             <!--工具栏/-->
-            <form type="get">
-                &nbsp;&nbsp;&nbsp;链接名称：<input  class="" style="width:200px;height:34px; border:1px solid #d2d6de" placeholder="链接名称" name="foot_name">
-                <input type="submit" value="搜索">
-            </form>
             <!--数据列表-->
             <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
                 <thead>

@@ -52,6 +52,37 @@ class NavController extends Controller
             return $this->message('00001','删除失败','/admin/nav_add');
         }
     }
+    //修改
+    public function nav_upd($id){
+//        echo $id;
+       $info = NavModel::where('nav_id',$id)->first();
+
+        return view('admin/nav/navupd',['info'=>$info]);
+    }
+    //执行修改
+    public function nav_updo($id){
+//        echo $id;
+        $arr = request()->all();
+//        print_r($arr);
+        if(empty($arr['nav_name'])){
+            return $this->message('00001','导航名称不能为空','');
+        }
+        if(empty($arr['nav_url'])){
+            return $this->message('00002','导航路径不能为空','');
+        }
+        if(empty($arr['nav_weigh'])){
+            return $this->message('00003','导航权重不能为空','');
+        }
+        $where=[
+            ['nav_id','=',$arr['nav_id']]
+        ];
+        $res = NavModel::where($where)->update($arr);
+        if($res!==false){
+            return $this->message('00000','修改成功','/admin/nav_add');
+        }else{
+            return $this->message('00001','修改失败','');
+        }
+    }
     //导航名称即点即改
     public function nav_jidian(Request $request){
         $nav_name = $request->info;

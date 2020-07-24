@@ -56,7 +56,7 @@
                         @endif
                     </td>
                     <td class="text-center">
-                        <button type="button" class="btn btn-success">修改</button>
+                       <a href="/admin/nav_upd/{{$v->nav_id}}"> <button type="button" class="btn btn-success">修改</button></a>
                         <!-- <button type="button" class="btn btn-success brand_ids" data-toggle="modal" data-target="#editModal">修改</button> -->
                         <button type="button" class="btn btn-danger del">删除</button>
                     </td>

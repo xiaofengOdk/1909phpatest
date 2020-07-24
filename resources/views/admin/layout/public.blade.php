@@ -296,6 +296,13 @@
                                 </a>
                             </li>
                         </ul>
+                         <ul class="treeview-menu">
+                            <li id="admin-login">
+                                <a href="/admin/foot_show" target="iframe">
+                                    <i class="fa fa-circle-o"></i>底部友情链接
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <!-- 菜单 /-->
 

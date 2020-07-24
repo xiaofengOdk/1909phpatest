@@ -99,14 +99,8 @@
 						</div>
 					</div>
 				</div>
-<<<<<<< Updated upstream
               </div>
-=======
-
-			
-					<div class="yui3-u Right"></div>
 				</div>
->>>>>>> Stashed changes
 			</div>
 		</div>
 	</div>

@@ -1,6 +1,3 @@
-
-
-
         <div class="yui3-u Left all-sort-list">
                     	<div class="all-sort-list2">
                     		<div class="item bo">

@@ -1,12 +1,10 @@
 @extends('index.public.layout')
 @section('content')
-
-  @include('index.public.nav')
+@include('index.public.nav')
 	<!--列表-->
 	<div class="sort">
 		<div class="py-container">
 			<div class="yui3-g SortList ">
-           
                 @include('index.public.list')
 				<div class="yui3-u Center banerArea">
 					<!--banner轮播-->

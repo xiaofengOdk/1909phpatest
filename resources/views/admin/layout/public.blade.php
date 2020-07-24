@@ -354,14 +354,14 @@
                                     <i class="fa fa-circle-o"></i>商品管理
                                 </a>
                             </li>
-                            <li id="admin-login">
-                                <a href="/admin/category" target="iframe">
-                                    <i class="fa fa-circle-o"></i>分类管理
+                              <li id="admin-login">
+                                <a href="/admin/goods_show" target="iframe">
+                                    <i class="fa fa-circle-o"></i>商品展示
                                 </a>
                             </li>
                             <li id="admin-login">
-                                <a href="goods.html" target="iframe">
-                                    <i class="fa fa-circle-o"></i>商品审核
+                                <a href="/admin/category" target="iframe">
+                                    <i class="fa fa-circle-o"></i>分类管理
                                 </a>
                             </li>
                         </ul>
@@ -432,11 +432,6 @@
                             <li id="admin-login">
                                 <a href="/admin/attrval_add" target="iframe">
                                     <i class="fa fa-circle-o"></i>属性值查看
-                                </a>
-                            </li>
-                            <li id="admin-login">
-                                <a href="javascript:;" target="iframe">
-                                    <i class="fa fa-circle-o"></i>关联查看
                                 </a>
                             </li>
                         </ul>

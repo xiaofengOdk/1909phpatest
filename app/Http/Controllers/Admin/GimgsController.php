@@ -8,9 +8,11 @@ use App\Models\Gimgs;
 use App\Models\Goods;
 class GimgsController extends Controller
 {
-    public function gimgs_adds(){
+    public function gimgs_adds(Request $request){
         $res = Goods::get();
-        $res2 = Gimgs::leftjoin("goods","gimgs.goods_id","=","goods.goods_id")->get();
+      
+       
+        $res2 = Gimgs::where("is_dels",1)->leftjoin("goods","gimgs.goods_id","=","goods.goods_id")->paginate(2);
         return view("admin.gimgs.gimgs_adds",compact("res","res2"));
     }
     public function gimgs_add(Request $request){
@@ -59,5 +61,16 @@ class GimgsController extends Controller
         }
     }
     return $info;
+  }
+  public function gimgs_del(Request $request){
+     $id = $request->all();
+     $res = Gimgs::where("id",$id)->update(['is_dels'=>2]);
+     if($res){
+        return $message = [
+            "message"=>"删除成功",
+            "success"=>true,
+            "code"=>00001,
+        ];
+    }
   }
 }

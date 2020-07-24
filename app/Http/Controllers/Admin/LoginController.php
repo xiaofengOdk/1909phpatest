@@ -25,7 +25,7 @@ class LoginController extends Controller
         ];
         $reg=$AdminModel->where($where)->first();
         //dd($reg);
-        $time=date("Y-m-d H:i:s");
+        $time=date("Y-m-d");
         if($reg){
             session(['reg'=>$reg,'time'=>$time]);
            
@@ -36,7 +36,8 @@ class LoginController extends Controller
     }
 
     public function quit(){
-        session(['reg'=>null,'time'=>null])
+        session(['reg'=>null,'time'=>null]);
+        return redirect('/admin/login')->with('msg','请登录');
         
     }
 }

@@ -14,7 +14,7 @@
 </head>
 
 <body>
-     <h1 style="color: red;">{{session("msg")}}</h1>
+<input type="hidden" name="meg" value="{{session('msg')}}"/ >
 	<div class="loginmanage">
 		<div class="py-container">
 			<h4 class="manage-title">品优购运营商运营管理后台</h4>
@@ -88,13 +88,27 @@
 <script type="text/javascript" src="/static/admin/js/plugins/jquery-placeholder/jquery.placeholder.min.js"></script>
 <script src="/static/admin/js/pages/jquery.slideunlock.js"></script>
 <script>
-	$(function(){
-		var slider = new SliderUnlock("#slider",{
-				successLabelTip : "欢迎访问品优购"
-			},function(){
-				// alert("验证成功,即将跳转至首页");
-            	// window.location.href="index.html"
-        	});
-        slider.init();
+	// <!--$(function(){
+	// 	var slider = new SliderUnlock("#slider",{
+	// 			successLabelTip : "欢迎访问品优购"
+	// 		},function(){
+	// 			// alert("验证成功,即将跳转至首页");
+    //         	// window.location.href="index.html"
+    //     	});
+    //     slider.init();
+	// })
+	 
+	$(document).ready(function(){
+		 var meg=$("input[name='meg']").val();
+		 if(meg== ''){
+           console.log('');
+		 }else{
+			alert(meg);
+			
+		 }
+		
 	})
 	</script>
+</body>
+
+</html>

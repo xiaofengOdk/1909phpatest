@@ -14,6 +14,13 @@ class RegController extends Controller
 
     public function rdo(){
         $data=request()->all();
+        // dd($data);
+        if(empty($data['admin_name'])){
+            return redirect('/admin/reg')->with('msg','账号不能为空');  
+        }else if(empty($data['admin_pwd'])){
+            return redirect('/admin/reg')->with('msg','密码不能为空');  
+        }
+       
         $data['admin_pwd']=md5($data['admin_pwd']);
         $data['add_time']=time();
         $AdminModel=new Admin();

@@ -33,7 +33,7 @@
                        		
                         
 							<!--数据列表-->
-						
+							
 			                  <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
 			                      <thead>
 			                          <tr>
@@ -65,7 +65,7 @@
 												@endif
 											</td>
 											<td>
-											<!-- <button type="button" class="btn bg-olive btn-xs" id="del" huo="{{$v->id}}">删除</button> 		                                      -->
+											<button type="button" class="btn bg-olive btn-xs" id="del" huo="{{$v->id}}">删除</button> 		                                     
 											   <a class="btn bg-olive btn-xs"  href="{{url('admin/gimgs_upd/'.$v->id)}}">修改</a>                                     
 											</td>
 			                          </tr>
@@ -73,7 +73,7 @@
 								  </tbody>
 								  
 							  </table>
-							  <p></p>
+							  <p>{{$res2->links()}}</p>
 			                  <!--数据列表/-->                      
 						
                         </div>
@@ -135,6 +135,28 @@
 //         })
 
 //     })
+
+	$(document).on("click","#del",function(){
+		var id = $(this).attr("huo");
+		var url = "{{url('/admin/gimgs_del')}}";
+		var data = {};
+			data.id = id;
+		if(window.confirm("是否删除")){
+			$.ajax({
+				type:"post",
+				url:url,
+				data:data,
+				dateType:"json",
+				success:function(res){
+					if(res.success==true){
+						alert(res.message);
+						history.go(0);
+					}
+				}
+			})
+		}
+		
+	})
 	
 </script>
 

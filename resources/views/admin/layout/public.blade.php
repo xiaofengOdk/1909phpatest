@@ -63,7 +63,7 @@
 
                                     <p>
                                        @if(session('reg')=='')
-                                          登录
+                                          <a href="http://www.1909a3.com/index.php/admin/login">登录</a>
                                        @else
                                        @php echo session('reg')->admin_name @endphp
                                        <small>登录时间:@php echo session('time')@endphp</small>

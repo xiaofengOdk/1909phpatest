@@ -24,6 +24,7 @@
     Route::any("/reg","Admin\RegController@reg");//后台注册
     Route::any("/rdo","Admin\RegController@rdo");//后台注册执行
     Route::any("/login","Admin\LoginController@login");//后台登录;
+    Route::any("/quit","Admin\LoginController@quit");//后台退出;
     Route::any("/logdo","Admin\LoginController@logDo");//后台执行登录;
     Route::any("/ushow","Admin\AdminController@uShow");//后台执行登录;
     Route::any("/udo","Admin\AdminController@udo");//用户赋予角色;

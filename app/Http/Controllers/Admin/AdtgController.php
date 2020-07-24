@@ -103,4 +103,35 @@ class AdtgController extends Controller
         }
     }
 
+    /**
+     * 修改
+     */
+    public function adtg_upd($id)
+    {
+        $info = AdtgModel::where('g_id',$id)->first();
+        return view('admin//adtg/upd',['info'=>$info]);
+    }
+
+    public function adtg_updo()
+    {
+        $arr = request()->all();
+        if(empty($arr['g_name'])){
+            return $this->message('00001','广告名称不能为空','');
+        }
+        if(empty($arr['g_desc'])){
+            return $this->message('00002','广告描述不能为空','');
+        }
+        if(empty($arr['g_url'])){
+            return $this->message('00003','跳转地址不能为空','');
+        }
+        $where=[
+            ['g_id','=',$arr['g_id']]
+        ];
+        $res = AdtgModel::where($where)->update($arr);
+        if($res!==false){
+            return $this->message('00000','修改成功','/admin/adtg_add');
+        }else{
+            return $this->message('00001','修改失败','');
+        }
+    }
 }

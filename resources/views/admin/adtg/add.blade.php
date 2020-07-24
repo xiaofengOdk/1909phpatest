@@ -16,8 +16,12 @@
                             <div class="pull-left">
                                 <div class="form-group form-inline">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-default" title="新建" data-toggle="modal" data-target="#editModal" ng-click="toAdd()"><i class="fa fa-file-o"></i> 新建</button>
-                                        <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新</button>
+                                        <button type="button" class="btn btn-default" title="新建" data-toggle="modal" data-target="#editModal" ng-click="toAdd()">
+											<i class="fa fa-file-o"></i> 新建
+										</button>
+                                        <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();">
+											<i class="fa fa-refresh"></i> 刷新
+										</button>
                                     </div>
                                 </div>
                             </div>
@@ -70,6 +74,9 @@
 										  </td>
 										  <td>{{date("Y-m-d H:i:s",$v['add_time'])}}</td>
 										  <td class="text-center">
+											  <a href="/admin/adtg_upd/{{$v->g_id}}">
+												  <button type="button" class="btn btn-success">修改</button>
+											  </a>
 											  <button type="button" class="btn btn-danger del">删除</button>
 										  </td>
 									  </tr>

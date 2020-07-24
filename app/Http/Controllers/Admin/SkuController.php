@@ -76,6 +76,32 @@ class SkuController extends Controller
             ];
         }
     }
+    /**
+     * 修改
+     */
+    public function attr_upd($id)
+    {
+        $info = Attr::where('attr_id',$id)->first();
+        return view('admin/sku/attrupd',['info'=>$info]);
+    }
+    public function attr_updo()
+    {
+        $arr = request()->all();
+        if(empty($arr['attr_name'])){
+            return $this->message('001','属性名称不能为空','');
+        }
+        $where=[
+            ['attr_id','=',$arr['attr_id']]
+        ];
+        $res = Attr::where($where)->update($arr);
+        if($res!==false){
+            return $this->message('00000','修改成功','/admin/attr_add');
+        }else{
+            return $this->message('00001','修改失败','');
+        }
+    }
+
+
 
     //属性值表
     //展示
@@ -161,4 +187,32 @@ class SkuController extends Controller
             ];
         }
     }
+
+
+    /**
+     * 修改
+     */
+    public function attrval_upd($id)
+    {
+        $info = AttrVal::where('id',$id)->first();
+        $res =Attr::get();
+        return view('admin/sku/attrvalupd',['info'=>$info,'res'=>$res]);
+    }
+    public function attrval_updo()
+    {
+        $arr = request()->all();
+        if(empty($arr['attrval_name'])){
+            return $this->message('001','属性值名称不能为空','');
+        }
+        $where=[
+            ['id','=',$arr['id']]
+        ];
+        $res = AttrVal::where($where)->update($arr);
+        if($res!==false){
+            return $this->message('00000','修改成功','/admin/attrval_add');
+        }else{
+            return $this->message('00001','修改失败','');
+        }
+    }
+
 }

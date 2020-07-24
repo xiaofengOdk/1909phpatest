@@ -22,8 +22,8 @@
 				  <tr>
 		      		<td>是否展示</td>
 		      		<td>
-					 <input type="radio" id="fileupload"  name="is_show" {{$res->is_show==1?"checked":""}} value="1"> 是 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					 <input type="radio" id="fileupload"  name="is_show" {{$res->is_show==2?"checked":""}} value="2" >  否
+					 <input type="radio" id="fileupload"  name="is_shows" {{$res->is_shows==1?"checked":""}} value="1"> 是 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					 <input type="radio" id="fileupload"  name="is_shows" {{$res->is_shows==2?"checked":""}} value="2" >  否
 					  
 					  </td>
 		      	</tr>   	

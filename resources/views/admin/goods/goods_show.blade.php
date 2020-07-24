@@ -53,15 +53,15 @@
 											  <input class="chang" type="text" value="{{$v->goods_name}}" style="display:none">
 										</td>									    
 										  <td >
-											  <span class="span_test"> 										 
+											  <span > 										 
 											   <img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" width="150px" height="100px">
 </span>
 										  </td>
 										 <td >
-											  <span class="span_test"> {{$v->cate_name}}</span>
+											  <span > {{$v->cate_name}}</span>
 										  </td>
 										 <td >
-											  <span class="span_test"> {{$v->brand_name}}</span>
+											  <span > {{$v->brand_name}}</span>
 										  </td>
 		                                  <td class="text-center">		                                     
 		                                      <button type="button" class="btn bg-olive btn-xs" id="del" rid="{{$v->goods_id}}">删除</button> 		                                     
@@ -166,10 +166,10 @@
                     dataType:"json",
                     success:function(res){
 						// console.log(res)
-					    if(res.success==true){
+					    // if(res.success==true){
 						// alert(res.message);
 						history.go(0);
-						}
+						// }
                     }
             })
             })

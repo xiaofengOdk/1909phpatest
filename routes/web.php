@@ -67,6 +67,7 @@
     Route::any('/goods_show', 'Admin\GoodsController@goods_show');//商品添加   李彤
     Route::any('/uploadadd', 'Admin\GoodsController@uploadadd');//商品添加   李彤
     Route::any('/goods_del', 'Admin\GoodsController@goods_del');//商品添加   李彤
+    Route::any('/goods_ji', 'Admin\GoodsController@goods_ji');//商品添加   李彤
 
 
 

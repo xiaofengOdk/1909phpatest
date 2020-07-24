@@ -29,13 +29,7 @@
                                        
                                     </div>
                                 </div>
-                            </div>                          
-                       		  <form>
-                            	<input type="text"  class="btn btn-default" name="cate_name">
-                            	<input type="submit"   value="商品查询" >
-                           	
-                            </form>
-                        
+                            </div>                         
 							<!--数据列表-->
 			                  <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
 			                      <thead>

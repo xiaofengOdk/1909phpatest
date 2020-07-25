@@ -2,10 +2,12 @@
 @section("content")
 @include("index.layout.top")
 
+  @include('index.public.nav')
 	<!--列表-->
 	<div class="sort">
 		<div class="py-container">
 			<div class="yui3-g SortList ">
+<<<<<<< Updated upstream
 				<div class="yui3-u Left all-sort-list">
 					<div class="all-sort-list2">
 						@foreach($cate_info as $k=>$v)
@@ -27,6 +29,10 @@
 								@endforeach
 					</div>
 				</div>
+=======
+           
+                @include('index.public.list')
+>>>>>>> Stashed changes
 				<div class="yui3-u Center banerArea">
 					<!--banner轮播-->
 					<div id="myCarousel" data-ride="carousel" data-interval="4000" class="sui-carousel slide">
@@ -600,4 +606,8 @@
 	</div>
 	@include("index.layout.foot")
 
+<<<<<<< Updated upstream
+=======
+</html>
+>>>>>>> Stashed changes
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Index;
 
 use App\Http\Controllers\Controller;
+use App\Models\FootModel;
 use Illuminate\Http\Request;
 use App\Models\Cate;
 use App\Models\NavModel;
@@ -18,8 +19,9 @@ class IndexController extends Controller
     	// }
         // exit;
         $nav = NavModel::get();
+        $footInfo=FootModel::get();
         // dd($nav);
-    	    	 return view('index.index',['cate_info'=>$cate_info,"nav"=>$nav]);
+    	    	 return view('index.index',['cate_info'=>$cate_info,"nav"=>$nav,"footInfo"=>$footInfo]);
 
     }
     

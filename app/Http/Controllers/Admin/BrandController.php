@@ -32,7 +32,6 @@ class BrandController extends Controller
     }
     public function brand(){
         $brand_name=request()->brand_name;
-
         $where=[
             ['brand_name','like',"%$brand_name%"],
             ['is_del','=',1]

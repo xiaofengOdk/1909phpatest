@@ -20,17 +20,7 @@
     Route::any('/','Index\IndexController@index');//前台首页
     Route::any('/show','Index\IndexController@show');//前台首页
 
-<<<<<<< Updated upstream
    Route::prefix("/admin")->group(function(){
-=======
-<<<<<<< HEAD
-
-
-Route::prefix("/admin")->group(function(){
-=======
-   Route::prefix("/admin")->group(function(){
->>>>>>> 19f923534bc3986d2eea4be01e5d40e95abd2003
->>>>>>> Stashed changes
 	Route::any("/index","Admin\AdminController@index");//后台首页
     Route::any("/reg","Admin\RegController@reg");//后台注册
     Route::any("/rdo","Admin\RegController@rdo");//后台注册执行
@@ -41,17 +31,11 @@ Route::prefix("/admin")->group(function(){
     Route::any("/udo","Admin\AdminController@udo");//用户赋予角色;
     Route::any("/del","Admin\AdminController@del");//删除;
     Route::any("/jupdo","Admin\AdminController@jupdo");//即点击改;
-<<<<<<< Updated upstream
 	Route::any("/role_add","Admin\RoleController@role_add")->middleware("islogin");//添加、展示
-=======
-	//角色管理
-	Route::any("/role_add","Admin\RoleController@role_add");//添加、展示
->>>>>>> Stashed changes
 	Route::any("/role_adds","Admin\RoleController@role_adds");
     Route::any("/role_upd/{id}","Admin\RoleController@role_upd");//修改
     Route::any("/role_updo/{id}","Admin\RoleController@role_updo");//修改执行
 	Route::any("/role_Del","Admin\RoleController@role_Del");//删除
-<<<<<<< Updated upstream
 	Route::any("/pth","Admin\RoleController@pth");//即点即改
 
 
@@ -59,49 +43,11 @@ Route::prefix("/admin")->group(function(){
 // 权限管理
     Route::any("/right/right_add","Admin\RightController@right_add");//权限赋予的路由
 	Route::any("/right/index","Admin\RightController@index")->middleware("islogin");
-=======
-	Route::any('/update/{id}', 'Admin\RoleController@update');//修改页
-	Route::any('/upd', 'Admin\RoleController@upd');//修改页
-// 权限管理
-    Route::any("/right/right_add","Admin\RightController@right_add");//权限赋予的路由
-	Route::any("/right/index","Admin\RightController@index");
->>>>>>> Stashed changes
 	Route::any("/right/add_right","Admin\RightController@add_right");
 	Route::any("/right/del","Admin\RightController@del");
 	Route::any("/right/updateajax","Admin\RightController@updateajax");
 	Route::any("/right/paginate","Admin\RightController@paginate");
-<<<<<<< Updated upstream
  // Route::any("/","Admin\AdminController@index");
-=======
-<<<<<<< HEAD
-});
-   Route::prefix("/admin")->group(function(){
-        Route::any("/index","Admin\AdminController@index");//后台首页
-        Route::any("/reg","Admin\RegController@reg");//后台注册
-        Route::any("/rdo","Admin\RegController@rdo");//后台注册执行
-        Route::any("/login","Admin\LoginController@login");//后台登录;
-        Route::any("/logdo","Admin\LoginController@logDo");//后台执行登录;
-        Route::any("/ushow","Admin\AdminController@uShow");//后台执行登录;
-        Route::any("/udo","Admin\AdminController@udo");//用户赋予角色;
-        Route::any("/del","Admin\AdminController@del");//删除;
-        Route::any("/jupdo","Admin\AdminController@jupdo");//即点击改;
-
-        Route::any("/role_add","Admin\RoleController@role_add");//添加、展示
-        Route::any("/role_adds","Admin\RoleController@role_adds");
-        Route::any("/role_Del","Admin\RoleController@role_Del");//删除
-
-        Route::any('/update/{id}', 'Admin\RoleController@update');//修改页
-        Route::any('/upd', 'Admin\RoleController@upd');//修改页
-	
-=======
-	Route::any("/pth","Admin\RoleController@pth");//即点即改
->>>>>>> 19f923534bc3986d2eea4be01e5d40e95abd2003
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-//   Route::any("/","Admin\AdminController@index");
->>>>>>> Stashed changes
 	##########################商品模块###############################
 	//商品分类
 	Route::any('/category','Admin\CategoryController@category');
@@ -116,7 +62,6 @@ Route::prefix("/admin")->group(function(){
 	Route::any('/editbrand_show','Admin\BrandController@editbrand_show');
 	##########################商品模块###############################
 	Route::any('/jup', 'Admin\RoleController@jup');//即点即改
-<<<<<<< Updated upstream
     Route::any('/gadd', 'Admin\GoodsController@gadd');//商品添加   李彤
     Route::any('/gdo', 'Admin\GoodsController@gdo');//商品添加执行   李彤
     Route::any('/goods_show', 'Admin\GoodsController@goods_show');//商品添加   李彤
@@ -182,9 +127,6 @@ Route::prefix("/admin")->group(function(){
     Route::any('/slide_upd/{id}', 'Admin\SlideController@slide_upd');//轮播图修改 刘远浩
     Route::any('/slide_upddo/{id}', 'Admin\SlideController@slide_upddo');//轮播图修改执行 刘远浩
 
-=======
-<<<<<<< HEAD
->>>>>>> Stashed changes
 });
 
 
@@ -193,7 +135,3 @@ Route::prefix("/index")->group(function(){
     Route::any('/index','Admin\BrandController@brandedit');
 
 });
-=======
-	Route::any("/pth","Admin\RoleController@pth");//即点即改
-    });
->>>>>>> 19f923534bc3986d2eea4be01e5d40e95abd2003

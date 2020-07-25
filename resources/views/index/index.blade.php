@@ -598,6 +598,5 @@
 			</ul>
 		</div>
 	</div>
-	@include("index.layout.foot")
-
+@include("index.layout.foot")
 @endsection

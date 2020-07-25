@@ -94,7 +94,7 @@
     Route::any('/attrval_updo/{id}', 'Admin\SkuController@attrval_updo');//attrval修改执行
 
 
-
+   
 
 
     Route::any('/category', 'Admin\CategoryController@category');//分类展示  邢慧峰

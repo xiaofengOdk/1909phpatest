@@ -128,3 +128,10 @@
     Route::any('/slide_upddo/{id}', 'Admin\SlideController@slide_upddo');//轮播图修改执行 刘远浩
 
 });
+
+
+
+Route::prefix("/index")->group(function(){
+    Route::any('/index','Admin\BrandController@brandedit');
+
+});

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Index;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cate;
+use App\Models\NavModel;
 class IndexController extends Controller
 {
     public function index(){
@@ -15,8 +16,10 @@ class IndexController extends Controller
     	// foreach($cate_info as $k=>$v){
     	// 	print_R($v['child']);
     	// }
-    	// exit;
-    	    	 return view('index.index',['cate_info'=>$cate_info]);
+        // exit;
+        $nav = NavModel::get();
+        // dd($nav);
+    	    	 return view('index.index',['cate_info'=>$cate_info,"nav"=>$nav]);
 
     }
     

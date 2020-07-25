@@ -1,4 +1,10 @@
 	<!--顶部-->
+	<style>
+	
+a{
+		text-decoration:none;
+}
+	</style>
 	<div class="nav-top">
 		<div class="top">
 			<div class="py-container">
@@ -53,14 +59,11 @@
 						</div>
 						<div class="hotwords">
 							<ul>
-								<li class="f-item">品优购首发</li>
-								<li class="f-item">亿元优惠</li>
-								<li class="f-item">9.9元团购</li>
-								<li class="f-item">每满99减30</li>
-								<li class="f-item">亿元优惠</li>
-								<li class="f-item">9.9元团购</li>
-								<li class="f-item">办公用品</li>
-
+								@foreach($brand as $k=>$v)
+								
+									<li class="f-item"><a href="" style="color:black; text-decoration:none;">{{$v->brand_name}}</a></li>
+									
+								@endforeach
 							</ul>
 						</div>
 					</div>
@@ -88,10 +91,11 @@
 					<div class="yui3-u Center navArea">
 						<ul class="nav">
 							@foreach($nav as $v=>$k)
-							<li class="f-item">{{$k->nav_name}}</li>
+						
+							<li class="f-item">	<a href="" style="color:black; text-decoration:none;">{{$k->nav_name}}</a></li>
 							
 							@endforeach
-							<li class="f-item"><a href="seckill-index.html" target="_blank">秒杀</a></li>
+							<li class="f-item"><a href="seckill-index.html" target="_blank" style=" text-decoration:none;">秒杀</a></li>
 
 						</ul>
 					</div>

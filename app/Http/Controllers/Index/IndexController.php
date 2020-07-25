@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cate;
 use App\Models\NavModel;
+use App\Models\BrandModel;
 class IndexController extends Controller
 {
     public function index(){
@@ -17,9 +18,10 @@ class IndexController extends Controller
     	// 	print_R($v['child']);
     	// }
         // exit;
-        $nav = NavModel::get();
+        $nav = NavModel::get();//导航
+        $brand = BrandModel::where("brand_show",1)->get();//热卖
         // dd($nav);
-    	    	 return view('index.index',['cate_info'=>$cate_info,"nav"=>$nav]);
+    	    	 return view('index.index',['cate_info'=>$cate_info,"nav"=>$nav,"brand"=>$brand]);
 
     }
     

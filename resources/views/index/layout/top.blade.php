@@ -47,13 +47,16 @@ a{
 					<div class="yui3-u Left logoArea">
 						<a class="logo-bd" title="品优购" href="JD-index.html" target="_blank"></a>
 					</div>
+
+
+
 					<div class="yui3-u Center searchArea">
 						<div class="search">
 							<form action="" class="sui-form form-inline">
 								<!--searchAutoComplete-->
 								<div class="input-append">
-									<input type="text" id="autocomplete" type="text" class="input-error input-xxlarge" />
-									<button class="sui-btn btn-xlarge btn-danger" type="button">搜索</button>
+									<input type="text" id="autocomplete" type="text" class="input-error input-xxlarge"  style="height:32px;" />
+									<button class="sui-btn btn-xlarge btn-danger"  type="button">搜索</button>
 								</div>
 							</form>
 						</div>
@@ -67,6 +70,7 @@ a{
 							</ul>
 						</div>
 					</div>
+
 					<div class="yui3-u Right shopArea">
 						<div class="fr shopcar">
 							<div class="show-shopcar" id="shopcar">
@@ -91,12 +95,9 @@ a{
 					<div class="yui3-u Center navArea">
 						<ul class="nav">
 							@foreach($nav as $v=>$k)
-						
 							<li class="f-item">	<a href="" style="color:black; text-decoration:none;">{{$k->nav_name}}</a></li>
-							
 							@endforeach
 							<li class="f-item"><a href="seckill-index.html" target="_blank" style=" text-decoration:none;">秒杀</a></li>
-
 						</ul>
 					</div>
 					<div class="yui3-u Right"></div>

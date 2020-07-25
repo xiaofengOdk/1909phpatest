@@ -27,7 +27,17 @@
                 iframeid.height =document.documentElement.clientHeight;
               }
          }
+<<<<<<< Updated upstream
     </script>
+=======
+<<<<<<< Updated upstream
+
+    </script>
+=======
+    
+    </script>    
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 </head>
 <body class="hold-transition skin-green sidebar-mini" >
     <div class="wrapper">
@@ -116,7 +126,15 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu"  >
                     <li class="header">菜单</li>
+<<<<<<< Updated upstream
                     <li id="admin-index"><a href="http://www.1909a3.com/index.php/admin/index"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 19f923534bc3986d2eea4be01e5d40e95abd2003
+                    <li id="admin-index"><a href="/admin/index"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
+>>>>>>> Stashed changes
                     <!-- 菜单 -->
                     <li class="treeview">
                         <a href="#">
@@ -310,11 +328,24 @@
             </section>
             <!-- /.sidebar -->
         </aside>
+
+
         <!-- 导航侧栏 /-->
+<<<<<<< HEAD
 
                      <div class="content-wrapper">
                 @yield("content")
                         </div>
+<<<<<<< Updated upstream
+=======
+      
+=======
+           <div class="content-wrapper">
+                @yield("content")
+        </div>
+
+>>>>>>> 19f923534bc3986d2eea4be01e5d40e95abd2003
+>>>>>>> Stashed changes
         <!-- 底部导航 -->
         <footer class="main-footer">
             <div class="pull-right hidden-xs">

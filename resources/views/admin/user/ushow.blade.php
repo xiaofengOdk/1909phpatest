@@ -1,5 +1,12 @@
 @extends("admin.layout.public")
 @section("content")
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 19f923534bc3986d2eea4be01e5d40e95abd2003
+>>>>>>> Stashed changes
 <body class="hold-transition skin-red sidebar-mini">
   <!-- .box-body -->
         
@@ -76,7 +83,11 @@
 
                      </div>
                     <!-- /.box-body -->
+<<<<<<< Updated upstream
              
+=======
+                    {{$reg->links()}}
+>>>>>>> Stashed changes
 
 <!-- 编辑窗口 -->
 
@@ -115,11 +126,16 @@
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 			<h3 id="myModalLabel">赋予角色</h3>
 		</div>
+<<<<<<< Updated upstream
 		<div class="modal-body admin_user_id">
+=======
+		<div class="modal-body">
+>>>>>>> Stashed changes
 			<table class="table table-bordered table-striped"  width="800px">
                 
 		      	<tr>
 
+<<<<<<< Updated upstream
 		      		<td>
                       <select name="role" style='width:150px; padding-left:50px; ' >
                       @foreach($regs as $k=>$v)
@@ -133,6 +149,15 @@
 		</div>
 		<div class="modal-footer">
 			<button class="btn btn-success ro" data-dismiss="modal" aria-hidden="true" >保存</button>
+=======
+		      		<td><input type="checkbox" > {{$v->role_name}} </td>
+		      	</tr>
+		        @endforeach
+			 </table>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">保存</button>
+>>>>>>> Stashed changes
 			<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
 		</div>
 	  </div>

@@ -1,7 +1,18 @@
 @extends("admin.layout.public")
 @section("content")
+<<<<<<< Updated upstream
                <section class="content">
                <!-- 统计数值 -->
+=======
+<<<<<<< HEAD
+
+         <section class="content">
+                <!-- 统计数值 -->
+=======
+               <section class="content">
+               <!-- 统计数值 -->
+>>>>>>> 19f923534bc3986d2eea4be01e5d40e95abd2003
+>>>>>>> Stashed changes
                 <div class="row">
                     <div class="col-lg-3 col-xs-6">
                         <!-- small box -->
@@ -37,7 +48,15 @@
                         <!-- small box -->
                         <div class="small-box bg-yellow">
                             <div class="inner">
+<<<<<<< Updated upstream
                  
+=======
+                                <h3></h3>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 19f923534bc3986d2eea4be01e5d40e95abd2003
+>>>>>>> Stashed changes
                                 <p>日PV</p>
                             </div>
                             <div class="icon">
@@ -64,4 +83,12 @@
                 </div>
                 <!-- /.row -->
             </section>
+<<<<<<< Updated upstream
 @endsection
+=======
+<<<<<<< HEAD
+@endsection
+=======
+@endsection
+>>>>>>> 19f923534bc3986d2eea4be01e5d40e95abd2003
+>>>>>>> Stashed changes

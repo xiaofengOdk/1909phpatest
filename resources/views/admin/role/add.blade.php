@@ -1,5 +1,10 @@
 @extends("admin.layout.public")
 @section("content")
+<<<<<<< Updated upstream
+=======
+  
+</head>
+>>>>>>> Stashed changes
    <div class="box-header with-border">
                         <h3 class="box-title">角色管理</h3>
                     </div>
@@ -61,10 +66,16 @@
 										  <td class="text-center">
 											  {{--<button type="button" class="btn btn-primary" >修改</button>--}}
 											  <button type="button" class="btn btn-danger del">删除</button>
+<<<<<<< Updated upstream
 											  <button type="button" class="btn btn-primary ro" title="新建" data-toggle="modal"
 													  data-target="#editModal"  ng-click="toAdd()" data-role_id="{{$v->role_id}}">权限添加
 											  </button>
 										  </td>
+=======
+   <button type="button" class="btn btn-default" title="新建" data-toggle="modal" data-target="#editModal"  ng-click="toAdd()">									
+
+												  权限添加</button>										   </td>
+>>>>>>> Stashed changes
 									  </tr>
 								  @endforeach
 			                      </tbody>
@@ -75,7 +86,12 @@
                      </div>
                     <!-- /.box-body -->
 	            <!-- 分页 -->
+<<<<<<< Updated upstream
 				{{$data->appends(request()->input())->links()}}
+=======
+				{{$data->links()}}
+				                
+>>>>>>> Stashed changes
 <!-- xugai窗口 -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" >
@@ -89,6 +105,7 @@
 			<table class="table table-bordered table-striped"  width="800px">
 		      	<tr>
 		      		<td>权限名称</td>
+<<<<<<< Updated upstream
 
 		      		<td>
 		      			<select name="r_id">
@@ -98,19 +115,36 @@
 		      			</select>
 		      		 </td>
 
+=======
+		      		@foreach($right_model as $k=>$v)
+		      		<td>
+		      			<select name="r_id">
+		      				<option   value="{{$v->right_id}}">{{$v->right_name}}</option>
+		      			</select>
+		      		 </td>
+		      		@endforeach
+>>>>>>> Stashed changes
 		      	</tr>
 			 </table>				
 			
 		</div>
 		<div class="modal-footer">						 
+<<<<<<< Updated upstream
 			<button class="btn btn-success fu" data-dismiss="modal" aria-hidden="true"   >赋予</button>
+=======
+			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true"  id="right_id" >赋予</button>
+>>>>>>> Stashed changes
 			<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
 		</div>
 			
 	  </div>
 	</div>
 </div>
+<<<<<<< Updated upstream
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+=======
+<div class="modal fade" id="esssditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+>>>>>>> Stashed changes
 						<div class="modal-dialog" >
 							<div class="modal-content">
 								<div class="modal-header">
@@ -183,6 +217,10 @@
 		var _this=$(this);
 		_this.hide();
 		_this.next('input').show();
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 	})
 	$('.updo').blur(function(){  //当失去焦点的时候获取到 id 要修改的字段  值
 		var _this=$(this);
@@ -211,6 +249,7 @@
 			}
 		})
 	});
+<<<<<<< Updated upstream
 
 	//赋权限
     $(document).on("click",".ro",function(){
@@ -240,3 +279,11 @@
 	});
 </script>
 @endsection
+=======
+	// $(document).on('click','#right_id',function(){
+	// 	var right_id=$(".r_id").val()
+		
+	// })
+;</script>
+	@endsection
+>>>>>>> Stashed changes

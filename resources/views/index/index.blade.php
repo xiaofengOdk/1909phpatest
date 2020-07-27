@@ -15,9 +15,9 @@
 								@foreach($v->child as $kk=>$vv)
 								<div class="subitem">
 									<dl class="fore1">				
-										<dt><a href="/index/goods_list/{{$v->cate_id}}
+										<dt><a href="/index/goods_list/{{$vv->cate_id}}
 " value="{{$v->cate_id}}">{{$vv->cate_name}}</a></dt>
-										<dd>@foreach($vv->child as $kkk=>$vvv)<em><a href="/index/goods_list/{{$v->cate_id}}
+										<dd>@foreach($vv->child as $kkk=>$vvv)<em><a href="/index/goods_list/{{$vvv->cate_id}}
 " value="{{$v->cate_id}}">{{$vvv->cate_name}}</a></em>@endforeach</dd>		
 									</dl>
 								</div>

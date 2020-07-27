@@ -20,15 +20,14 @@
         <div class="default-list">
             <div class="title">
                 <h1>Must have+</h1>
-                <h2>畅销夏日装备</h2>
+                <h2>畅销热卖</h2>
             </div>
             <div class="goods-list">
                 <ul class="yui3-g" id="goods-list">
-                               @foreach($navgoods as $k=>$v)<li class="yui3-u-1-4">
- 
+                @foreach($hot as $k=>$v)
+                    <li class="yui3-u-1-4">
                         <div class="list-wrap">               
-                 
-                            <div class="p-img"><img src="{{env('UPLOAD_URL')}}{{$v->goods_img}}" style="width: 300;height: 200;"></div>
+                            <div class="p-img"><img src="{{env('UPLOAD_URL')}}{{$v->goods_img}}" width='200px'></div>
                             <div class="price"><strong><em>¥</em> <i>{{$v->goods_price}}</i></strong></div>
                             <div class="attr"><em>{{$v->goods_dese}}</em></div>
                             <div class="cu"><em><span>促</span>满一件可参加超值换购</em></div>
@@ -37,10 +36,9 @@
                                 <a href="javascript:void(0);" class="sui-btn btn-bordered">对比</a>
                                 <a href="javascript:void(0);" class="sui-btn btn-bordered">关注</a>
                             </div>  
-                          
                         </div>
-                  
-                    </li >  @endforeach
+                    </li > 
+                @endforeach
                 </ul>
             </div>
            

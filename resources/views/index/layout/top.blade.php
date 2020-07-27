@@ -64,7 +64,7 @@ a{
 							<ul>
 								@foreach($brand as $k=>$v)
 								
-									<li class="f-item"><a href="" style="color:black; text-decoration:none;">{{$v->brand_name}}</a></li>
+									<li class="f-item"><a href="{{url('/index/nav_hot/'.$v->cate_id)}}" style="color:black; text-decoration:none;">{{$v->brand_name}}</a></li>
 									
 								@endforeach
 							</ul>

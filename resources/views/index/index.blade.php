@@ -155,7 +155,7 @@
 				@foreach($goods_info as $k=>$v)
 					@if($k<=3)
 				<li class="yui3-u-5-24">
-					<a href="list.html" target="_blank"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}"  style="width: 250;height: 160;"/></a>
+					<a href="/index/goods_desc/{{$v->goods_id}}" target="_blank"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}"  style="width: 250;height: 160;"/></a>
 				</li>
 					@endif
 				@endforeach
@@ -176,14 +176,14 @@
 					<li class="yui3-u-1-6">
 						<dl class="picDl huozhe">
 							<dd>
-								<a href="" class="pic"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" alt="" /></a>
+								<a href="/index/goods_desc/{{$v->goods_id}}" class="pic"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" alt="" /></a>
 								<div class="like-text">
 									<p>{{$v->goods_name}}</p>
 									<h3>¥{{$v->goods_price}}</h3>
 								</div>
 							</dd>
 							<dd>
-								<a href="" class="pic"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" alt="" /></a>
+								<a href="/index/goods_desc/{{$v->goods_id}}" class="pic"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" alt="" /></a>
 								<div class="like-text">
 									<p>{{$v->goods_name}}</p>
 									<h3>¥{{$v->goods_price}}</h3>
@@ -454,7 +454,7 @@
 			</div>
 		</div>
 	</div> -->
-;b<div id="floor-2" class="floor">
+<div id="floor-2" class="floor">
 		<div class="py-container">
 			<div class="title floors">
 				<h3 class="fl">第二层</h3>
@@ -556,6 +556,31 @@
 				@endforeach
 			</ul>
 		</div>
+	</div>
+	<!-- 楼层位置 -->
+	<div id="floor-index" class="floor-index">
+		<ul>
+			<li>
+				<a class="num" href="javascript:;" style="display: none;">1F</a>
+				<a class="word" href="javascript;;" style="display: block;">家用电器</a>
+			</li>
+			<li>
+				<a class="num" href="javascript:;" style="display: none;">2F</a>
+				<a class="word" href="javascript;;" style="display: block;">手机通讯</a>
+			</li>
+			<li>
+				<a class="num" href="javascript:;" style="display: none;">3F</a>
+				<a class="word" href="javascript;;" style="display: block;">电脑办公</a>
+			</li>
+			<li>
+				<a class="num" href="javascript:;" style="display: none;">4F</a>
+				<a class="word" href="javascript;;" style="display: block;">家居家具</a>
+			</li>
+			<li>
+				<a class="num" href="javascript:;" style="display: none;">5F</a>
+				<a class="word" href="javascript;;" style="display: block;">运动户外</a>
+			</li>
+		</ul>
 	</div>
 
 @include("index.layout.foot")

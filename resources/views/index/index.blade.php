@@ -170,17 +170,17 @@
 					<li class="yui3-u-1-6">
 						<dl class="picDl huozhe">
 							<dd>
-								<a href="" class="pic"><img src="{{env('UPLOAD_URL')}}{{$v->goods_img}}" alt="" /></a>
+								<a href="" class="pic"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" alt="" /></a>
 								<div class="like-text">
 									<p>{{$v->goods_name}}</p>
-									<h3>¥116.00</h3>
+									<h3>¥{{$v->goods_price}}</h3>
 								</div>
 							</dd>
 							<dd>
-								<a href="" class="pic"><img src="/static/index/img/like_01.png" alt="" /></a>
+								<a href="" class="pic"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" alt="" /></a>
 								<div class="like-text">
-									<p>爱仕达 30CM炒锅不粘锅NWG8330E电磁炉炒</p>
-									<h3>¥116.00</h3>
+									<p>{{$v->goods_name}}</p>
+									<h3>¥{{$v->goods_price}}</h3>
 								</div>
 							</dd>
 						</dl>

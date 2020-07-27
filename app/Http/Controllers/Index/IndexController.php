@@ -27,7 +27,7 @@ class IndexController extends Controller
         $adtr_info=AdtgModel::where("is_del",1)->limit(5)->get();
         $footInfo=FootModel::get();
         //购物车
-        $goods_info=Goods::get();
+        $goods_info=Goods::limit(6)->get();
         // dd($goods_info);
     	return view('index.index',['cate_info'=>$cate_info,"goods_info"=>$goods_info,"nav"=>$nav,"brand"=>$brand,"footInfo"=>$footInfo,"adtr_info"=>$adtr_info]);
 

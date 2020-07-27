@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 	<title>品优购，优质！优质！</title>
 	 <link rel="icon" href="/static/index/img/assets/img/favicon.ico">
-
+<link rel="stylesheet" type="text/css" href="/static/index/css/pages-list.css" />
     <link rel="stylesheet" type="text/css" href="/static/index/css/webbase.css" />
     <link rel="stylesheet" type="text/css" href="/static/index/css/pages-JD-index.css" />
     <link rel="stylesheet" type="text/css" href="/static/index/css/widget-jquery.autocomplete.css" />

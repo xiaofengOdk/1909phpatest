@@ -112,11 +112,11 @@
 			<div class="Mod-copyright">
 				<ul class="helpLink">
 					@foreach($footInfo as $k=>$v)
-					<li><a href="{{$v->foot_url}}">{{$v->foot_name}}</a><span class="space"></span></li>
+					<li><a href="{{$v->foot_url}}" style="color:black; text-decoration:none;">{{$v->foot_name}}</a><span class="space"></span></li>
 						@endforeach
 				</ul>
-				<p>地址：北京市昌平区建材城西路金燕龙办公楼一层 邮编：100096 电话：400-618-4000 传真：010-82935100</p>
-				<p>京ICP备08001421号京公网安备110108007702</p>
+				<p>地址：山东省菏泽市牡丹区中华西路228号 邮编：110 电话：1909phpa3 传真：莫有</p>
+				<p>豫ICP备08001421号京公网安备110108007702</p>
 			</div>
 		</div>
 	</div>

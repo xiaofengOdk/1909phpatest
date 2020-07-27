@@ -9,15 +9,13 @@
 					<div class="all-sort-list2">
 						@foreach($cate_info as $k=>$v)
 						<div class="item bo">
-							<h3><a href="">{{$v->cate_name}}</a></h3>
+							<h3><a href="" value="{{$v->cate_id}}">{{$v->cate_name}}</a></h3>
 							<div class="item-list clearfix">
 								@foreach($v->child as $kk=>$vv)
 								<div class="subitem">
 									<dl class="fore1">				
-										<dt><a href="">{{$vv->cate_name}}</a></dt>
-												
-										<dd>@foreach($vv->child as $kkk=>$vvv)<em><a href="">{{$vvv->cate_name}}</a></em>@endforeach</dd>
-												
+										<dt><a href="" value="{{$v->cate_id}}">{{$vv->cate_name}}</a></dt>
+										<dd>@foreach($vv->child as $kkk=>$vvv)<em><a href="" value="{{$v->cate_id}}">{{$vvv->cate_name}}</a></em>@endforeach</dd>		
 									</dl>
 								</div>
 								@endforeach
@@ -59,21 +57,11 @@
 						<h4><em class="fl">品优购快报</em><span class="fr tip">更多 ></span></h4>
 						<div class="clearix"></div>
 						<ul class="news-list unstyled">
+							@foreach($adtr_info as $k=>$v)
 							<li>
-								<span class="bold">[特惠]</span>备战开学季 全民半价购数码
+								<span class="bold" >[{{$v->is_type==1?"广告":"热卖"}}]</span>{{{$v->g_name}}}
 							</li>
-							<li>
-								<span class="bold">[公告]</span>备战开学季 全民半价购数码
-							</li>
-							<li>
-								<span class="bold">[特惠]</span>备战开学季 全民半价购数码
-							</li>
-							<li>
-								<span class="bold">[公告]</span>备战开学季 全民半价购数码
-							</li>
-							<li>
-								<span class="bold">[特惠]</span>备战开学季 全民半价购数码
-							</li>
+							@endforeach
 						</ul>
 					</div>
 					<ul class="yui3-g Lifeservice">
@@ -163,16 +151,7 @@
 					</div>
 				</li>
 				<li class="yui3-u-5-24">
-					<a href="list.html" target="_blank"><img src="/static/index/img/today01.png" /></a>
-				</li>
-				<li class="yui3-u-5-24">
-					<img src="/static/index/img/today02.png" />
-				</li>
-				<li class="yui3-u-5-24">
-					<img src="/static/index/img/today03.png" />
-				</li>
-				<li class="yui3-u-5-24">
-					<img src="/static/index/img/today04.png" />
+					<a href="" target="_blank"><img src="/static/index/img/today01.png" /></a>
 				</li>
 			</ul>
 		</div>
@@ -201,101 +180,6 @@
 								<div class="like-text">
 									<p>爱仕达 30CM炒锅不粘锅NWG8330E电磁炉炒</p>
 									<h3>¥116.00</h3>
-								</div>
-							</dd>
-						</dl>
-					</li>
-					<li class="yui3-u-1-6">
-						<dl class="picDl jilu">
-							<dd>
-								<a href="" class="pic"><img src="/static/index/img/like_03.png" alt="" /></a>
-								<div class="like-text">
-									<p>爱仕达 30CM炒锅不粘锅NWG8330E电磁炉炒</p>
-									<h3>¥116.00</h3>
-								</div>
-							</dd>
-							<dd>
-								<a href="" class="pic"><img src="/static/index/img/like_02.png" alt="" /></a>
-								<div class="like-text">
-									<p>阳光美包新款单肩包女包时尚子母包四件套女</p>
-									<h3>¥116.00</h3>
-								</div>
-							</dd>
-						</dl>
-					</li>
-					<li class="yui3-u-1-6">
-						<dl class="picDl tuhua">
-							<dd>
-								<a href="" class="pic"><img src="/static/index/img/like_01.png" alt="" /></a>
-								<div class="like-text">
-									<p>捷波朗 </p>
-									<p>（jabra）BOOSI劲步</p>
-									<h3>¥236.00</h3>
-								</div>
-							</dd>
-							<dd>
-								<a href="" class="pic"><img nsrc="assets//static/index/img/like_02.png" alt="" /></a>
-								<div class="like-text">
-									<p>三星（G5500）</p>
-									<p>移动联通双网通</p>
-									<h3>¥566.00</h3>
-								</div>
-							</dd>
-						</dl>
-					</li>
-					<li class="yui3-u-1-6">
-						<dl class="picDl huozhe">
-							<dd>
-								<a href="" class="pic"><img src="/static/index/img/like_02.png" alt="" /></a>
-								<div class="like-text">
-									<p>阳光美包新款单肩包女包时尚子母包四件套女</p>
-									<h3>¥116.00</h3>
-								</div>
-							</dd>
-							<dd>
-								<a href="" class="pic"><img src="/static/index/img/like_01.png" alt="" /></a>
-								<div class="like-text">
-									<p>爱仕达 30CM炒锅不粘锅NWG8330E电磁炉炒</p>
-									<h3>¥116.00</h3>
-								</div>
-							</dd>
-						</dl>
-					</li>
-					<li class="yui3-u-1-6">
-						<dl class="picDl jilu">
-							<dd>
-								<a href="http://sc.chinaz.com/" class="pic"><img src="/static/index/img/like_03.png" alt="" /></a>
-								<div class="like-text">
-									<p>捷波朗 </p>
-									<p>（jabra）BOOSI劲步</p>
-									<h3>¥236.00</h3>
-								</div>
-							</dd>
-							<dd>
-								<a href="http://sc.chinaz.com/" class="pic"><img src="/static/index/img/like_02.png" alt="" /></a>
-								<div class="like-text">
-									<p>欧普</p>
-									<p>JYLZ08面板灯平板灯铝</p>
-									<h3>¥456.00</h3>
-								</div>
-							</dd>
-						</dl>
-					</li>
-					<li class="yui3-u-1-6">
-						<dl class="picDl tuhua">
-							<dd>
-								<a href="http://sc.chinaz.com/" class="pic"><img src="/static/index/img/like_01.png" alt="" /></a>
-								<div class="like-text">
-									<p>三星（G5500）</p>
-									<p>移动联通双网通</p>
-									<h3>¥566.00</h3>
-								</div>
-							</dd>
-							<dd>
-								<a href="http://sc.chinaz.com/" class="pic"><img nsrc="assets//static/index/img/like_02.png" alt="" /></a>
-								<div class="like-text">
-									<p>韩国所望紧致湿润精华露400ml</p>
-									<h3>¥896.00</h3>
 								</div>
 							</dd>
 						</dl>
@@ -599,5 +483,3 @@
 	</div>
 
 @include("index.layout.foot")
-
-</html>

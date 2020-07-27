@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="/static/index/css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="/static/index/css/pages-seckillOrder.css" />
 <div class="yui3-u-1-6 list">
 
                     <div class="person-info">

@@ -34,7 +34,7 @@ a{
 							</ul>
 						</li>
 						<li class="f-item space"></li>
-						<li class="f-item">网站导航</li>
+						<li class="f-item"><a href="/"style="text-decoration: none; color:black;" >网站导航</a></li>
 					</ul>
 				</div>
 			</div>

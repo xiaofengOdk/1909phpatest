@@ -95,7 +95,7 @@ a{
 					<div class="yui3-u Center navArea">
 						<ul class="nav">
 							@foreach($nav as $v=>$k)
-							<li class="f-item">	<a href="" style="color:black; text-decoration:none;">{{$k->nav_name}}</a></li>
+							<li class="f-item">	<a href="{{url('/index/nav_list/'.$k->nav_id)}}" style="color:black; text-decoration:none;">{{$k->nav_name}}</a></li>
 							@endforeach
 							<li class="f-item"><a href="seckill-index.html" target="_blank" style=" text-decoration:none;">秒杀</a></li>
 						</ul>

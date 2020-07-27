@@ -34,11 +34,19 @@
 					  </ol>
 					  <div class="carousel-inner">
 					  	@foreach($slide_info as $k=>$v)
-					    <div class="active item">
+					  		@if($k==0)
+		    			<div class="active item">
 						 <a href="http://baidu2.wypxj.com/">
-						<img src="{{env('UPLOAD_URL')}}{{$v->slide_log}}"  width="740px;"  height="460px;" />
+						<img src="{{env('UPLOAD_URL')}}{{$v->slide_log}}"  style="width: 740px;height: 460px;" width="740px;"  height="460px;" />
 					     </a>
 					    </div>
+						    @else
+					    <div class="item">
+						 <a href="http://baidu2.wypxj.com/">
+						<img src="{{env('UPLOAD_URL')}}{{$v->slide_log}}"style="width: 740px;height: 460px;"  width="740px;"  height="460px;" />
+					     </a>
+					    </div>
+					    	@endif
 					 	@endforeach
 					  </div><a href="#myCarousel" data-slide="prev" class="carousel-control left">‹</a><a href="#myCarousel" data-slide="next" class="carousel-control right">›</a>
 					</div>
@@ -141,9 +149,13 @@
 						<h3>今日推荐</h3>
 					</div>
 				</li>
+				@foreach($goods_info as $k=>$v)
+					@if($k<=3)
 				<li class="yui3-u-5-24">
-					<a href="list.html" target="_blank"><img src="/static/index/img/today01.png" /></a>
+					<a href="list.html" target="_blank"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}"  style="width: 250;height: 160;"/></a>
 				</li>
+					@endif
+				@endforeach
 			</ul>
 		</div>
 	</div>
@@ -190,42 +202,45 @@
 			<div class="clearfix yui3-g Interest">
 				<span class="x-line"></span>
 				<div class="yui3-u row-405 Interest-conver">
-					<img src="/static/index/img/interest01.png" />
+					@foreach($goods_info as $k=>$v)
+						@if($k==0)
+					<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 405px;height: 405px;"  />
+						@endif
+					@endforeach
 				</div>
 				<div class="yui3-u row-225 Interest-conver-split">
 					<h5>好东西</h5>
-					<img src="/static/index/img/interest02.png" />
-					<img src="/static/index/img/interest03.png" />
+						@foreach($goods_info as $k=>$v)
+							@if($k<=1)
+						<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 226px;height: 200px;"  />
+							@endif
+						@endforeach
 				</div>
 				<div class="yui3-u row-405 Interest-conver-split blockgary">
 					<h5>品牌街</h5>
 					<div class="split-bt">
-						<img src="/static/index/img/interest04.png" />
+						@foreach($brand as $k=>$v)
+							@if($k==0)
+						<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}"  style="width: 404px;height: 206px;" />
+							@endif
+						@endforeach
 					</div>
 					<div class="x-img fl">
-						<img src="/static/index/img/interest05.png" />
-					</div>
-					<div class="x-img fr">
-						<img src="/static/index/img/interest06.png" />
+						@foreach($brand as $k=>$v)
+							@if($k<=1)
+						<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 203px;height: 158px;" />
+							@endif
+						@endforeach
 					</div>
 				</div>
 				<div class="yui3-u row-165 brandArea">
 					<span class="brand-yline"></span>
 					<ul class="yui3-g brand-list">
-						<li class="yui3-u-1-2 brand-pit"><img src="/static/index/img/brand01.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="/static/index/img/brand02.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="/static/index/img/brand03.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="/static/index/img/brand04.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="/static/index/img/brand05.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="/static/index/img/brand06.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="/static/index/img/brand07.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="/static/index/img/brand08.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="/static/index/img/brand09.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="/static/index/img/brand10.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="/static/index/img/brand11.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="/static/index/img/brand12.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="/static/index/img/brand13.png" /></li>
-						<li class="yui3-u-1-2 brand-pit"><img src="/static/index/img/brand03.png" /></li>
+						@foreach($brand as $k=>$v)
+						<li class="yui3-u-1-2 brand-pit">
+							<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}"style="width: 82px;height: 49px;"  />
+						</li>
+						@endforeach
 					</ul>
 				</div>
 			</div>

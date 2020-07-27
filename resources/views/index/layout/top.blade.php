@@ -34,7 +34,7 @@ a{
 							</ul>
 						</li>
 						<li class="f-item space"></li>
-						<li class="f-item">网站导航</li>
+						<li class="f-item"><a href="/"style="text-decoration: none; color:black;" >网站导航</a></li>
 					</ul>
 				</div>
 			</div>
@@ -75,7 +75,7 @@ a{
 						<div class="fr shopcar">
 							<div class="show-shopcar" id="shopcar">
 								<span class="car"></span>
-								<a class="sui-btn btn-default btn-xlarge" href="cart.html" target="_blank">
+								<a class="sui-btn btn-default btn-xlarge" href="/index/cart_list" target="_blank">
 									<span>我的购物车</span>
 									<i class="shopnum">0</i>
 								</a>

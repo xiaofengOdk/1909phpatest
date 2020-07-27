@@ -94,7 +94,7 @@
     Route::any('/attrval_updo/{id}', 'Admin\SkuController@attrval_updo');//attrval修改执行
 
 
-
+   
 
 
     Route::any('/category', 'Admin\CategoryController@category');//分类展示  邢慧峰
@@ -136,11 +136,12 @@ Route::prefix("/index")->group(function(){
     Route::any('/regdo','Index\RegController@regdo');
     Route::any('/verify','Index\RegController@verify');
     Route::any('/login','Index\RegController@login');
-    Route::any('/regdo','Index\RegController@regdo');
-    Route::any('/regdo','Index\RegController@regdo');
+    Route::any('/logindo','Index\RegController@logindo');
     Route::any('/user_index','Index\PersonController@user_index');
     Route::any('/goods_list/{id}','Index\GoodsController@goods_list');
     Route::any('/goods_desc/{id}','Index\GoodsController@goods_desc');
     Route::any('/nav_list/{id}','Index\NavController@nav_list');
+    Route::any('/nav_hot/{id}','Index\NavController@nav_hot');
+    Route::any('/cart_list','Index\CartController@cart_list');
 
 });

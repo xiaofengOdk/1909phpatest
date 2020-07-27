@@ -3,7 +3,7 @@
 <div class="yui3-u-1-6 list">
 
                     <div class="person-info">
-                        <div class="person-photo"><img src="img/_/photo.png" alt=""></div>
+                        <div class="person-photo"><img src="/static/index/img/_/photo.png" alt=""></div>
                         <div class="person-account">
                             <span class="name">Michelle</span>
                             <span class="safe">账户安全</span>

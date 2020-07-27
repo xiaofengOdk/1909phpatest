@@ -57,8 +57,8 @@ $(function(){
                                 <tr>
                                     <thead>
                                         <th width="35%"><font size="2">宝贝 </font></th>
-                                        <th width="5%"><font size="2">单价 </font></th>
-                                        <th width="5%"><font size="2">数量 </font></th>
+                                        <th width="12%"><font size="2">单价 </font></th>
+                                        <th width="8%"><font size="2">数量 </font></th>
                                         <th width="8%"><font size="2">商品操作 </font></th>
                                         <th width="10%"><font size="2">实付款 </font></th>
                                         <th width="10%"><font size="2">交易状态 </font></th>
@@ -67,10 +67,11 @@ $(function(){
                                 </tr>
                             </table>
                         </div>
+                       
                         <div class="order-detail">
                             <div class="orders">
                                 <div class="choose-order">
-                                    <div class="sui-pagination pagination-large top-pages">
+                                    <div class="sui-pagination pagination-large top-pages" style="text-align:right" >
                                         <ul>
                                             <li class="prev disabled"><a href="#">上一页</a></li>
 
@@ -89,7 +90,7 @@ $(function(){
                                 <table class="sui-table table-bordered order-datatable">
                                     <tbody>
                                         <tr>
-                                            <td width="35%">
+                                            <td width="39%">
                                                 <div class="typographic"><img src="/static/index/img/goods.png" />
                                                
                                                     <a href="#"  class="block-text"> <font size="2">包邮 正品玛姬儿压缩面膜无纺布纸膜100粒 送泡瓶面膜刷喷瓶 新款</font></a>
@@ -104,7 +105,10 @@ $(function(){
                                             </td>
                                             <td width="5%" class="center"><font size="2">1</font></td>
                                             <td width="8%" class="center">
-                                               
+                                                <ul class="unstyled">
+                                                    <li><font size="2">已发货</font></li>
+                                                    <li><a><font size="2">退货/退款</font></a></li>
+                                                </ul>
                                             </td>
                                             <td width="10%" class="center" >
                                                 <ul class="unstyled">
@@ -376,7 +380,6 @@ $(function(){
 
 
 <!--页面底部END-->
-undefined
 
 </html>
 @include("index.layout.foot")

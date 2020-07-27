@@ -33,22 +33,13 @@
 					    <li data-target="#myCarousel" data-slide-to="2"></li>
 					  </ol>
 					  <div class="carousel-inner">
-					    <div class="active item">
-					    <a href="http://baidu2.wypxj.com/">
-					    	<img src="/static/index/img/banner1.jpg"  />
-					      </a>
-					    </div>
+					  	@foreach($slide_info as $k=>$v)
 					    <div class="item">
 						 <a href="http://baidu2.wypxj.com/">
-						<img src="/static/index/img/banner2.jpg"  />
+						<img src="{{env('UPLOAD_URL')}}{{$v->slide_log}}"  width="740px;"  height="460px;" />
 					     </a>
 					    </div>
-					    <div class="item">
-						 <a href="http://baidu2.wypxj.com/">
-						<img src="/static/index/img/banner3.jpg"  />
-						</a>
-					     
-					    </div>
+					 	@endforeach
 					  </div><a href="#myCarousel" data-slide="prev" class="carousel-control left">‹</a><a href="#myCarousel" data-slide="next" class="carousel-control right">›</a>
 					</div>
 				</div>

@@ -7,6 +7,7 @@ use App\Models\FootModel;
 use Illuminate\Http\Request;
 use App\Models\Cate;
 use App\models\Goods;
+use App\models\Slide;
 use App\models\AdtgModel;
 use App\Models\NavModel;
 use App\Models\BrandModel;
@@ -28,8 +29,9 @@ class IndexController extends Controller
         $footInfo=FootModel::get();
         //购物车
         $goods_info=Goods::limit(6)->get();
+        $slide_info=Slide::limit(3)->get();
         // dd($goods_info);
-    	return view('index.index',['cate_info'=>$cate_info,"goods_info"=>$goods_info,"nav"=>$nav,"brand"=>$brand,"footInfo"=>$footInfo,"adtr_info"=>$adtr_info]);
+    	return view('index.index',['cate_info'=>$cate_info,"goods_info"=>$goods_info,"nav"=>$nav,"brand"=>$brand,"footInfo"=>$footInfo,"adtr_info"=>$adtr_info,"slide_info"=>$slide_info]);
 
     }
     

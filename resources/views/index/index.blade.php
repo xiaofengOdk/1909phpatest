@@ -253,7 +253,7 @@
 	<div id="floor-1" class="floor">
 		<div class="py-container">
 			<div class="title floors">
-				<h3 class="fl">家用电器</h3>
+				<h3 class="fl">第一层</h3>
 				<div class="fr">
 					<ul class="sui-nav nav-tabs">
 						@foreach($brand as $k=>$v)

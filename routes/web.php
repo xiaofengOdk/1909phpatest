@@ -130,7 +130,7 @@
 });
 
 
-
+#########################3前台############
 Route::prefix("/index")->group(function(){
     Route::any('/reg','Index\RegController@reg');
     Route::any('/regdo','Index\RegController@regdo');

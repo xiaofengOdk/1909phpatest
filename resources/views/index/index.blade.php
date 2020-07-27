@@ -33,22 +33,13 @@
 					    <li data-target="#myCarousel" data-slide-to="2"></li>
 					  </ol>
 					  <div class="carousel-inner">
+					  	@foreach($slide_info as $k=>$v)
 					    <div class="active item">
-					    <a href="http://baidu2.wypxj.com/">
-					    	<img src="/static/index/img/banner1.jpg"  />
-					      </a>
-					    </div>
-					    <div class="item">
 						 <a href="http://baidu2.wypxj.com/">
-						<img src="/static/index/img/banner2.jpg"  />
+						<img src="{{env('UPLOAD_URL')}}{{$v->slide_log}}"  width="740px;"  height="460px;" />
 					     </a>
 					    </div>
-					    <div class="item">
-						 <a href="http://baidu2.wypxj.com/">
-						<img src="/static/index/img/banner3.jpg"  />
-						</a>
-					     
-					    </div>
+					 	@endforeach
 					  </div><a href="#myCarousel" data-slide="prev" class="carousel-control left">‹</a><a href="#myCarousel" data-slide="next" class="carousel-control right">›</a>
 					</div>
 				</div>
@@ -151,7 +142,7 @@
 					</div>
 				</li>
 				<li class="yui3-u-5-24">
-					<a href="" target="_blank"><img src="/static/index/img/today01.png" /></a>
+					<a href="list.html" target="_blank"><img src="/static/index/img/today01.png" /></a>
 				</li>
 			</ul>
 		</div>
@@ -166,24 +157,26 @@
 			</div>
 			<div class="bd">
 				<ul class="clearfix yui3-g Favourate picLB" id="picLBxxl">
+					@foreach($goods_info as $k=>$v)
 					<li class="yui3-u-1-6">
 						<dl class="picDl huozhe">
 							<dd>
-								<a href="" class="pic"><img src="/static/index/img/like_02.png" alt="" /></a>
+								<a href="" class="pic"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" alt="" /></a>
 								<div class="like-text">
-									<p>阳光美包新款单肩包女包时尚子母包四件套女</p>
-									<h3>¥116.00</h3>
+									<p>{{$v->goods_name}}</p>
+									<h3>¥{{$v->goods_price}}</h3>
 								</div>
 							</dd>
 							<dd>
-								<a href="" class="pic"><img src="/static/index/img/like_01.png" alt="" /></a>
+								<a href="" class="pic"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" alt="" /></a>
 								<div class="like-text">
-									<p>爱仕达 30CM炒锅不粘锅NWG8330E电磁炉炒</p>
-									<h3>¥116.00</h3>
+									<p>{{$v->goods_name}}</p>
+									<h3>¥{{$v->goods_price}}</h3>
 								</div>
 							</dd>
 						</dl>
 					</li>
+					@endforeach
 				</ul>
 			</div>
 		</div>

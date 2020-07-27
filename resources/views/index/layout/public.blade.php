@@ -22,31 +22,7 @@
 
 
 <!--页面底部END-->
-	<!-- 楼层位置 -->
-	<div id="floor-index" class="floor-index">
-		<ul>
-			<li>
-				<a class="num" href="javascript:;" style="display: none;">1F</a>
-				<a class="word" href="javascript;;" style="display: block;">家用电器</a>
-			</li>
-			<li>
-				<a class="num" href="javascript:;" style="display: none;">2F</a>
-				<a class="word" href="javascript;;" style="display: block;">手机通讯</a>
-			</li>
-			<li>
-				<a class="num" href="javascript:;" style="display: none;">3F</a>
-				<a class="word" href="javascript;;" style="display: block;">电脑办公</a>
-			</li>
-			<li>
-				<a class="num" href="javascript:;" style="display: none;">4F</a>
-				<a class="word" href="javascript;;" style="display: block;">家居家具</a>
-			</li>
-			<li>
-				<a class="num" href="javascript:;" style="display: none;">5F</a>
-				<a class="word" href="javascript;;" style="display: block;">运动户外</a>
-			</li>
-		</ul>
-	</div>
+
 	<!--侧栏面板开始-->
 <div class="J-global-toolbar">
 	<div class="toolbar-wrap J-wrap">

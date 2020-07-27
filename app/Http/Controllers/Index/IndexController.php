@@ -14,6 +14,10 @@ use App\Models\BrandModel;
 class IndexController extends Controller
 {
     public function index(){
+        // $time=1595818318-3600;
+        // // echo $time;
+        // $times=($time+7200);
+        // echo (time()-$times)/60;die;
 	$res=Cate::get();
         // dd(request()->all());
     	$cate_info=self::getleftInfo($res);     

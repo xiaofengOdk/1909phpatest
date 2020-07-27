@@ -9,13 +9,16 @@
 					<div class="all-sort-list2">
 						@foreach($cate_info as $k=>$v)
 						<div class="item bo">
-							<h3><a href="" value="{{$v->cate_id}}">{{$v->cate_name}}</a></h3>
+							<h3><a href="/index/goods_list/{{$v->cate_id}}
+" value="{{$v->cate_id}}">{{$v->cate_name}}</a></h3>
 							<div class="item-list clearfix">
 								@foreach($v->child as $kk=>$vv)
 								<div class="subitem">
 									<dl class="fore1">				
-										<dt><a href="" value="{{$v->cate_id}}">{{$vv->cate_name}}</a></dt>
-										<dd>@foreach($vv->child as $kkk=>$vvv)<em><a href="" value="{{$v->cate_id}}">{{$vvv->cate_name}}</a></em>@endforeach</dd>		
+										<dt><a href="/index/goods_list/{{$v->cate_id}}
+" value="{{$v->cate_id}}">{{$vv->cate_name}}</a></dt>
+										<dd>@foreach($vv->child as $kkk=>$vvv)<em><a href="/index/goods_list/{{$v->cate_id}}
+" value="{{$v->cate_id}}">{{$vvv->cate_name}}</a></em>@endforeach</dd>		
 									</dl>
 								</div>
 								@endforeach
@@ -253,27 +256,17 @@
 				<h3 class="fl">家用电器</h3>
 				<div class="fr">
 					<ul class="sui-nav nav-tabs">
+						@foreach($brand as $k=>$v)
+							@if($k==0)
 						<li class="active">
-							<a href="#tab1" data-toggle="tab">热门</a>
+							<a href="#tab1" data-toggle="tab">{{$v->brand_name}}</a>
 						</li>
+						@else
 						<li>
-							<a href="#tab2" data-toggle="tab">大家电</a>
+							<a href="#tab2" data-toggle="tab">{{$v->brand_name}}</a>
 						</li>
-						<li>
-							<a href="#tab3" data-toggle="tab">生活电器</a>
-						</li>
-						<li>
-							<a href="#tab4" data-toggle="tab">厨房电器</a>
-						</li>
-						<li>
-							<a href="#tab5" data-toggle="tab">应季电器</a>
-						</li>
-						<li>
-							<a href="#tab6" data-toggle="tab">空气/净水</a>
-						</li>
-						<li>
-							<a href="#tab7" data-toggle="tab">高端电器</a>
-						</li>
+						@endif
+						@endforeach
 					</ul>
 				</div>
 			</div>
@@ -282,14 +275,15 @@
 					<div class="yui3-g Floor-1">
 						<div class="yui3-u Left blockgary">
 							<ul class="jd-list">
-								<li>节能补贴</li>
-								<li>4K电视</li>
-								<li>空气净化器</li>
-								<li>IH电饭煲</li>
-								<li>滚筒洗衣机</li>
-								<li>电热水器</li>
+							@foreach($brand as $k=>$v)
+								<li>{{$v->brand_name}}</li>
+							@endforeach
 							</ul>
-							<img src="/static/index/img/floor-1-1.png" />
+							@foreach($brand as $k=>$v)
+								@if($k==0)
+								<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 187px; height: 227px;" />
+								@endif
+							@endforeach
 						</div>
 						<div class="yui3-u row-330 floorBanner">
 							<div id="floorCarousel" data-ride="carousel" data-interval="4000" class="sui-carousel slide">
@@ -299,15 +293,17 @@
 									<li data-target="#floorCarousel" data-slide-to="2"></li>
 								</ol>
 								<div class="carousel-inner">
+									@foreach($brand as $k=>$v)
+										@if($k==0)
 									<div class="active item">
-										<img src="/static/index/img/floor-1-b01.png">
+										<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 329px; height: 360px;" />
 									</div>
+										@else
 									<div class="item">
-										<img src="/static/index/img/floor-1-b02.png">
+										<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 329px; height: 360px;" />
 									</div>
-									<div class="item">
-										<img src="/static/index/img/floor-1-b03.png">
-									</div>
+										@endif
+									@endforeach
 								</div>
 								<a href="#floorCarousel" data-slide="prev" class="carousel-control left">‹</a>
 								<a href="#floorCarousel" data-slide="next" class="carousel-control right">›</a>
@@ -316,48 +312,36 @@
 						<div class="yui3-u row-220 split">
 							<span class="floor-x-line"></span>
 							<div class="floor-conver-pit">
-								<img src="/static/index/img/floor-1-2.png" />
-							</div>
-							<div class="floor-conver-pit">
-								<img src="/static/index/img/floor-1-3.png" />
+							@foreach($brand as $k=>$v)
+								@if($k<=1)
+									<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 219px; height: 180px;" />
+								@endif
+							@endforeach
 							</div>
 						</div>
 						<div class="yui3-u row-218 split">
-							<img src="/static/index/img/floor-1-4.png" />
+							@foreach($brand as $k=>$v)
+								@if($k==0)
+									<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 218px; height: 356px;" />
+								@endif
+							@endforeach
 						</div>
 						<div class="yui3-u row-220 split">
 							<span class="floor-x-line"></span>
 							<div class="floor-conver-pit">
-								<img src="/static/index/img/floor-1-5.png" />
-							</div>
-							<div class="floor-conver-pit">
-								<img src="/static/index/img/floor-1-6.png" />
+							@foreach($brand as $k=>$v)
+								@if($k<=1)		
+									<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 220px; height: 180px;" />
+								@endif
+							@endforeach
 							</div>
 						</div>
 					</div>
 				</div>
-				<div id="tab2" class="tab-pane">
-					<p>第二个</p>
-				</div>
-				<div id="tab3" class="tab-pane">
-					<p>第三个</p>
-				</div>
-				<div id="tab4" class="tab-pane">
-					<p>第4个</p>
-				</div>
-				<div id="tab5" class="tab-pane">
-					<p>第5个</p>
-				</div>
-				<div id="tab6" class="tab-pane">
-					<p>第6个</p>
-				</div>
-				<div id="tab7" class="tab-pane">
-					<p>第7个</p>
-				</div>
 			</div>
 		</div>
 	</div>
-	<div id="floor-2" class="floor">
+<!-- 	<div id="floor-2" class="floor">
 		<div class="py-container">
 			<div class="title floors">
 				<h3 class="fl">手机通讯</h3>
@@ -469,23 +453,107 @@
 				</div>
 			</div>
 		</div>
+	</div> -->
+;b<div id="floor-2" class="floor">
+		<div class="py-container">
+			<div class="title floors">
+				<h3 class="fl">第二层</h3>
+				<div class="fr">
+					<ul class="sui-nav nav-tabs">
+						@foreach($brand as $k=>$v)
+							@if($k==0)
+						<li class="active">
+							<a href="#tab1" data-toggle="tab">{{$v->brand_name}}</a>
+						</li>
+						@else
+						<li>
+							<a href="#tab2" data-toggle="tab">{{$v->brand_name}}</a>
+						</li>
+						@endif
+						@endforeach
+					</ul>
+				</div>
+			</div>
+			<div class="clearfix  tab-content floor-content">
+				<div id="tab1" class="tab-pane active">
+					<div class="yui3-g Floor-1">
+						<div class="yui3-u Left blockgary">
+							<ul class="jd-list">
+							@foreach($brand as $k=>$v)
+								<li>{{$v->brand_name}}</li>
+							@endforeach
+							</ul>
+							@foreach($brand as $k=>$v)
+								@if($k==0)
+								<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 187px; height: 227px;" />
+								@endif
+							@endforeach
+						</div>
+						<div class="yui3-u row-330 floorBanner">
+							<div id="floorCarousel" data-ride="carousel" data-interval="4000" class="sui-carousel slide">
+								<ol class="carousel-indicators">
+									<li data-target="#floorCarousel" data-slide-to="0" class="active"></li>
+									<li data-target="#floorCarousel" data-slide-to="1"></li>
+									<li data-target="#floorCarousel" data-slide-to="2"></li>
+								</ol>
+								<div class="carousel-inner">
+									@foreach($brand as $k=>$v)
+										@if($k==0)
+									<div class="active item">
+										<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 329px; height: 360px;" />
+									</div>
+										@else
+									<div class="item">
+										<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 329px; height: 360px;" />
+									</div>
+										@endif
+									@endforeach
+								</div>
+								<a href="#floorCarousel" data-slide="prev" class="carousel-control left">‹</a>
+								<a href="#floorCarousel" data-slide="next" class="carousel-control right">›</a>
+							</div>
+						</div>
+						<div class="yui3-u row-220 split">
+							<span class="floor-x-line"></span>
+							<div class="floor-conver-pit">
+							@foreach($brand as $k=>$v)
+								@if($k<=1)
+									<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 219px; height: 180px;" />
+								@endif
+							@endforeach
+							</div>
+						</div>
+						<div class="yui3-u row-218 split">
+							@foreach($brand as $k=>$v)
+								@if($k==0)
+									<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 218px; height: 356px;" />
+								@endif
+							@endforeach
+						</div>
+						<div class="yui3-u row-220 split">
+							<span class="floor-x-line"></span>
+							<div class="floor-conver-pit">
+							@foreach($brand as $k=>$v)
+								@if($k<=1)		
+									<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 220px; height: 180px;" />
+								@endif
+							@endforeach
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<!--商标-->
 	<div class="brand">
 		<div class="py-container">
 			<ul class="Brand-list blockgary">
+				@foreach($goods_info as $k=>$v)
 				<li class="Brand-item">
-					<img src="/static/index/img/brand_21.png" />
+					<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 150px; height: 63px;" />
 				</li>
-				<li class="Brand-item"><img src="/static/index/img/brand_03.png" /></li>
-				<li class="Brand-item"><img src="/static/index/img/brand_05.png" /></li>
-				<li class="Brand-item"><img src="/static/index/img/brand_07.png" /></li>
-				<li class="Brand-item"><img src="/static/index/img/brand_09.png" /></li>
-				<li class="Brand-item"><img src="/static/index/img/brand_11.png" /></li>
-				<li class="Brand-item"><img src="/static/index/img/brand_13.png" /></li>
-				<li class="Brand-item"><img src="/static/index/img/brand_15.png" /></li>
-				<li class="Brand-item"><img src="/static/index/img/brand_17.png" /></li>
-				<li class="Brand-item"><img src="/static/index/img/brand_19.png" /></li>
+				@endforeach
 			</ul>
 		</div>
 	</div>

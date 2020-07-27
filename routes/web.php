@@ -141,6 +141,7 @@ Route::prefix("/index")->group(function(){
     Route::any('/goods_list/{id}','Index\GoodsController@goods_list');
     Route::any('/goods_desc/{id}','Index\GoodsController@goods_desc');
     Route::any('/nav_list/{id}','Index\NavController@nav_list');
+    Route::any('/nav_hot/{id}','Index\NavController@nav_hot');
     Route::any('/cart_list','Index\CartController@cart_list');
 
 });

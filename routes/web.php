@@ -132,6 +132,8 @@
 
 
 Route::prefix("/index")->group(function(){
-    Route::any('/index','Admin\BrandController@brandedit');
-
+    Route::any('/reg','Index\RegController@reg');
+    Route::any('/regdo','Index\RegController@regdo');
+    Route::any('/login','Index\RegController@login');
+    Route::any('/logindo','Index\RegController@logindo');
 });

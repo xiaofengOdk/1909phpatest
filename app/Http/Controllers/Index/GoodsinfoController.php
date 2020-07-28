@@ -16,7 +16,11 @@ class GoodsinfoController extends Controller
         $footInfo=FootModel::get();//底部导航
         $brand = BrandModel::where("brand_show",1)->get();//热卖
         $brandInfo = BrandModel::where('cate_id',$id)->get();
-        $goodsInfo = Goods::where("goods_id",$id)->first();
+        $goodsInfo = Goods::
+        leftjoin("gimgs","goods.goods_id","=","gimgs.goods_id")
+        ->where("goods.goods_id",$id)
+        ->first();
+        // dd($goodsInfo);
 		// return view('index.goodsdesc.goods_desc');
 		return view('index.goodsdesc.goods_desc',["nav"=>$nav,"brand"=>$brand,"footInfo"=>$footInfo,'brandInfo'=>$brandInfo,'goodsInfo'=>$goodsInfo]);
 

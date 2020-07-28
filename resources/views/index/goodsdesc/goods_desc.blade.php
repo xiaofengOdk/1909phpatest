@@ -24,7 +24,8 @@
 					<div class="zoom">
 						<!--默认第一个预览-->
 						<div id="preview" class="spec-preview">
-							<span class="jqzoom"><img jqimg="/static/index/img/_/b1.png" src="/static/index/img/_/s1.png" /></span>
+
+							<span class="jqzoom"><img jqimg="{{env('UPLOADS_URL')}}{{$goodsInfo->goods_img}}" src="{{env('UPLOADS_URL')}}{{$goodsInfo->goods_img}}"  style="width:412px; height: 412px; " /></span>
 						</div>
 						<!--下方的缩略图-->
 						<div class="spec-scroll">
@@ -32,15 +33,10 @@
 							<!--左右按钮-->
 							<div class="items">
 								<ul>
-									<li><img src="/static/index/img/_/s1.png" bimg="/static/index/img/_/b1.png" onmousemove="preview(this)" /></li>
-									<li><img src="/static/index/img/_/s2.png" bimg="/static/index/img/_/b2.png" onmousemove="preview(this)" /></li>
-									<li><img src="/static/index/img/_/s3.png" bimg="/static/index/img/_/b3.png" onmousemove="preview(this)" /></li>
-									<li><img src="/static/index/img/_/s1.png" bimg="/static/index/img/_/b1.png" onmousemove="preview(this)" /></li>
-									<li><img src="/static/index/img/_/s2.png" bimg="/static/index/img/_/b2.png" onmousemove="preview(this)" /></li>
-									<li><img src="/static/index/img/_/s3.png" bimg="/static/index/img/_/b3.png" onmousemove="preview(this)" /></li>
-									<li><img src="/static/index/img/_/s1.png" bimg="/static/index/img/_/b1.png" onmousemove="preview(this)" /></li>
-									<li><img src="/static/index/img/_/s2.png" bimg="/static/index/img/_/b2.png" onmousemove="preview(this)" /></li>
-									<li><img src="/static/index/img/_/s3.png" bimg="/static/index/img/_/b3.png" onmousemove="preview(this)" /></li>
+									 @php $goods_imgs = explode("|",$goodsInfo['goods_imgs']); @endphp   
+									@foreach($goods_imgs as $v)
+									<li><img src="{{env('UPLOAD_URL')}}{{$v}}" bimg="{{env('UPLOAD_URL')}}{{$v}}" onmousemove="preview(this)" /></li>
+									@endforeach
 								</ul>
 							</div>
 							<a class="next">&gt;</a>

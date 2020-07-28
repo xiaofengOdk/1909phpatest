@@ -108,7 +108,22 @@
                     alert('请输入正确的手机格式');
                     return false;
               }else{
-                   c
+                 $.ajax({
+                      type:'get',
+                      data:{'user_tel':user_tel},
+                      url:url,
+                      dataType:'json',
+                      success:function(reg){
+                          //console.log(reg);
+                          if(reg.code=='00001'){
+                              alert(reg.message);
+                              
+                          }
+                          if(reg.code=='00002'){
+                              alert(reg.message);
+                          }
+                      }
+                 })
               }
           })
 

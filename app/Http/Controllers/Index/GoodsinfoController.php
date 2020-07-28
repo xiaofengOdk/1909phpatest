@@ -25,9 +25,12 @@ class GoodsinfoController extends Controller
         $goods_hot=Goods::orderBy("add_time",'desc')->limit(5)->get();
         // dd($goods_hot);
         $attr=Attr::get();
+        // dd($goodsInfo['cate_id']);
+        $user_like=Goods::where("cate_id",$goodsInfo['cate_id'])->get();
+        // dd($user_like);
 		$attrval=Attrval::get();
 		// return view('index.goodsdesc.goods_desc');
-		return view('index.goodsdesc.goods_desc',["nav"=>$nav,"goods_hot"=>$goods_hot,"attr"=>$attr,"attrval"=>$attrval,"brand"=>$brand,"footInfo"=>$footInfo,'brandInfo'=>$brandInfo,'goodsInfo'=>$goodsInfo]);
+		return view('index.goodsdesc.goods_desc',["nav"=>$nav,"user_like"=>$user_like,"goods_hot"=>$goods_hot,"attr"=>$attr,"attrval"=>$attrval,"brand"=>$brand,"footInfo"=>$footInfo,'brandInfo'=>$brandInfo,'goodsInfo'=>$goodsInfo]);
 
 	}
 }

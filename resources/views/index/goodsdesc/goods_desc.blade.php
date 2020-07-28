@@ -227,14 +227,15 @@
 										@if($k<=3)
 									<li class="">
 										<div id="">
-											<img src="/static/index/img/_/dp01.png" />
+										<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 100px;height: 124px;" />
 										</div>
-										<i>Feless费勒斯VR</i>
+										<i>{{$v->goods_name}}</i>
 										<label data-toggle="checkbox" class="checkbox-pretty">
  										   <input type="checkbox"><span>39</span>
   										</label>
 									</li>
-										@endforeach
+										@endif
+									@endforeach
 								</ul>
 								
 								<!-- </p> -->
@@ -279,25 +280,17 @@
 						<div class="tab-content tab-wraped">
 							<div id="one" class="tab-pane active">
 								<ul class="goods-intro unstyled">
-									<li>分辨率：1920*1080(FHD)</li>
-									<li>后置摄像头：1200万像素</li>
-									<li>前置摄像头：500万像素</li>
-									<li>核 数：其他</li>
-									<li>频 率：以官网信息为准</li>
-									<li>品牌： Apple</li>
-									<li>商品名称：APPLEiPhone 6s Plus</li>
-									<li>商品编号：1861098</li>
-									<li>商品毛重：0.51kg</li>
-									<li>商品产地：中国大陆</li>
-									<li>热点：指纹识别，Apple Pay，金属机身，拍照神器</li>
-									<li>系统：苹果（IOS）</li>
-									<li>像素：1000-1600万</li>
-									<li>机身内存：64GB</li>
+									<li>分辨率：{{$goodsInfo['goods_name']}}</li>
+									<li>后置摄像头：{{$goodsInfo['goods_price']}}</li>
+									<li>前置摄像头：{{$goodsInfo['goods_desc']}}</li>
+									<li>核 数：{{$goodsInfo['goods_score']}}</li>
 								</ul>
 								<div class="intro-detail">
-									<img src="/static/index/img/_/intro01.png" />
-									<img src="/static/index/img/_/intro02.png" />
-									<img src="/static/index/img/_/intro03.png" />
+								 @php $goods_imgs = explode("|",$goodsInfo['goods_imgs']); @endphp   
+									@foreach($goods_imgs as $v)
+										<img src="{{env('UPLOAD_URL')}}{{$v}}" style="width:960px; height: 756px;" />
+									@endforeach
+									
 								</div>
 							</div>
 							<div id="two" class="tab-pane">
@@ -322,32 +315,34 @@
 				<h4 class="kt">猜你喜欢</h4>
 				<div class="like-list">
 					<ul class="yui3-g">
+						@foreach($user_like as $k=>$v)
 						<li class="yui3-u-1-6">
 							<div class="list-wrap">
 								<div class="p-img">
-									<img src="/static/index/img/_/itemlike01.png" />
+									<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 167px;height: 130px;" />
 								</div>
 									<p>
 										<div class="attr">
-											<em>DELL戴尔Ins 15MR-7528SS 15英寸 银色 笔记本</em>
+											<em>{{$v->goods_name}}</em>
 										</div>
 									</p>
 								<p>
 									<div class="price">
 										<strong>
 												<em>¥</em>
-												<i>3699.00</i>
+												<i>{{$v->goods_price}}</i>
 										</strong>
 									</div>
 								</p>	
 								<p>
 									<div class="commit">
-										<i class="command">已有6人评价</i>
+										<i class="command">已有人评价</i>
 									</div>
 								</p>
 								
 							</div>
 						</li>
+						@endforeach
 					</ul>
 				</div>
 			</div>

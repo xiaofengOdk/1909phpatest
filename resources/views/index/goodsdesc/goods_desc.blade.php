@@ -1,6 +1,10 @@
 @extends("index.layout.public")
 @include("index.layout.top")
 @section("content")
+<link rel="stylesheet" type="text/css" href="/static/index/css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="/static/index/css/pages-item.css" />
+    <link rel="stylesheet" type="text/css" href="/static/index/css/pages-zoom.css" />
+    <link rel="stylesheet" type="text/css" href="/static/index/css/widget-cartPanelView.css" />
 	<div class="py-container">
 		<div id="item">
 			<div class="crumb-wrap">
@@ -47,7 +51,7 @@
 					<div class="sku-name">
 						<h4>{{$goodsInfo['goods_name']}}</h4>
 					</div>
-					<div class="news"><span>推荐选择下方[移动优惠购],手机套餐齐搞定,不用换号,每月还有花费返</span></div>
+					<div class="news"><span>推荐选择下方[优惠购] 买买买卖买买</span></div>
 					<div class="summary">
 						<div class="summary-wrap">
 							<div class="fl title">
@@ -55,11 +59,11 @@
 							</div>
 							<div class="fl price">
 								<i>¥</i>
-								<em>{{$godsInfo['goods_price']}}</em>
+								<em>{{$goodsInfo['goods_price']}}</em>
 								<span>降价通知</span>
 							</div>
 							<div class="fr remark">
-								<i>商品积分</i><em>{{$goodsInfo['goods_score']}}</em>
+								<i>商品积分</i><em style="color: red; font-size: 20px;">{{$goodsInfo['goods_store']}}</em>
 							</div>
 						</div>
 						<div class="summary-wrap">
@@ -68,20 +72,11 @@
 							</div>
 							<div class="fl fix-width">
 								<i class="red-bg">加价购</i>
-								<em class="t-gray">满999.00另加20.00元，或满1999.00另加30.00元，或满2999.00另加40.00元，即可在购物车换
-购热销商品</em>
+								<em class="t-gray">购买此商品，即可获得<em style="color: red; font-size: 20px;">{{$goodsInfo['goods_store']}}</em>积分，购买商品时，可用积分抵消</em>
 							</div>
 						</div>
 					</div>
 					<div class="support">
-						<div class="summary-wrap">
-							<div class="fl title">
-								<i>支　　持</i>
-							</div>
-							<div class="fl fix-width">
-								<em class="t-gray">以旧换新，闲置手机回收  4G套餐超值抢  礼品购</em>
-							</div>
-						</div>
 						<div class="summary-wrap">
 							<div class="fl title">
 								<i>配 送 至</i>
@@ -92,69 +87,34 @@
 						</div>
 					</div>
 					<div class="clearfix choose">
-						<div id="specification" class="summary-wrap clearfix">
-							<dl>
-								<dt>
-									<div class="fl title">
-									<i>选择颜色</i>
+						<div id="specification" class="summary-wrap clearfix" style="text-align:center;">
+						@foreach($attr as $k=>$v)	
+						<div style="text-align:center;">
+							<dl >							
+								<dt >
+									<div class="fl title" >
+									<i>{{$v->attr_name}}</i>
 									</div>
 								</dt>
+								<!-- <br> -->
+									@foreach($attrval as $kk=>$vv)
+										@if($v->attr_id==$vv->attr_id)
+											@if($kk==0)
 								<dd>
-									<a href="javascript:;" class="selected">金色<span title="点击取消选择">&nbsp;</span>
+									<a href="javascript:;" class="selected">{{$vv->attrval_name}}<span title="点击取消选择">&nbsp;</span>
 									</a>
 								</dd>
-								<dd><a href="javascript:;">银色</a></dd>
-								<dd><a href="javascript:;">黑色</a></dd>
-							</dl>
-							<dl>
-								<dt>
-									<div class="fl title">
-									<i>内存容量</i>
-								</div>
-								</dt>
-								<dd><a href="javascript:;" class="selected">16G<span title="点击取消选择">&nbsp;</span>
-</a></dd>
-								<dd><a href="javascript:;">64G</a></dd>
-								<dd><a href="javascript:;" class="locked">128G</a></dd>
-							</dl>
-							<dl>
-								<dt>
-									<div class="fl title">
-									<i>选择版本</i>
-								</div>
-								</dt>
+											@else
 								<dd>
-									<a href="javascript:;" class="selected">公开版<span title="点击取消选择">&nbsp;</span>
+									<a href="javascript:;" >{{$vv->attrval_name}}<span title="点击取消选择">&nbsp;</span>
 									</a>
 								</dd>
-								<dd><a href="javascript:;">移动版</a></dd>							
+												@endif
+										@endif
+									@endforeach
 							</dl>
-							<dl>
-								<dt>
-									<div class="fl title">
-									<i>购买方式</i>
-								</div>
-								</dt>
-								<dd>
-									<a href="javascript:;" class="selected">官方标配<span title="点击取消选择">&nbsp;</span>
-									</a>
-								</dd>
-								<dd><a href="javascript:;">移动优惠版</a></dd>	
-								<dd><a href="javascript:;"  class="locked">电信优惠版</a></dd>
-							</dl>
-							<dl>
-								<dt>
-									<div class="fl title">
-									<i>套　　装</i>
-								</div>
-								</dt>
-								<dd>
-									<a href="javascript:;" class="selected">保护套装<span title="点击取消选择">&nbsp;</span>
-									</a>
-								</dd>
-								<dd><a href="javascript:;"  class="locked">充电套装</a></dd>	
-								
-							</dl>	
+							</div>
+							@endforeach
 						</div>	
 						<div class="summary-wrap">
 							<div class="fl title">
@@ -195,111 +155,54 @@
 					<div class="tab-content tab-wraped">
 						<div id="index" class="tab-pane active">
 							<ul class="part-list unstyled">
-								<li>手机</li>
-								<li>手机壳</li>
-								<li>内存卡</li>
-								<li>Iphone配件</li>
-								<li>贴膜</li>
-								<li>手机耳机</li>
-								<li>移动电源</li>
-								<li>平板电脑</li>
+									@foreach($brand as $k=>$v)
+								<li>{{$v->brand_name}}</li>
+									@endforeach
 							</ul>
 							<ul class="goods-list unstyled">
 								<li>
+									@foreach($goods_hot as $k=>$v)
 									<div class="list-wrap">
 										<div class="p-img">
-											<img src="/static/index/img/_/part01.png" />
+											<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 150px;height: 255px;" />
 										</div>
 										<div class="attr">
-											<em>Apple苹果iPhone 6s (A1699)</em>
+											<em>{{$v->goods_name}}</em>
 										</div>
 										<div class="price">
 											<strong>
 											<em>¥</em>
-											<i>6088.00</i>
+											<i>{{$v->goods_price}}</i>
 										</strong>
 										</div>
 										<div class="operate">
-											<a href="javascript:void(0);" class="sui-btn btn-bordered">加入购物车</a>
+											<a href="javascript:void(0);" class="sui-btn btn-bordered"  style="height: 24px; font-size: 12px;">加入购物车</a>
 										</div>
 									</div>
-								</li>
-								<li>
-									<div class="list-wrap">
-										<div class="p-img">
-											<img src="/static/index/img/_/part02.png" />
-										</div>
-										<div class="attr">
-											<em>Apple苹果iPhone 6s (A1699)</em>
-										</div>
-										<div class="price">
-											<strong>
-											<em>¥</em>
-											<i>6088.00</i>
-										</strong>
-										</div>
-										<div class="operate">
-											<a href="javascript:void(0);" class="sui-btn btn-bordered">加入购物车</a>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="list-wrap">
-										<div class="p-img">
-											<img src="/static/index/img/_/part03.png" />
-										</div>
-										<div class="attr">
-											<em>Apple苹果iPhone 6s (A1699)</em>
-										</div>
-										<div class="price">
-											<strong>
-											<em>¥</em>
-											<i>6088.00</i>
-										</strong>
-										</div>
-										<div class="operate">
-											<a href="javascript:void(0);" class="sui-btn btn-bordered">加入购物车</a>
-										</div>
-									</div>
-									<div class="list-wrap">
-										<div class="p-img">
-											<img src="/static/index/img/_/part02.png" />
-										</div>
-										<div class="attr">
-											<em>Apple苹果iPhone 6s (A1699)</em>
-										</div>
-										<div class="price">
-											<strong>
-											<em>¥</em>
-											<i>6088.00</i>
-										</strong>
-										</div>
-										<div class="operate">
-											<a href="javascript:void(0);" class="sui-btn btn-bordered">加入购物车</a>
-										</div>
-									</div>
-									<div class="list-wrap">
-										<div class="p-img">
-											<img src="/static/index/img/_/part03.png" />
-										</div>
-										<div class="attr">
-											<em>Apple苹果iPhone 6s (A1699)</em>
-										</div>
-										<div class="price">
-											<strong>
-											<em>¥</em>
-											<i>6088.00</i>
-										</strong>
-										</div>
-										<div class="operate">
-											<a href="javascript:void(0);" class="sui-btn btn-bordered">加入购物车</a>
-										</div>
-									</div>
+									@endforeach
 								</li>
 							</ul>
 						</div>
 						<div id="profile" class="tab-pane">
-							<p>推荐品牌</p>
+							@foreach($goods_hot as $k=>$v)
+							<div class="list-wrap">
+										<div class="p-img">
+											<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" />
+										</div>
+										<div class="attr">
+											<em>{{$v->goods_name}}</em>
+										</div>
+										<div class="price">
+											<strong>
+											<em>¥</em>
+											<i>{{$v->goods_price}}</i>
+										</strong>
+										</div>
+										<div class="operate">
+											<a href="javascript:void(0);" class="sui-btn btn-bordered" style="height: 24px;">加入购物车</a>
+										</div>
+									</div>
+									@endforeach
 						</div>
 					</div>
 				</div>

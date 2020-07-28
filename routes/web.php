@@ -146,4 +146,5 @@ Route::prefix("/index")->group(function(){
 });
 Route::prefix("/user")->group(function(){
     Route::any('/user_info','Index\UserController@user_info');
+    Route::any('/user_add','Index\UserController@user_add');
 });

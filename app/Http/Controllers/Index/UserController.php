@@ -141,4 +141,26 @@ class UserController extends Controller
         }
        
     }
+    // 图片
+    public function user_file(Request $request){
+         $info = request()->all();
+        //  dd($info);
+        if($request->hasFile('img')){ //hasFile 方法判断文件在请求中是否存在
+            $data['img'] = $this->uploads('img');
+        }
+        
+        $reg = session("reg");
+        $user_id = $reg['user_id'];
+        $res = User_info::where("user_id",$user_id)->update($data);
+        if($res){
+           return redirect("/user/user_info");
+        }
+    }
+    public function uploads($img){
+        $file = request()->$img;
+        if($file->isValid()){ //isValid 方法判断文件在上传过程中是否出错
+        $info = $file->store('upload'); //存储位置
+        return $info;
+        }
+    }
 }

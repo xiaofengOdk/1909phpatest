@@ -123,16 +123,30 @@ $(function(){
                                 <!-- </form> -->
                                 </div>
                             </div>
-                            <div id="two" >
+                            <style>
+                                 .fileinput-button {
+                                    position: relative;
+                                    display: inline-block;
+                                }
 
+                                .fileinput-button input{
+                                    position: absolute;
+                                    right: 0px;
+                                    top: 0px;
+                                }
+                            </style>
+                           <div id="two" class="tab-pane">
+                              <form action="{{url('user/user_file')}}" method="post" enctype="multipart/form-data">
                                 <div class="new-photo">
                                     <p>当前头像：</p>
-                                    <div>
-                                        <img  width="100" height="100" src="" alt="">
-                                        <input type="file" id="fileimg" />
+                                    <div class="upload">
+                                        <img id="imgShow_WU_FILE_0" width="100" height="100" src="{{env('UPLOAD_URL')}}{{$info->img}}" alt="">
+                                        <p><input type="file" style="color:red;float:left;" id="up_img_WU_FILE_0" name="img"/></p><br>
+                                        <p><input type="submit" value="保存" class="bao" style=" border:none; color:white; height:30px; width:60px; background:#00ff00; margin-right:70px; float:left; "></p>
                                     </div>
 
                                 </div>
+                              </form>
                             </div>
                         </div>
 
@@ -184,7 +198,7 @@ $(function(){
         
     })
 
-
+    
 
 </script>
  

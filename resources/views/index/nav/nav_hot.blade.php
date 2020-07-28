@@ -29,7 +29,7 @@
                         <div class="list-wrap">               
                             <div class="p-img"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" width='200px'></div>
                             <div class="price"><strong><em>¥</em> <i>{{$v->goods_price}}</i></strong></div>
-                            <div class="attr"><em>{{$v->goods_dese}}</em></div>
+                            <div class="attr"><em>{{$v->goods_name}}</em></div>
                             <div class="cu"><em><span>促</span>满一件可参加超值换购</em></div>
                             <div class="operate">
                                 <a href="success-cart.html" target="_blank" class="sui-btn btn-bordered btn-danger">加入购物车</a>

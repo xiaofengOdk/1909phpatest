@@ -104,11 +104,41 @@
 									<a href="javascript:;" class="selected">{{$vv->attrval_name}}<span title="点击取消选择">&nbsp;</span>
 									</a>
 								</dd>
+<<<<<<< HEAD
+								<dd><a href="javascript:;">移动版</a></dd>
+							</dl>
+							<dl>
+								<dt>
+									<div class="fl title">
+									<i>购买方式</i>
+								</div>
+								</dt>
+=======
 											@else
+>>>>>>> 125ef5eab3a1c3360bce21fe7e577fe40e10f07d
 								<dd>
 									<a href="javascript:;" >{{$vv->attrval_name}}<span title="点击取消选择">&nbsp;</span>
 									</a>
 								</dd>
+<<<<<<< HEAD
+								<dd><a href="javascript:;">移动优惠版</a></dd>
+								<dd><a href="javascript:;"  class="locked">电信优惠版</a></dd>
+							</dl>
+							<dl>
+								<dt>
+									<div class="fl title">
+									<i>套　　装</i>
+								</div>
+								</dt>
+								<dd>
+									<a href="javascript:;" class="selected">保护套装<span title="点击取消选择">&nbsp;</span>
+									</a>
+								</dd>
+								<dd><a href="javascript:;"  class="locked">充电套装</a></dd>
+
+							</dl>
+						</div>
+=======
 												@endif
 										@endif
 									@endforeach
@@ -116,6 +146,7 @@
 							</div>
 							@endforeach
 						</div>	
+>>>>>>> 125ef5eab3a1c3360bce21fe7e577fe40e10f07d
 						<div class="summary-wrap">
 							<div class="fl title">
 								<div class="control-group">
@@ -333,13 +364,13 @@
 												<i>{{$v->goods_price}}</i>
 										</strong>
 									</div>
-								</p>	
+								</p>
 								<p>
 									<div class="commit">
 										<i class="command">已有人评价</i>
 									</div>
 								</p>
-								
+
 							</div>
 						</li>
 						@endforeach

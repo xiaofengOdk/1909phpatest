@@ -11,7 +11,7 @@
                 <li>
                     <a href="#">全部结果</a>
                 </li>
-                <li class="active">智能手机</li>
+                <li class="active">{{$cate->cate_name}}</li>
             </ul>
             <ul class="tags-choose">
                 <li class="tag">全网通<i class="sui-icon icon-tb-close"></i></li>
@@ -28,7 +28,7 @@
         <!--selector-->
         <div class="clearfix selector">
             <div class="type-wrap">
-                <div class="fl key">手机、数码、配件</div>
+                <div class="fl key">{{$cate->cate_name}}</div>
                 <div class="fl value"></div>
                 <div class="fl ext"></div>
             </div>
@@ -37,7 +37,7 @@
                 <div class="value logos">
                     <ul class="logo-list">
                         @foreach($brandInfo as $k=>$v)
-                            <li><img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" /></li>
+                            <li class="brand" cate_id="{{$cate->cate_id}}" brand_id="{{$v->brand_id}}"><img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" /></li>
                         @endforeach
                     </ul>
                 </div>
@@ -46,81 +46,27 @@
                     <a href="javascript:void(0);">更多</a>
                 </div>
             </div>
+            @foreach($attr as $k=>$v)
             <div class="type-wrap">
-                <div class="fl key">网络制式</div>
+                <div class="fl key">{{$v->attr_name}}</div>
+
                 <div class="fl value">
+
                     <ul class="type-list">
+                        @foreach($attrval as $kk=>$vv)
+                            @if($v->attr_id == $vv->attr_id)
                         <li>
-                            <a>GSM（移动/联通2G）</a>
+                            <a>{{$vv->attrval_name}}</a>
                         </li>
-                        <li>
-                            <a>电信2G</a>
-                        </li>
-                        <li>
-                            <a>电信3G</a>
-                        </li>
-                        <li>
-                            <a>移动3G</a>
-                        </li>
-                        <li>
-                            <a>联通3G</a>
-                        </li>
-                        <li>
-                            <a>联通4G</a>
-                        </li>
-                        <li>
-                            <a>电信3G</a>
-                        </li>
-                        <li>
-                            <a>移动3G</a>
-                        </li>
-                        <li>
-                            <a>联通3G</a>
-                        </li>
-                        <li>
-                            <a>联通4G</a>
-                        </li>
+                            @endif
+                        @endforeach
                     </ul>
+
                 </div>
+
                 <div class="fl ext"></div>
             </div>
-            <div class="type-wrap">
-                <div class="fl key">显示屏尺寸</div>
-                <div class="fl value">
-                    <ul class="type-list">
-                        <li>
-                            <a>4.0-4.9英寸</a>
-                        </li>
-                        <li>
-                            <a>4.0-4.9英寸</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="fl ext"></div>
-            </div>
-            <div class="type-wrap">
-                <div class="fl key">摄像头像素</div>
-                <div class="fl value">
-                    <ul class="type-list">
-                        <li>
-                            <a>1200万以上</a>
-                        </li>
-                        <li>
-                            <a>800-1199万</a>
-                        </li>
-                        <li>
-                            <a>1200-1599万</a>
-                        </li>
-                        <li>
-                            <a>1600万以上</a>
-                        </li>
-                        <li>
-                            <a>无摄像头</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="fl ext"></div>
-            </div>
+            @endforeach
             <div class="type-wrap">
                 <div class="fl key">价格</div>
                 <div class="fl value">
@@ -261,18 +207,19 @@
             <h4 class="title">热卖商品</h4>
             <div class="hot-list">
                 <ul class="yui3-g">
+                    @foreach($goods_hot as $k=>$v)
                     <li class="yui3-u-1-4">
                         <div class="list-wrap">
                             <div class="p-img">
-                                <img src="/static/index/img/like_01.png" />
+                                <img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" />
                             </div>
                             <div class="attr">
-                                <em>Apple苹果iPhone 6s (A1699)</em>
+                                <em>{{$v->goods_name}}</em>
                             </div>
                             <div class="price">
                                 <strong>
                                     <em>¥</em>
-                                    <i>4088.00</i>
+                                    <i>{{$v->goods_price}}</i>
                                 </strong>
                             </div>
                             <div class="commit">
@@ -280,66 +227,28 @@
                             </div>
                         </div>
                     </li>
-                    <li class="yui3-u-1-4">
-                        <div class="list-wrap">
-                            <div class="p-img">
-                                <img src="/static/index/img/like_03.png" />
-                            </div>
-                            <div class="attr">
-                                <em>金属A面，360°翻转，APP下单省300！</em>
-                            </div>
-                            <div class="price">
-                                <strong>
-                                    <em>¥</em>
-                                    <i>4088.00</i>
-                                </strong>
-                            </div>
-                            <div class="commit">
-                                <i class="command">已有700人评价</i>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="yui3-u-1-4">
-                        <div class="list-wrap">
-                            <div class="p-img">
-                                <img src="/static/index/img/like_04.png" />
-                            </div>
-                            <div class="attr">
-                                <em>256SSD商务大咖，完爆职场，APP下单立减200</em>
-                            </div>
-                            <div class="price">
-                                <strong>
-                                    <em>¥</em>
-                                    <i>4068.00</i>
-                                </strong>
-                            </div>
-                            <div class="commit">
-                                <i class="command">已有20人评价</i>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="yui3-u-1-4">
-                        <div class="list-wrap">
-                            <div class="p-img">
-                                <img src="/static/index/img/like_02.png" />
-                            </div>
-                            <div class="attr">
-                                <em>Apple苹果iPhone 6s (A1699)</em>
-                            </div>
-                            <div class="price">
-                                <strong>
-                                    <em>¥</em>
-                                    <i>4088.00</i>
-                                </strong>
-                            </div>
-                            <div class="commit">
-                                <i class="command">已有700人评价</i>
-                            </div>
-                        </div>
-                    </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
     </div>
 </div>
+<script src="/static/admin/js/plugins/jquery/jquery.min.js"></script>
+<script>
+    $(document).on('click','.brand',function(){
+        var brand_id=$(this).attr('brand_id');
+//        console.log(brand_id);
+        var url='/index/getGoodsBrand';
+        var data={brand_id:brand_id};
+        $.ajax({
+            url:url,
+            data:data,
+            type:'get',
+            dataType:'json',
+            success:function(res){
+                console.log(res);
+            }
+        })
+    })
+</script>
 @include("index.layout.foot")

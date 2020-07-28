@@ -45,7 +45,7 @@
 				</div>
 				<div class="fr itemInfo-wrap">
 					<div class="sku-name">
-						<h4>Apple iPhone 6s（A1700）64G玫瑰金色 移动通信电信4G手机</h4>
+						<h4>{{$goodsInfo['goods_name']}}</h4>
 					</div>
 					<div class="news"><span>推荐选择下方[移动优惠购],手机套餐齐搞定,不用换号,每月还有花费返</span></div>
 					<div class="summary">
@@ -55,11 +55,11 @@
 							</div>
 							<div class="fl price">
 								<i>¥</i>
-								<em>5299.00</em>
+								<em>{{$godsInfo['goods_price']}}</em>
 								<span>降价通知</span>
 							</div>
 							<div class="fr remark">
-								<i>累计评价</i><em>612188</em>
+								<i>商品积分</i><em>{{$goodsInfo['goods_score']}}</em>
 							</div>
 						</div>
 						<div class="summary-wrap">

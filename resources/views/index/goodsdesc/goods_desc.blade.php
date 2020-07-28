@@ -131,7 +131,7 @@
 									<a href="javascript:;" class="selected">公开版<span title="点击取消选择">&nbsp;</span>
 									</a>
 								</dd>
-								<dd><a href="javascript:;">移动版</a></dd>							
+								<dd><a href="javascript:;">移动版</a></dd>
 							</dl>
 							<dl>
 								<dt>
@@ -143,7 +143,7 @@
 									<a href="javascript:;" class="selected">官方标配<span title="点击取消选择">&nbsp;</span>
 									</a>
 								</dd>
-								<dd><a href="javascript:;">移动优惠版</a></dd>	
+								<dd><a href="javascript:;">移动优惠版</a></dd>
 								<dd><a href="javascript:;"  class="locked">电信优惠版</a></dd>
 							</dl>
 							<dl>
@@ -156,10 +156,10 @@
 									<a href="javascript:;" class="selected">保护套装<span title="点击取消选择">&nbsp;</span>
 									</a>
 								</dd>
-								<dd><a href="javascript:;"  class="locked">充电套装</a></dd>	
-								
-							</dl>	
-						</div>	
+								<dd><a href="javascript:;"  class="locked">充电套装</a></dd>
+
+							</dl>
+						</div>
 						<div class="summary-wrap">
 							<div class="fl title">
 								<div class="control-group">
@@ -454,13 +454,13 @@
 												<i>3699.00</i>
 										</strong>
 									</div>
-								</p>	
+								</p>
 								<p>
 									<div class="commit">
 										<i class="command">已有6人评价</i>
 									</div>
 								</p>
-								
+
 							</div>
 						</li>
 					</ul>

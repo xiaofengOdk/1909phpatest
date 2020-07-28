@@ -31,13 +31,13 @@ class PhoneCode extends Model
         curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
     }
         //发送验证码的短信
-        //$reg=curl_exec($curl);
-       //$response=json_decode($reg,true);
+         $reg=curl_exec($curl);
+         $response=json_decode($reg,true);
 
-        //测试代码，为了方便测试，不真正发送短信
-        $response=[
-            'return_code'=>00000
-       ];
+    //     //测试代码，为了方便测试，不真正发送短信
+    //     $response=[
+    //         'return_code'=>00000
+    //    ];
 
        if($response['return_code']==00000){
 

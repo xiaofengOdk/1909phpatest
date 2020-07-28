@@ -117,7 +117,7 @@
                           //console.log(reg);
                           if(reg.code=='00001'){
                               alert(reg.message);
-                              
+
                           }
                           if(reg.code=='00002'){
                               alert(reg.message);
@@ -128,12 +128,16 @@
           })
 
           $(".btn").click(function(){
+                var str=/^[\u4e00-\u9fa5]+$/;
                  var data={};
                 data.user_tel=$("input[name='user_tel']").val();
                 data.user_name=$("input[name='user_name']").val();
                 data.user_pwd=$("input[name='user_pwd']").val();
                 data.code=$("input[name='code']").val();
                 var url='/index/regdo';
+                if(!str.test(data.user_name)){
+                     alert('用户名称是中文');
+                }
                if(data.user_tel==''|| data.user_name==''||data.user_pwd==''||data.code==''){
                 alert('不能为空');
                }else{

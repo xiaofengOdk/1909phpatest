@@ -27,7 +27,7 @@
                 @foreach($hot as $k=>$v)
                     <li class="yui3-u-1-4">
                         <div class="list-wrap">               
-                            <div class="p-img"><img src="{{env('UPLOAD_URL')}}{{$v->goods_img}}" width='200px'></div>
+                            <div class="p-img"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" width='200px'></div>
                             <div class="price"><strong><em>¥</em> <i>{{$v->goods_price}}</i></strong></div>
                             <div class="attr"><em>{{$v->goods_dese}}</em></div>
                             <div class="cu"><em><span>促</span>满一件可参加超值换购</em></div>

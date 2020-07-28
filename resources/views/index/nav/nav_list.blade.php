@@ -28,7 +28,7 @@
  
                         <div class="list-wrap">               
                  
-                            <div class="p-img"><img src="{{env('UPLOAD_URL')}}{{$v->goods_img}}" style="width: 300;height: 200;"></div>
+                            <div class="p-img"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 300;height: 200;"></div>
                             <div class="price"><strong><em>¥</em> <i>{{$v->goods_price}}</i></strong></div>
                             <div class="attr"><em>{{$v->goods_dese}}</em></div>
                             <div class="cu"><em><span>促</span>满一件可参加超值换购</em></div>

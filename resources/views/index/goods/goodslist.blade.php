@@ -202,7 +202,7 @@
                         <li class="yui3-u-1-5">
                             <div class="list-wrap">
                                 <div class="p-img">
-                                    <a href="item.html" target="_blank"><img src="{{env('UPLOAD_URL')}}{{$v->goods_img}}" /></a>
+                                    <a href="item.html" target="_blank"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" /></a>
                                 </div>
                                 <div class="price">
                                     <strong>

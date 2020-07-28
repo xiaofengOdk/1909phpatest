@@ -139,9 +139,12 @@ Route::prefix("/index")->group(function(){
     Route::any('/logindo','Index\RegController@logindo');
     Route::any('/user_index','Index\PersonController@user_index');
     Route::any('/goods_list/{id}','Index\GoodsController@goods_list');
-    Route::any('/goods_desc/{id}','Index\GoodsController@goods_desc');
+    Route::any('/goods_desc/{id}','Index\GoodsinfoController@goods_desc');
     Route::any('/nav_list/{id}','Index\NavController@nav_list');
     Route::any('/nav_hot/{id}','Index\NavController@nav_hot');
     Route::any('/cart_list','Index\CartController@cart_list');
 
+});
+Route::prefix("/user")->group(function(){
+    Route::any('/user_info','Index\UserController@user_info');
 });

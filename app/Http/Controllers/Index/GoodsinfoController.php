@@ -12,6 +12,13 @@ use App\Models\BrandModel;
 class GoodsinfoController extends Controller
 {
 	public function goods_desc($id){
-		return view('index.goods_desc.goods_desc');
+		$nav = NavModel::get();//导航
+        $footInfo=FootModel::get();//底部导航
+        $brand = BrandModel::where("brand_show",1)->get();//热卖
+        $brandInfo = BrandModel::where('cate_id',$id)->get();
+        $goodsInfo = Goods::where("goods_id",$id)->first();
+		// return view('index.goodsdesc.goods_desc');
+		return view('index.goodsdesc.goods_desc',["nav"=>$nav,"brand"=>$brand,"footInfo"=>$footInfo,'brandInfo'=>$brandInfo,'goodsInfo'=>$goodsInfo]);
+
 	}
 }

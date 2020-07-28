@@ -9,7 +9,8 @@
     <link rel="stylesheet" type="text/css" href="/static/index/css/pages-JD-index.css" />
     <link rel="stylesheet" type="text/css" href="/static/index/css/widget-jquery.autocomplete.css" />
     <link rel="stylesheet" type="text/css" href="/static/index/css/pages-list.css" />
-
+    <link rel="stylesheet" type="text/css" href="/static/index/css/pages-zoom.css" />
+    <link rel="stylesheet" type="text/css" href="/static/index/css/pages-seckill-item.css" />
     <link rel="stylesheet" type="text/css" href="/static/index/css/widget-cartPanelView.css" />
 </head>
 <body>
@@ -174,11 +175,14 @@ $(function(){
 	});
 
 })
+
 </script>
 <script type="text/javascript" src="/static/index/js/model/cartModel.js"></script>
 <script type="text/javascript" src="/static/index/js/czFunction.js"></script>
 <script type="text/javascript" src="/static/index/js/plugins/jquery.easing/jquery.easing.min.js"></script>
 <script type="text/javascript" src="/static/index/js/plugins/sui/sui.min.js"></script>
+<script type="text/javascript" src="/static/index/js/plugins/jquery.jqzoom/jquery.jqzoom.js"></script>
+<script type="text/javascript" src="/static/index/js/plugins/jquery.jqzoom/zoom.js"></script>
 <script type="text/javascript" src="/static/index/js/pages/index.js"></script>
 <script type="text/javascript" src="/static/index/js/widget/cartPanelView.js"></script>
 <script type="text/javascript" src="/static/index/js/widget/jquery.autocomplete.js"></script>

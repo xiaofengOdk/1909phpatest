@@ -20,7 +20,7 @@
     Route::any('/','Index\IndexController@index');//前台首页
     Route::any('/show','Index\IndexController@show');//前台首页
 
-   Route::prefix("/admin")->group(function(){
+Route::prefix("/admin")->group(function(){
 	Route::any("/index","Admin\AdminController@index");//后台首页
     Route::any("/reg","Admin\RegController@reg");//后台注册
     Route::any("/rdo","Admin\RegController@rdo");//后台注册执行
@@ -126,7 +126,6 @@
     Route::any('/slide_del', 'Admin\SlideController@slide_del');//轮播删除   刘远浩
     Route::any('/slide_upd/{id}', 'Admin\SlideController@slide_upd');//轮播图修改 刘远浩
     Route::any('/slide_upddo/{id}', 'Admin\SlideController@slide_upddo');//轮播图修改执行 刘远浩
-
 });
 
 

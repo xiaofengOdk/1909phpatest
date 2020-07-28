@@ -8,9 +8,6 @@
     <link rel="stylesheet" type="text/css" href="/static/index/css/webbase.css" />
     <link rel="stylesheet" type="text/css" href="/static/index/css/pages-JD-index.css" />
     <link rel="stylesheet" type="text/css" href="/static/index/css/widget-jquery.autocomplete.css" />
-    <link rel="stylesheet" type="text/css" href="/static/index/css/pages-list.css" />
-    <link rel="stylesheet" type="text/css" href="/static/index/css/pages-zoom.css" />
-    <link rel="stylesheet" type="text/css" href="/static/index/css/pages-seckill-item.css" />
     <link rel="stylesheet" type="text/css" href="/static/index/css/widget-cartPanelView.css" />
 </head>
 <body>

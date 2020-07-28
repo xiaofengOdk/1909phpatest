@@ -61,7 +61,7 @@
 						<ul class="news-list unstyled">
 							@foreach($adtr_info as $k=>$v)
 							<li>
-								<span class="bold" >[{{$v->is_type==1?"广告":"热卖"}}]</span>{{{$v->g_name}}}
+								<span class="bold" style="color:black;" >[{{$v->is_type==1?"广告":"热卖"}}]</span><a href="/index/adv_list/{{$v->g_id}}" style="color:black;">{{{$v->g_name}}}</a>
 							</li>
 							@endforeach
 						</ul>

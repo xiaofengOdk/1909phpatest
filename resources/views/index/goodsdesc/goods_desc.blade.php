@@ -195,7 +195,7 @@
 									@foreach($goods_hot as $k=>$v)
 									<div class="list-wrap">
 										<div class="p-img">
-											<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 150px;height: 255px;" />
+											<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 150px;height: 255px; border-bottom-style: solid red ; " />
 										</div>
 										<div class="attr">
 											<em>{{$v->goods_name}}</em>
@@ -207,7 +207,7 @@
 										</strong>
 										</div>
 										<div class="operate">
-											<a href="javascript:void(0);" class="sui-btn btn-bordered"  style="height: 24px; font-size: 12px;">加入购物车</a>
+											<a href="javascript:void(0);" class="sui-btn btn-bordered"  style="height: 24px;  color:black;font-size: 12px; background-color:red;">加入购物车</a>
 										</div>
 									</div>
 									@endforeach
@@ -230,7 +230,7 @@
 										</strong>
 										</div>
 										<div class="operate">
-											<a href="javascript:void(0);" class="sui-btn btn-bordered" style="height: 24px;">加入购物车</a>
+											<a href="javascript:void(0);" class="sui-btn btn-bordered" style="height: 24px; ">加入购物车</a>
 										</div>
 									</div>
 									@endforeach
@@ -244,14 +244,18 @@
 							<div class="fl master">
 								<div class="list-wrap">
 									<div class="p-img">
-										<img src="/static/index/img/_/l-m01.png" />
+										<img src="{{env('UPLOADS_URL')}}{{$goodsInfo['goods_img']}}" style="width: 127px;height: 140px;" />
 									</div>
-									<em>￥5299</em>
+									<em>￥{{$goodsInfo['goods_price']}}</em>
 									<i>+</i>
 								</div>
 							</div>
 							<div class="fl suits">
+								<!-- <p> -->
+								
 								<ul class="suit-list">
+									@foreach($goods_hot as $k=>$v)
+										@if($k<=3)
 									<li class="">
 										<div id="">
 											<img src="/static/index/img/_/dp01.png" />
@@ -261,28 +265,10 @@
  										   <input type="checkbox"><span>39</span>
   										</label>
 									</li>
-									<li class="">
-										<div id=""><img src="/static/index/img/_/dp02.png" /> </div>
-										<i>Feless费勒斯VR</i>
-										<label data-toggle="checkbox" class="checkbox-pretty">
-    <input type="checkbox"><span>50</span>
-  </label>
-									</li>
-									<li class="">
-										<div id=""><img src="/static/index/img/_/dp03.png" /></div>
-										<i>Feless费勒斯VR</i>
-										<label data-toggle="checkbox" class="checkbox-pretty">
-    <input type="checkbox"><span>59</span>
-  </label>
-									</li>
-									<li class="">
-										<div id=""><img src="/static/index/img/_/dp04.png" /></div>
-										<i>Feless费勒斯VR</i>
-										<label data-toggle="checkbox" class="checkbox-pretty">
-    <input type="checkbox"><span>99</span>
-  </label>
-									</li>
+										@endforeach
 								</ul>
+								
+								<!-- </p> -->
 							</div>
 							<div class="fr result">
 								<div class="num">已选购0件商品</div>

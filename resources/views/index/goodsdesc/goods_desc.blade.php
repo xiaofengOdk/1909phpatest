@@ -93,7 +93,7 @@
 							<dl >							
 								<dt >
 									<div class="fl title" >
-									<i>{{$v->attr_name}}</i>
+									<i value="{{$v->attr_id}}"+>{{$v->attr_name}}</i>
 									</div>
 								</dt>
 								<!-- <br> -->
@@ -106,7 +106,7 @@
 								</dd>
 											@else
 								<dd>
-									<a href="javascript:;" class="selecteds" >{{$vv->attrval_name}}<span title="点击取消选择">&nbsp;</span>
+									<a href="javascript:;" class="selecteds" value="{{$vv->id}}" >{{$vv->attrval_name}}<span title="点击取消选择">&nbsp;</span>
 									</a>
 								</dd>
 												@endif
@@ -500,12 +500,15 @@
         	 var _this=$(this);
                 // _this.parents("a").removeClass("selected")
                 _this.addClass("selected")
+                 _this.siblings("a").removeClass("selected")
 	  	})
 	  	$(document).on("click",".addshopcars",function(){
 	  		// alert(1)
 	    var _val=parseInt($(".itxt").val())
 	    var goods_id=$(".goods_id").val()
-	    // console.log(goods_id)
+	    var attr=$(".selecteds:selected")
+	    // console.log(attr)
+	    return false
 	    var data={_val:_val,goods_id:goods_id}
 	    var url="/index/add_Cart"
 	     $.ajax({

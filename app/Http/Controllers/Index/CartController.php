@@ -12,13 +12,29 @@ use App\Models\BrandModel;
 use App\Models\FootModel;
 class CartController extends Controller
 {
-    public function cart_list()
+    public function cart_list(Request $request)
     {
         $footInfo=FootModel::get();
         $brand = BrandModel::where("brand_show",1)->get();//热卖
         $nav = NavModel::get();//导航
 
-        return view('index.cart.add',['nav'=>$nav,'brand'=>$brand,'footInfo'=>$footInfo]);
+
+        $where=[
+            ['cary.is_del','=',1]
+        ];
+        $cartinfo=Cary::leftjoin('goods','cary.goods_id','=','goods.goods_id')
+            ->leftjoin('user','cary.user_id','=','user.user_id')
+            ->where($where)
+            ->get();
+//        dd($cartinfo);
+
+        return view('index.cart.add',
+            [
+                'nav'=>$nav,
+                'brand'=>$brand,
+                'footInfo'=>$footInfo,
+                'cartinfo'=>$cartinfo,
+            ]);
     }
 
     /**

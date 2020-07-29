@@ -93,23 +93,16 @@
 							<dl >							
 								<dt >
 									<div class="fl title" >
-									<i>{{$v->attr_name}}</i>
+									<i   class="attrddd"    value="{{$v->attr_id}}">{{$v->attr_name}}</i>
 									</div>
 								</dt>
 								<!-- <br> -->
 									@foreach($attrval as $kk=>$vv)
 										@if($v->attr_id==$vv->attr_id)
-											@if($kk==0)
 								<dd>
-									<a href="javascript:;" class="selected" >{{$vv->attrval_name}}<span title="点击取消选择">&nbsp;</span>
+									<a href="javascript:;" class="selecteds" value="{{$vv->id}}" >{{$vv->attrval_name}}<span title="点击取消选择">&nbsp;</span>
 									</a>
 								</dd>
-											@else
-								<dd>
-									<a href="javascript:;" class="selecteds" >{{$vv->attrval_name}}<span title="点击取消选择">&nbsp;</span>
-									</a>
-								</dd>
-												@endif
 										@endif
 									@endforeach
 							</dl>
@@ -415,7 +408,7 @@
 								<ul>
 									<!--<li class="jth-item">
 										<a href="#" class="img-wrap"> <img src=".portal//static/index/img/like_03.png" height="100" width="100" /> </a>
-										<a class="add-cart-button" href="#" target="_blank">加入购物车</a>
+										<a class="add-cart-button" href="#" target="sel_blank">加入购物车</a>
 										<a href="#" target="_blank" class="price">￥498.00</a>
 									</li>
 									<li class="jth-item">
@@ -498,14 +491,17 @@
         })
 	  	$(document).on("click",".selecteds",function(){
         	 var _this=$(this);
-                // _this.parents("a").removeClass("selected")
-                _this.addClass("selected")
+               _this.parents("dl").find(".selected").prop("class","")
+               _this.prop("class","selected")
 	  	})
 	  	$(document).on("click",".addshopcars",function(){
+        	 var _this=$(this);
 	  		// alert(1)
 	    var _val=parseInt($(".itxt").val())
 	    var goods_id=$(".goods_id").val()
-	    // console.log(goods_id)
+         var attrddd=_this.parents("div").find(".selecteds:selected").text()
+	    console.log(attrddd)
+	    return false
 	    var data={_val:_val,goods_id:goods_id}
 	    var url="/index/add_Cart"
 	     $.ajax({

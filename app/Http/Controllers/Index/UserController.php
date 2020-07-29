@@ -20,7 +20,10 @@ class UserController extends Controller
         $footInfo=FootModel::get();
         $reg = session("reg");
         $user_id = $reg['user_id'];
-        $info = User_info::where("user_id",3)->first();
+        $info = User_info::where("user_id",$user_id)->first();
+        if($info==null){
+            $info = User_info::where("user_id",0)->first();
+        }
         // dd($info);
         return view("index.user.user_info",compact("nav","brand","footInfo","info"));
     } 

@@ -18,12 +18,18 @@ class CartController extends Controller
         $brand = BrandModel::where("brand_show",1)->get();//热卖
         $nav = NavModel::get();//导航
 
-
+        $goods_name= $request->goods_name;
+//        dd($goods_name);
+        $where1 = [];
+        if($goods_name){
+            $where1[] = ['goods_name',"like","%$goods_name%"];
+        }
         $where=[
             ['cary.is_del','=',1]
         ];
         $cartinfo=Cary::leftjoin('goods','cary.goods_id','=','goods.goods_id')
             ->leftjoin('user','cary.user_id','=','user.user_id')
+            ->where($where1)
             ->where($where)
             ->get();
 //        dd($cartinfo);

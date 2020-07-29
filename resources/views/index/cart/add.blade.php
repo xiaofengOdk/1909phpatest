@@ -59,7 +59,7 @@
 					<div class="yui3-u-1-8">小计（元）</div>
 					<div class="yui3-u-1-8">操作</div>
 				</div>
-				@foreach($cartinfo as $k=>$v)
+				{{--@foreach($cartinfo as $k=>$v)--}}
 				<div class="cart-item-list">
 					<div class="cart-shop">
 						<input type="checkbox" name="" id="" value="" />
@@ -120,7 +120,7 @@
 						</div>
 					</div>
 				</div>
-				@endforeach
+				{{--@endforeach--}}
 			</div>
 
 			<div class="cart-tool">

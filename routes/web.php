@@ -145,6 +145,7 @@ Route::prefix("/index")->group(function(){
     Route::any('/cart_list','Index\CartController@cart_list');
      Route::any('/add_Cart','Index\CartController@add_Cart');
    Route::any('/cart_add','Index\CartshopController@cart_add');
+   Route::any('/test','Index\CartshopController@test');
 
 });
 Route::prefix("/user")->group(function(){

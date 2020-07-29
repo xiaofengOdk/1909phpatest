@@ -248,7 +248,8 @@
 								<button class="sui-btn  btn-danger addshopcar">加入购物车</button>
 							</div>
 						</div>
-					</div>
+					</div> 
+					<input type="hidden"  class="goods_id"value="{{$goodsInfo['goods_id']}}">
 					<div class="tab-main intro">
 						<ul class="sui-nav nav-tabs tab-wraped">
 							<li class="active">
@@ -502,6 +503,20 @@
 	  	})
 	  	$(document).on("click",".addshopcars",function(){
 	  		// alert(1)
+	    var _val=parseInt($(".itxt").val())
+	    var goods_id=$(".goods_id").val()
+	    // console.log(goods_id)
+	    var data={_val:_val,goods_id:goods_id}
+	    var url="/index/add_Cart"
+	     $.ajax({
+             type:'post',
+             data:data,
+             url:url,
+             dataType:'json',
+             success:function(reg){
+                 console.log(reg)
+             }
+         })
 	  	})
 </script>
 <!--购物车单元格 模板-->

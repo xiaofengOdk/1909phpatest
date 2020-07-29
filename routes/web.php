@@ -143,9 +143,11 @@ Route::prefix("/index")->group(function(){
     Route::any('/nav_list/{id}','Index\NavController@nav_list');
     Route::any('/nav_hot/{id}','Index\NavController@nav_hot');
     Route::any('/cart_list','Index\CartController@cart_list');
+    Route::any('/getnewinfo','Index\GoodsController@getnewinfo');
      Route::any('/add_Cart','Index\CartController@add_Cart');
    Route::any('/cart_add','Index\CartshopController@cart_add');
    Route::any('/test','Index\CartshopController@test');
+   Route::any('/cate_add','Index\GoodsinfoController@cate_add');
 
 });
 Route::prefix("/user")->group(function(){

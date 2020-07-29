@@ -120,9 +120,10 @@
 							<div class="fl title">
 								<div class="control-group">
 									<div class="controls">
-										<input autocomplete="off" type="text" value="1" minnum="1"   class="itxt"style="padding-right:10px; " />
-										<a href="javascript:void(0)" class="increment plus car_btn_1" style="padding-right:10px; ">+</a>
-										<a href="javascript:void(0)" class="increment mins car_btn_2" style="padding-right:10px; ">-</a>
+									
+										<a href="javascript:void(0)" class="increment plus"  id="plus"style="padding-right:10px; ">+</a>
+											<input autocomplete="off" type="text" value="" minnum="1"   class="itxt"style="padding-right:10px; " />
+										<a href="javascript:void(0)" class="increment mins"  value=""id="mins"style="padding-right:10px; ">-</a>
 									</div>
 								</div>
 							</div>
@@ -465,6 +466,25 @@
 
 	</div>
 </div>
+<script type="text/javascript" src="/static/index/js/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+	  $(document).on("click",".plus",function(){
+            // alert(1) 
+            var _this=$(this)
+            var _val=parseInt(_this.next("input").val())
+            console.log(_val)
+            // var max_=parseInt(_this.parent().attr("goods_num"))
+               // _val=_val+1
+            // if(_val>=max_){
+            //     _this.prev("input").val(max_)
+            //     _val=max_
+            // }else{
+            // // alert(max_)
+            // _val=_val+1
+            // _this.prev("input").val(_val)  
+            //    }
+        })
+</script>
 <!--购物车单元格 模板-->
 <script type="text/template" id="tbar-cart-item-template">
 	<div class="tbar-cart-item" >
@@ -482,23 +502,7 @@
 		</div>
 	</div>
 </script>
-<script type="text/javascript">
-	  $(document).on("click",".car_btn_2",function(){
-            // alert(1) 
-            var _this=$(this)
-            var _val=parseInt(_this.prev("input").val())
-            var max_=parseInt(_this.parent().attr("goods_num"))
-            _val=_val+1
-            // if(_val>=max_){
-            //     _this.prev("input").val(max_)
-            //     _val=max_
-            // }else{
-            // // alert(max_)
-            // _val=_val+1
-            // _this.prev("input").val(_val)  
-            //    }
-        })
-</script>
+
 </body>
 
 </html>

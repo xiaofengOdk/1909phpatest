@@ -59,13 +59,18 @@
 					<div class="yui3-u-1-8">小计（元）</div>
 					<div class="yui3-u-1-8">操作</div>
 				</div>
+<<<<<<< HEAD
 				<!-- @foreach($cartinfo as $k=>$v) -->
+=======
+				{{--@foreach($cartinfo as $k=>$v)--}}
+>>>>>>> f4e80f605c02ed281da953a0f97cc713958c5d7b
 				<div class="cart-item-list">
 					<div class="cart-shop">
 						<input type="checkbox" name="" id="" value="" />
 						<span class="shopname">神州数码专营店</span>
 					</div>
 					<div class="cart-body">
+						{{--@foreach($res as $k=>$v)--}}
 						<div class="cart-list">
 							<ul class="goods-list yui3-g">
 								<li class="yui3-u-1-24">
@@ -92,35 +97,14 @@
 								</li>
 							</ul>
 						</div>
-						<div class="cart-list">
-							<ul class="goods-list yui3-g">
-								<li class="yui3-u-1-24">
-									<input type="checkbox" name="" id="" value="" />
-								</li>
-								<li class="yui3-u-11-24">
-									<div class="good-item">
-										<div class="item-img"><img src="/static/index/img/goods.png" /></div>
-										<div class="item-msg">Apple Macbook Air 13.3英寸笔记本电脑 银色（Corei5）处理器/8GB内存
-											尺寸：13.3英寸</div>
-									</div>
-								</li>
-
-								<li class="yui3-u-1-8"><span class="price">8848.00</span></li>
-								<li class="yui3-u-1-8">
-									<a href="javascript:void(0)" class="increment mins">-</a>
-									<input autocomplete="off" type="text" value="1" minnum="1" class="itxt" />
-									<a href="javascript:void(0)" class="increment plus">+</a>
-								</li>
-								<li class="yui3-u-1-8"><span class="sum">8848.00</span></li>
-								<li class="yui3-u-1-8">
-									<a href="#none">删除</a><br />
-									<a href="#none">移到我的关注</a>
-								</li>
-							</ul>
-						</div>
+						{{--@endforeach--}}
 					</div>
 				</div>
+<<<<<<< HEAD
 				<!-- @endforeach -->
+=======
+				{{--@endforeach--}}
+>>>>>>> f4e80f605c02ed281da953a0f97cc713958c5d7b
 			</div>
 
 			<div class="cart-tool">
@@ -181,6 +165,7 @@
 							<div class="carousel-inner">
 								<div class="active item">
 									<ul>
+										{{--@foreach($res as $k=>$v)--}}
 										<li>
 											<img src="/static/index/img/like1.png" />
 											<div class="intro">
@@ -193,42 +178,7 @@
 												<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
 											</div>
 										</li>
-										<li>
-											<img src="/static/index/img/like2.png" />
-											<div class="intro">
-												<i>Apple苹果iPhone 6s (A1699)</i>
-											</div>
-											<div class="money">
-												<span>$29.00</span>
-											</div>
-											<div class="incar">
-												<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
-											</div>
-										</li>
-										<li>
-											<img src="/static/index/img/like3.png" />
-											<div class="intro">
-												<i>Apple苹果iPhone 6s (A1699)</i>
-											</div>
-											<div class="money">
-												<span>$29.00</span>
-											</div>
-											<div class="incar">
-												<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
-											</div>
-										</li>
-										<li>
-											<img src="/static/index/img/like4.png" />
-											<div class="intro">
-												<i>Apple苹果iPhone 6s (A1699)</i>
-											</div>
-											<div class="money">
-												<span>$29.00</span>
-											</div>
-											<div class="incar">
-												<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
-											</div>
-										</li>
+										{{--@endforeach--}}
 									</ul>
 								</div>
 								<div class="item">

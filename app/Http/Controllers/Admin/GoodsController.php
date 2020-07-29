@@ -139,7 +139,7 @@ class GoodsController extends Controller
         $goods_model->goods_sn=time();
         $goods_model->goods_price=$data['goods_price'];
         $goods_model->goods_dese=$data['goods_dese'];
-        $goods_model->goods_stor=$data['goods_store'];
+        $goods_model->goods_store=$data['goods_store'];
         $goods_model->goods_score=$data['goods_store'];
         $goods_model->is_show=1;
         $goods_model->is_hot=1;

@@ -25,6 +25,7 @@ class GoodsController extends Controller
             ['is_show','=',1]
         ];
         $goodsInfo = Goods::where($where)->paginate(10);
+        dd(1);
         return view('index/goods/goodslist',["nav"=>$nav,"brand"=>$brand,"footInfo"=>$footInfo,'brandInfo'=>$brandInfo,'goodsInfo'=>$goodsInfo]);
     }
 }

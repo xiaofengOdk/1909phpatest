@@ -27,7 +27,7 @@ class IndexController extends Controller
     	// }
         // exit;
         $nav = NavModel::get();//导航
-        $brand = BrandModel::where("brand_show",1)->get();//热卖
+        $brand = BrandModel::limit(7)->get();//热卖
         // dd($nav);
         $adtr_info=AdtgModel::where("is_del",1)->limit(5)->get();
         $footInfo=FootModel::get();

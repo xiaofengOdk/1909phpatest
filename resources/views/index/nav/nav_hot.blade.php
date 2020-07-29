@@ -32,7 +32,7 @@
                             <div class="attr"><em><a style="text-decoration: none; color:black;" href="{{url('/index/goods_desc/'.$v->goods_id)}}">{{$v->goods_name}}</a> </em></div>
                             <div class="cu"><em><span>促</span>满一件可参加超值换购</em></div>
                             <div class="operate">
-                                <a href="success-cart.html" target="_blank" class="sui-btn btn-bordered btn-danger">加入购物车</a>
+                                <a href="{{url('/index/cart_add/'.$v->goods_id)}}" target="_blank" class="sui-btn btn-bordered btn-danger">加入购物车</a>
                                 <a href="javascript:void(0);" class="sui-btn btn-bordered">对比</a>
                                 <a href="javascript:void(0);" class="sui-btn btn-bordered">关注</a>
                             </div>  

@@ -14,7 +14,7 @@ class NavController extends Controller
     // top
     public function nav_list($id){
         $nav = NavModel::get();//导航
-        $brand = BrandModel::where("brand_show",1)->get();//热卖
+        $brand = BrandModel::limit(7)->get();//热卖
         $footInfo=FootModel::get();
         $navgoods = Goods::where("nav_id",$id)->get();
         // dd($navgoods);
@@ -23,7 +23,7 @@ class NavController extends Controller
     // top
     public function nav_hot($id){
         $nav = NavModel::get();//导航
-        $brand = BrandModel::where("brand_show",1)->get();//热卖
+        $brand = BrandModel::limit(7)->get();//热卖
         $footInfo=FootModel::get();
         $hot = Goods::where("cate_id",$id)->get();//热卖商品
         return view("index/nav/nav_hot",compact("nav","brand","footInfo","hot"));

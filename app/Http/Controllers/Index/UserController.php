@@ -16,7 +16,7 @@ class UserController extends Controller
     // 个人信息
     public function user_info(){
         $nav = NavModel::get();//导航
-        $brand = BrandModel::where("brand_show",1)->get();//热卖
+        $brand = BrandModel::limit(7)->get();//热卖
         $footInfo=FootModel::get();
         $reg = session("reg");
         $user_id = $reg['user_id'];

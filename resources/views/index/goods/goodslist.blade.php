@@ -71,24 +71,11 @@
                 <div class="fl key">价格</div>
                 <div class="fl value">
                     <ul class="type-list">
+                        @foreach($price as $k=>$v)
                         <li>
-                            <a>0-500元</a>
+                            <a>{{$v}}</a>
                         </li>
-                        <li>
-                            <a>500-1000元</a>
-                        </li>
-                        <li>
-                            <a>1000-1500元</a>
-                        </li>
-                        <li>
-                            <a>1500-2000元</a>
-                        </li>
-                        <li>
-                            <a>2000-3000元 </a>
-                        </li>
-                        <li>
-                            <a>3000元以上</a>
-                        </li>
+                            @endforeach
                     </ul>
                 </div>
                 <div class="fl ext">
@@ -148,7 +135,7 @@
                         <li class="yui3-u-1-5">
                             <div class="list-wrap">
                                 <div class="p-img">
-                                    <a href="item.html" target="_blank"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" /></a>
+                                    <a href="/index/goods_desc/{{$v->goods_id}}" target="_blank"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" /></a>
                                 </div>
                                 <div class="price">
                                     <strong>
@@ -157,11 +144,11 @@
                                     </strong>
                                 </div>
                                 <div class="attr">
-                                    <em>{{$v->goods_name}}</em>
+                                    <em><a href="/index/goods_desc/{{$v->goods_id}}" style="color:black; text-decoration:none;">{{$v->goods_name}}</a></em>
                                 </div>
-                                <div class="cu">
-                                    <em><span>促</span>满一件可参加超值换购</em>
-                                </div>
+                                {{--<div class="cu">--}}
+                                    {{--<em><span>促</span>满一件可参加超值换购</em>--}}
+                                {{--</div>--}}
                                 <div class="commit">
                                     <i class="command">已有2000人评价</i>
                                 </div>
@@ -211,10 +198,10 @@
                     <li class="yui3-u-1-4">
                         <div class="list-wrap">
                             <div class="p-img">
-                                <img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" />
+                                <a href="/index/goods_desc/{{$v->goods_id}}"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" /></a>
                             </div>
                             <div class="attr">
-                                <em>{{$v->goods_name}}</em>
+                                <em><a href="/index/goods_desc/{{$v->goods_id}}" style="color:black; text-decoration:none;">{{$v->goods_name}}</a></em>
                             </div>
                             <div class="price">
                                 <strong>

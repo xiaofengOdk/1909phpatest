@@ -162,7 +162,7 @@
 							<ul class="goods-list unstyled">
 								<li>
 									@foreach($goods_hot as $k=>$v)
-									<div class="list-wrap">
+									<div class="list-wrap" style="border-top:2px solid  #ededed;">
 										<div class="p-img">
 											<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 150px;height: 255px; border-bottom-style: solid red ; " />
 										</div>
@@ -176,7 +176,7 @@
 										</strong>
 										</div>
 										<div class="operate">
-											<a href="javascript:void(0);" class="sui-btn btn-bordered"  style="height: 24px;  color:black;font-size: 12px; background-color:red;">加入购物车</a>
+											<a href="javascript:void(0);" class="sui-btn btn-bordered"  >购物车</a>
 										</div>
 									</div>
 									@endforeach

@@ -26,10 +26,10 @@
                 <ul class="yui3-g" id="goods-list">
                 @foreach($hot as $k=>$v)
                     <li class="yui3-u-1-4">
-                        <div class="list-wrap">               
-                            <div class="p-img"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" width='200px'></div>
-                            <div class="price"><strong><em>¥</em> <i>{{$v->goods_price}}</i></strong></div>
-                            <div class="attr"><em>{{$v->goods_name}}</em></div>
+                        <div class="list-wrap">         
+                            <div class="p-img"><a style="text-decoration: none; color:black;" href="{{url('/index/goods_desc/'.$v->goods_id)}}"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" width='200px'></a> </div>
+                            <div class="price"><strong><em>¥</em> <i><a style="text-decoration: none; color:red;" href="{{url('/index/goods_desc/'.$v->goods_id)}}">{{$v->goods_price}}</a> </i></strong></div>
+                            <div class="attr"><em><a style="text-decoration: none; color:black;" href="{{url('/index/goods_desc/'.$v->goods_id)}}">{{$v->goods_name}}</a> </em></div>
                             <div class="cu"><em><span>促</span>满一件可参加超值换购</em></div>
                             <div class="operate">
                                 <a href="success-cart.html" target="_blank" class="sui-btn btn-bordered btn-danger">加入购物车</a>

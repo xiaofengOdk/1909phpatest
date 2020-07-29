@@ -101,12 +101,12 @@
 										@if($v->attr_id==$vv->attr_id)
 											@if($kk==0)
 								<dd>
-									<a href="javascript:;" class="selected">{{$vv->attrval_name}}<span title="点击取消选择">&nbsp;</span>
+									<a href="javascript:;" class="selected" >{{$vv->attrval_name}}<span title="点击取消选择">&nbsp;</span>
 									</a>
 								</dd>
 											@else
 								<dd>
-									<a href="javascript:;" >{{$vv->attrval_name}}<span title="点击取消选择">&nbsp;</span>
+									<a href="javascript:;" class="selecteds" >{{$vv->attrval_name}}<span title="点击取消选择">&nbsp;</span>
 									</a>
 								</dd>
 												@endif
@@ -120,9 +120,9 @@
 							<div class="fl title">
 								<div class="control-group">
 									<div class="controls">
-									
+											<input type="hidden" goods_store="{{$goodsInfo->goods_score}}">	
 										<a href="javascript:void(0)" class="increment plus"  id="plus"style="padding-right:10px; ">+</a>
-											<input autocomplete="off" type="text" value="" minnum="1"   class="itxt"style="padding-right:10px; " />
+											<input autocomplete="off" type="text" value="{{$goodsInfo->goods_score}}" minnum="1"   class="itxt"style="padding-right:10px; " />
 										<a href="javascript:void(0)" class="increment mins"  value=""id="mins"style="padding-right:10px; ">-</a>
 									</div>
 								</div>
@@ -130,7 +130,7 @@
 							<div class="fl">
 								<ul class="btn-choose unstyled">
 									<li>
-										<a href="cart.html" target="_blank" class="sui-btn  btn-danger addshopcar">加入购物车</a>
+										<a href="javascript:;"  class="sui-btn  btn-danger addshopcar addshopcars">加入购物车</a>
 									</li>
 								</ul>
 							</div>
@@ -472,18 +472,37 @@
             // alert(1) 
             var _this=$(this)
             var _val=parseInt(_this.next("input").val())
-            console.log(_val)
-            // var max_=parseInt(_this.parent().attr("goods_num"))
-               // _val=_val+1
-            // if(_val>=max_){
-            //     _this.prev("input").val(max_)
-            //     _val=max_
-            // }else{
-            // // alert(max_)
-            // _val=_val+1
-            // _this.prev("input").val(_val)  
-            //    }
+            var max_=parseInt(_this.prev("input").attr("goods_store"))
+            // console.log(max_)
+            if(_val>=max_){
+                _this.next("input").val(max_)
+                _val=max_
+            }else{
+            // alert(max_)
+            _val=_val+1
+            _this.next("input").val(_val)  
+               }
         })
+	  	  $(document).on("click",".mins",function(){
+            // alert(1) 
+            var _this=$(this)
+            var _val=parseInt(_this.prev("input").val())
+             if(_val<=1){
+                _this.prev("input").val(1)
+                _val=1
+            }else{
+            _val=_val-1
+            _this.prev("input").val(_val)  
+               }
+        })
+	  	$(document).on("click",".selecteds",function(){
+        	 var _this=$(this);
+                // _this.parents("a").removeClass("selected")
+                _this.addClass("selected")
+	  	})
+	  	$(document).on("click",".addshopcars",function(){
+	  		// alert(1)
+	  	})
 </script>
 <!--购物车单元格 模板-->
 <script type="text/template" id="tbar-cart-item-template">

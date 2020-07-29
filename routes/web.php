@@ -143,7 +143,8 @@ Route::prefix("/index")->group(function(){
     Route::any('/nav_list/{id}','Index\NavController@nav_list');
     Route::any('/nav_hot/{id}','Index\NavController@nav_hot');
     Route::any('/cart_list','Index\CartController@cart_list');
-    Route::any('/cart_add/{id}','Index\CartshopController@cart_add');
+     Route::any('/cart_descdo','Index\CartController@cart_descdo');
+   Route::any('/cart_add','Index\CartshopController@cart_add');
 
 });
 Route::prefix("/user")->group(function(){

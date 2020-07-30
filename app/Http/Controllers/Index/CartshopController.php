@@ -15,7 +15,7 @@ class CartshopController extends Controller
     public function cart_add(Request $request){
         $goods_id = $request->goods_id;
         $buy_number = $request->buy_number;
-        // dd($goods_id);
+        //  dd($goods_id);
         $reg = session("reg");
         $user_id = $reg['user_id'];
         if($user_id==null){

@@ -1,11 +1,6 @@
 @extends("admin.layout.public")
 @section("content")
-               <section class="content">
-<<<<<<< Updated upstream
-               <!-- 统计数值 -->
-=======
-                <!-- 统计数值 -->
->>>>>>> Stashed changes
+<section class="content">
                 <div class="row">
                     <div class="col-lg-3 col-xs-6">
                         <!-- small box -->

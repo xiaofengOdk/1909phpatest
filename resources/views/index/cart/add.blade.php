@@ -70,7 +70,7 @@
 								</li>
 								<li class="yui3-u-11-24">
 									<div class="good-item">
-										<div class="item-img"><img src="{{env('UPLOAD_URL')}}{{$v->goods_img}}" /></div>
+										<div class="item-img"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" /></div>
 										<div class="item-msg">{{$v->goods_name}}</div>
 
 									</div>

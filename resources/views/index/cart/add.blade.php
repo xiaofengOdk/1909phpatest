@@ -53,7 +53,7 @@
 			<h4>全部商品<span>11</span></h4>
 			<div class="cart-main">
 				<div class="yui3-g cart-th">
-					<div class="yui3-u-1-4"><input type="checkbox" name="" id="" value="" /> 全部</div>
+					<div class="yui3-u-1-4"><input type="checkbox" name="qx_0.2" id="check_all" value="" /> 全部</div>
 					<div class="yui3-u-1-4">商品</div>
 					<div class="yui3-u-1-8">单价（元）</div>
 					<div class="yui3-u-1-8">数量</div>
@@ -61,12 +61,12 @@
 					<div class="yui3-u-1-8">操作</div>
 				</div>
 				@foreach($cartinfo as $k=>$v)
-				<div class="cart-item-list">
+				<div class="cart-item-list" id='list_one'>
 					<div class="cart-body">
-						<div class="cart-list">
+						<div class="cart-list"  id='ul_id'>
 							<ul class="goods-list yui3-g">
 								<li class="yui3-u-1-24">
-									<input type="checkbox" name="" id="" value="" />
+									<input type="checkbox" name="qx_0.1" id="" value="" />
 								</li>
 								<li class="yui3-u-11-24">
 									<div class="good-item">
@@ -77,11 +77,15 @@
 								</li>
 								<li class="yui3-u-1-8"><span class="price">{{$v->goods_price}}</span></li>
 								<li class="yui3-u-1-8">
-									<a href="javascript:void(0)" class="increment mins">-</a>
-									<input autocomplete="off" type="text" value="1" minnum="1" class="itxt" />
-									<a href="javascript:void(0)" class="increment plus">+</a>
+									<a href="javascript:void(0)" class="increment mins" id="num_jian" cary_id="{{$v->cary_id}}" sku_id="{{$v->id}}">-</a>
+									<input autocomplete="off" type="text" id='vl' value="{{$v->buy_number}}" minnum="1" class="itxt" />
+									<a href="javascript:void(0)" class="increment plus" id="num_jia" cary_id="{{$v->cary_id}}" sku_id="{{$v->id}}">+</a>
+									<span class="tishi" style="display:none; color:red;">缺货</span>
 								</li>
-								<li class="yui3-u-1-8"><span class="sum">{{$v->goods_totall}}</span></li>
+								<li class="yui3-u-1-8"><span class="sum" id='num_zong'>
+										{{$v['price_one']*$v['goods_totall']}}
+									</span>
+								</li>
 								<li class="yui3-u-1-8">
 									<a href="#none">删除</a><br />
 									<a href="#none">移到我的关注</a>
@@ -95,7 +99,7 @@
 
 			<div class="cart-tool">
 				<div class="select-all">
-					<input type="checkbox" name="" id="" value="" />
+					<input type="checkbox"  name="qx_0.2" id="check_all_s" value="" />
 					<span>全选</span>
 				</div>
 				<div class="option">
@@ -149,6 +153,7 @@
 					<div id="index" class="tab-pane active">
 						<div id="myCarousel" data-ride="carousel" data-interval="4000" class="sui-carousel slide">
 							<div class="carousel-inner">
+
 								<div class="active item">
 									<ul>
 										{{--@foreach($res as $k=>$v)--}}
@@ -167,8 +172,10 @@
 										{{--@endforeach--}}
 									</ul>
 								</div>
+
 								<div class="item">
 									<ul>
+										{{--@foreach($res as $k=>$v)--}}
 										<li>
 											<img src="/static/index/img/like1.png" />
 											<div class="intro">
@@ -181,42 +188,7 @@
 												<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
 											</div>
 										</li>
-										<li>
-											<img src="/static/index/img/like2.png" />
-											<div class="intro">
-												<i>Apple苹果iPhone 6s (A1699)</i>
-											</div>
-											<div class="money">
-												<span>$29.00</span>
-											</div>
-											<div class="incar">
-												<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
-											</div>
-										</li>
-										<li>
-											<img src="/static/index/img/like3.png" />
-											<div class="intro">
-												<i>Apple苹果iPhone 6s (A1699)</i>
-											</div>
-											<div class="money">
-												<span>$29.00</span>
-											</div>
-											<div class="incar">
-												<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
-											</div>
-										</li>
-										<li>
-											<img src="/static/index/img/like4.png" />
-											<div class="intro">
-												<i>Apple苹果iPhone 6s (A1699)</i>
-											</div>
-											<div class="money">
-												<span>$29.00</span>
-											</div>
-											<div class="incar">
-												<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
-											</div>
-										</li>
+										{{--@endforeach--}}
 									</ul>
 								</div>
 							</div>
@@ -233,5 +205,125 @@
 	</div>
 
 <script>
+	//减
+	$(document).on('click','#num_jian',function(){
+		var ts=$(this);
+		var cary_id=$(this).attr('cary_id');
+		var id=$(this).attr('sku_id');
+		var zz=/^\d{1,}$/;
+		var f1=false;
+//		console.log(cary_id,id);
+		if(!zz.test(cary_id)||cary_id<=0){
+			console.log('cary_id获取失败');
+			f1=false;
+		}else{
+			f1=true;
+		}
+		var f2=false;
+		if(!zz.test(id)||id<=0){
+			console.log('id获取失败');
+			f2=false;
+		}else{
+			f2=true;
+		}
+		if(f1==true&&f2==true){
+			$.ajax({
+				url:'/index/cart_num',
+				type:'post',
+				dataType:'json',
+				data:{'cary_id':cary_id,'id':id,'num_jian':'num_jian'},
+				success:function(jk_n){
+					if(jk_n.a1==0){
+						ts.parent().find('#vl').val(jk_n.a3['jk_1']);
+						ts.parents("#ul_id").find('#num_zong').text(jk_n.a3['jk_2']);
+					}
+//					instant_price();
+					console.log(jk_n.a2);
+				}
+			});
+			console.log(cary_id,id);
+		}
+	});
+	//加
+	$(document).on('click','#num_jia',function(){
+		var ts=$(this);
+		var cary_id=$(this).attr('cary_id');
+		var id=$(this).attr('sku_id');
+		var zz=/^\d{1,}$/;
+		var f1=false;
+//		console.log(cary_id,id);
+		if(!zz.test(cary_id)||cary_id<=0){
+			console.log('cary_id获取失败');
+			f1=false;
+		}else{
+			f1=true;
+		}
+		var f2=false;
+		if(!zz.test(id)||id<=0){
+			console.log('id获取失败');
+			f2=false;
+		}else{
+			f2=true;
+		}
+		if(f1==true&&f2==true){
+			$.ajax({
+				url:'/index/cart_num',
+				type:'post',
+				dataType:'json',
+				data:{'cary_id':cary_id,'id':id,'num_jian':'num_jia'},
+				success:function(jk_n){
+					if(jk_n.a1==0){
+						ts.parent().find('#vl').val(jk_n.a3['jk_1']);
+						ts.parents("#ul_id").find('#num_zong').text(jk_n.a3['jk_2']);
+					}
+//					instant_price();
+					if(jk_n.code=='00009'){
+						ts.next("span").show()
+					}
+//					console.log(jk_n.a2);
+				}
+			});
+			console.log(cary_id,id);
+		}
+	});
+	//点击全选选中
+	$(document).on('click','#check_all,#check_all_s',function(){
+		var sf=$(this).prop('checked');
+//		console.log(sf);
+		$("[type='checkbox'][name='qx_0.1']").prop('checked',sf);
+		$("[type='checkbox'][name='qx_0.2']").prop('checked',sf);
+		instant_price();
+		// console.log(sf);
+	});
+	//点击每件商品复选框
+	$(document).on('click',"[type='checkbox'][name='qx_0.1']",function(){
+		instant_price();
+	});
+
+
+
+	//计算被选中商品总数,总价
+	function instant_price(){
+		var sf=0;
+		var quantity=0;
+		var price=0;
+		$("[type='checkbox'][name='qx_0.1']:checked").each(function(index, el) {
+			var q_ty=$(this).parents("#list_one").find('#vl').val();
+			var q_ty_vl=parseInt(q_ty);
+			quantity=quantity+q_ty_vl;
+			var p_ce=$(this).parents("#list_one").find('#num_zong').text();
+			var p_ce_vl=parseInt(p_ce);
+			price=price+p_ce_vl;
+
+			sf=sf+1;
+		});
+		if(sf==0){
+			$("#check_all").prop('checked',false);
+			$("#check_all_s").prop('checked',false);
+		}
+		$("#selected_num").text(quantity);
+		$("#price_sum").text('￥:'+price);
+		console.log(quantity,price);
+	}
 
 </script>

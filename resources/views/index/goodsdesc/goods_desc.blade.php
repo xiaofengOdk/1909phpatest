@@ -93,15 +93,14 @@
 							<dl >							
 								<dt >
 									<div class="fl title" >
-									<i   class="attrddd"    value="{{$v->attr_id}}">{{$v->attr_name}}</i>
+									<i   class="attrddd"    attr_id="{{$v->attr_id}}">{{$v->attr_name}}</i>
 									</div>
 								</dt>
 								<!-- <br> -->
 									@foreach($attrval as $kk=>$vv)
 										@if($v->attr_id==$vv->attr_id)
 								<dd>
-									<a href="javascript:;" class="selecteds" value="{{$vv->id}}" >{{$vv->attrval_name}}<span title="点击取消选择">&nbsp;</span>
-									</a>
+									<a href="javascript:;" class="selecteds" val_id="{{$vv->id}}" >{{$vv->attrval_name}}</a>
 								</dd>
 										@endif
 									@endforeach
@@ -497,13 +496,21 @@
 	  	$(document).on("click",".addshopcars",function(){
         	 var _this=$(this);
 	  		// alert(1)
-	    var _val=parseInt($(".itxt").val())
-	    var goods_id=$(".goods_id").val()
-         var attrddd=_this.parents("div").find(".selecteds:selected").text()
-	    console.log(attrddd)
-	    return false
-	    var data={_val:_val,goods_id:goods_id}
-	    var url="/index/add_Cart"
+	   	var _val=parseInt($(".itxt").val())
+	 	 var goods_id=$(".goods_id").val()
+         var attrddd=_this.parents("div").find(".selected").text()
+	    var sku="";
+            for(var i=1;i<=num;i++){
+                var attr_id=$("#attr_id_"+i).attr("attr_id");
+                var val_id=$("#val_id_"+i).parents("#dl").find(".selected:[class='selected']").attr('val_id');
+                if(!val_id==""){
+                    sku=sku+'['+attr_id+':'+val_id+'],';
+                }
+            }
+//          var cd=sku.length;
+//          sku=sku.substr(0,cd-1);
+	    var data={_val:_val,goods_id:goods_id,attrddd:attrddd}
+	    var url="/index/cate_add"
 	     $.ajax({
              type:'post',
              data:data,

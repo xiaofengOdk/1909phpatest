@@ -37,8 +37,9 @@
 		<div class="fr search">
 			<form class="sui-form form-inline">
 				<div class="input-append">
-					<input type="text" type="text" class="input-error input-xxlarge" placeholder="品优购自营" />
-					<button class="sui-btn btn-xlarge btn-danger" type="button">搜索</button>
+					<input type="text" class="input-error input-xxlarge"
+						   style="height:30px" placeholder="品优购自营" name="goods_name" value="" />
+					<input type="submit" class="sui-btn btn-xlarge btn-danger" value="搜索">
 				</div>
 			</form>
 		</div>
@@ -59,18 +60,9 @@
 					<div class="yui3-u-1-8">小计（元）</div>
 					<div class="yui3-u-1-8">操作</div>
 				</div>
-<<<<<<< HEAD
-				<!-- @foreach($cartinfo as $k=>$v) -->
-=======
-				{{--@foreach($cartinfo as $k=>$v)--}}
->>>>>>> f4e80f605c02ed281da953a0f97cc713958c5d7b
+				@foreach($cartinfo as $k=>$v)
 				<div class="cart-item-list">
-					<div class="cart-shop">
-						<input type="checkbox" name="" id="" value="" />
-						<span class="shopname">神州数码专营店</span>
-					</div>
 					<div class="cart-body">
-						{{--@foreach($res as $k=>$v)--}}
 						<div class="cart-list">
 							<ul class="goods-list yui3-g">
 								<li class="yui3-u-1-24">
@@ -78,33 +70,27 @@
 								</li>
 								<li class="yui3-u-11-24">
 									<div class="good-item">
-										<div class="item-img"><img src="/static/index/img/goods.png" /></div>
-										<div class="item-msg">Apple Macbook Air 13.3英寸笔记本电脑 银色（Corei5）处理器/8GB内存
-											尺寸：13.3英寸</div>
+										<div class="item-img"><img src="{{env('UPLOAD_URL')}}{{$v->goods_img}}" /></div>
+										<div class="item-msg">{{$v->goods_name}}</div>
+
 									</div>
 								</li>
-
-								<li class="yui3-u-1-8"><span class="price">8848.00</span></li>
+								<li class="yui3-u-1-8"><span class="price">{{$v->goods_price}}</span></li>
 								<li class="yui3-u-1-8">
 									<a href="javascript:void(0)" class="increment mins">-</a>
 									<input autocomplete="off" type="text" value="1" minnum="1" class="itxt" />
 									<a href="javascript:void(0)" class="increment plus">+</a>
 								</li>
-								<li class="yui3-u-1-8"><span class="sum">8848.00</span></li>
+								<li class="yui3-u-1-8"><span class="sum">{{$v->goods_totall}}</span></li>
 								<li class="yui3-u-1-8">
 									<a href="#none">删除</a><br />
 									<a href="#none">移到我的关注</a>
 								</li>
 							</ul>
 						</div>
-						{{--@endforeach--}}
 					</div>
 				</div>
-<<<<<<< HEAD
-				<!-- @endforeach -->
-=======
-				{{--@endforeach--}}
->>>>>>> f4e80f605c02ed281da953a0f97cc713958c5d7b
+				@endforeach
 			</div>
 
 			<div class="cart-tool">
@@ -246,3 +232,6 @@
 		</div>
 	</div>
 
+<script>
+
+</script>

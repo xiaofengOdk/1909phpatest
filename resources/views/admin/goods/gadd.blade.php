@@ -344,7 +344,7 @@ $(document).on("click",".attr_info",function(){
             onUploadSuccess:function(rest,data,info){
 				var video_str='<img src="'+data+'" controls="controls">';
 				$(".baTop").append(video_str);
-            	// console.log(data)
+            	console.log(data)
             }
         })
 

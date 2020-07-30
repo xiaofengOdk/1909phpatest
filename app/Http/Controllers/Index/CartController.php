@@ -102,9 +102,75 @@ class CartController extends Controller
         return json_encode($fh);
     }
 
+    //购物车中间的数字
+    public function cart_nums(Request $request)
+    {
+        $res=$request->all();
+        $a1=array_key_exists('cary_id',$res); //判断键名有没有k
+        $a2=array_key_exists('goods_store',$res);
+        $a3=array_key_exists('sku_id',$res);
+        if($a1==false||$a2==false||$a3==false){
+            $fh=['a1'=>'1','a2'=>'参数缺失'];
+            return json_encode($fh);exit;
+        }
+        $eva_f1=Cary::where([['cary_id',$res['cary_id']],['is_del','1']])->first(); //查询购物车
+
+
+        $eva_f2=Sku::where('id',$res['sku_id'])->first(); //关联表 查库存
+
+        $shu_b=$eva_f1['buy_number']; //购物车的商品数量
+        $shu_c=$eva_f2['goods_store'];   //关联表的商品库存
+        $stocks=0;
+        if($res['goods_store']>$shu_b){
+            $goods_store=$shu_b;
+        }else{
+            $goods_store=$res['goods_store'];
+        }
+        $price_total=$goods_store*$shu_c;
+        $xg=Cary::where([['cary_id',$res['cary_id']],['is_del','1']])->update([
+            'buy_number'=>$goods_store,
+            'goods_totall'=>$price_total
+        ]);
+        $goods_vl=['jk_1'=>$goods_store,'jk_2'=>$price_total];
+        if($xg){
+            $fh=['a1'=>'0','a2'=>'修改成功','a3'=>$goods_vl];
+        }else{
+            $fh=['a1'=>'1','a2'=>'修改失败'];
+        }
+        return json_encode($fh);
+    }
+
+
+
+
+    public function cart_top()
+    {
+        $user_id=1;
+        $res=Cary::where(['user_id',$user_id,['is_del','1']])->count();
+        return json_encode($res);
+    }
+
+
+
+
     //购物车删除
     public function cart_del(Request $request)
     {
+        $res=$request->all();
+        $a1=array_key_exists('cary_id',$res);
+        if($a1==false){
+            $fh=['a1'=>'1','a2'=>'参数丢失'];
+        }
+    }
+
+    public function cart_dels(Request $request)
+    {
 
     }
+
+    public function cart_delss(Request $request)
+    {
+
+    }
+
 }

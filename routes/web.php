@@ -20,7 +20,11 @@
     Route::any('/','Index\IndexController@index');//前台首页
     Route::any('/show','Index\IndexController@show');//前台首页
 
+<<<<<<< Updated upstream
 Route::prefix("/admin")->group(function(){
+=======
+   Route::prefix("/admin")->group(function(){
+>>>>>>> Stashed changes
 	Route::any("/index","Admin\AdminController@index");//后台首页
     Route::any("/reg","Admin\RegController@reg");//后台注册
     Route::any("/rdo","Admin\RegController@rdo");//后台注册执行
@@ -31,6 +35,7 @@ Route::prefix("/admin")->group(function(){
     Route::any("/udo","Admin\AdminController@udo");//用户赋予角色;
     Route::any("/del","Admin\AdminController@del");//删除;
     Route::any("/jupdo","Admin\AdminController@jupdo");//即点击改;
+<<<<<<< Updated upstream
 	Route::any("/role_add","Admin\RoleController@role_add")->middleware("islogin");//添加、展示
 	Route::any("/role_adds","Admin\RoleController@role_adds");
     Route::any("/role_upd/{id}","Admin\RoleController@role_upd");//修改
@@ -155,3 +160,15 @@ Route::prefix("/user")->group(function(){
     Route::any('/user_add','Index\UserController@user_add');
     Route::any('/user_file','Index\UserController@user_file');
 });
+=======
+
+
+    //角色管理
+    Route::any("/role_add","Admin\RoleController@role_add");//添加、展示
+    Route::any("/role_adds","Admin\RoleController@role_adds");
+    Route::any("/role_Del","Admin\RoleController@role_Del");//删除
+    Route::any('/update/{id}', 'Admin\RoleController@update');//修改页
+    Route::any('/upd', 'Admin\RoleController@upd');//修改页
+    Route::any('/jup', 'Admin\RoleController@jup');//即点即改
+    });
+>>>>>>> Stashed changes

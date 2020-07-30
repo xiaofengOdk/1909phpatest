@@ -76,6 +76,7 @@
         var goods_id = $(this).attr("goods_id");
         var data ={};
         data.goods_id = goods_id;
+        data.buy_number = 1;
         var url = "/index/cart_add";
         $.ajax({
             type:"post",

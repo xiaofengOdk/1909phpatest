@@ -13,12 +13,14 @@ use App\Models\FootModel;
 class CartshopController extends Controller
 {
     public function cart_add(Request $request){
-        $goods_id = $request->all();
+        $goods_id = $request->goods_id;
+        $buy_number = $request->buy_number;
+        // dd($goods_id);
         $reg = session("reg");
         $user_id = $reg['user_id'];
         if($user_id==null){
             $cartdata = cookie("cartdata");
-            $buy_number = 1;
+            // $buy_number = 1;
             $goods = Goods::where("goods_id",$goods_id)->first();
             // 判断库存
             if($goods->goods_store<$buy_number){
@@ -42,7 +44,7 @@ class CartshopController extends Controller
                 $cartdata=[];
                 $cartdata = [
                     "goods_id"=>$request->goods_id,
-                    "buy_number"=>2,
+                    "buy_number"=>$buy_number,
                     "add_time"=>time(),
                 ];
                 $cartdata["goods_id_".$goods_id]=$goods_id;
@@ -91,7 +93,7 @@ class CartshopController extends Controller
         }else{
            
             // 登录后
-            $buy_number = 1;
+            // $buy_number = 1;
             $goods = Goods::where("goods_id",$goods_id)->first();
             // 判断库存
             if($goods->goods_store<$buy_number){
@@ -120,7 +122,7 @@ class CartshopController extends Controller
                 $data = [
                     "user_id"=>$user_id,
                     "goods_id"=>$request->goods_id,
-                    "buy_number"=>1,
+                    "buy_number"=>$buy_number,
                     "add_time"=>time(),
                 ];
                     $res2 = Cary::insert($data);

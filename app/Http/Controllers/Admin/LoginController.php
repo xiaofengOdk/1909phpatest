@@ -27,7 +27,7 @@ class LoginController extends Controller
         //dd($reg);
         $time=date("Y-m-d");
         if($reg){
-            session(['reg'=>$reg,'time'=>$time]);
+            session(['regs'=>$reg,'time'=>$time]);
            
              return redirect('/admin/index');
         }else{

@@ -115,7 +115,7 @@
 							<div class="fl">
 								<ul class="btn-choose unstyled">
 									<li>
-										<a href="javascript:;"  class="sui-btn  btn-danger addshopcar addshopcars" style="margin-top:10">加入购物车</a>
+										<a href="javascript:;"  class="sui-btn  btn-danger addshopcar " id="addshopcars" style="margin-top:10">加入购物车</a>
 									</li>
 								</ul>
 							</div>
@@ -230,7 +230,7 @@
 								<div class="num">已选购0件商品</div>
 								<div class="price-tit"><strong>套餐价</strong></div>
 								<div class="price">￥5299</div>
-								<button class="sui-btn  btn-danger addshopcar">加入购物车</button>
+								<button class="sui-btn  btn-danger addshopcar" id="addshopcar">加入购物车</button>
 							</div>
 						</div>
 					</div> 
@@ -490,7 +490,7 @@
 			  
                
 	  	})
-		  $(document).on("click",".addshopcar",function(){
+		  $(document).on("click","#addshopcar",function(){
 				
 				
 				var goods_id=""
@@ -511,31 +511,37 @@
 				 })
 				
 		  })
-	  	$(document).on("click",".addshopcars",function(){
+	  	$(document).on("click","#addshopcars",function(){
         	 var _this=$(this);
 	  		// alert(1)
 	   	var _val=parseInt($(".itxt").val())
 	 	 var goods_id=$(".goods_id").val()
          var attrddd=_this.parents("div").find(".selected").text()
-	    var sku="";
-            for(var i=1;i<=num;i++){
-                var attr_id=$("#attr_id_"+i).attr("attr_id");
-                var val_id=$("#val_id_"+i).parents("#dl").find(".selected:[class='selected']").attr('val_id');
-                if(!val_id==""){
-                    sku=sku+'['+attr_id+':'+val_id+'],';
-                }
-            }
-//          var cd=sku.length;
+// 	    var sku="";
+//             for(var i=1;i<=num;i++){
+//                 var attr_id=$("#attr_id_"+i).attr("attr_id");
+//                 var val_id=$("#val_id_"+i).parents("#dl").find(".selected:[class='selected']").attr('val_id');
+//                 if(!val_id==""){
+//                     sku=sku+'['+attr_id+':'+val_id+'],';
+//                 }
+//             }
+// //          var cd=sku.length;
 //          sku=sku.substr(0,cd-1);
-	    var data={_val:_val,goods_id:goods_id,attrddd:attrddd}
-	    var url="/index/cate_add"
+	    // var data={buy_number:_val,goods_id:goods_id}
+	      var data ={};
+        data.goods_id = goods_id;
+        data.buy_number = _val;
+	    // console.log(data);
+	    // return false
+	    var url="/index/cart_add"
 	     $.ajax({
              type:'post',
              data:data,
              url:url,
              dataType:'json',
              success:function(reg){
-                 console.log(reg)
+                 // console.log(reg)
+                 alert(reg.message)
              }
          })
 	  	})

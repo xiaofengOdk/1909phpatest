@@ -31,9 +31,5 @@ class GoodsinfoController extends Controller
 	$attrval=Attrval::get();
 		// return view('index.goodsdesc.goods_desc');
         return view('index.goodsdesc.goods_desc',["nav"=>$nav,"user_like"=>$user_like,"goods_hot"=>$goods_hot,"attr"=>$attr,"attrval"=>$attrval,"brand"=>$brand,"footInfo"=>$footInfo,'brandInfo'=>$brandInfo,'goodsInfo'=>$goodsInfo]);
-
 	}
-        public function cate_add(){
-                dd(request()->attrddd);
-        }
 }

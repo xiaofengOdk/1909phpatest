@@ -129,13 +129,14 @@ class GoodsController extends Controller
         // }
         // dd($data);
         $goods_model=new Goods;
-
-        // dd($data);
+        // $arr="{".$data['sku'].",".$data['sku2']."}";
+        $arr="[".$data['sku']."]".","."[".$data['sku2']."]";
+        // dd($arr);?
         $goods_model->goods_name=$data['goods_name'];
         $goods_model->brand_id=$data['brand_id'];
         $goods_model->goods_img=$data['baTop'];
         $goods_model->goods_name=$data['goods_name'];
-        $goods_model->cate_id=1;
+        $goods_model->cate_id=$data['cate_id'];
         $goods_model->goods_sn=time();
         $goods_model->goods_price=$data['goods_price'];
         $goods_model->goods_dese=$data['goods_dese'];
@@ -153,7 +154,7 @@ class GoodsController extends Controller
         $sku_model->goods_price=$data['goods_price'];
         $sku_model->goods_store=$data['goods_store'];
         $sku_model->add_time=time();  
-        $sku_model->sku=request()->sku;
+        $sku_model->sku=$arr;
         $sku_result=$sku_model->save();
         // dd($sku_result);
         if($sku_result){

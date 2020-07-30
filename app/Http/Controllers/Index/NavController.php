@@ -25,7 +25,7 @@ class NavController extends Controller
         $nav = NavModel::get();//导航
         $brand = BrandModel::limit(7)->get();//热卖
         $footInfo=FootModel::get();
-        $hot = Goods::where("cate_id",$id)->get();//热卖商品
+        $hot = Goods::where("brand_id",$id)->get();//热卖商品
         return view("index/nav/nav_hot",compact("nav","brand","footInfo","hot"));
     }
 }

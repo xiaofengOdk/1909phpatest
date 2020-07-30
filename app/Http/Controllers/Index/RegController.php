@@ -2,10 +2,13 @@
 namespace App\Http\Controllers\Index;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\Request;
 use App\Models\Code;
 use App\Models\User;
 use App\Models\PhoneCode;
+use App\Models\Cary;
+use App\Models\Goods;
 class RegController extends Controller
 {
     public function reg(){
@@ -176,10 +179,57 @@ class RegController extends Controller
             $reg=$Umodel->where($wheres)->first();
             if($reg){
                  session(['reg'=>$reg]);
+                 $cookie = request()->cookie('test');
+                 $cookie=json_decode($cookie,true);
+                 $reg = session("reg");
+                 $user_id = $reg['user_id'];
+                // $cookie=$cookie->toArray();
+                //   dd($cookie);
+                $shop = [];
+                 foreach($cookie as $k=>$v){
+                    // $data = [
+                    //     $k=>$v,
+                    // ];
+                        $shop[$k] =$v;
+                        
+                }
+                $goods_id = $shop['goods_id'];
+                $buy_number = $shop['buy_number'];
+                $add_time = $shop['add_time'];
+                
+                // exit;
+                 $goods = Goods::where("goods_id",$goods_id)->first();
+                 
+
+                // 判断库存
+                
+                $cart = Cary::where("goods_id",$goods_id)->first();
+                if($cart){
+                    //累加
+                    $buy_number = $cart->buy_number+$buy_number;
+                    if($goods->goods_store<$buy_number){
+                        $buy_number = $goods->goods_store;
+                    }
+                    $res = Cary::where(["user_id"=>$user_id,"goods_id"=>$goods_id])->update(['buy_number'=>$buy_number,'add_time'=>$add_time]);
+                }else{
+                    $data = [
+                        "goods_id"=>$goods_id,
+                        "buy_number"=>$buy_number,
+                        "add_time"=>$add_time,
+                        "user_id"=>$user_id,
+                    ];
+                    $res2 = Cary::insert($data);
+                }
+                Cookie::queue("test",null);
+               echo "成功";
+                exit;
+                //  if($cookie)
                   $message= [
                     "code"=>"00000",
                     "message"=>"登录成功"
                 ];
+              
+                    
                 return json_encode($message,JSON_UNESCAPED_UNICODE);
                 exit;
             }else{

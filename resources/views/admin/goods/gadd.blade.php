@@ -165,26 +165,30 @@
 		                                </div>   
 										   -->
                                         <div>
-                                            <div class="col-md-10 data">
+                                         <div class="col-md-10 data">
                                             <select name="attr_id" class="col-md-2 title Aname">
-                                            @foreach($Adata as $k=>$v)
-                                                <option value="{{$v->attr_id}}">{{$v->attr_name}}</option>
-                                            @endforeach
-                                             </select>
-			                                <!-- <div class="col-md-2 title Aname">{{$v->attr_name}}</div> -->
-                                          
-                                            <!-- <input type='hidden' name="attr_id" value="{{$v->attr_id}}"/> -->
-					                            <!-- <span> </span><br> -->
+                                            	@foreach($Adata as $k=>$v)
+                                            	    <option value="{{$v->attr_id}}">{{$v->attr_name}}</option>
+                                            	@endforeach
+                                            </select>
                                             <select name="attr_val"  class="col-md-2 title Aname">
-                                            @foreach($Vdata as $key=>$val)
-                                                <option value="{{$val->id}}">{{$val->attrval_name}}</option>
-                                            @endforeach
+                                          	  @foreach($Vdata as $key=>$val)
+                                          	      <option value="{{$val->id}}">{{$val->attrval_name}}</option>
+                                          	  @endforeach
                                              </select>
-                                               
+                                             <select name="attrss_id" class="col-md-2 title Aname">
+                                            	@foreach($Adata as $k=>$v)
+                                            	    <option value="{{$v->attr_id}}">{{$v->attr_name}}</option>
+                                            	@endforeach
+                                            </select>
+                                            <select name="attrss_val"  class="col-md-2 title Aname">
+                                          	  @foreach($Vdata as $key=>$val)
+                                          	      <option value="{{$val->id}}">{{$val->attrval_name}}</option>
+                                          	  @endforeach
+                                             </select>
 					                        </div>
-                                        
 		                                </div>   
-										                                                  
+		                                <div>                                             
 	                                </div>
 	
 	                                
@@ -300,11 +304,15 @@ $(document).on("click",".attr_info",function(){
     var attr_val=$("select[name='attr_val']").val()
     var brand_id=$("select[name='brand_id']").val()
     var cate_id=$("select[name='cate_id']").val()
+     var attrss_id=$("select[name='attrss_id']").val()
+    var attrss_val=$("select[name='attrss_val']").val()
 
     // console.log(attr_id)
-    // console.log(attr_val)
+    // console.log(cate_id)
     // return false
     var sku=attr_id+":"+attr_val;
+    var sku2=attrss_id+":"+attrss_val;
+
     // console.log(sku);
     // return false
     var goods_name=$("input[name='goods_name']").val()
@@ -319,7 +327,7 @@ $(document).on("click",".attr_info",function(){
           $.ajax({
                      type:'post',
                      url:url,
-                     data:{'sku':sku,baTop:baTop,cate_id:cate_id,brand_id:brand_id,goods_name:goods_name,goods_dese:goods_dese,goods_price:goods_price,goods_store:goods_store},
+                     data:{'sku':sku,baTop:baTop,sku2:sku2,cate_id:cate_id,brand_id:brand_id,goods_name:goods_name,goods_dese:goods_dese,goods_price:goods_price,goods_store:goods_store},
                      dataType:'json',
                      success:function(reg){
                          //console.log(reg);

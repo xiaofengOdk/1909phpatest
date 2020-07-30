@@ -147,7 +147,8 @@ Route::prefix("/index")->group(function(){
    Route::any('/cart_add','Index\CartshopController@cart_add');
    Route::any('/test','Index\CartshopController@test');
    Route::any('/cate_add','Index\GoodsinfoController@cate_add');
-    Route::any('/cart_num','Index\CartController@cart_num');//数量
+   Route::any('/cart_num','Index\CartController@cart_num');//数量
+   Route::any('/cart_nums','Index\CartController@cart_nums');//数量
 
 });
 Route::prefix("/user")->group(function(){

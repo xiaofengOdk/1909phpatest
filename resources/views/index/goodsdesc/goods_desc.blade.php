@@ -9,16 +9,14 @@
 		<div id="item">
 			<div class="crumb-wrap">
 				<ul class="sui-breadcrumb">
+				    @foreach($brandInfo as $k=>$v)
 					<li>
-						<a href="#">手机、数码、通讯</a>
+					    @if($v->brand_id==$goodsInfo->brand_id)
+						品牌：<a style="color:red;">{{$v->brand_name}}</a>
+						@endif
 					</li>
-					<li>
-						<a href="#">手机</a>
-					</li>
-					<li>
-						<a href="#">Apple苹果</a>
-					</li>
-					<li class="active">iphone 6S系类</li>
+					@endforeach
+					
 				</ul>
 			</div>
 			<!--product-info-->
@@ -53,57 +51,52 @@
 					</div>
 					<div class="news"><span>推荐选择下方[优惠购] 买买买卖买买</span></div>
 					<div class="summary">
-						<div class="summary-wrap">
+						<div class="summary-wrap" style="margin-top:-10px;">
 							<div class="fl title">
-								<i>价　　格</i>
+							<i>价　　格</i>
 							</div>
-							<div class="fl price">
+							<div class="fl price" style="margin-top:10px;">
 								<i>¥</i>
 								<em>{{$goodsInfo['goods_price']}}</em>
 								<span>降价通知</span>
 							</div>
-							<div class="fr remark">
-								<i>商品积分</i><em style="color: red; font-size: 20px;">{{$goodsInfo['goods_store']}}</em>
+							<div class="fr remark" style="margin-top:10px;">
+								<i>商品积分</i><em style="color: red; font-size: 20px; font-weight:bold;">{{$goodsInfo['goods_store']}}</em>
 							</div>
 						</div>
-						<div class="summary-wrap">
-							<div class="fl title">
+						<div class="summary-wrap" >
+							<div class="fl title" >
 								<i>促　　销</i>
 							</div>
-							<div class="fl fix-width">
+							<div class="fl fix-width" style="margin-top:10px;">
 								<i class="red-bg">加价购</i>
-								<em class="t-gray">购买此商品，即可获得<em style="color: red; font-size: 20px;">{{$goodsInfo['goods_store']}}</em>积分，购买商品时，可用积分抵消</em>
+								<em class="t-gray">购买此商品，即可获得<em style="color: red; font-size:20px; font-weight:bold;">{{$goodsInfo['goods_store']}}</em>积分，购买商品时，可用积分抵消</em>
 							</div>
 						</div>
 					</div>
-					<div class="support">
-						<div class="summary-wrap">
-							<div class="fl title">
-								<i>配 送 至</i>
-							</div>
-							<div class="fl fix-width">
-								<em class="t-gray">满999.00另加20.00元，或满1999.00另加30.00元，或满2999.00另加40.00元，即可在购物车换购热销商品</em>
-							</div>
-						</div>
-					</div>
+					
+					
 					<div class="clearfix choose">
 						<div id="specification" class="summary-wrap clearfix" style="text-align:center;">
 						@foreach($attr as $k=>$v)	
-						<div style="text-align:center;">
-							<dl >							
-								<dt >
+						<div >
+							<dl>							
+								<dt style="text-align:center; padding-bottom:15px;">
 									<div class="fl title" >
-									<i   class="attrddd"    attr_id="{{$v->attr_id}}">{{$v->attr_name}}</i>
+									<i  class="attrddd"    attr_id="{{$v->attr_id}}">{{$v->attr_name}}</i>
 									</div>
 								</dt>
 								<!-- <br> -->
-									@foreach($attrval as $kk=>$vv)
-										@if($v->attr_id==$vv->attr_id)
+								@foreach($attrval as $kk=>$vv)	
 								<dd>
-									<a href="javascript:;" class="selecteds" val_id="{{$vv->id}}" >{{$vv->attrval_name}}</a>
+							
+										@if($v->attr_id==$vv->attr_id)
+										<a href="javascript:;" class="selecteds"  val_id="{{$vv->id}}">{{$vv->attrval_name}}<span title="点击取消选择">&nbsp;</span></a>
+									<!--<a href="javascript:;" class="selected selecteds" val_id="{{$vv->id}}" >{{$vv->attrval_name}}</a>-->
+									  @endif
+									
 								</dd>
-										@endif
-									@endforeach
+								@endforeach
 							</dl>
 							</div>
 							@endforeach
@@ -114,7 +107,7 @@
 									<div class="controls">
 											<input type="hidden" goods_store="{{$goodsInfo->goods_score}}">	
 										<a href="javascript:void(0)" class="increment plus"  id="plus"style="padding-right:10px; ">+</a>
-											<input autocomplete="off" type="text" value="{{$goodsInfo->goods_score}}" minnum="1"   class="itxt"style="padding-right:10px; " />
+											<input autocomplete="off" type="text" value="1" minnum="1"   class="itxt"style="padding-right:10px; " />
 										<a href="javascript:void(0)" class="increment mins"  value=""id="mins"style="padding-right:10px; ">-</a>
 									</div>
 								</div>
@@ -122,7 +115,7 @@
 							<div class="fl">
 								<ul class="btn-choose unstyled">
 									<li>
-										<a href="javascript:;"  class="sui-btn  btn-danger addshopcar addshopcars">加入购物车</a>
+										<a href="javascript:;"  class="sui-btn  btn-danger addshopcar addshopcars" style="margin-top:10">加入购物车</a>
 									</li>
 								</ul>
 							</div>
@@ -136,12 +129,12 @@
 					<ul class="sui-nav nav-tabs tab-wraped">
 						<li class="active">
 							<a href="#index" data-toggle="tab">
-								<span>相关分类</span>
+								<span>推荐品牌</span>
 							</a>
 						</li>
 						<li>
 							<a href="#profile" data-toggle="tab">
-								<span>推荐品牌</span>
+								<span>相关分类</span>
 							</a>
 						</li>
 					</ul>
@@ -149,7 +142,7 @@
 						<div id="index" class="tab-pane active">
 							<ul class="part-list unstyled">
 									@foreach($brand as $k=>$v)
-								<li>{{$v->brand_name}}</li>
+								<li><a href="/index/nav_hot/{{$v->brand_id}}">{{$v->brand_name}}</a></li>
 									@endforeach
 							</ul>
 							<ul class="goods-list unstyled">
@@ -180,7 +173,7 @@
 							@foreach($goods_hot as $k=>$v)
 							<div class="list-wrap">
 										<div class="p-img">
-											<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" />
+											<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width:188px;height:154px;"/>
 										</div>
 										<div class="attr">
 											<em>{{$v->goods_name}}</em>
@@ -218,13 +211,13 @@
 								<ul class="suit-list">
 									@foreach($goods_hot as $k=>$v)
 										@if($k<=3)
-									<li class="">
+									<li class="" >
 										<div id="">
 										<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 100px;height: 124px;" />
 										</div>
 										<i>{{$v->goods_name}}</i>
-										<label data-toggle="checkbox" class="checkbox-pretty">
- 										   <input type="checkbox"><span>39</span>
+										<label data-toggle="checkbox" class="checkbox-pretty"  goods_id="{{$v->goods_id}}">
+ 										   <input type="checkbox" value="{{$v->goods_id}}" name="che"><span>{{$v->goods_price}}</span>
   										</label>
 									</li>
 										@endif
@@ -489,10 +482,35 @@
                }
         })
 	  	$(document).on("click",".selecteds",function(){
-        	 var _this=$(this);
-               _this.parents("dl").find(".selected").prop("class","")
-               _this.prop("class","selected")
+        	  var _this=$(this);
+			 
+             //  _this.removeClass("selected")
+			   _this.addClass("selected");
+			   _this.parent('dd').siblings('dd').find('a').removeClass("selected");	  
+			  
+               
 	  	})
+		  $(document).on("click",".addshopcar",function(){
+				
+				
+				var goods_id=""
+			    $("input[name='che']:checked").each(function(reg){
+                        goods_id+= $(this).val()+",";
+				});
+				var goodss_id=goods_id.length-1;
+				 goods_id=goods_id.substr(0,goodss_id);
+			     $.ajax({
+					  type:"get",
+					  data:{'goods_id':goods_id},
+					  dataType:'json',
+					  url:'/index/cart_list/',
+					  success:function(reg){
+                        console.log(reg);
+					  }
+
+				 })
+				
+		  })
 	  	$(document).on("click",".addshopcars",function(){
         	 var _this=$(this);
 	  		// alert(1)
@@ -521,6 +539,12 @@
              }
          })
 	  	})
+
+	// $("input[type='checkbox']").click(function(){
+	// 			  var _this=$(this);
+	// 			 var goods_id= _this.parent("label[class='checked']").attr('goods_id');
+	// 			 console.log(goods_id);
+	// 		})
 </script>
 <!--购物车单元格 模板-->
 <script type="text/template" id="tbar-cart-item-template">

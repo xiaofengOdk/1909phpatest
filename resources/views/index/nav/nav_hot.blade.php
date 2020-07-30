@@ -33,8 +33,8 @@
                             <div class="cu"><em><span>促</span>满一件可参加超值换购</em></div>
                             <div class="operate">
                                 <a href="javascript:void(0);" goods_id="{{$v->goods_id}}" class="sui-btn btn-bordered btn-danger jia">加入购物车</a>
-                                <a href="javascript:void(0);" class="sui-btn btn-bordered">对比</a>
-                                <a href="javascript:void(0);" class="sui-btn btn-bordered">关注</a>
+                                <a href="javascript:void(0);" class="sui-btn btn-bordered">收藏</a>
+                                
                             </div>  
                         </div>
                     </li > 

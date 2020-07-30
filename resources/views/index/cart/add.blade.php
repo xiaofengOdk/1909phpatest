@@ -78,7 +78,7 @@
 								<li class="yui3-u-1-8"><span class="price">{{$v->goods_price}}</span></li>
 								<li class="yui3-u-1-8">
 									<a href="javascript:void(0)" class="increment mins" id="num_jian" cary_id="{{$v->cary_id}}" sku_id="{{$v->id}}">-</a>
-									<input autocomplete="off" type="text" id='vl' value="{{$v->buy_number}}" minnum="1" class="itxt" />
+									<input autocomplete="off" type="text" id='vl' cary_id="{{$v->cary_id}}" sku_id="{{$v->id}}" value="{{$v->buy_number}}" minnum="1" class="itxt" />
 									<a href="javascript:void(0)" class="increment plus" id="num_jia" cary_id="{{$v->cary_id}}" sku_id="{{$v->id}}">+</a>
 									<span class="tishi" style="display:none; color:red;">缺货</span>
 								</li>
@@ -108,9 +108,9 @@
 					<a href="#none">清除下柜商品</a>
 				</div>
 				<div class="toolbar">
-					<div class="chosed">已选择<span>0</span>件商品</div>
+					<div class="chosed">已选择<span id="zsl">0</span>件商品</div>
 					<div class="sumprice">
-						<span><em>总价（不含运费） ：</em><i class="summoney">¥16283.00</i></span>
+						<span><em>总价（不含运费） ：</em><i class="summoney" id="zj">¥0</i></span>
 						<span><em>已节省：</em><i>-¥20.00</i></span>
 					</div>
 					<div class="sumbtn">
@@ -237,7 +237,7 @@
 						ts.parent().find('#vl').val(jk_n.a3['jk_1']);
 						ts.parents("#ul_id").find('#num_zong').text(jk_n.a3['jk_2']);
 					}
-//					instant_price();
+					instant_price();
 					console.log(jk_n.a2);
 				}
 			});
@@ -276,7 +276,7 @@
 						ts.parent().find('#vl').val(jk_n.a3['jk_1']);
 						ts.parents("#ul_id").find('#num_zong').text(jk_n.a3['jk_2']);
 					}
-//					instant_price();
+					instant_price();
 					if(jk_n.code=='00009'){
 						ts.next("span").show()
 					}
@@ -285,6 +285,41 @@
 			});
 			console.log(cary_id,id);
 		}
+	});
+	//修改中间的数字
+	$(document).on('blur','#vl',function(){
+		var ts=$(this);
+		var cary_id=$(this).attr('cary_id');
+		var sku_id=$(this).attr('sku_id');
+		var goods_store=$(this).val();
+		var zz=/^\d{1,}$/;
+		var f1=false;
+		if(!zz.test(cary_id)||cary_id<=0){
+			console.log('cary_id获取失败');
+			f1=false;
+		}else{
+			f1=true;
+		}
+		if(!zz.test(goods_store)||goods_store<=0){
+			goods_store=1;
+		}
+		if(f1==true){
+			$.ajax({
+				url:'/index/cart_nums',
+				type:'post',
+				dataType:'json',
+				data:{'cary_id':cary_id,'goods_store':goods_store,'sku_id':sku_id},
+				success:function(jk_y_vl){
+					if(jk_y_vl.a1==0){
+						ts.parent().find('#vl').val(jk_y_vl.a3['jk_1']);
+						ts.parents("#ul_id").find('#num_zong').text(jk_y_vl.a3['jk_2']);
+					}
+					instant_price();
+					console.log(jk_y_vl.a2);
+				}
+			});
+		}
+		console.log(cary_id,goods_store);
 	});
 	//点击全选选中
 	$(document).on('click','#check_all,#check_all_s',function(){
@@ -321,8 +356,8 @@
 			$("#check_all").prop('checked',false);
 			$("#check_all_s").prop('checked',false);
 		}
-		$("#selected_num").text(quantity);
-		$("#price_sum").text('￥:'+price);
+		$("#zsl").text(quantity);
+		$("#zj").text('￥:'+price);
 		console.log(quantity,price);
 	}
 

@@ -81,6 +81,12 @@ class CartshopController extends Controller
             }
             // dd($cartdata);         
             Cookie::queue("test",$cartdata);
+           
+                return $message=[
+                    "code"=>00001,
+                    "message"=>"已加入购物车",
+                    "success"=>true,
+                ];
 
         }else{
            

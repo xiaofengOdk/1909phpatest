@@ -211,13 +211,13 @@
 								<ul class="suit-list">
 									@foreach($goods_hot as $k=>$v)
 										@if($k<=3)
-									<li class="">
+									<li class="" >
 										<div id="">
 										<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 100px;height: 124px;" />
 										</div>
 										<i>{{$v->goods_name}}</i>
-										<label data-toggle="checkbox" class="checkbox-pretty">
- 										   <input type="checkbox"><span>39</span>
+										<label data-toggle="checkbox" class="checkbox-pretty"  goods_id="{{$v->goods_id}}">
+ 										   <input type="checkbox" value="{{$v->goods_id}}" name="che"><span>{{$v->goods_price}}</span>
   										</label>
 									</li>
 										@endif
@@ -490,6 +490,27 @@
 			  
                
 	  	})
+		  $(document).on("click",".addshopcar",function(){
+				
+				
+				var goods_id=""
+			    $("input[name='che']:checked").each(function(reg){
+                        goods_id+= $(this).val()+",";
+				});
+				var goodss_id=goods_id.length-1;
+				 goods_id=goods_id.substr(0,goodss_id);
+			     $.ajax({
+					  type:"get",
+					  data:{'goods_id':goods_id},
+					  dataType:'json',
+					  url:'/index/cart_list/',
+					  success:function(reg){
+                        console.log(reg);
+					  }
+
+				 })
+				
+		  })
 	  	$(document).on("click",".addshopcars",function(){
         	 var _this=$(this);
 	  		// alert(1)
@@ -518,6 +539,12 @@
              }
          })
 	  	})
+
+	// $("input[type='checkbox']").click(function(){
+	// 			  var _this=$(this);
+	// 			 var goods_id= _this.parent("label[class='checked']").attr('goods_id');
+	// 			 console.log(goods_id);
+	// 		})
 </script>
 <!--购物车单元格 模板-->
 <script type="text/template" id="tbar-cart-item-template">

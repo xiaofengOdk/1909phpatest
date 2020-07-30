@@ -62,10 +62,10 @@
                                     <img src="/static/admin/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                     <p>
-                                       @if(session('reg')=='')
+                                       @if(session('regs')=='')
                                           <a href="http://www.1909a3.com/index.php/admin/login" style="font-size: 15px; color:white;">登录</a>
                                        @else
-                                       @php echo session('reg')->admin_name @endphp
+                                       @php echo session('regs')->admin_name @endphp
                                        <small>登录时间:@php echo session('time')@endphp</small>
                                        @endif
                                        

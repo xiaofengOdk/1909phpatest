@@ -34,9 +34,8 @@
                             <div class="attr"><em><a style="text-decoration: none; color:black;" href="{{url('/index/goods_desc/'.$v->goods_id)}}">{{$v->goods_name}}</a></em></div>
                             <div class="cu"><em><span>促</span>满一件可参加超值换购</em></div>
                             <div class="operate">
-                                <a href="success-cart.html" target="_blank" class="sui-btn btn-bordered btn-danger">加入购物车</a>
-                                <a href="javascript:void(0);" class="sui-btn btn-bordered">对比</a>
-                                <a href="javascript:void(0);" class="sui-btn btn-bordered">关注</a>
+                                <a href="javascript:;" goods_id="{{$v->goods_id}}" class="sui-btn btn-bordered btn-danger jia">加入购物车</a>
+                                <a href="javascript:void(0);" class="sui-btn btn-bordered">收藏</a>
                             </div>  
                           
                         </div>
@@ -73,5 +72,37 @@
     <!--页面底部-->
 
 <!--页面底部END-->
+<script type="text/javascript" src="/static/index/js/plugins/jquery/jquery.min.js"></script>
 
+<script>
+    $(document).on("click",".jia",function(){
+        var goods_id = $(this).attr("goods_id");
+        var data ={};
+        data.goods_id = goods_id;
+        data.buy_number = 1;
+        // console.log(data);
+        
+        var url = "/index/cart_add";
+        $.ajax({
+            type:"post",
+            url:url,
+            data:data,
+            dataType:"json",
+            success:function(res){
+                if(res.success==true){
+                    alert(res.message);
+                    location.href="{{url('/index/cart_list')}}"
+                }
+                if(res.success==false){
+                    alert(res.message);
+                    location.href="{{url('/index/cart_list')}}"
+                }
+                 
+            }
+        })
+       
+    })
+
+
+</script>
 @include("index.layout.foot")

@@ -10,6 +10,7 @@ use App\models\Goods;
 use App\models\Slide;
 use App\models\AdtgModel;
 use App\Models\NavModel;
+use App\models\Cary;
 use App\Models\BrandModel;
 class IndexController extends Controller
 {
@@ -29,13 +30,15 @@ class IndexController extends Controller
         $nav = NavModel::get();//导航
         $brand = BrandModel::limit(7)->get();//热卖
         // dd($nav);
-        $adtr_info=AdtgModel::where("is_del",1)->limit(5)->get();
+        $cart=Cary::get();
+        $cart=count($cart);
+          $adtr_info=AdtgModel::where("is_del",1)->limit(5)->get();
         $footInfo=FootModel::get();
         //购物车
         $goods_info=Goods::limit(6)->get();
         $slide_info=Slide::limit(3)->get();
         // dd($goods_info);
-    	return view('index.index',['cate_info'=>$cate_info,"goods_info"=>$goods_info,"nav"=>$nav,"brand"=>$brand,"footInfo"=>$footInfo,"adtr_info"=>$adtr_info,"slide_info"=>$slide_info]);
+    	return view('index.index',['cate_info'=>$cate_info,"goods_info"=>$goods_info,"cart"=>$cart,"nav"=>$nav,"brand"=>$brand,"footInfo"=>$footInfo,"adtr_info"=>$adtr_info,"slide_info"=>$slide_info]);
 
     }
     

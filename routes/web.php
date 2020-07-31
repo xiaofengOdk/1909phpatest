@@ -149,10 +149,25 @@ Route::prefix("/index")->group(function(){
    Route::any('/cate_add','Index\GoodsinfoController@cate_add');
    Route::any('/cart_num','Index\CartController@cart_num');//数量
    Route::any('/cart_nums','Index\CartController@cart_nums');//数量
+    Route::any('/cart_del','Index\CartController@cart_del');//数量
+   Route::any('/sku','Index\GoodsinfoController@sku');
+    Route::any('/cart_del','Index\CartController@cart_del');//删除
+    Route::any('/cart_dels','Index\CartController@cart_dels');//批量删除
+    Route::any('/cart_num_del_new','Index\CartController@cart_num_del_new');
+    Route::any('/cart_delds','Index\CartController@cart_delds');//删除、彻底消失
+
+});
+Route::prefix("/order")->group(function(){
+   Route::any('/index','Index\OrderinfoController@index');
 
 });
 Route::prefix("/user")->group(function(){
     Route::any('/user_info','Index\UserController@user_info');
     Route::any('/user_add','Index\UserController@user_add');
+    Route::any('/user_address','Index\AddressController@user_address');
+    Route::any('/addressdo','Index\AddressController@addressdo');
     Route::any('/user_file','Index\UserController@user_file');
+    Route::any('/del/{id}','Index\AddressController@del');
+    Route::any('/default/{id}','Index\AddressController@default');
+    Route::any('/getCity','Index\AddressController@getCity');
 });

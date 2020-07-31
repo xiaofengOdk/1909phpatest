@@ -57,7 +57,7 @@
 							</div>
 							<div class="fl price" style="margin-top:10px;">
 								<i>¥</i>
-								<em>{{$goodsInfo['goods_price']}}</em>
+								<em id="ssss">{{$goodsInfo['goods_price']}}</em>
 								<span>降价通知</span>
 							</div>
 							<div class="fr remark" style="margin-top:10px;">
@@ -70,35 +70,33 @@
 							</div>
 							<div class="fl fix-width" style="margin-top:10px;">
 								<i class="red-bg">加价购</i>
-								<em class="t-gray">购买此商品，即可获得<em style="color: red; font-size:20px; font-weight:bold;">{{$goodsInfo['goods_store']}}</em>积分，购买商品时，可用积分抵消</em>
+								<em class="t-gray" id="gwc">购买此商品，即可获得<em style="color: red; font-size:20px; font-weight:bold;">{{$goodsInfo['goods_store']}}</em>积分，购买商品时，可用积分抵消</em>
 							</div>
 						</div>
-					</div>
-					
-					
+					</div>	
 					<div class="clearfix choose">
 						<div id="specification" class="summary-wrap clearfix" style="text-align:center;">
+						<div id="dd" num={{sizeof($attr)}}></div>
 						@foreach($attr as $k=>$v)	
-						<div >
-							<dl>							
+						<input type="hidden" id="attr_id_{{$k}}" attr_id="{{$v->attr_id}}" value="{{$v->attr_name}}">	
+							<dl id="dl">							
 								<dt style="text-align:center; padding-bottom:15px;">
 									<div class="fl title" >
-									<i  class="attrddd"    attr_id="{{$v->attr_id}}">{{$v->attr_name}}</i>
+									<i  >{{$v->attr_name}}</i>
 									</div>
 								</dt>
 								<!-- <br> -->
+							<input type="hidden" class="col-md-10 data"  id="val_id_{{$k}}"  value="{{$v->val_name}}">
 								@foreach($attrval as $kk=>$vv)	
 								<dd>
-							
 										@if($v->attr_id==$vv->attr_id)
-										<a href="javascript:;" class="selecteds"  val_id="{{$vv->id}}">{{$vv->attrval_name}}<span title="点击取消选择">&nbsp;</span></a>
+								<a href="javascript:;" name="yanshi"  id="ys" goods_id="{{$goodsInfo['goods_id']}}"  class="{{$kk==0?'selected':''}}" val_id="{{$vv['id']}}">{{$vv['attrval_name']}}<span title="点击取消选择">&nbsp;</span>
+									</a>
 									<!--<a href="javascript:;" class="selected selecteds" val_id="{{$vv->id}}" >{{$vv->attrval_name}}</a>-->
 									  @endif
-									
 								</dd>
 								@endforeach
 							</dl>
-							</div>
 							@endforeach
 						</div>	
 						<div class="summary-wrap">
@@ -207,7 +205,6 @@
 							</div>
 							<div class="fl suits">
 								<!-- <p> -->
-								
 								<ul class="suit-list">
 									@foreach($goods_hot as $k=>$v)
 										@if($k<=3)
@@ -223,7 +220,6 @@
 										@endif
 									@endforeach
 								</ul>
-								
 								<!-- </p> -->
 							</div>
 							<div class="fr result">
@@ -276,8 +272,7 @@
 								 @php $goods_imgs = explode("|",$goodsInfo['goods_imgs']); @endphp   
 									@foreach($goods_imgs as $v)
 										<img src="{{env('UPLOAD_URL')}}{{$v}}" style="width:960px; height: 756px;" />
-									@endforeach
-									
+									@endforeach			
 								</div>
 							</div>
 							<div id="two" class="tab-pane">
@@ -340,7 +335,6 @@
 	<div class="toolbar-wrap J-wrap">
 		<div class="toolbar">
 			<div class="toolbar-panels J-panel">
-
 				<!-- 购物车 -->
 				<div style="visibility: hidden;" class="J-content toolbar-panel tbar-panel-cart toolbar-animate-out">
 					<h3 class="tbar-panel-header J-panel-header">
@@ -371,7 +365,6 @@
 						</div>
 					</div>
 				</div>
-
 				<!-- 我的关注 -->
 				<div style="visibility: hidden;" data-name="follow" class="J-content toolbar-panel tbar-panel-follow">
 					<h3 class="tbar-panel-header J-panel-header">
@@ -387,7 +380,6 @@
 					</div>
 					<div class="tbar-panel-footer J-panel-footer"></div>
 				</div>
-
 				<!-- 我的足迹 -->
 				<div style="visibility: hidden;" class="J-content toolbar-panel tbar-panel-history toolbar-animate-in">
 					<h3 class="tbar-panel-header J-panel-header">
@@ -415,11 +407,8 @@
 					</div>
 					<div class="tbar-panel-footer J-panel-footer"></div>
 				</div>
-
 			</div>
-
 			<div class="toolbar-header"></div>
-
 			<!-- 侧栏按钮 -->
 			<div class="toolbar-tabs J-tab">
 				<div onclick="cartPanelView.tabItemClick('cart')" class="toolbar-tab tbar-tab-cart" data="购物车" tag="cart" >
@@ -438,33 +427,25 @@
 					<span class="tab-sub J-count hide">0</span>
 				</div>
 			</div>
-
 			<div class="toolbar-footer">
 				<div class="toolbar-tab tbar-tab-top" > <a href="#"> <i class="tab-ico  "></i> <em class="footer-tab-text">顶部</em> </a> </div>
 				<div class="toolbar-tab tbar-tab-feedback" > <a href="#" target="_blank"> <i class="tab-ico"></i> <em class="footer-tab-text ">反馈</em> </a> </div>
 			</div>
-
 			<div class="toolbar-mini"></div>
-
 		</div>
-
 		<div id="J-toolbar-load-hook"></div>
-
 	</div>
 </div>
 <script type="text/javascript" src="/static/index/js/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript">
 	  $(document).on("click",".plus",function(){
-            // alert(1) 
             var _this=$(this)
             var _val=parseInt(_this.next("input").val())
             var max_=parseInt(_this.prev("input").attr("goods_store"))
-            // console.log(max_)
             if(_val>=max_){
                 _this.next("input").val(max_)
                 _val=max_
             }else{
-            // alert(max_)
             _val=_val+1
             _this.next("input").val(_val)  
                }
@@ -481,18 +462,45 @@
             _this.prev("input").val(_val)  
                }
         })
-	  	$(document).on("click",".selecteds",function(){
-        	  var _this=$(this);
-			 
-             //  _this.removeClass("selected")
-			   _this.addClass("selected");
-			   _this.parent('dd').siblings('dd').find('a').removeClass("selected");	  
-			  
-               
-	  	})
+		$(document).on("click","#ys",function(){
+			var _this=$(this);
+			_this.parents('dl').find("[name='yanshi']").prop("class",'');
+			_this.prop("class",'selected');
+			var num=$("#dd").attr("num");
+			//获取本页面的id
+			var goods_id=_this.attr("goods_id");
+			//获取sku
+			var sku="";
+			for(var i=1;i<=num;i++){
+				var attr_id=$("#attr_id_"+i).attr("attr_id");
+				var val_id=$("#val_id_"+i).parents("#dl").find("[name='yanshi'][class='selected']").attr('val_id');
+				if(!val_id==""){
+					sku=sku+'['+attr_id+':'+val_id+'],';
+				}
+			}
+			var cd=sku.length;
+			sku=sku.substr(0,cd-1);
+			$.ajax({
+				url:'/index/sku',
+				data:{"sku":sku,"goods_id":goods_id},
+				dataType:"json",
+				success:function(res){
+					// console.log(res.message.goods_img)
+					var price=res.message.goods_price
+					var img=res.message.goods_img
+					var video_str='<img   jqimg="'+img+'"        src="'+img+'" controls="controls"     style="width:412px; height: 412px; ">';
+					if(res.code=='00000'){
+						$("#ssss").text(price);
+						$('.jqzoom').find('img').hide()
+						$(".jqzoom").append(video_str)					}
+					if(res.code=='00004'){
+						alert(res.message);
+						$("#ssss").text('货物正在赶回的途中~~');
+					}
+				}
+			})
+		})
 		  $(document).on("click","#addshopcar",function(){
-				
-				
 				var goods_id=""
 			    $("input[name='che']:checked").each(function(reg){
                         goods_id+= $(this).val()+",";
@@ -513,26 +521,12 @@
 		  })
 	  	$(document).on("click","#addshopcars",function(){
         	 var _this=$(this);
-	  		// alert(1)
 	   	var _val=parseInt($(".itxt").val())
 	 	 var goods_id=$(".goods_id").val()
          var attrddd=_this.parents("div").find(".selected").text()
-// 	    var sku="";
-//             for(var i=1;i<=num;i++){
-//                 var attr_id=$("#attr_id_"+i).attr("attr_id");
-//                 var val_id=$("#val_id_"+i).parents("#dl").find(".selected:[class='selected']").attr('val_id');
-//                 if(!val_id==""){
-//                     sku=sku+'['+attr_id+':'+val_id+'],';
-//                 }
-//             }
-// //          var cd=sku.length;
-//          sku=sku.substr(0,cd-1);
-	    // var data={buy_number:_val,goods_id:goods_id}
 	      var data ={};
         data.goods_id = goods_id;
         data.buy_number = _val;
-	    // console.log(data);
-	    // return false
 	    var url="/index/cart_add"
 	     $.ajax({
              type:'post',
@@ -540,18 +534,11 @@
              url:url,
              dataType:'json',
              success:function(reg){
-                 // console.log(reg)
                  alert(reg.message)
                  location.href="/index/cart_list"
              }
          })
 	  	})
-
-	// $("input[type='checkbox']").click(function(){
-	// 			  var _this=$(this);
-	// 			 var goods_id= _this.parent("label[class='checked']").attr('goods_id');
-	// 			 console.log(goods_id);
-	// 		})
 </script>
 <!--购物车单元格 模板-->
 <script type="text/template" id="tbar-cart-item-template">

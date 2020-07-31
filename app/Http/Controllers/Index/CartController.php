@@ -19,9 +19,8 @@ class CartController extends Controller
         $footInfo=FootModel::get();
         $brand = BrandModel::where("brand_show",1)->get();//热卖
         $nav = NavModel::get();//导航
-
+        #搜索
         $goods_name= $request->goods_name;
-//        dd($goods_name);
         $where1 = [];
         if($goods_name){
             $where1[] = ['goods_name',"like","%$goods_name%"];
@@ -31,17 +30,25 @@ class CartController extends Controller
         ];
         $cartinfo=Cary::leftjoin('goods','cary.goods_id','=','goods.goods_id')
             ->leftjoin('user','cary.user_id','=','user.user_id')
+            ->leftjoin('sku','cary.id','=','sku.id')
             ->where($where1)
             ->where($where)
             ->get();
 //        dd($cartinfo);
-
+        $cate_id=$request->cate_id;
+        $history_goods=Goods::where([
+            ["cate_id"=>$cate_id],
+            ['is_show','1'],['is_del','1']
+            ])
+            ->limit(8)
+            ->get();
         return view('index.cart.add',
             [
                 'nav'=>$nav,
                 'brand'=>$brand,
                 'footInfo'=>$footInfo,
                 'cartinfo'=>$cartinfo,
+                'history_goods'=>$history_goods,
             ]);
     }
 
@@ -140,9 +147,6 @@ class CartController extends Controller
         return json_encode($fh);
     }
 
-
-
-
     public function cart_top()
     {
         $user_id=1;
@@ -150,18 +154,28 @@ class CartController extends Controller
         return json_encode($res);
     }
 
-
-
+    //删除提示信息
+    public function message($code,$msg,$url=''){
+        $message = [
+            'code'=> $code,
+            'msg'=> $msg,
+            'url'=> $url
+        ];
+        return json_encode($message,JSON_UNESCAPED_UNICODE);
+    }
 
     //购物车删除
     public function cart_del(Request $request)
     {
-        $res=$request->all();
-        $a1=array_key_exists('cary_id',$res);
-        if($a1==false){
-            $fh=['a1'=>'1','a2'=>'参数丢失'];
+        $cary_id=$request->post('cary_id');
+        $bol=Cary::where('cary_id',$cary_id)->update(['is_del'=>2]);
+        if($bol){
+            return $this->message('00000','删除成功','/index/cart_list');
+        }else{
+            return $this->message('00001','删除失败');
         }
     }
+
 
     public function cart_dels(Request $request)
     {

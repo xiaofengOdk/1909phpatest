@@ -83,7 +83,7 @@
 									<span class="tishi" style="display:none; color:red;">缺货</span>
 								</li>
 								<li class="yui3-u-1-8"><span class="sum" id='num_zong'>
-										{{$v['price_one']*$v['goods_totall']}}
+										{{$v['buy_number']*$v['goods_price']}}
 									</span>
 								</li>
 								<li class="yui3-u-1-8">
@@ -114,7 +114,7 @@
 						<span><em>已节省：</em><i>-¥20.00</i></span>
 					</div>
 					<div class="sumbtn">
-						<a class="sum-btn" href="getOrderInfo.html" target="_blank">结算</a>
+						<a class="sum-btn" href="#" target="_blank">结算</a>
 					</div>
 				</div>
 			</div>
@@ -156,7 +156,7 @@
 
 								<div class="active item">
 									<ul>
-										{{--@foreach($res as $k=>$v)--}}
+										@foreach($history_goods as $kk=>$vv)
 										<li>
 											<img src="/static/index/img/like1.png" />
 											<div class="intro">
@@ -169,26 +169,7 @@
 												<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
 											</div>
 										</li>
-										{{--@endforeach--}}
-									</ul>
-								</div>
-
-								<div class="item">
-									<ul>
-										{{--@foreach($res as $k=>$v)--}}
-										<li>
-											<img src="/static/index/img/like1.png" />
-											<div class="intro">
-												<i>Apple苹果iPhone 6s (A1699)</i>
-											</div>
-											<div class="money">
-												<span>$29.00</span>
-											</div>
-											<div class="incar">
-												<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
-											</div>
-										</li>
-										{{--@endforeach--}}
+										@endforeach
 									</ul>
 								</div>
 							</div>
@@ -334,7 +315,6 @@
 	$(document).on('click',"[type='checkbox'][name='qx_0.1']",function(){
 		instant_price();
 	});
-
 
 
 	//计算被选中商品总数,总价

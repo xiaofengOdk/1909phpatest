@@ -19,9 +19,8 @@ class CartController extends Controller
         $footInfo=FootModel::get();
         $brand = BrandModel::where("brand_show",1)->get();//热卖
         $nav = NavModel::get();//导航
-
+        #搜索
         $goods_name= $request->goods_name;
-//        dd($goods_name);
         $where1 = [];
         if($goods_name){
             $where1[] = ['goods_name',"like","%$goods_name%"];
@@ -31,17 +30,26 @@ class CartController extends Controller
         ];
         $cartinfo=Cary::leftjoin('goods','cary.goods_id','=','goods.goods_id')
             ->leftjoin('user','cary.user_id','=','user.user_id')
+            ->leftjoin('sku','cary.id','=','sku.id')
             ->where($where1)
             ->where($where)
             ->get();
 //        dd($cartinfo);
-
+        $cate_id=$request->cate_id;
+        $history_goods=Goods::where([
+            ["cate_id"=>$cate_id],
+            ['is_show','1'],['is_del','1']
+            ])
+            ->limit(8)
+            ->get()
+            ->toArray();
         return view('index.cart.add',
             [
                 'nav'=>$nav,
                 'brand'=>$brand,
                 'footInfo'=>$footInfo,
                 'cartinfo'=>$cartinfo,
+                'history_goods'=>$history_goods,
             ]);
     }
 
@@ -139,10 +147,7 @@ class CartController extends Controller
         }
         return json_encode($fh);
     }
-
-
-
-
+    
     public function cart_top()
     {
         $user_id=1;

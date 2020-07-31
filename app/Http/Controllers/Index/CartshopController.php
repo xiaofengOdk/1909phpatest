@@ -23,6 +23,13 @@ class CartshopController extends Controller
             // $buy_number = 1;
             $goods = Goods::where("goods_id",$goods_id)->first();
             // 判断库存
+            if(!$goods){
+                return $message=[
+                    "code"=>00002,
+                    "message"=>"商品不存在",
+                    "success"=>false,
+                ];
+            }
             if($goods->goods_store<$buy_number){
                 return $message=[
                         "code"=>00001,
@@ -95,6 +102,13 @@ class CartshopController extends Controller
             // 登录后
             // $buy_number = 1;
             $goods = Goods::where("goods_id",$goods_id)->first();
+            if(!$goods){
+                return $message=[
+                    "code"=>00002,
+                    "message"=>"商品不存在",
+                    "success"=>false,
+                ];
+            }
             // 判断库存
             if($goods->goods_store<$buy_number){
                 return $message=[

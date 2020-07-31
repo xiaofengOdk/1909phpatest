@@ -81,6 +81,7 @@
         data.goods_id = goods_id;
         data.buy_number = 1;
         // console.log(data);
+        
         var url = "/index/cart_add";
         $.ajax({
             type:"post",

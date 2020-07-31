@@ -167,5 +167,7 @@ Route::prefix("/user")->group(function(){
     Route::any('/user_address','Index\AddressController@user_address');
     Route::any('/addressdo','Index\AddressController@addressdo');
     Route::any('/user_file','Index\UserController@user_file');
+    Route::any('/del/{id}','Index\AddressController@del');
+    Route::any('/default/{id}','Index\AddressController@default');
     Route::any('/getCity','Index\AddressController@getCity');
 });

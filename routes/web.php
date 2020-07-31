@@ -150,6 +150,7 @@ Route::prefix("/index")->group(function(){
    Route::any('/cart_num','Index\CartController@cart_num');//数量
    Route::any('/cart_nums','Index\CartController@cart_nums');//数量
     Route::any('/cart_del','Index\CartController@cart_del');//数量
+   Route::any('/sku','Index\GoodsinfoController@sku');
 
 });
 Route::prefix("/order")->group(function(){

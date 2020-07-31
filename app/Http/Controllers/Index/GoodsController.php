@@ -7,10 +7,12 @@ use App\Models\Attr;
 use App\Models\AttrVal;
 use App\Models\Cate;
 use App\Models\Goods;
+use App\Models\Sku;
 use Illuminate\Http\Request;
 use App\Models\NavModel;
 use App\Models\FootModel;
 use App\Models\BrandModel;
+use Illuminate\Support\Facades\DB;
 
 class GoodsController extends Controller
 {
@@ -22,12 +24,13 @@ class GoodsController extends Controller
 //        echo $id;
         $nav = NavModel::get();//导航
         $footInfo=FootModel::get();//底部导航
-        $brand = BrandModel::where("brand_show",1)->get();//热卖
+        $brand = BrandModel::where("brand_show",1)->limit(7)->get();//热卖
         $brandInfo = BrandModel::where('cate_id',$id)->get();
         $cate = Cate::where('cate_id',$id)->first();
         $where=[
             ['is_del','=',1],
-            ['is_show','=',1]
+            ['is_show','=',1],
+            ['cate_id','=',$id]
         ];
 
         $goodsInfo = Goods::where($where)->paginate(10);
@@ -61,5 +64,68 @@ class GoodsController extends Controller
         }
         $price[]=$max_price.'及以上';
         return $price;
+    }
+    //根据条件获取新数据
+    public function getnewinfo(Request $request){
+//        $all = $request->all();
+//        print_r($all);
+        $cate_id = $request->cate_id;
+        $where=[
+            ['is_del','=',1],
+            ['cate_id','=',$cate_id]
+        ];
+        $brand_id=$request->brand_id;
+        if(!empty($brand_id)){
+            $where[]=['brand_id','=',$brand_id];
+        }
+        $price = $request->goods_price;
+        //处理价格
+        if(!empty($price)){
+            //价格中是否有-
+            if(substr_count($price,'-')>0){
+                //根据-分割
+                $price=explode('-',$price);
+//                dd($price);
+                $where[]=['goods_price','>=',$price[0]];
+                $where[]=['goods_price','<=',$price[1]];
+            }else{
+                //否则
+                //把字符串转化为整数 数据类型 强制转化 自动转化
+                $goods_price=(float)$price;
+                $where[]=['goods_price','>=',$goods_price];
+            }
+        }
+        $field = $request->field;
+
+        if(!empty($field)){
+            $where[]=[$field,'=',1];
+        }
+        //分页  待完成
+        $page = $request->page;
+        //sku 待完成
+        $sku = $request->sku;
+//        echo $sku;exit;
+        if(!empty($sku)){
+//            echo 123;exit;
+            $info = Sku::where('sku',$sku)->get()->toArray();
+//            var_dump($info);exit;
+            if(!empty($info)){
+//                echo 123;exit;
+                foreach($info as $k=>$v){
+                    $where2 = [
+                        ['goods.is_del','=',1],
+                        ['goods.cate_id','=',$cate_id],
+                        ['goods.goods_id','=',$v['goods_id']]
+                    ];
+                    $goodsInfo = Goods::leftjoin('sku','goods.goods_id','=','sku.goods_id')->where($where2)->paginate(10);
+                }
+            }else{
+                $goodsInfo='';
+            }
+        }else{
+            $goodsInfo = Goods::where($where)->orderBy('goods_price','asc')->paginate(10);
+        }
+//        var_dump(123);exit;
+        return view('index/goods/newinfo',['goodsInfo'=>$goodsInfo,'field'=>$field]);
     }
 }

@@ -87,7 +87,9 @@
 									</span>
 								</li>
 								<li class="yui3-u-1-8">
-									<a href="#none">删除</a><br />
+									<button type="button" class="btn btn-danger del" cary_id="{{$v->cary_id}}">删除</button>
+									{{--<a href="#1">删除</a>--}}
+									<br />
 									<a href="#none">移到我的关注</a>
 								</li>
 							</ul>
@@ -111,7 +113,7 @@
 					<div class="chosed">已选择<span id="zsl">0</span>件商品</div>
 					<div class="sumprice">
 						<span><em>总价（不含运费） ：</em><i class="summoney" id="zj">¥0</i></span>
-						<span><em>已节省：</em><i>-¥20.00</i></span>
+						{{--<span><em>已节省：</em><i>-¥20.00</i></span>--}}
 					</div>
 					<div class="sumbtn">
 						<a class="sum-btn" href="#" target="_blank">结算</a>
@@ -158,15 +160,15 @@
 									<ul>
 										@foreach($history_goods as $kk=>$vv)
 										<li>
-											<img src="/static/index/img/like1.png" />
+											<img src="{{env('UPLOADS_URL')}}{{$vv->goods_img}}" />
 											<div class="intro">
-												<i>Apple苹果iPhone 6s (A1699)</i>
+												<i>{{$vv->goods_name}}</i>
 											</div>
 											<div class="money">
-												<span>$29.00</span>
+												<span>{{$vv->goods_price}}</span>
 											</div>
 											<div class="incar">
-												<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
+												<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">查看详情</span></a>
 											</div>
 										</li>
 										@endforeach
@@ -315,8 +317,6 @@
 	$(document).on('click',"[type='checkbox'][name='qx_0.1']",function(){
 		instant_price();
 	});
-
-
 	//计算被选中商品总数,总价
 	function instant_price(){
 		var sf=0;
@@ -340,5 +340,29 @@
 		$("#zj").text('￥:'+price);
 		console.log(quantity,price);
 	}
+	//删除
+	$(document).on('click','.del',function(){
+		var cary_id=$(this).attr('cary_id');
+		var data={};
+		data.cary_id=cary_id;
+		var url="/index/cart_del";
+		if(window.confirm("确认删除？")){
+			$.ajax({
+				url:url,
+				data:data,
+				type:'post',
+				dataType:'json',
+				success:function(result){
+					if(result['code']==200){
+						alert(result['msg']);
+						location.href=result['url'];
+					}else{
+						alert(result['msg']);
+						location.href=result['url'];
+					}
+				}
+			})
+		}
+	});
 
 </script>

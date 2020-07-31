@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Index;
 
 use App\Http\Controllers\Controller;
+use App\Models\AttrVal;
 use App\Models\Cary;
 use App\Models\Goods;
 use App\Models\Sku;
@@ -16,6 +17,7 @@ class CartController extends Controller
     //购物车展示
     public function cart_list(Request $request)
     {
+        $xx=request()->all();
         $footInfo=FootModel::get();
         $brand = BrandModel::where("brand_show",1)->get();//热卖
         $nav = NavModel::get();//导航
@@ -42,6 +44,21 @@ class CartController extends Controller
             ])
             ->limit(8)
             ->get();
+
+        $dels_vl=Cary::where('user_id',4)->where('is_del','2')->get();
+        $sum_up=count($dels_vl);
+        foreach($dels_vl as $r1=>$r2){
+            $property=Sku::where('id',$r2['id'])->first();
+
+            $sku_vl_id=$this->explode_id($property);
+            $sku_vl_val=AttrVal::wherein('id',$sku_vl_id)->where('is_del','1')->get();
+            $property['sku']=$sku_vl_val;
+
+            $r2['id']=$property;
+            $goods=Goods::where([['goods_id',$r2['goods_id']],['is_del','1']])->first();
+            $r2['goods_id']=$goods;
+        }
+
         return view('index.cart.add',
             [
                 'nav'=>$nav,
@@ -49,6 +66,7 @@ class CartController extends Controller
                 'footInfo'=>$footInfo,
                 'cartinfo'=>$cartinfo,
                 'history_goods'=>$history_goods,
+                'dels_vl'=>$dels_vl,
             ]);
     }
 
@@ -147,13 +165,6 @@ class CartController extends Controller
         return json_encode($fh);
     }
 
-    public function cart_top()
-    {
-        $user_id=1;
-        $res=Cary::where(['user_id',$user_id,['is_del','1']])->count();
-        return json_encode($res);
-    }
-
     //删除提示信息
     public function message($code,$msg,$url=''){
         $message = [
@@ -176,14 +187,126 @@ class CartController extends Controller
         }
     }
 
+    //批量删除
+    public function cart_dels(){
+        $xx=request()->all();
+        $a1=array_key_exists('cary_id',$xx);
+        if($a1==false){
+            $fh=['a1'=>'1','a2'=>'参数缺失'];
+            return json_encode($fh);exit;
+        }
+        $xx['cary_id']=explode(',',$xx['cary_id']);
+        $dels=Cary::wherein('cary_id',$xx['cary_id'])->where('is_del','1')->update(['is_del'=>'2']);
 
-    public function cart_dels(Request $request)
-    {
+        $dels_vl=Cary::wherein('cary_id',$xx['cary_id'])->where('is_del','2')->get();
+        $sum_up=count($dels_vl);
+        foreach($dels_vl as $r1=>$r2){
+            $property=Sku::where('id',$r2['id'])->first();
 
+            $sku_vl_id=$this->explode_id($property);
+            $sku_vl_val=AttrVal::wherein('id',$sku_vl_id)->where('is_del','1')->get();
+            $property['sku']=$sku_vl_val;
+
+            $r2['id']=$property;
+            $goods=Goods::where([['goods_id',$r2['goods_id']],['is_del','1']])->first();
+            $r2['goods_id']=$goods;
+        }
+        if($dels){
+            $fh=['a1'=>'0','a2'=>'删除成功','a3'=>$dels_vl,'a4'=>$sum_up];
+        }else{
+            $fh=['a1'=>'1','a2'=>'删除失败'];
+        }
+        return json_encode($fh);
     }
 
-    public function cart_delss(Request $request)
+    //sku才分数组
+    public function explode_id($xxi){
+        $sxing=[];
+        $c=0;
+        $v=$xxi;
+        $sku=explode(',',$v['sku']);
+        foreach($sku as $f=>$g){
+            $a1=strpos($g,'[')+1;
+            $a2=strpos($g,':');
+            $a2_s=$a2-$a1;
+            $a3=substr($g,$a1,$a2_s);//属性id
+
+            $a=strpos($g,':')+1;
+            $b=strpos($g,']');
+            $b_s=$b-$a;
+            $c=substr($g,$a,$b_s);//属性值id
+            if(array_key_exists($a3,$sxing)){
+                $yvl=$sxing[$a3];
+                $yvl_s=explode(',',$yvl);
+                $num_s=0;
+                foreach($yvl_s as $y1=>$y2){
+                    if($y2==$c){
+                        $num_s=$num_s+1;
+                    }
+                }
+                if($num_s==0){
+                    $sxing[$a3]=$yvl.$c.',';
+                }
+            }else{
+                // $yvl='';
+                $sxing[$a3]=$c.',';
+            }
+            // $sxing[$a3]=$yvl.$c.',';
+
+        }
+
+        foreach($sxing as $r=>$t){
+            if(strlen($t)>1){
+                $cd=strlen($t)-1;
+                $sxing[$r]=substr($t,0,$cd);
+            }else{
+                $sxing[$r]='';
+            }
+        }
+
+        $sxing=array_unique($sxing);
+        return $sxing;
+    }
+
+    //重新加入
+    public function cart_num_del_new(){
+        $xx=request()->all();
+        $a1=array_key_exists('cary_id',$xx);
+        if($a1==false){
+            $fh=['a1'=>'1','a2'=>'参数缺失'];
+            return json_encode($fh);exit;
+        }
+        $del_new=Cary::where([['cary_id',$xx['cary_id']],['is_del','2']])->update(['is_del'=>'1']);
+        $new_vl=Cary::where([['cary_id',$xx['cary_id']],['is_del','1']])->get();
+        foreach($new_vl as $r1=>$r2){
+            $property=Sku::where('id',$r2['id'])->first();
+
+            $sku_vl_id=$this->explode_id($property);
+            $sku_vl_val=AttrVal::wherein('id',$sku_vl_id)->where('is_del','1')->get();
+            $property['sku']=$sku_vl_val;
+
+            $r2['id']=$property;
+            $goods=Goods::where([['goods_id',$r2['goods_id']],['is_del','1']])->first();
+            $r2['goods_id']=$goods;
+        }
+        if($del_new){
+            $fh=['a1'=>'0','a2'=>'重新加入成功','a3'=>$new_vl];
+        }else{
+            $fh=['a1'=>'1','a2'=>'重新加入失败'];
+        }
+        return json_encode($fh);
+    }
+
+    //彻底删除
+    public function cart_delds(Request $request)
     {
+        $cary_id=$request->post('cary_id');
+        $bol=Cary::where('cary_id',$cary_id)->update(['is_del'=>3]);
+        if($bol){
+            return $this->message('00000','删除成功','/index/cart_list');
+        }else{
+            return $this->message('00001','删除失败');
+        }
 
     }
 

@@ -66,7 +66,7 @@
 						<div class="cart-list"  id='ul_id'>
 							<ul class="goods-list yui3-g">
 								<li class="yui3-u-1-24">
-									<input type="checkbox" name="qx_0.1" id="" value="" />
+									<input type="checkbox" name="qx_0.1" cary_id="{{$v->cary_id}}" id="" value="" />
 								</li>
 								<li class="yui3-u-11-24">
 									<div class="good-item">
@@ -87,16 +87,16 @@
 									</span>
 								</li>
 								<li class="yui3-u-1-8">
-									<button type="button" class="btn btn-danger del" cary_id="{{$v->cary_id}}">删除</button>
-									{{--<a href="#1">删除</a>--}}
-									<br />
-									<a href="#none">移到我的关注</a>
+									<a href="#none" cary_id="{{$v->cary_id}}" id="del_one">删除</a>
+									{{--<br />--}}
+									{{--<a href="#none">移到我的关注</a>--}}
 								</li>
 							</ul>
 						</div>
 					</div>
 				</div>
 				@endforeach
+				<span id="list_new">&nbsp;</span>
 			</div>
 
 			<div class="cart-tool">
@@ -105,9 +105,9 @@
 					<span>全选</span>
 				</div>
 				<div class="option">
-					<a href="#none">删除选中的商品</a>
-					<a href="#none">移到我的关注</a>
-					<a href="#none">清除下柜商品</a>
+					<a href="#none" id="del_all">删除选中的商品</a>
+					{{--<a href="#none">移到我的关注</a>--}}
+					{{--<a href="#none">清除下柜商品</a>--}}
 				</div>
 				<div class="toolbar">
 					<div class="chosed">已选择<span id="zsl">0</span>件商品</div>
@@ -122,24 +122,40 @@
 			</div>
 			<div class="clearfix"></div>
 			<div class="deled">
-				<span>已删除商品，您可以重新购买或加关注：</span>
-				<div class="cart-list del" style="height: 40px;width: 1200px;">
+				<span id="del_list">已删除商品，您可以重新购买或加关注：</span>
+				@foreach($dels_vl as $kkk=>$vvv)
+				<div class="cart-list del" id="eva_886" style="height: 40px;width: 1200px;">
 					<ul class="goods-list yui3-g">
 						<li class="yui3-u-1-2">
 							<div class="good-item">
-								<div class="item-msg">Apple Macbook Air 13.3英寸笔记本电脑 银色（Corei5）处理器/8GB内存</div>
+								<div class="item-msg">{{$vvv['goods_id']['goods_name']}}
+									&nbsp;
+									@foreach($vvv['id']['sku'] as $e_n1=>$e_n2)
+										@if($e_n1=='0')
+											{{'/'.$e_n2['attrval_name'].'/'}}
+										@else
+											{{$e_n2['attrval_name'].'/'}}
+										@endif
+									@endforeach
+								</div>
 							</div>
 						</li>
-						<li class="yui3-u-1-6"><span class="price">8848.00</span></li>
-						<li class="yui3-u-1-6">
-							<span class="number">1</span>
+						<li class='yui3-u-1-6'>
+							<span class='price'>单价: {{$vvv['goods_price_one']}}</span>
+						</li>
+						<li class='yui3-u-1-6'>
+							<span class='number'>数量:{{$vvv['buy_number']}}&nbsp;&nbsp;&nbsp;&nbsp;
+								总价:{{$vvv['goods_totall']}}</span>
 						</li>
 						<li class="yui3-u-1-8">
-							<a href="#none">重新购买</a>
-							<a href="#none">移到我的关注</a>
+							<a href="javascript:;" id='del_new' cary_id="{{$vvv['cary_id']}}">重新购买</a>
+							&nbsp;&nbsp;&nbsp;
+							<a href='#none' id='del_yes' cary_id="{{$vvv['cary_id']}}">删除本记录</a>
 						</li>
 					</ul>
 				</div>
+				@endforeach
+
 			</div>
 			<div class="liked">
 				<ul class="sui-nav nav-tabs">
@@ -168,7 +184,9 @@
 												<span>{{$vv->goods_price}}</span>
 											</div>
 											<div class="incar">
-												<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">查看详情</span></a>
+												<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default">
+													<i class="car"></i><span class="cartxt">查看详情</span>
+												</a>
 											</div>
 										</li>
 										@endforeach
@@ -329,7 +347,6 @@
 			var p_ce=$(this).parents("#list_one").find('#num_zong').text();
 			var p_ce_vl=parseInt(p_ce);
 			price=price+p_ce_vl;
-
 			sf=sf+1;
 		});
 		if(sf==0){
@@ -341,11 +358,139 @@
 		console.log(quantity,price);
 	}
 	//删除
-	$(document).on('click','.del',function(){
+	$(document).on('click','#del_one',function(){
 		var cary_id=$(this).attr('cary_id');
 		var data={};
 		data.cary_id=cary_id;
 		var url="/index/cart_del";
+		if(window.confirm("确认删除？")){
+			$.ajax({
+				url:url,
+				data:data,
+				type:'post',
+				dataType:'json',
+				success:function(result){
+					if(result['code']==200){
+						alert(result['msg']);
+						location.href=result['url'];
+					}else{
+						alert(result['msg']);
+						location.href=result['url'];
+					}
+				}
+			})
+		}
+	});
+	//批量删除
+	$(document).on('click','#del_all',function(){
+		var jk_num=0;
+		var cary_id='';
+		$("[type='checkbox'][name='qx_0.1']:checked").each(function(index, el) {
+			var vl_a=$(this).attr("cary_id");
+			var vl_a_vl=parseInt(vl_a);
+			cary_id+=vl_a_vl+',';
+			jk_num=jk_num+1;
+		});
+		var cd=cary_id.length;
+		var cary_id=cary_id.substr(0,cd-1);
+		if(jk_num>0){
+			$.ajax({
+				url:'/index/cart_dels',
+				type:'post',
+				dataType:'json',
+				data:{'cary_id':cary_id},
+				success:function(jk_dels){
+					if(jk_dels.a1==0){
+						$("[type='checkbox'][name='qx_0.1']:checked").each(function(index, el) {
+							var vl_a=$(this).parents("#list_one").remove();
+						});
+						for(var p_uj=0;p_uj<=jk_dels.a4-1;p_uj++){
+							var name_s='';
+							var sku_s=jk_dels.a3[p_uj]['id']['sku'];
+							var cd=sku_s.length;
+							for(var js_1=0;js_1<=cd-1;js_1++){
+								if(js_1==0){
+									name_s=name_s+'/'+jk_dels.a3[p_uj]['id']['sku'][js_1]['attrval_name']+'/';
+								}else{
+									name_s=name_s+jk_dels.a3[p_uj]['id']['sku'][js_1]['attrval_name']+'/';
+								}
+							}
+							var del_one="<div style='height: 40px;width: 1200px;'" +
+									" class='cart-list del'  id='id='eva_886'><ul class='goods-list yui3-g'>" +
+									"<li class='yui3-u-1-2'><div class='good-item'>" +
+									"<div class='item-msg'>"+jk_dels.a3[p_uj]['goods_id']['goods_name']+'&nbsp;'+name_s+"</div>" +
+									"</div></li><li class='yui3-u-1-6'><span class='price'>单价: "+jk_dels.a3[p_uj]['goods_price_one']+"</span>" +
+									"</li><li class='yui3-u-1-6'><span class='number'>数量:"+jk_dels.a3[p_uj]['buy_number']+'&nbsp;&nbsp;&nbsp;&nbsp;' +
+									'总价:'+jk_dels.a3[p_uj]['goods_totall']+"</span></li><li class='yui3-u-1-8'>&nbsp;&nbsp;&nbsp;" +
+									"<a href='#none' id='del_new' trolley_id='"+jk_dels.a3[p_uj]['cary_id']+"'>重新购买</a>&nbsp;&nbsp;&nbsp;" +
+									"<a href='#none' id='del_yes' cary_id='"+jk_dels.a3[p_uj]['cary_id']+"'>删除本记录</a></li></ul></div>";
+							$("#del_list").append(del_one);
+						}
+					}
+					instant_price();
+					console.log(jk_dels.a2);
+				}
+			});
+		}
+	});
+	//重新加入购物车
+	$(document).on('click','#del_new',function(){
+		var ts=$(this);
+		var cary_id=$(this).attr('cary_id');
+		var zz=/^\d{1,}$/;
+		if(!zz.test(cary_id)||cary_id<=0){
+			console.log('cary_id获取失败');
+		}else{
+			$.ajax({
+				url:'/index/cart_num_del_new',
+				type:'post',
+				dataType:'json',
+				data:{'cary_id':cary_id},
+				success:function(jk_new){
+					if(jk_new.a1==0){
+						var name_s='';
+						var sku_s=jk_new.a3[0]['id']['sku'];
+						var cd=sku_s.length;
+						for(var js_1=0;js_1<=cd-1;js_1++){
+							if(js_1==0){
+								name_s=name_s+'/'+jk_new.a3[0]['id']['sku'][js_1]['attrval_name']+'/';
+							}else{
+								name_s=name_s+jk_new.a3[0]['id']['sku'][js_1]['attrval_name']+'/';
+							}
+						}
+//						ts.parents(".cart-list del").remove();
+//
+//						var new_one="" +
+//								"<div class='cart-list' id='list_one'>" +
+//								"<ul class='goods-list yui3-g' id='ul_id'>" +
+//								"<li class='yui3-u-1-24'>" +
+//								"<input type='checkbox' name='ck_jb0528' trolley_id='"+jk_new.a3[0]['cary_id']+"' id='' value='' />" +
+//								"</li><li class='yui3-u-11-24'><div class='good-item'><div class='item-img'>" +
+//								"<img style='width:82px;height:82px;' src='"+jk_new.a3[0]['goods_id']['goods_img']+"' />" +
+//								"</div><div class='item-msg'>"+jk_new.a3[0]['goods_id']['goods_name']+'&nbsp;'+name_s+"</div>" +
+//								"</div></li><li class='yui3-u-1-8'><span class='price'>"+jk_new.a3[0]['goods_price_one']+"</span>" +
+//								"</li><li class='yui3-u-1-8'>" +
+//								"<a href='javascript:void(0)' class='increment mins' property_id='"+jk_new.a3[0]['id']['id']+"' cary_id='"+jk_new.a3[0]['cary_id']+"' id='num_n'>" +
+//								"-</a><input autocomplete='off' type='text' id='vl' cary_id='"+jk_new.a3[0]['cary_id']+"' value='"+jk_new.a3[0]['buy_number']+"' class='itxt' />" +
+//								"<a href='javascript:void(0)' class='increment plus' property_id='"+jk_new.a3[0]['id']['id']+"' cary_id='"+jk_new.a3[0]['cary_id']+"' id='num_y'>+" +
+//								"</a></li><li class='yui3-u-1-8'>" +
+//								"<span class='sum' id='num_zong'>"+jk_new.a3[0]['goods_price_one']*jk_new.a3[0]['buy_number']+"</span>" +
+//								"</li><li class='yui3-u-1-8'>" +
+//								"<a href='#none' id='cat_del' cary_id='"+jk_new.a3[0]['cary_id']+"'>删除</a><br /></li></ul></div>";
+//						$("#list_new").prepend(new_one);
+						location.replace(location.href);
+					}
+					console.log(jk_new.a2);
+				}
+			});
+		}
+	});
+	//彻底删除
+	$(document).on('click','#del_yes',function(){
+		var cary_id=$(this).attr('cary_id');
+		var data={};
+		data.cary_id=cary_id;
+		var url="/index/cart_delds";
 		if(window.confirm("确认删除？")){
 			$.ajax({
 				url:url,

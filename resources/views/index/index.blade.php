@@ -36,17 +36,17 @@
 					    <li data-target="#myCarousel" data-slide-to="2"></li>
 					  </ol>
 					  <div class="carousel-inner">
-					  	@foreach($slide_info as $k=>$v)
+					  	@foreach($goods_info as $k=>$v)
 					  		@if($k==0)
 		    			<div class="active item">
-						 <a href="http://baidu2.wypxj.com/">
-						<img src="{{env('UPLOAD_URL')}}{{$v->slide_log}}"  style="width: 740px;height: 460px;" width="740px;"  height="460px;" />
+						 <a href="/index/goods_desc/{{$v->goods_id}}">
+						<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}"  style="width: 740px;height: 460px;" width="740px;"  height="460px;" />
 					     </a>
 					    </div>
 						    @else
 					    <div class="item">
-						 <a href="http://baidu2.wypxj.com/">
-						<img src="{{env('UPLOAD_URL')}}{{$v->slide_log}}"style="width: 740px;height: 460px;"  width="740px;"  height="460px;" />
+						 <a href="/index/goods_desc/{{$v->goods_id}}">
+						<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}"style="width: 740px;height: 460px;"  width="740px;"  height="460px;" />
 					     </a>
 					    </div>
 					    	@endif

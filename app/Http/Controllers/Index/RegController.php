@@ -178,10 +178,11 @@ class RegController extends Controller
            
             $reg=$Umodel->where($wheres)->first();
             if($reg){
+                session(['reg'=>$reg]);
                 $cookie = request()->cookie('test');
                 // dd($cookie);
                 if(!empty($cookie)){
-                    session(['reg'=>$reg]);
+                   
                     
                     $cookie=json_decode($cookie,true);
                     $reg = session("reg");

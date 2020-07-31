@@ -154,5 +154,6 @@ Route::prefix("/index")->group(function(){
 Route::prefix("/user")->group(function(){
     Route::any('/user_info','Index\UserController@user_info');
     Route::any('/user_add','Index\UserController@user_add');
+    Route::any('/user_address','Index\AddressController@user_address');
     Route::any('/user_file','Index\UserController@user_file');
 });

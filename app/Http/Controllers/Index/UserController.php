@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Cate;
 use App\models\Goods;
 use App\models\AdtgModel;
+use App\models\Cary;
 use App\Models\NavModel;
 use App\Models\BrandModel;
 use App\Models\FootModel;
@@ -24,8 +25,10 @@ class UserController extends Controller
         if($info==null){
             $info = User_info::where("user_id",0)->first();
         }
+        $cart=Cary::get();
+        $cart=count($cart);
         // dd($info);
-        return view("index.user.user_info",compact("nav","brand","footInfo","info"));
+        return view("index.user.user_info",compact("nav","brand","footInfo","info","cart"));
     } 
     // 添加
     public function user_add(Request $request){

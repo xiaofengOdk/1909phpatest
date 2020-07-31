@@ -161,5 +161,5 @@ Route::prefix("/user")->group(function(){
     Route::any('/user_add','Index\UserController@user_add');
     Route::any('/user_address','Index\AddressController@user_address');
     Route::any('/user_file','Index\UserController@user_file');
-    Route::any('/getCity','Index\UserController@getCity');
+    Route::any('/getCity','Index\AddressController@getCity');
 });

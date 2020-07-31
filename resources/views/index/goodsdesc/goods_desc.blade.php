@@ -78,27 +78,29 @@
 					
 					<div class="clearfix choose">
 						<div id="specification" class="summary-wrap clearfix" style="text-align:center;">
+						<div id="dd" num={{sizeof($attr)}}></div>
 						@foreach($attr as $k=>$v)	
-						<div >
-							<dl>							
+						<input type="hidden" id="attr_id_{{$k}}" attr_id="{{$v->attr_id}}" value="{{$v->attr_name}}">		
+							<dl id="dl">							
 								<dt style="text-align:center; padding-bottom:15px;">
 									<div class="fl title" >
-									<i  class="attrddd"    attr_id="{{$v->attr_id}}">{{$v->attr_name}}</i>
+									<i  >{{$v->attr_name}}</i>
 									</div>
 								</dt>
 								<!-- <br> -->
+							<input type="hidden" class="col-md-10 data"  id="val_id_{{$k}}"  value="{{$v->val_name}}">
 								@foreach($attrval as $kk=>$vv)	
 								<dd>
 							
 										@if($v->attr_id==$vv->attr_id)
-										<a href="javascript:;" class="selecteds"  val_id="{{$vv->id.$k}}">{{$vv->attrval_name}}<span title="点击取消选择">&nbsp;</span></a>
+								<a href="javascript:;" name="yanshi"  id="ys" goods_id="{{$goodsInfo['goods_id']}}"  class="{{$kk==0?'selected':''}}" val_id="{{$vv['id']}}">{{$vv['attrval_name']}}<span title="点击取消选择">&nbsp;</span>
+									</a>
 									<!--<a href="javascript:;" class="selected selecteds" val_id="{{$vv->id}}" >{{$vv->attrval_name}}</a>-->
 									  @endif
 									
 								</dd>
 								@endforeach
 							</dl>
-							</div>
 							@endforeach
 						</div>	
 						<div class="summary-wrap">
@@ -481,22 +483,45 @@
             _this.prev("input").val(_val)  
                }
         })
-	  	$(document).on("click",".selecteds",function(){
-        	  var _this=$(this);
- 			   _this.addClass("selected");
-			   _this.parent('dd').siblings('dd').find('a').removeClass("selected");	  
-			  var _val=_this.attr("val_id")
-			  var _call=_this.parent().siblings('dt').find('i').attr('attr_id')
-			 	var str=""
-			 	var num=_this.attr("val_id")
-			 // var newss='['+_val+":"+_call+"]"+","
-			 // for
-			 // console.log(newss)
-			 for(var i=1;i<=num;i++){
-			 	str=str+'['+_val+":"+_call+"]"+","
-			 }	          
-			 console.log(_val)
-	  	})
+		$(document).on("click","#ys",function(){
+			var _this=$(this);
+			_this.parents('dl').find("[name='yanshi']").prop("class",'');
+			_this.prop("class",'selected');
+			// console.log(_this)
+			//sku
+			var num=$("#dd").attr("num");
+			//获取本页面的id
+			var goods_id=_this.attr("goods_id");
+			//获取sku
+			var sku="";
+			for(var i=1;i<=num;i++){
+				var attr_id=$("#attr_id_"+i).attr("attr_id");
+				var val_id=$("#val_id_"+i).parents("#dl").find("[name='yanshi'][class='selected']").attr('val_id');
+				if(!val_id==""){
+					sku=sku+'['+attr_id+':'+val_id+'],';
+				}
+				console.log(attr_id)
+			}
+			console.log(sku)
+			// var cd=sku.length;
+			// sku=sku.substr(0,cd-1);
+			// $.ajax({
+			// 	url:'/sehao',
+			// 	data:{"sku":sku,"goods_id":goods_id},
+			// 	dataType:"json",
+			// 	success:function(res){
+			// 		if(res.code==000002){
+			// 			alert(res.msg);
+			// 			$("#aa").text('该型号无货请更换~~');
+			// 		}else{
+   //                  var res=res;
+			// 		$("#aa").text(res['price']);
+			// 		$("#gwc").attr('goods_price',res['price']);
+			// 		}
+			// 		// console.log(re);
+			// 	}
+			// })
+		})
 		  $(document).on("click","#addshopcar",function(){
 				var goods_id=""
 			    $("input[name='che']:checked").each(function(reg){

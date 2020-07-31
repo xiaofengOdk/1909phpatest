@@ -151,6 +151,10 @@ Route::prefix("/index")->group(function(){
    Route::any('/cart_nums','Index\CartController@cart_nums');//数量
 
 });
+Route::prefix("/order")->group(function(){
+   Route::any('/index','Index\OrderinfoController@index');
+
+});
 Route::prefix("/user")->group(function(){
     Route::any('/user_info','Index\UserController@user_info');
     Route::any('/user_add','Index\UserController@user_add');

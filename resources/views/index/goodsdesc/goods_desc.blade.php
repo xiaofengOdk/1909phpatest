@@ -487,7 +487,9 @@
              //  _this.removeClass("selected")
 			   _this.addClass("selected");
 			   _this.parent('dd').siblings('dd').find('a').removeClass("selected");	  
-			  
+			  var _val=_this.attr("val_id")
+			  var _call=_this.parent().prev('dt').find('i').attr('attr_id')
+			  console.log(_call)
                
 	  	})
 		  $(document).on("click","#addshopcar",function(){

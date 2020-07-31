@@ -159,6 +159,8 @@ Route::prefix("/index")->group(function(){
 });
 Route::prefix("/order")->group(function(){
    Route::any('/index','Index\OrderinfoController@index');
+   Route::any('/del/{id}','Index\OrderinfoController@del');
+   Route::any('/moren/{id}','Index\OrderinfoController@moren');
 
 });
 Route::prefix("/user")->group(function(){

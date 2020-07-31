@@ -91,7 +91,7 @@
 								<dd>
 							
 										@if($v->attr_id==$vv->attr_id)
-										<a href="javascript:;" class="selecteds"  val_id="{{$vv->id}}">{{$vv->attrval_name}}<span title="点击取消选择">&nbsp;</span></a>
+										<a href="javascript:;" class="selecteds"  val_id="{{$vv->id.$k}}">{{$vv->attrval_name}}<span title="点击取消选择">&nbsp;</span></a>
 									<!--<a href="javascript:;" class="selected selecteds" val_id="{{$vv->id}}" >{{$vv->attrval_name}}</a>-->
 									  @endif
 									
@@ -483,18 +483,21 @@
         })
 	  	$(document).on("click",".selecteds",function(){
         	  var _this=$(this);
-			 
-             //  _this.removeClass("selected")
-			   _this.addClass("selected");
+ 			   _this.addClass("selected");
 			   _this.parent('dd').siblings('dd').find('a').removeClass("selected");	  
 			  var _val=_this.attr("val_id")
-			  var _call=_this.parent().prev('dt').find('i').attr('attr_id')
-			  console.log(_call)
-               
+			  var _call=_this.parent().siblings('dt').find('i').attr('attr_id')
+			 	var str=""
+			 	var num=_this.attr("val_id")
+			 // var newss='['+_val+":"+_call+"]"+","
+			 // for
+			 // console.log(newss)
+			 for(var i=1;i<=num;i++){
+			 	str=str+'['+_val+":"+_call+"]"+","
+			 }	          
+			 console.log(_val)
 	  	})
 		  $(document).on("click","#addshopcar",function(){
-				
-				
 				var goods_id=""
 			    $("input[name='che']:checked").each(function(reg){
                         goods_id+= $(this).val()+",";

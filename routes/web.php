@@ -149,6 +149,7 @@ Route::prefix("/index")->group(function(){
    Route::any('/cate_add','Index\GoodsinfoController@cate_add');
    Route::any('/cart_num','Index\CartController@cart_num');//数量
    Route::any('/cart_nums','Index\CartController@cart_nums');//数量
+    Route::any('/cart_del','Index\CartController@cart_del');//数量
 
 });
 Route::prefix("/order")->group(function(){
@@ -160,4 +161,5 @@ Route::prefix("/user")->group(function(){
     Route::any('/user_add','Index\UserController@user_add');
     Route::any('/user_address','Index\AddressController@user_address');
     Route::any('/user_file','Index\UserController@user_file');
+    Route::any('/getCity','Index\UserController@getCity');
 });

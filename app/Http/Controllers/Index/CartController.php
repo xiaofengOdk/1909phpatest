@@ -41,8 +41,7 @@ class CartController extends Controller
             ['is_show','1'],['is_del','1']
             ])
             ->limit(8)
-            ->get()
-            ->toArray();
+            ->get();
         return view('index.cart.add',
             [
                 'nav'=>$nav,
@@ -147,7 +146,7 @@ class CartController extends Controller
         }
         return json_encode($fh);
     }
-    
+
     public function cart_top()
     {
         $user_id=1;
@@ -155,18 +154,28 @@ class CartController extends Controller
         return json_encode($res);
     }
 
-
-
+    //删除提示信息
+    public function message($code,$msg,$url=''){
+        $message = [
+            'code'=> $code,
+            'msg'=> $msg,
+            'url'=> $url
+        ];
+        return json_encode($message,JSON_UNESCAPED_UNICODE);
+    }
 
     //购物车删除
     public function cart_del(Request $request)
     {
-        $res=$request->all();
-        $a1=array_key_exists('cary_id',$res);
-        if($a1==false){
-            $fh=['a1'=>'1','a2'=>'参数丢失'];
+        $cary_id=$request->post('cary_id');
+        $bol=Cary::where('cary_id',$cary_id)->update(['is_del'=>2]);
+        if($bol){
+            return $this->message('00000','删除成功','/index/cart_list');
+        }else{
+            return $this->message('00001','删除失败');
         }
     }
+
 
     public function cart_dels(Request $request)
     {

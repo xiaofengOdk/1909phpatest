@@ -542,6 +542,7 @@
              success:function(reg){
                  // console.log(reg)
                  alert(reg.message)
+                 location.href="/index/cart_list"
              }
          })
 	  	})

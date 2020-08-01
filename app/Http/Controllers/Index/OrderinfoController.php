@@ -75,11 +75,11 @@ class OrderinfoController extends Controller
         // dd($user_id);
         $cary=[];
         foreach($goods_id as $k=>$v){
-           $goods_info= Goods::where("goods_id",$v)->first();
+           $goods_info= Cary::leftjoin("goods","cary.goods_id","=","goods.goods_id")->where("goods.goods_id",$v)->first();
             $cary['user_id']=$user_id;
             $cary['goods_id']=$v;
-            $cary['buy_number']=1;
-            $cary['order_price']=$goods_info['goods_price'];
+            $cary['buy_number']=$goods_info['buy_number'];
+            $cary['order_price']=$goods_info['buy_number']*$goods_info['goods_price_one'];
             // $cary['number']=1;
             // $cary['goods_price_one']=$goods_info['goods_price'];
             $result=Order_goods::insert($cary);

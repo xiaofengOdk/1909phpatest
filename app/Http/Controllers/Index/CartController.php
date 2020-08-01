@@ -309,5 +309,37 @@ class CartController extends Controller
         }
 
     }
-
+    public function goshop(){
+        // print_R(request()->all());
+        $goods_id=request()->goods_id;
+        $goods_id=explode(",",$goods_id);
+        // dd($goods_id);
+        $cary=new Cary;
+        $user_id=session('reg');
+        $user_id=$user_id['user_id'];
+        // dd($user_id);
+        $cary=[];
+        foreach($goods_id as $k=>$v){
+           $goods_info= Goods::where("goods_id",$v)->first();
+            $cary['user_id']=$user_id;
+            $cary['goods_id']=$v;
+            $cary['buy_number']=1;
+            $cary['add_time']=time();
+            $cary['id']=1;
+            $cary['goods_price_one']=$goods_info['goods_price'];
+            $result=Cary::insert($cary);
+        }
+        // dd($result);
+        if($result){
+            return [
+                'code'=>"0000",
+                'message'=>"成功"
+            ];
+        }else{
+            return [
+                'code'=>"0004",
+                "message"=>"失败"
+            ];
+        }
+    }
 }

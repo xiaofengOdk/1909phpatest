@@ -66,7 +66,7 @@
 						<div class="cart-list"  id='ul_id'>
 							<ul class="goods-list yui3-g">
 								<li class="yui3-u-1-24">
-									<input type="checkbox" name="qx_0.1" cary_id="{{$v->cary_id}}" id="" value="" />
+									<input type="checkbox" name="qx_0.1" cary_id="{{$v->cary_id}}" id="" value="{{$v->cary_id}}" />
 								</li>
 								<li class="yui3-u-11-24">
 									<div class="good-item">
@@ -112,11 +112,11 @@
 				<div class="toolbar">
 					<div class="chosed">已选择<span id="zsl">0</span>件商品</div>
 					<div class="sumprice">
-						<span><em>总价（不含运费） ：</em><i class="summoney" id="zj">¥0</i></span>
+						<span><em>总价（不含运费） ：</em>¥<i class="summoney" id="zj">0</i></span>
 						{{--<span><em>已节省：</em><i>-¥20.00</i></span>--}}
 					</div>
 					<div class="sumbtn">
-						<a class="sum-btn" href="#" target="_blank">结算</a>
+						<a class="sum-btn" href="javascript:;"  id="suanzhang">结算</a>
 					</div>
 				</div>
 			</div>
@@ -509,5 +509,33 @@
 			})
 		}
 	});
-
+	//结算
+	$(document).on("click","#suanzhang",function(){
+		var goods_id=""
+		$("input[name='qx_0.1']:checked").each(function(reg){
+                        goods_id+= $(this).val()+",";
+				});
+				var goodss_id=goods_id.length-1;
+				 goods_id=goods_id.substr(0,goodss_id);
+				var goods_price=$("#zj").text();
+				var url="/order/index"
+				var data={goods_id:goods_id,goods_price:goods_price}
+	$.ajax({
+				url:url,
+				data:data,
+				type:'post',
+				dataType:'json',
+				success:function(result){
+							console.log(result)
+						// if(result['code']==200){
+					// 	alert(result['msg']);
+					// 	location.href=result['url'];
+					// }else{
+					// 	alert(result['msg']);
+					// 	location.href=result['url'];
+					// }
+				}
+			})
+				 // console.log(goods_price)
+	})
 </script>

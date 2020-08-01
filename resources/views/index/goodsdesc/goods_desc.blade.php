@@ -511,7 +511,8 @@
 					  dataType:'json',
 					  url:'/index/goshop/',
 					  success:function(reg){
-                        console.log(reg);
+                        // console.log(reg);
+                        alert(reg.message)
 					  }
 
 				 })

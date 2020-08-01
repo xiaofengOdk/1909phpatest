@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Index;
 use App\Http\Controllers\Controller;
 use App\Models\Attr;
 use App\Models\AttrVal;
+use App\Models\Cary;
 use App\Models\Cate;
 use App\Models\Goods;
 use App\Models\Sku;
@@ -27,6 +28,8 @@ class GoodsController extends Controller
         $brand = BrandModel::where("brand_show",1)->limit(7)->get();//热卖
         $brandInfo = BrandModel::where('cate_id',$id)->get();
         $cate = Cate::where('cate_id',$id)->first();
+        $cart=Cary::get();
+        $cart=count($cart);
         $where=[
             ['is_del','=',1],
             ['is_show','=',1],
@@ -46,7 +49,7 @@ class GoodsController extends Controller
         $attrval = AttrVal::get();
         $max_price = Goods::where($where)->max('goods_price');
         $price=$this->getSectionPrice($max_price);
-        return view('index/goods/goodslist',["nav"=>$nav,"brand"=>$brand,"footInfo"=>$footInfo,'brandInfo'=>$brandInfo,'goodsInfo'=>$goodsInfo,'cate'=>$cate,'goods_hot'=>$goods_hot,'attr'=>$attr,'attrval'=>$attrval,'price'=>$price]);
+        return view('index/goods/goodslist',["nav"=>$nav,"brand"=>$brand,"footInfo"=>$footInfo,'brandInfo'=>$brandInfo,'goodsInfo'=>$goodsInfo,'cate'=>$cate,'goods_hot'=>$goods_hot,'attr'=>$attr,'attrval'=>$attrval,'price'=>$price,'cart'=>$cart]);
     }
     //获取价格区间字段
     public function getSectionPrice($max_price){
@@ -65,18 +68,38 @@ class GoodsController extends Controller
         $price[]=$max_price.'及以上';
         return $price;
     }
+    //重新获取区间价格
+    public function getGoodsPrice(){
+        $cate_id=cookie('cid');
+        $brand_id=input('brand_id');
+        // print_r($cate_id);
+        // echo $brand_id;
+        $where=[];
+        if(!empty($cate_id)){
+            $where[]=['cate_id','in',$cate_id];
+        }
+        if(!empty($brand_id)){
+            $where[]=['brand_id','=',$brand_id];
+        }
+        $goods_model=new GoodsModel();
+        $max_price=$goods_model->where($where)->value('max(goods_price)');
+        $price=$this->getSectionPrice($max_price);
+        // print_r($price);
+        // 将数组转化为json类型
+        echo json_encode($price);
+    }
     //根据条件获取新数据
     public function getnewinfo(Request $request){
 //        $all = $request->all();
 //        print_r($all);
         $cate_id = $request->cate_id;
         $where=[
-            ['is_del','=',1],
-            ['cate_id','=',$cate_id]
+            ['goods.is_del','=',1],
+            ['goods.cate_id','=',$cate_id]
         ];
         $brand_id=$request->brand_id;
         if(!empty($brand_id)){
-            $where[]=['brand_id','=',$brand_id];
+            $where[]=['goods.brand_id','=',$brand_id];
         }
         $price = $request->goods_price;
         //处理价格
@@ -86,46 +109,44 @@ class GoodsController extends Controller
                 //根据-分割
                 $price=explode('-',$price);
 //                dd($price);
-                $where[]=['goods_price','>=',$price[0]];
-                $where[]=['goods_price','<=',$price[1]];
+                $where[]=['goods.goods_price','>=',$price[0]];
+                $where[]=['goods.goods_price','<=',$price[1]];
             }else{
                 //否则
                 //把字符串转化为整数 数据类型 强制转化 自动转化
                 $goods_price=(float)$price;
-                $where[]=['goods_price','>=',$goods_price];
+                $where[]=['goods.goods_price','>=',$goods_price];
             }
         }
         $field = $request->field;
 
         if(!empty($field)){
-            $where[]=[$field,'=',1];
+            $where[]=["goods.$field",'=',1];
         }
         //分页  待完成
         $page = $request->page;
         //sku 待完成
         $sku = $request->sku;
-//        echo $sku;exit;
         if(!empty($sku)){
-//            echo 123;exit;
-            $info = Sku::where('sku',$sku)->get()->toArray();
-//            var_dump($info);exit;
-            if(!empty($info)){
-//                echo 123;exit;
-                foreach($info as $k=>$v){
-                    $where2 = [
-                        ['goods.is_del','=',1],
-                        ['goods.cate_id','=',$cate_id],
-                        ['goods.goods_id','=',$v['goods_id']]
-                    ];
-                    $goodsInfo = Goods::leftjoin('sku','goods.goods_id','=','sku.goods_id')->where($where2)->paginate(10);
-                }
-            }else{
-                $goodsInfo='';
-            }
-        }else{
-            $goodsInfo = Goods::where($where)->orderBy('goods_price','asc')->paginate(10);
+//            echo $sku;exit;
+            $where=[
+                ['sku.sku','like',"%$sku%"]
+            ];
         }
-//        var_dump(123);exit;
-        return view('index/goods/newinfo',['goodsInfo'=>$goodsInfo,'field'=>$field]);
+//        print_r($where);
+//        echo count($price);
+//        dd($price);
+        $goodsInfo = Goods::leftjoin('sku','goods.goods_id','=','sku.goods_id')->where($where)
+            ->paginate(10,['goods.goods_price','goods.goods_id','goods.goods_img','goods.goods_name','sku.sku'])->toArray();
+//        $goodsInfo = Goods::join('sku','goods.goods_id','=','sku.goods_id')->where($where)
+//            ->paginate(10)->toArray();
+        if(!empty($price)){
+            if(is_array($price)){
+                $price=implode($price,'-');
+            }
+        }
+
+//        dd($price);
+        return view('index/goods/newinfo',['goodsInfo'=>$goodsInfo,'field'=>$field,'sku'=>$sku,'price'=>$price,'brand_id'=>$brand_id]);
     }
 }

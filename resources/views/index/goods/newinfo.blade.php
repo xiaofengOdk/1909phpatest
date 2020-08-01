@@ -1,4 +1,9 @@
 <div class="sui-navbar">
+    <input type="hidden" id="brand_id"  value="{{$brand_id}}">
+    <input type="hidden" id="field"  value="{{$field}}">
+    <input type="hidden" id="sku"  value="{{$sku}}">
+    <input type="hidden" id="goods_price"  value="{{$price}}">
+    {{--<input type="hidden" id="attr_2"  value="{{}}">--}}
     <div class="navbar-inner filter">
         <ul class="sui-nav">
             <li class="{{$field==''?'active':''}}">
@@ -16,23 +21,23 @@
         </ul>
     </div>
 </div>
-@if(!empty($goodsInfo))
+@if(!empty($goodsInfo['data']))
 <div class="goods-list">
 <ul class="yui3-g">
-        @foreach($goodsInfo as $k=>$v)
+        @foreach($goodsInfo['data'] as $k=>$v)
             <li class="yui3-u-1-5">
                 <div class="list-wrap">
                     <div class="p-img">
-                        <a href="/index/goods_desc/{{$v->goods_id}}" target="_blank"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="weight:214px;height:242px;"/></a>
+                        <a href="/index/goods_desc/{{$v['goods_id']}}" target="_blank"><img src="{{env('UPLOADS_URL')}}{{$v['goods_img']}}" style="weight:214px;height:242px;"/></a>
                     </div>
                     <div class="price">
                         <strong>
                             <em>¥</em>
-                            <i>{{$v->goods_price}}</i>
+                            <i>{{$v['goods_price']}}</i>
                         </strong>
                     </div>
                     <div class="attr">
-                        <em><a href="/index/goods_desc/{{$v->goods_id}}" style="color:black; text-decoration:none;">{{$v->goods_name}}</a></em>
+                        <em><a href="/index/goods_desc/{{$v['goods_id']}}" style="color:black; text-decoration:none;">{{$v['goods_name']}}</a></em>
                     </div>
                     {{--<div class="cu">--}}
                     {{--<em><span>促</span>满一件可参加超值换购</em>--}}
@@ -41,9 +46,8 @@
                         <i class="command">已有2000人评价</i>
                     </div>
                     <div class="operate">
-                        <a href="success-cart.html" target="_blank" class="sui-btn btn-bordered btn-danger">加入购物车</a>
-                        <a href="javascript:void(0);" class="sui-btn btn-bordered">对比</a>
-                        <a href="javascript:void(0);" class="sui-btn btn-bordered">关注</a>
+                        <a href="javascript:;" goods_id="{{$v['goods_id']}}" class="sui-btn btn-bordered btn-danger jia">加入购物车</a>
+                        <a href="javascript:void(0);" class="sui-btn btn-bordered">收藏</a>
                     </div>
                 </div>
             </li>
@@ -53,12 +57,14 @@
     <div class="fr page">
         <div class="sui-pagination pagination-large">
             <ul>
-            {{$goodsInfo->links()}}
+
             </ul>
         </div>
     </div>
 @else
     <li class="yui3-u-1-5">
-        该条件下你没有商品....
+
+       <h2>该条件下没有商品....</h2>
+
     </li>
 @endif

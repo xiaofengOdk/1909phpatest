@@ -43,8 +43,10 @@
                 </div>
             </div>
             @foreach($attr as $k=>$v)
-            <div class="type-wrap">
-                <div class="fl key">{{$v->attr_name}}</div>
+            <div class="type-wrap attrs">
+                <div class="fl key">
+                    {{$v->attr_name}}
+                </div>
 
                 <div class="fl value">
 
@@ -81,6 +83,12 @@
         <!--details-->
         <div class="details" id="goodslist">
             <div class="sui-navbar">
+                <input type="hidden" id="brand_id"  value="">
+                <input type="hidden" id="field"  value="">
+                <input type="hidden" id="sku"  value="">
+                <input type="hidden" id="goods_price"  value="">
+                {{--<input type="hidden" id="attr_2"  value="">--}}
+
                 <div class="navbar-inner filter">
                     <ul class="sui-nav" >
                         <li class="active">
@@ -122,9 +130,8 @@
                                     <i class="command">已有2000人评价</i>
                                 </div>
                                 <div class="operate">
-                                    <a href="success-cart.html" target="_blank" class="sui-btn btn-bordered btn-danger">加入购物车</a>
-                                    <a href="javascript:void(0);" class="sui-btn btn-bordered">对比</a>
-                                    <a href="javascript:void(0);" class="sui-btn btn-bordered">关注</a>
+                                    <a href="javascript:;"  goods_id="{{$v->goods_id}}" class="sui-btn btn-bordered btn-danger jia">加入购物车</a>
+                                    <a href="javascript:void(0);" class="sui-btn btn-bordered">收藏</a>
                                 </div>
                             </div>
                         </li>
@@ -201,72 +208,20 @@
             var brand_name = _this.attr('brand_name');
             $("#two").show();
             $('#two').text(brand_name);
-//        console.log(brand_id);
-            getInfo();
-            //重新获取价格
-//        var url='/index/getGoodsPrice';
-//        var data={brand_id:brand_id};
-//        $.ajax({
-//            url:url,
-//            data:data,
-//            type:'get',
-//            dataType:'json',
-//            success:function(res){
-//                console.log(res);
-//            }
-//        })
-        })
-        //价格
-        $(document).on('click','.price_name',function(){
-            var _this =  $(this);
-               var brand_price = _this.text();
-               _this.addClass("redhover");
-               $(this).parent('li').siblings('li').find('a').removeClass('redhover');
-
-//        _this.removeClass("redhover");
-//        console.log(brand_price);
-               $("#first").show();
-               $('#first').text(brand_price);
-               getInfo();
-
-        })
-        //销量
-        $(document).on('click','.selected',function(){
-            var _this = $(this);
-            _this.parent('li').addClass('active');
-            _this.parent('li').siblings('li').removeClass('active');
-//            return false;
-            getInfo();
-        })
-        //分页
-//        $(document).on('click','.pages',function(){
-//            getInfo();
-//        })
-        //sku
-        $(document).on('click','.attrval',function(){
-            var _this=$(this);
-            var attr_id = _this.attr('attr_id');
-            var attrval_id = _this.attr('attrval_id');
-            var attrval_name = _this.text();
-            var sku = "["+attr_id+':'+attrval_id+"]";
-            _this.addClass("redhover");
-            $(this).parent('li').siblings('li').find('a').removeClass('redhover');
-            getInfo(sku);
-        })
-        //公共方法
-        function getInfo(sku){
-            var _this=$(this);
-            var brand_id=$('.brand.redhover').attr('brand_id');
-            var sku=sku;
-            var goods_price=$('.price_name.redhover').text();
-            var field=$('.selected').parent('li.active').find('a').attr('field');
+            var brand_id=_this.attr('brand_id');
             var cate_id="{{$cate->cate_id}}";
-//            console.log(sku);
-//            console.log(goods_price);
-//
-//            console.log(field);
-//            return false;
-
+            var field = $('#field').val();
+            var goods_price=$('#goods_price').val();
+            var sku=$('#sku').val();
+            if(field==''){
+                field=null;
+            }
+            if(goods_price==''){
+                goods_price=null;
+            }
+            if(sku==''){
+                sku=null;
+            }
             var url='/index/getnewinfo';
             var data={brand_id:brand_id,goods_price:goods_price,field:field,cate_id:cate_id,sku:sku};
             $.ajax({
@@ -279,7 +234,141 @@
                     $('#goodslist').html(res);
                 }
             })
-        }
+        })
+        //价格
+        $(document).on('click','.price_name',function(){
+            var _this =  $(this);
+               var goods_price = _this.text();
+               _this.addClass("redhover");
+               $(this).parent('li').siblings('li').find('a').removeClass('redhover');
+
+//        _this.removeClass("redhover");
+//        console.log(brand_price);
+               $("#first").show();
+               $('#first').text(goods_price);
+//               getInfo();
+            var brand_id=$('#brand_id').val();
+            var cate_id="{{$cate->cate_id}}";
+            var field = $('#field').val();
+            var sku=$('#sku').val();
+            if(field==''){
+                field=null;
+            }
+            if(brand_id==''){
+                brand_id=null;
+            }
+            if(sku==''){
+                sku=null;
+            }
+            var url='/index/getnewinfo';
+            var data={brand_id:brand_id,goods_price:goods_price,field:field,cate_id:cate_id,sku:sku};
+            $.ajax({
+                url:url,
+                data:data,
+                type:'post',
+                dataType:'html',
+                success:function(res){
+                    $('#goodslist').html(res);
+                }
+            })
+        })
+        //销量
+        $(document).on('click','.selected',function(){
+            var _this = $(this);
+            _this.parent('li').addClass('active');
+            _this.parent('li').siblings('li').removeClass('active');
+            var field = _this.attr('field');
+            var brand_id=_this.attr('brand_id');
+            var cate_id="{{$cate->cate_id}}";
+            var goods_price=$('#goods_price').val();
+            var sku=$('#sku').val();
+            if(goods_price==''){
+                goods_price=null;
+            }
+            if(brand_id==''){
+                brand_id=null;
+            }
+            if(sku==''){
+                sku=null;
+            }
+            var url='/index/getnewinfo';
+            var data={brand_id:brand_id,goods_price:goods_price,field:field,cate_id:cate_id,sku:sku};
+            $.ajax({
+                url:url,
+                data:data,
+                type:'post',
+                dataType:'html',
+                success:function(res){
+//                console.log(res);
+                    $('#goodslist').html(res);
+                }
+            })
+//            return false;
+//            getInfo();
+        })
+        //sku
+        $(document).on('click','.attrval',function(){
+            var _this=$(this);
+            var attr_id = _this.attr('attr_id');
+            var attrval_id = _this.attr('attrval_id');
+            var attrval_name = _this.text();
+            var sku = "["+attr_id+':'+attrval_id+"]";
+            _this.addClass("redhover");
+            $(this).parent('li').siblings('li').find('a').removeClass('redhover');
+//            getInfo(sku);
+            var brand_id=$('#brand_id').val();
+            var cate_id="{{$cate->cate_id}}";
+            var field = $('#field').val();
+            var goods_price=$('#goods_price').val();
+            if(field==''){
+                field=null;
+            }
+            if(goods_price==''){
+                goods_price=null;
+            }
+            if(brand_id==''){
+                brand_id=null;
+            }
+            var url='/index/getnewinfo';
+            var data={brand_id:brand_id,goods_price:goods_price,field:field,cate_id:cate_id,sku:sku};
+            $.ajax({
+                url:url,
+                data:data,
+                type:'post',
+                dataType:'html',
+                success:function(res){
+//                console.log(res);
+                    $('#goodslist').html(res);
+                }
+            })
+        })
+    })
+    //加入购物车
+    $(document).on("click",".jia",function(){
+        var goods_id = $(this).attr("goods_id");
+        var data ={};
+        data.goods_id = goods_id;
+        data.buy_number = 1;
+//        console.log(data);
+        var url = "/index/cart_add";
+        $.ajax({
+            type:"post",
+            url:url,
+            data:data,
+            dataType:"json",
+            success:function(res){
+                if(res.success==true){
+                    alert(res.message);
+                    location.href="{{url('/index/cart_list')}}"
+                }
+                if(res.success==false){
+                    alert(res.message);
+                    location.href="{{url('/index/cart_list')}}"
+                }
+
+            }
+        })
+
     })
 
 </script>

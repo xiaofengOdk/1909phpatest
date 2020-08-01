@@ -112,7 +112,7 @@
 				<div class="toolbar">
 					<div class="chosed">已选择<span id="zsl">0</span>件商品</div>
 					<div class="sumprice">
-						<span><em>总价（不含运费） ：</em>¥<i class="summoney" id="zj">0</i></span>
+						<span><em>总价（不含运费） ：</em>¥<i class="summoney" id="zj" >0</i></span>
 						{{--<span><em>已节省：</em><i>-¥20.00</i></span>--}}
 					</div>
 					<div class="sumbtn">
@@ -518,24 +518,21 @@
 				var goodss_id=goods_id.length-1;
 				 goods_id=goods_id.substr(0,goodss_id);
 				var goods_price=$("#zj").text();
-				var url="/order/index"
+				var url="/order/index_do"
 				var data={goods_id:goods_id,goods_price:goods_price}
+				// console.log(data)
+				// return false
 	$.ajax({
 				url:url,
 				data:data,
 				type:'post',
 				dataType:'json',
 				success:function(result){
-							console.log(result)
-						// if(result['code']==200){
-					// 	alert(result['msg']);
-					// 	location.href=result['url'];
-					// }else{
-					// 	alert(result['msg']);
-					// 	location.href=result['url'];
+						console.log(result)
+					// if(result.code=='00'){
+					// 	location.href="http://www.1909a3.com/order/index";
 					// }
 				}
 			})
-				 // console.log(goods_price)
 	})
 </script>

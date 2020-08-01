@@ -134,10 +134,7 @@
 								<div class="sendGoods">
 									
 									<ul class="yui3-g">
-                                    
-										<li class="yui3-u-1-6">
-											<span><img width="100" height="100" src="{{env('UPLOADS_URL')}}{{$v->goods_img}}"/></span>
-										</li>
+                               
                                        
 										<li class="yui3-u-7-12">
                                             <div class="name" style="color:red;">{{$v->goods_name}}</div>

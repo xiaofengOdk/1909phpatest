@@ -18,6 +18,8 @@ class CartController extends Controller
     public function cart_list(Request $request)
     {
         $xx=request()->all();
+        $reg=session('reg');
+        $user_id = $reg['user_id'];
         $footInfo=FootModel::get();
         $brand = BrandModel::where("brand_show",1)->get();//热卖
         $nav = NavModel::get();//导航
@@ -27,6 +29,9 @@ class CartController extends Controller
         if($goods_name){
             $where1[] = ['goods_name',"like","%$goods_name%"];
         }
+        $where2=[
+            ['cary.user_id',"=",$user_id]
+        ];
         $where=[
             ['cary.is_del','=',1]
         ];
@@ -35,6 +40,7 @@ class CartController extends Controller
             ->leftjoin('sku','cary.id','=','sku.id')
             ->where($where1)
             ->where($where)
+            ->where($where2)
             ->get();
 //        dd($cartinfo);
         $cate_id=$request->cate_id;

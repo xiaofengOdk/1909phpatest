@@ -223,10 +223,7 @@
 								<!-- </p> -->
 							</div>
 							<div class="fr result">
-								<div class="num">已选购0件商品</div>
-								<div class="price-tit"><strong>套餐价</strong></div>
-								<div class="price">￥5299</div>
-								<button class="sui-btn  btn-danger addshopcar" id="addshopcar">加入购物车</button>
+								<button class="sui-btn  btn-danger addshopcar" id="goshop">加入购物车</button>
 							</div>
 						</div>
 					</div> 
@@ -500,7 +497,8 @@
 				}
 			})
 		})
-		  $(document).on("click","#addshopcar",function(){
+		  $(document).on("click","#goshop",function(){
+		  	// alert(1)
 				var goods_id=""
 			    $("input[name='che']:checked").each(function(reg){
                         goods_id+= $(this).val()+",";
@@ -511,7 +509,7 @@
 					  type:"get",
 					  data:{'goods_id':goods_id},
 					  dataType:'json',
-					  url:'/index/cart_list/',
+					  url:'/index/goshop/',
 					  success:function(reg){
                         console.log(reg);
 					  }

@@ -155,12 +155,14 @@ Route::prefix("/index")->group(function(){
     Route::any('/cart_dels','Index\CartController@cart_dels');//批量删除
     Route::any('/cart_num_del_new','Index\CartController@cart_num_del_new');
     Route::any('/cart_delds','Index\CartController@cart_delds');//删除、彻底消失
+    Route::any('/goshop','Index\CartController@goshop');//删除、彻底消失
 
 });
 Route::prefix("/order")->group(function(){
    Route::any('/index','Index\OrderinfoController@index');
    Route::any('/del/{id}','Index\OrderinfoController@del');
    Route::any('/moren/{id}','Index\OrderinfoController@moren');
+   Route::any('/order_sub','Index\OrderinfoController@order_sub');
 
 });
 Route::prefix("/user")->group(function(){

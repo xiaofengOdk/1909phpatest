@@ -8,6 +8,7 @@ use App\models\Goods;
 use App\models\AdtgModel;
 use App\Models\NavModel;
 use App\Models\BrandModel;
+use App\models\Cary;
 use App\Models\FootModel;
 class NavController extends Controller
 {
@@ -17,8 +18,10 @@ class NavController extends Controller
         $brand = BrandModel::limit(7)->get();//热卖
         $footInfo=FootModel::get();
         $navgoods = Goods::where("nav_id",$id)->get();
+        $cart=Cary::get();
+        $cart=count($cart);
         // dd($navgoods);
-        return view("index/nav/nav_list",compact("nav","brand","footInfo","navgoods"));
+        return view("index/nav/nav_list",compact("nav","brand","footInfo","navgoods","cart"));
     }
     // top
     public function nav_hot($id){
@@ -26,6 +29,8 @@ class NavController extends Controller
         $brand = BrandModel::limit(7)->get();//热卖
         $footInfo=FootModel::get();
         $hot = Goods::where("brand_id",$id)->get();//热卖商品
-        return view("index/nav/nav_hot",compact("nav","brand","footInfo","hot"));
+        $cart=Cary::get();
+        $cart=count($cart);
+        return view("index/nav/nav_hot",compact("nav","brand","footInfo","hot","cart"));
     }
 }

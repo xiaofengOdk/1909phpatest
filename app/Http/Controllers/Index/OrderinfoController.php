@@ -15,6 +15,7 @@ use App\Models\Score;
 use App\Models\User_Address;
 use App\Models\User;
 use App\Models\User_info;
+use App\Models\Order_info;
 class OrderinfoController extends Controller
 {
     public function index(){
@@ -24,7 +25,7 @@ class OrderinfoController extends Controller
         $cart=Cary::get();
         $cart=count($cart);
         // 订单
-        $order = Order_goods::leftjoin("goods","order_goods.goods_id","=","goods.goods_id")->get();
+        $order = Order_goods::where("order_t",1)->leftjoin("goods","order_goods.goods_id","=","goods.goods_id")->get();
        $reg = session("reg");
        $user_id = $reg['user_id'];
        $score = Score::where("user_id",$user_id)->first();
@@ -37,13 +38,56 @@ class OrderinfoController extends Controller
         foreach($price as $k=>$v){
             $shop=$shop+$v['order_price'];
         }
+
+        $goodsss_id=[];
+        foreach($order as $k=>$v){
+            // print_R($v['goods_id']);
+            $goodsss_id[$k]=$v['goods_id'];
+        }
+        // print_R(implode(",",$goodsss_id));
+        // exit;
+        $goodsss_id=implode(",",$goodsss_id);
         $num = $shop-$score3;
     //    dd($num);
         // 收货地址
        
         $address = User_Address::where(["user_id"=>$user_id,"is_del"=>1])->get();
         // dd($address);
-        return view("index.orderinfo.index",compact("nav","brand","footInfo","order","score","shop","num","score3","cart","address"));
+        return view("index.orderinfo.index",compact("nav","brand","goodsss_id","footInfo","order","score","shop","num","score3","cart","address"));
+    }
+
+    public function order_sub(){
+        $info = request()->all();
+        $a = rand(99999,000001);
+        $sn = time().$a; //订单号
+        $reg = session("reg");
+        $user_id = $reg['user_id'];
+        $goods_price = $info['price'];
+        $data = [
+            "order_sn"=>$sn,
+            "user_id"=>$user_id,
+            "order_amount"=>$goods_price,
+            "add_time"=>time(),
+            "payname"=>1,
+        ];
+        $res = Order_info::insert($data);
+        $goods_id = $info['goods_id'];
+        $goods_id = explode(",",$goods_id);
+        $da=Order_info::where("order_sn",$sn)->first();
+        $order_id = $da['order_id'];
+        // dd($order_id);
+        foreach($goods_id as $k=>$v){
+           $order = Order_goods::where("goods_id",$v)->update(['order_id'=>$order_id,"order_t"=>2]);
+            // dump($v['goods_id']);
+        }
+        if($order){
+           return $message = [
+                "code"=>00003,
+                "success"=>true,
+                "message"=>"下单成功",
+            ];
+        }
+        
     }
     // 默认地址
     public function moren($id){

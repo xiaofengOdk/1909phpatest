@@ -130,16 +130,17 @@
 					<div class="step-cont">
 						<ul class="send-detail">
 							<li>
+								<input type="hidden" value="{{$goodsss_id}}" class="goodsss_id">
 								@foreach($order as $k=>$v) 
-								<div class="sendGoods">
+								<div class="sendGoods"  >
 									
 									<ul class="yui3-g">
                                
-									<li class="yui3-u-1-6">
+									<li class="yui3-u-1-6" goods_id="{{$v->goods_id}}">
 											<span><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" width="100;"  height="150;"></span>
 										</li>
 										<li class="yui3-u-7-12">
-                                            <div class="name" style="color:red;">{{$v->goods_name}}</div>
+                                            <div class="name" style="color:red;" >{{$v->goods_name}}</div>
 											<div class="desc">{{$v->goods_dese}}</div>
 											<div class="desc"style="color:#cc0000;"><h4>7天无理由退货</h4> </div>
 										</li>
@@ -197,11 +198,11 @@
 			</div>
 		</div>
 		<div class="clearfix trade">
-			<div class="fc-price">应付金额:　<span class="price">¥{{$num}}</span></div>
+			<div class="fc-price">应付金额:　<span class="price goods_price" price="{{$num}}">¥{{$num}}</span></div>
 			<div class="fc-receiverInfo">寄送至:北京市海淀区三环内 中关村软件园9号楼 收货人：某某某 159****3201</div>
 		</div>
 		<div class="submit">
-			<a class="sui-btn btn-danger btn-xlarge" href="pay.html">提交订单</a>
+			<a class="sui-btn btn-danger btn-xlarge tijiao" href="JavaScript:;">提交订单</a>
 		</div>
 	<!-- </div> -->
 	<!-- 底部栏位 -->
@@ -216,6 +217,30 @@
 
 </html>
 
+<script>
+	$(document).on("click",".tijiao",function(){
+		var url = "{{url('/order/order_sub')}}";
+		
+    		var goods_id = $(".goodsss_id").val();
+			var price = $(".goods_price").attr("price");
+			var data = {};
+			data.goods_id = goods_id;
+			data.price = price;
+		$.ajax({
+				type:"post",
+				url:url,
+				data:data,
+				dataType:"json",
+				success:function(res){
+					if(res.success==true){
+						alert(res.message);
+					}
+				}
+			})
+	
+	})
 
+	
+</script>
 
 @include("index.layout.foot")

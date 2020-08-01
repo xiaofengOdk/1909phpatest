@@ -18,6 +18,8 @@ class CartController extends Controller
     public function cart_list(Request $request)
     {
         $xx=request()->all();
+        $reg=session('reg');
+        $user_id = $reg['user_id'];
         $footInfo=FootModel::get();
         $brand = BrandModel::where("brand_show",1)->get();//热卖
         $nav = NavModel::get();//导航
@@ -27,6 +29,9 @@ class CartController extends Controller
         if($goods_name){
             $where1[] = ['goods_name',"like","%$goods_name%"];
         }
+        $where2=[
+            ['cary.user_id',"=",$user_id]
+        ];
         $where=[
             ['cary.is_del','=',1]
         ];
@@ -35,6 +40,7 @@ class CartController extends Controller
             ->leftjoin('sku','cary.id','=','sku.id')
             ->where($where1)
             ->where($where)
+            ->where($where2)
             ->get();
 //        dd($cartinfo);
         $cate_id=$request->cate_id;
@@ -309,5 +315,37 @@ class CartController extends Controller
         }
 
     }
-
+    public function goshop(){
+        // print_R(request()->all());
+        $goods_id=request()->goods_id;
+        $goods_id=explode(",",$goods_id);
+        // dd($goods_id);
+        $cary=new Cary;
+        $user_id=session('reg');
+        $user_id=$user_id['user_id'];
+        // dd($user_id);
+        $cary=[];
+        foreach($goods_id as $k=>$v){
+           $goods_info= Goods::where("goods_id",$v)->first();
+            $cary['user_id']=$user_id;
+            $cary['goods_id']=$v;
+            $cary['buy_number']=1;
+            $cary['add_time']=time();
+            $cary['id']=1;
+            $cary['goods_price_one']=$goods_info['goods_price'];
+            $result=Cary::insert($cary);
+        }
+        // dd($result);
+        if($result){
+            return [
+                'code'=>"0000",
+                'message'=>"成功"
+            ];
+        }else{
+            return [
+                'code'=>"0004",
+                "message"=>"失败"
+            ];
+        }
+    }
 }

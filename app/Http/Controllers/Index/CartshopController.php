@@ -96,7 +96,7 @@ class CartshopController extends Controller
             // $buy_number = 1;
             $goods = Goods::where("goods_id",$goods_id)->first();
             // 判断库存
-            if($goods->goods_store<$buy_number){
+            if($goods['goods_store']<$buy_number){
                 return $message=[
                         "code"=>00001,
                         "message"=>"库存不足",

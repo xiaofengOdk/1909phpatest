@@ -85,6 +85,7 @@ class OrderinfoController extends Controller
                 "code"=>00003,
                 "success"=>true,
                 "message"=>"下单成功",
+                'result'=>$order_id
             ];
         }
         

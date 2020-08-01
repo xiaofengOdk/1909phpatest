@@ -64,4 +64,26 @@ class OrderinfoController extends Controller
            return redirect('/order/index');
         }
     }
+    public function index_do(){
+        // print_R(request()->all());
+            $goods_id=request()->goods_id;
+        $goods_id=explode(",",$goods_id);
+        // dd(trim(request()->goods_price));
+        $cary=new Cary;
+        $user_id=session('reg');
+        $user_id=$user_id['user_id'];
+        // dd($user_id);
+        $cary=[];
+        foreach($goods_id as $k=>$v){
+           $goods_info= Goods::where("goods_id",$v)->first();
+            $cary['user_id']=$user_id;
+            $cary['goods_id']=$v;
+            $cary['buy_number']=1;
+            $cary['order_price']=$goods_info['goods_price'];
+            // $cary['number']=1;
+            // $cary['goods_price_one']=$goods_info['goods_price'];
+            $result=Order_goods::insert($cary);
+        }
+        print_R($result);
+    }
 }

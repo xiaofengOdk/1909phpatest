@@ -178,3 +178,4 @@ Route::prefix("/user")->group(function(){
 }); 
 
    Route::any('/payMoney1','Index\Test@payMoney1');
+   Route::any('/return_url','Index\Test@return_url');

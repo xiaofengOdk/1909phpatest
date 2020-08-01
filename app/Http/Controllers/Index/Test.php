@@ -4,42 +4,37 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 class Test extends Controller
 {
-
-
     public function payMoney1(){
-      $config=config("alipay.");
-      // print_R($config);exit;
-    require_once '../extend/alipay/pagepay/service/AlipayTradeService.php';
-    require_once '../extend/alipay/pagepay/buildermodel/AlipayTradePagePayContentBuilder.php';
-dd(1);
-  //   //商户订单号，商户网站订单系统中唯一订单号，必填
-    $out_trade_no = "2222222222222";
-
-  //   //订单名称，必填
-    $subject = "电商支付";
-
-  //   //付款金额，必填
-    $total_amount = "10";
-
-  //   //商品描述，可空
-    $body = "";
-
-  // //构造参数
-  $payRequestBuilder = new \AlipayTradePagePayContentBuilder();
-  $payRequestBuilder->setBody($body);
-  $payRequestBuilder->setSubject($subject);
-  $payRequestBuilder->setTotalAmount($total_amount);
-  $payRequestBuilder->setOutTradeNo($out_trade_no);
-
-  $aop = new \AlipayTradeService($config);
- 
- 
-  $response = $aop->pagePay($payRequestBuilder,$config['return_url'],$config['notify_url']);
-
-  //输出表单
-  var_dump($response);
-    }  
-    }  
+    require_once app_path('libs/alipay/wappay/service/AlipayTradeService.php');
+    require_once app_path('libs/alipay/wappay/buildermodel/AlipayTradeWapPayContentBuilder.php');
+    $config=config('alipay');
+    // dd($config);
+    // if (!empty($order_no)&& trim($order_no!="")){
+        // 商户订单号，商户网站订单系统中唯一订单号，必填
+        $out_trade_no = "151555";
+        //订单名称，必填
+        $subject = "22";
+        //付款金额，必填
+        $total_amount = "22";
+        //商品描述，可空
+        $body = "很好";
+        //超时时间
+        $timeout_express="10m";
+        $payRequestBuilder = new \AlipayTradeWapPayContentBuilder();
+        $payRequestBuilder->setBody($body);
+        $payRequestBuilder->setSubject($subject);
+        $payRequestBuilder->setOutTradeNo($out_trade_no);
+        $payRequestBuilder->setTotalAmount($total_amount);
+        $payRequestBuilder->setTimeExpress($timeout_express);
+        $payResponse = new \AlipayTradeService($config);
+        $result=$payResponse->wapPay($payRequestBuilder,$config['return_url'],$config['notify_url']);
+        return ;
+    // }
+  }
+  public function return_url(){
+    echo 1111111;
+  }
+  }  
    
 
 

@@ -176,3 +176,6 @@ Route::prefix("/user")->group(function(){
     Route::any('/default/{id}','Index\AddressController@default');
     Route::any('/getCity','Index\AddressController@getCity');
 }); 
+
+   Route::any('/payMoney1','Index\Test@payMoney1');
+   Route::any('/return_url','Index\Test@return_url');

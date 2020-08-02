@@ -10,7 +10,7 @@ use App\models\Cary;
 use App\Models\NavModel;
 use App\Models\BrandModel;
 use App\Models\FootModel;
-use App\MOdels\Order_goods;
+use App\Models\Order_goods;
 use App\Models\Score;
 use App\Models\User_Address;
 use App\Models\User;
@@ -52,7 +52,7 @@ class OrderinfoController extends Controller
         // 收货地址
        
         $address = User_Address::where(["user_id"=>$user_id,"is_del"=>1])->get();
-        // dd($address);
+        // dd($order);
         return view("index.orderinfo.index",compact("nav","brand","goodsss_id","footInfo","order","score","shop","num","score3","cart","address"));
     }
 
@@ -112,6 +112,7 @@ class OrderinfoController extends Controller
     public function index_do(){
         // print_R(request()->all());
             $goods_id=request()->goods_id;
+            // dd($goods_id);
         $goods_id=explode(",",$goods_id);
         // dd(trim(request()->goods_price));
         $cary=new Cary;
@@ -121,14 +122,27 @@ class OrderinfoController extends Controller
         $cary=[];
         foreach($goods_id as $k=>$v){
            $goods_info= Cary::leftjoin("goods","cary.goods_id","=","goods.goods_id")->where("goods.goods_id",$v)->first();
+           // dd($v);
             $cary['user_id']=$user_id;
             $cary['goods_id']=$v;
             $cary['buy_number']=$goods_info['buy_number'];
-            $cary['order_price']=$goods_info['buy_number']*$goods_info['goods_price_one'];
+            $cary['order_price']=$goods_info['buy_number']*$goods_info['goods_price'];
             // $cary['number']=1;
             // $cary['goods_price_one']=$goods_info['goods_price'];
             $result=Order_goods::insert($cary);
         }
-        print_R($result);
+        // print_R($cary);
+        // exit;
+         if($result){
+            return [
+                'code'=>"00000",
+                "msg"=>"成功"
+            ];
+        }else{
+            return [
+                'code'=>"00004",
+                "msg"=>"失败"
+            ];
+        }
     }
 }

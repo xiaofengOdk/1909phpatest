@@ -129,9 +129,7 @@ class GoodsController extends Controller
         $sku = $request->sku;
         if(!empty($sku)){
 //            echo $sku;exit;
-            $where=[
-                ['sku.sku','like',"%$sku%"]
-            ];
+            $where[]= ['sku.sku','like',"%$sku%"];
         }
 //        print_r($where);
 //        echo count($price);

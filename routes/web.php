@@ -167,6 +167,7 @@ Route::prefix("/order")->group(function(){
    Route::any('/order_sub','Index\OrderinfoController@order_sub');
    Route::any('/payno','Index\OrderinfoController@payno');
    Route::any('/payok','Index\OrderinfoController@payok');
+  Route::any('/getnewInfo','Index\GoodsinfoController@getnewInfo');
 });
 Route::prefix("/user")->group(function(){
     Route::any('/user_info','Index\UserController@user_info');

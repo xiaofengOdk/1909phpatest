@@ -17,7 +17,7 @@ a{
 
 						@else
 						<li class="f-item">欢迎</li>
-						<li class="f-item" style="margin-left:5px;"><b style="font-size:15px; color:red;">@php echo session('reg')->user_name@endphp</b>　<span><a href="/index/quit" target="_blank">退出</a></span></li>
+						<li class="f-item" style="margin-left:10px;"><a >@php echo session('reg')->user_name@endphp</a>　<span><a href="/index/quit" target="_blank">退出</a></span></li>
 						@endif
 					</ul>
 					<ul class="fr">

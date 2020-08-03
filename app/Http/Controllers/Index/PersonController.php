@@ -23,7 +23,8 @@ class PersonController extends Controller
         $cart=Cary::get();
         $cart=count($cart);
         $order = Order_info::get();
-        // $order_info = Order_info::leftjoin("order_goods","order_info.order_id","=","order_goods.order_id")->get();
+        $order_info = Order_info::get();
+        // dd($order_info);
         return view("index.person.user_index",compact("nav","brand","footInfo","cart","order","order_info"));
     }
 }

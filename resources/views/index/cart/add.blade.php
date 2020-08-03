@@ -10,8 +10,15 @@
 	<div class="py-container">
 		<div class="shortcut">
 			<ul class="fl">
-				<li class="f-item">品优购欢迎您！</li>
-				<li class="f-item">请<a href="/index/login" target="_blank">登录</a>　<span><a href="/index/reg" target="_blank">免费注册</a></span></li>
+
+				@if(session('reg')=='')
+					<li class="f-item">品优购欢迎您！</li>
+					<li class="f-item">请<a href="/index/login" target="_blank">登录</a>　<span><a href="/index/reg" target="_blank">免费注册</a></span></li>
+
+				@else
+					<li class="f-item">欢迎</li>
+					<li class="f-item" style="margin-left:10px;"><a >@php echo session('reg')->user_name@endphp</a>　<span><a href="/index/quit" target="_blank">退出</a></span></li>
+				@endif
 			</ul>
 			<ul class="fr">
 				<li class="f-item"><a href="http://www.1909a3.com/index/user_index" style="text-decoration: none; color:black;">我的订单</a></li>
@@ -526,7 +533,7 @@
 	$(document).on("click","#suanzhang",function(){
 		var goods_id=""
 		$("input[name='qx_0.1']:checked").each(function(reg){
-                        goods_id+= $(this).val()+",";
+                        goods_id+= $(this).attr('cary_id')+",";
 				});
 				var goodss_id=goods_id.length-1;
 				 goods_id=goods_id.substr(0,goodss_id);

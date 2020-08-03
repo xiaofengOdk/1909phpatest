@@ -165,7 +165,8 @@ Route::prefix("/order")->group(function(){
    Route::any('/del/{id}','Index\OrderinfoController@del');
    Route::any('/moren/{id}','Index\OrderinfoController@moren');
    Route::any('/order_sub','Index\OrderinfoController@order_sub');
-
+   Route::any('/payno','Index\OrderinfoController@payno');
+   Route::any('/payok','Index\OrderinfoController@payok');
 });
 Route::prefix("/user")->group(function(){
     Route::any('/user_info','Index\UserController@user_info');
@@ -177,6 +178,5 @@ Route::prefix("/user")->group(function(){
     Route::any('/default/{id}','Index\AddressController@default');
     Route::any('/getCity','Index\AddressController@getCity');
 }); 
-
-   Route::any('/payMoney1/{id}','Index\Test@payMoney1');
-   Route::any('/return_url','Index\Test@return_url');
+Route::any('/payMoney1/{id}','Index\Test@payMoney1');
+Route::any('/return_url','Index\Test@return_url');

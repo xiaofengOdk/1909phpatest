@@ -267,7 +267,7 @@
             var _this =  $(this);
             if(_this.hasClass("redhover")){
                 _this.removeClass("redhover");
-                $("#two").hide();
+                $("#first").hide();
                 var goods_price = null;
 //               getInfo();
                 var brand_id=$('#brand_id').val();

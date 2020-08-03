@@ -31,6 +31,7 @@ class BrandController extends Controller
         return $array;
     }
     public function brand(){
+<<<<<<< Updated upstream
         $brand_name=request()->brand_name;
 
         $where=[
@@ -43,6 +44,15 @@ class BrandController extends Controller
         $cateinfo = $this->list_level($cate);
 //        print_r($cateinfo);exit;
         return view('admin/goods/brand',['info'=>$info,'cateinfo'=>$cateinfo]);
+=======
+        $info = BrandModel::where('is_del',1)->paginate(2);
+<<<<<<< HEAD
+		//dd($info);
+=======
+        // dd($info);
+>>>>>>> 1d51503d5359745f47718cac0f4ebae98f92980f
+        return view('admin/goods/brand',['info'=>$info]);
+>>>>>>> Stashed changes
 
     }
     //添加品牌

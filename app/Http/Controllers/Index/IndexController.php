@@ -58,6 +58,13 @@ public static function getleftInfo($leftInfo,$pid=0){
         $arr[]=$v;
         }
     }
+<<<<<<< Updated upstream
     return  $arr;
 	}
+=======
+    
+    public function show(){
+        return view('index.show');
+    }
+>>>>>>> Stashed changes
 }

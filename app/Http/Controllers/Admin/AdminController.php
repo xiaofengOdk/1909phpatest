@@ -22,6 +22,7 @@ class AdminController extends Controller
         }
         $where[]=['is_del','=',1];
         $AdminModel=new Admin();
+<<<<<<< Updated upstream
         $reg=$AdminModel->where($where)->paginate(2);
         $RoleModel=new RoleModel();
         $regs=$RoleModel->get();
@@ -30,6 +31,11 @@ class AdminController extends Controller
         // if(request()->ajax()){
         //     return view('admin.user.ajaxpag',['reg'=>$reg,'regs'=>$regs]);
         // }
+=======
+        $reg=$AdminModel->where('is_del',1)->paginate(2);
+        $RoleModel=new RoleModel();
+        $regs=$RoleModel->get();
+>>>>>>> Stashed changes
         return view('admin.user.ushow',['reg'=>$reg,'regs'=>$regs]);
    }
    public function udo(){

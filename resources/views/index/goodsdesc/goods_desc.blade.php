@@ -458,7 +458,13 @@
             _val=_val-1
             _this.prev("input").val(_val)  
                }
+               getnewInfo(_val)
         })
+	  	  function getnewInfo(_val){
+			var _price=$("#ssss").text();
+	  	  	var price=_val*_price
+	  	  	$("#ssss").text(price);
+	  	  }
 		$(document).on("click","#ys",function(){
 			var _this=$(this);
 			_this.parents('dl').find("[name='yanshi']").prop("class",'');

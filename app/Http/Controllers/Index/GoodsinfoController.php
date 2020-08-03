@@ -20,7 +20,7 @@ class GoodsinfoController extends Controller
         $footInfo=FootModel::get();//底部导航
                $cart=Cary::get();
         $cart=count($cart);
-        $brand = BrandModel::where("brand_show",1)->get();//热卖
+        $brand = BrandModel::where("brand_show",1)->limit(7)->get();//热卖
         $brandInfo = BrandModel::where('cate_id',$id)->get();
         $goodsInfo = Goods::
         leftjoin("gimgs","goods.goods_id","=","gimgs.goods_id")

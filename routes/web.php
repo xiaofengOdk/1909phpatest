@@ -156,8 +156,9 @@ Route::prefix("/index")->group(function(){
     Route::any('/cart_num_del_new','Index\CartController@cart_num_del_new');
     Route::any('/cart_delds','Index\CartController@cart_delds');//删除、彻底消失
     Route::any('/goshop','Index\CartController@goshop');//删除、彻底消失
+    Route::any('/quit','Index\RegController@quit');
 
-});
+}); 
 Route::prefix("/order")->group(function(){
    Route::any('/index','Index\OrderinfoController@index');
    Route::any('/index_do','Index\OrderinfoController@index_do');

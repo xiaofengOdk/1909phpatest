@@ -5,17 +5,18 @@
 <script type="text/javascript" src="/static/index/js/plugins/sui/sui.min.js"></script>
 <script type="text/javascript" src="/static/index/js/widget/nav.js"></script>
 <!--head-->
+{{--导航--}}
 <div class="top">
 	<div class="py-container">
 		<div class="shortcut">
 			<ul class="fl">
 				<li class="f-item">品优购欢迎您！</li>
-				<li class="f-item">请登录　<span><a href="#">免费注册</a></span></li>
+				<li class="f-item">请<a href="/index/login" target="_blank">登录</a>　<span><a href="/index/reg" target="_blank">免费注册</a></span></li>
 			</ul>
 			<ul class="fr">
-				<li class="f-item">我的订单</li>
+				<li class="f-item"><a href="http://www.1909a3.com/index/user_index" style="text-decoration: none; color:black;">我的订单</a></li>
 				<li class="f-item space"></li>
-				<li class="f-item">我的品优购</li>
+				<li class="f-item"><a href="home.html" target="_blank">我的品优购</a></li>
 				<li class="f-item space"></li>
 				<li class="f-item">品优购会员</li>
 				<li class="f-item space"></li>
@@ -23,9 +24,17 @@
 				<li class="f-item space"></li>
 				<li class="f-item">关注品优购</li>
 				<li class="f-item space"></li>
-				<li class="f-item">客户服务</li>
+				<li class="f-item" id="service">
+					<span>客户服务</span>
+					<ul class="service">
+						<li><a href="cooperation.html" target="_blank">合作招商</a></li>
+						<li><a href="shoplogin.html" target="_blank">商家后台</a></li>
+						<li><a href="cooperation.html" target="_blank">合作招商</a></li>
+						<li><a href="#">商家后台</a></li>
+					</ul>
+				</li>
 				<li class="f-item space"></li>
-				<li class="f-item">网站导航</li>
+				<li class="f-item"><a href="/"style="text-decoration: none; color:black;" >网站导航</a></li>
 			</ul>
 		</div>
 	</div>
@@ -71,7 +80,9 @@
 								<li class="yui3-u-11-24">
 									<div class="good-item">
 										<div class="item-img"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" /></div>
-										<div class="item-msg">{{$v->goods_name}}</div>
+										<div class="item-msg">
+											<a href="{{url('/index/goods_desc',$v->goods_id)}}">{{$v->goods_name}}</a>
+										</div>
 
 									</div>
 								</li>
@@ -207,7 +218,6 @@
 			</div>
 		</div>
 	</div>
-
 <script>
 	//减
 	$(document).on('click','#num_jian',function(){

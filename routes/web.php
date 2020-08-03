@@ -156,15 +156,18 @@ Route::prefix("/index")->group(function(){
     Route::any('/cart_num_del_new','Index\CartController@cart_num_del_new');
     Route::any('/cart_delds','Index\CartController@cart_delds');//删除、彻底消失
     Route::any('/goshop','Index\CartController@goshop');//删除、彻底消失
+    Route::any('/quit','Index\RegController@quit');
 
-});
+}); 
 Route::prefix("/order")->group(function(){
    Route::any('/index','Index\OrderinfoController@index');
    Route::any('/index_do','Index\OrderinfoController@index_do');
    Route::any('/del/{id}','Index\OrderinfoController@del');
    Route::any('/moren/{id}','Index\OrderinfoController@moren');
    Route::any('/order_sub','Index\OrderinfoController@order_sub');
-
+   Route::any('/payno','Index\OrderinfoController@payno');
+   Route::any('/payok','Index\OrderinfoController@payok');
+  Route::any('/getnewInfo','Index\GoodsinfoController@getnewInfo');
 });
 Route::prefix("/user")->group(function(){
     Route::any('/user_info','Index\UserController@user_info');
@@ -176,6 +179,5 @@ Route::prefix("/user")->group(function(){
     Route::any('/default/{id}','Index\AddressController@default');
     Route::any('/getCity','Index\AddressController@getCity');
 }); 
-
-   Route::any('/payMoney1/{id}','Index\Test@payMoney1');
-   Route::any('/return_url','Index\Test@return_url');
+Route::any('/payMoney1/{id}','Index\Test@payMoney1');
+Route::any('/return_url','Index\Test@return_url');

@@ -17,6 +17,8 @@ class CartController extends Controller
     //购物车展示
     public function cart_list(Request $request)
     {
+        $cart=Cary::get();
+        $cart=count($cart);
         $xx=request()->all();
         $reg=session('reg');
         $user_id = $reg['user_id'];
@@ -73,6 +75,7 @@ class CartController extends Controller
                 'cartinfo'=>$cartinfo,
                 'history_goods'=>$history_goods,
                 'dels_vl'=>$dels_vl,
+                'cart'=>$cart
             ]);
     }
 

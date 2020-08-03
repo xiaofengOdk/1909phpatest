@@ -458,7 +458,30 @@
             _val=_val-1
             _this.prev("input").val(_val)  
                }
+               getnewInfo(_val)
         })
+	  	  function getnewInfo(_val){
+			var _price=$("#ssss").text();
+			var goods_id=$(".goods_id").val()
+			var data={}
+			data.goods_id=goods_id
+			var url="/order/getnewInfo"
+			// console.log(data)
+			// return false
+		  $.ajax({
+             type:'post',
+             data:data,
+             url:url,
+             dataType:'json',
+             success:function(reg){
+             	console.log(reg)
+                 // alert(reg.message)
+                 // location.href="/index/cart_list"
+             }
+         })
+	  	  	// var price=_val*_price
+	  	  	$("#ssss").text(price);
+	  	  }
 		$(document).on("click","#ys",function(){
 			var _this=$(this);
 			_this.parents('dl').find("[name='yanshi']").prop("class",'');

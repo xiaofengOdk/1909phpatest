@@ -256,6 +256,13 @@ class RegController extends Controller
          
        
      }
+
+     //退出
+     public function quit(){
+         $res= session(['reg'=>null]);
+        //  dd($res);
+         return redirect('/');
+     }
         
    }
 

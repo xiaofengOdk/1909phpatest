@@ -25,9 +25,11 @@ class OrderinfoController extends Controller
         $cart=Cary::get();
         $cart=count($cart);
         // 订单
-        $order = Order_goods::where("order_t",1)->leftjoin("goods","order_goods.goods_id","=","goods.goods_id")->get();
-       $reg = session("reg");
-       $user_id = $reg['user_id'];
+        $reg = session("reg");
+        $user_id = $reg['user_id'];
+        $order = Order_goods::where(["order_t"=>1,"user_id"=>$user_id])->leftjoin("goods","order_goods.goods_id","=","goods.goods_id")->get();
+        // dd($order);
+      
        $score = Score::where("user_id",$user_id)->first();
        $score2 = $score['score'];
        $score3 = $score2/10;
@@ -123,7 +125,7 @@ class OrderinfoController extends Controller
         // dd($user_id);
         $cary=[];
         foreach($goods_id as $k=>$v){
-           $goods_info= Cary::leftjoin("goods","cary.goods_id","=","goods.goods_id")->where("goods.goods_id",$v)->first();
+           $goods_info= Cary::leftjoin("goods","cary.goods_id","=","goods.goods_id")->where("cary_id",$v)->first();
            // dd($v);
             $cary['user_id']=$user_id;
             $cary['goods_id']=$v;

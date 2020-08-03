@@ -94,14 +94,14 @@ $(function(){
                                             <td width="39%">
                                                 <div class="typographic"><img src="/static/index/img/goods.png" />
                                                
-                                                    <a href="#"  class="block-text"> <font size="2">包邮 正品玛姬儿压缩面膜无纺布纸膜100粒 送泡瓶面膜刷喷瓶 新款</font></a>
+                                                    <a href="#"  class="block-text"> <font size="2">包邮 {{$v->goods_name}}</font></a>
                                                     <span class="guige"><font size="2">规格：温泉喷雾150ml</font></span>
                                                 </div>
                                             </td>
                                             <td width="5%" class="center">
                                                 <ul class="unstyled">
                                                     <li class="o-price"><font size="2">¥599.00</li>
-                                                    <li><font size="2">¥299.00</font></li>
+                                                    <li><font size="2">¥{{$v->goods_price}}</font></li>
                                                 </ul>
                                             </td>
                                             <td width="5%" class="center"><font size="2">1</font></td>

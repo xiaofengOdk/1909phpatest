@@ -66,7 +66,7 @@
 						<div class="cart-list"  id='ul_id'>
 							<ul class="goods-list yui3-g">
 								<li class="yui3-u-1-24">
-									<input type="checkbox" name="qx_0.1" cary_id="{{$v->cary_id}}" id="" value="{{$v->cary_id}}" />
+									<input type="checkbox" name="qx_0.1" cary_id="{{$v->cary_id}}" id="" value="{{$v->goods_id}}" />
 								</li>
 								<li class="yui3-u-11-24">
 									<div class="good-item">
@@ -112,7 +112,10 @@
 				<div class="toolbar">
 					<div class="chosed">已选择<span id="zsl">0</span>件商品</div>
 					<div class="sumprice">
-						<span><em>总价（不含运费） ：</em>¥<i class="summoney" id="zj" >0</i></span>
+						<span>
+							<em>总价（不含运费）</em>
+							<i class="summoney" id="zj" >0</i>
+						</span>
 						{{--<span><em>已节省：</em><i>-¥20.00</i></span>--}}
 					</div>
 					<div class="sumbtn">
@@ -528,10 +531,10 @@
 				type:'post',
 				dataType:'json',
 				success:function(result){
-						console.log(result)
-					// if(result.code=='00'){
-					// 	location.href="http://www.1909a3.com/order/index";
-					// }
+						// console.log(result)
+					if(result.code=='00000'){
+						location.href="http://www.1909a3.com/order/index";
+					}
 				}
 			})
 	})

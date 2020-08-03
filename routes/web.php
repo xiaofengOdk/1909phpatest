@@ -15,7 +15,7 @@
 
     // Route::get('/', function () {
     //     return view('welcome');
-    // });
+    // }); 
 
     Route::any('/','Index\IndexController@index');//前台首页
     Route::any('/show','Index\IndexController@show');//前台首页
@@ -177,5 +177,5 @@ Route::prefix("/user")->group(function(){
     Route::any('/getCity','Index\AddressController@getCity');
 }); 
 
-   Route::any('/payMoney1','Index\Test@payMoney1');
+   Route::any('/payMoney1/{id}','Index\Test@payMoney1');
    Route::any('/return_url','Index\Test@return_url');

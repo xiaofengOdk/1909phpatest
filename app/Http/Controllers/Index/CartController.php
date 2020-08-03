@@ -57,7 +57,7 @@ class CartController extends Controller
         $sum_up=count($dels_vl);
         foreach($dels_vl as $r1=>$r2){
             $property=Sku::where('id',$r2['id'])->first();
-
+ 
             $sku_vl_id=$this->explode_id($property);
             $sku_vl_val=AttrVal::wherein('id',$sku_vl_id)->where('is_del','1')->get();
             $property['sku']=$sku_vl_val;

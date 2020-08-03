@@ -18,7 +18,7 @@
     // }); 
 
     Route::any('/','Index\IndexController@index');//前台首页
-    Route::any('/show','Index\IndexController@show');//前台首页
+    Route::any('/sshow','Index\IndexController@sshow');//前台首页
 Route::prefix("/admin")->group(function(){
 	Route::any("/index","Admin\AdminController@index");//后台首页
     Route::any("/reg","Admin\RegController@reg");//后台注册

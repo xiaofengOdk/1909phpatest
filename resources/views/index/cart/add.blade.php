@@ -526,7 +526,7 @@
 	$(document).on("click","#suanzhang",function(){
 		var goods_id=""
 		$("input[name='qx_0.1']:checked").each(function(reg){
-                        goods_id+= $(this).val()+",";
+                        goods_id+= $(this).attr('cary_id')+",";
 				});
 				var goodss_id=goods_id.length-1;
 				 goods_id=goods_id.substr(0,goodss_id);

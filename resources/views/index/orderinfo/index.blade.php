@@ -199,7 +199,7 @@
 		</div>
 		<div class="clearfix trade">
 			<div class="fc-price">应付金额:　<span class="price goods_price" price="{{$num}}">¥{{$num}}</span></div>
-			<div class="fc-receiverInfo">寄送至:北京市海淀区三环内 中关村软件园9号楼 收货人：某某某 159****3201</div>
+			<div class="fc-receiverInfo">寄送至:{{$dz->deta_address}} 收货人：{{$dz->user_name}} 电话：{{$dz->tel}}</div>
 		</div>
 		<div class="submit">
 			<a class="sui-btn btn-danger btn-xlarge tijiao" href="JavaScript:;">提交订单</a>

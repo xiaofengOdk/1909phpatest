@@ -52,8 +52,9 @@ class OrderinfoController extends Controller
         // 收货地址
        
         $address = User_Address::where(["user_id"=>$user_id,"is_del"=>1])->get();
+        $dz = User_Address::where(["user_id"=>$user_id,"is_moren"=>2])->first();
         // dd($address);
-        return view("index.orderinfo.index",compact("nav","brand","goodsss_id","footInfo","order","score","shop","num","score3","cart","address"));
+        return view("index.orderinfo.index",compact("nav","brand","goodsss_id","footInfo","order","score","shop","num","score3","cart","address","dz"));
     }
 
     public function order_sub(){

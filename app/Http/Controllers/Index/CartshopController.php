@@ -103,12 +103,31 @@ class CartshopController extends Controller
                         "success"=>false,
                     ];
             }
-            $cart = Cary::where(["user_id"=>$user_id,"goods_id"=>$goods_id])->first();
+            $cart = Cary::where(["user_id"=>$user_id,"goods_id"=>$goods_id,"is_del"=>1])->first();
+            $cart2 = Cary::where(["user_id"=>$user_id,"goods_id"=>$goods_id,"is_del"=>2])->first();
+            if($cart2){
+                $buy_number = $buy_number;
+                if($goods->goods_store<$buy_number){
+                    $buy_number = $goods->goods_store;
+                }
+                $res3 = Cary::where(["user_id"=>$user_id,"goods_id"=>$goods_id,"is_del"=>2])->update(['buy_number'=>$buy_number,'add_time'=>time(),"is_del"=>1]);
+            // dd($res2);
+                
+                if($res3){
+                    return $message=[
+                        "code"=>00001,
+                        "message"=>"已加入购物车",
+                        "success"=>true,
+                    ];
+                }
+
+            }
             if($cart){
                 $buy_number = $cart->buy_number+$buy_number;
                 if($goods->goods_store<$buy_number){
                     $buy_number = $goods->goods_store;
                 }
+                
             $res = Cary::where(["user_id"=>$user_id,"goods_id"=>$goods_id])->update(['buy_number'=>$buy_number,'add_time'=>time()]);
                 if($res){
                     return $message=[

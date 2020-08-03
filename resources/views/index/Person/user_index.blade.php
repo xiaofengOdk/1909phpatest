@@ -89,6 +89,7 @@ $(function(){
                                 </div>
                                 <table class="sui-table table-bordered order-datatable">
                                     <tbody>
+                                    @foreach($order_info as $k=>$v)
                                         <tr>
                                             <td width="39%">
                                                 <div class="typographic"><img src="/static/index/img/goods.png" />
@@ -131,7 +132,7 @@ $(function(){
                                             </td>
                                         </tr>
                                         
-
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>

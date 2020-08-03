@@ -80,7 +80,9 @@
 								<li class="yui3-u-11-24">
 									<div class="good-item">
 										<div class="item-img"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" /></div>
-										<div class="item-msg">{{$v->goods_name}}</div>
+										<div class="item-msg">
+											<a href="{{url('/index/goods_desc',$v->goods_id)}}">{{$v->goods_name}}</a>
+										</div>
 
 									</div>
 								</li>

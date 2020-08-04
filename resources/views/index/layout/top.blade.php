@@ -37,6 +37,8 @@ a{
 						</li>
 						<li class="f-item space"></li>
 						<li class="f-item"><a href="/"style="text-decoration: none; color:black;" >网站导航</a></li>
+						<li class="f-item space"></li>
+						<li class="f-item"><a href="/user/answer" target="_blank">网站留言</a></li>
 					</ul>
 				</div>
 			</div>

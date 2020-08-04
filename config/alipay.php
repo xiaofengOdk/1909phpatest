@@ -10,7 +10,7 @@ return  array (
 		'notify_url' => "http://www.1909a3.com/notice_url",
 		
 		//同步跳转
-		'return_url' => "http://www.1909a3.com/notice_url",
+		'return_url' => "http://www.1909a3.com/return_url",
 
 		//编码格式
 		'charset' => "UTF-8",

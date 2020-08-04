@@ -82,22 +82,22 @@
 						<div class="cart-list"  id='ul_id'>
 							<ul class="goods-list yui3-g">
 								<li class="yui3-u-1-24">
-									<input type="checkbox" name="qx_0.1" cary_id="{{$v->cary_id}}" id="" value="{{$v->goods_id}}" />
+									<input type="checkbox" name="qx_0.1" cary_id="{{$v['cary_id']}}" id="" value="{{$v['goods_id']}}" />
 								</li>
 								<li class="yui3-u-11-24">
 									<div class="good-item">
-										<div class="item-img"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" /></div>
+										<div class="item-img"><img src="{{env('UPLOADS_URL')}}{{$v['goods_img']}}" /></div>
 										<div class="item-msg">
-											<a href="{{url('/index/goods_desc',$v->goods_id)}}">{{$v->goods_name}}</a>
+											<a href="{{url('/index/goods_desc',$v['goods_id'])}}">{{$v['goods_name']}}</a>
 										</div>
 
 									</div>
 								</li>
-								<li class="yui3-u-1-8"><span class="price">{{$v->goods_price}}</span></li>
+								<li class="yui3-u-1-8"><span class="price">{{$v['goods_price']}}</span></li>
 								<li class="yui3-u-1-8">
-									<a href="javascript:void(0)" class="increment mins" id="num_jian" cary_id="{{$v->cary_id}}" sku_id="{{$v->id}}">-</a>
-									<input autocomplete="off" type="text" id='vl' cary_id="{{$v->cary_id}}" sku_id="{{$v->id}}" value="{{$v->buy_number}}" minnum="1" class="itxt" />
-									<a href="javascript:void(0)" class="increment plus" id="num_jia" cary_id="{{$v->cary_id}}" sku_id="{{$v->id}}">+</a>
+									<a href="javascript:void(0)" class="increment mins" id="num_jian" cary_id="{{$v['cary_id']}}" sku_id="{{$v['id']}}">-</a>
+									<input autocomplete="off" type="text" id='vl' cary_id="{{$v['cary_id']}}" sku_id="{{$v['id']}}" value="{{$v['buy_number']}}" minnum="1" class="itxt" />
+									<a href="javascript:void(0)" class="increment plus" id="num_jia" cary_id="{{$v['cary_id']}}" sku_id="{{$v['id']}}">+</a>
 									<span class="tishi" style="display:none; color:red;">缺货</span>
 								</li>
 								<li class="yui3-u-1-8"><span class="sum" id='num_zong'>
@@ -105,7 +105,7 @@
 									</span>
 								</li>
 								<li class="yui3-u-1-8">
-									<a href="#none" cary_id="{{$v->cary_id}}" id="del_one">删除</a>
+									<a href="#none" cary_id="{{$v['cary_id']}}" id="del_one">删除</a>
 									{{--<br />--}}
 									{{--<a href="#none">移到我的关注</a>--}}
 								</li>

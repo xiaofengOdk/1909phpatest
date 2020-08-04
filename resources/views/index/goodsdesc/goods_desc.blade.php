@@ -228,7 +228,7 @@
 							</div>
 						</div>
 					</div> 
-					<input type="hidden"  class="goods_id"value="{{$goodsInfo['goods_id']}}">
+					<input type="hidden"  class="goods_id" value="{{$goodsInfo['goods_id']}}">
 					<div class="tab-main intro">
 						<ul class="sui-nav nav-tabs tab-wraped">
 							<li class="active">

@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 use App\Models\NavModel;
 use App\Models\BrandModel;
 use App\Models\FootModel;
+use Symfony\Component\HttpFoundation\Cookie;
+
 class CartController extends Controller
 {
     //购物车展示
@@ -37,27 +39,40 @@ class CartController extends Controller
         $where=[
             ['cary.is_del','=',1]
         ];
-        $cartinfo=Cary::leftjoin('goods','cary.goods_id','=','goods.goods_id')
-            ->leftjoin('user','cary.user_id','=','user.user_id')
-            ->leftjoin('sku','cary.id','=','sku.id')
-            ->where($where1)
-            ->where($where)
-            ->where($where2)
-            ->get();
+
+        #判断用户是否登录(展示cookie中的值)
+        if(empty($reg)){
+//            dd(json_decode($request->cookie('test'),true));
+
+            $cartinfo=$this->getCookie(request());
+                if(empty($cartinfo)){
+                    return redirect('/index/login');
+                }
+        }else{
+
+            $cartinfo=Cary::leftjoin('goods','cary.goods_id','=','goods.goods_id')
+                ->leftjoin('user','cary.user_id','=','user.user_id')
+                ->leftjoin('sku','cary.id','=','sku.id')
+                ->where($where1)
+                ->where($where)
+                ->where($where2)
+                ->get();
 //        dd($cartinfo);
+
+        }
+
         $cate_id=$request->cate_id;
         $history_goods=Goods::where([
             ["cate_id"=>$cate_id],
             ['is_show','1'],['is_del','1']
-            ])
+        ])
             ->limit(8)
             ->get();
-
         $dels_vl=Cary::where('user_id',4)->where('is_del','2')->get();
         $sum_up=count($dels_vl);
         foreach($dels_vl as $r1=>$r2){
             $property=Sku::where('id',$r2['id'])->first();
- 
+
             $sku_vl_id=$this->explode_id($property);
             $sku_vl_val=AttrVal::wherein('id',$sku_vl_id)->where('is_del','1')->get();
             $property['sku']=$sku_vl_val;
@@ -78,6 +93,46 @@ class CartController extends Controller
                 'cart'=>$cart
             ]);
     }
+    //未登录 展示cookie中的值
+    public function getCookie($request)
+    {
+        #取cookie的值
+        $cartInfo=request()->cookie('test');
+        $cartInfo = json_decode($cartInfo,true);
+//    dd($cartInfo);
+        if(!empty($cartInfo)){
+            #将cookie中的数据 根据时间进行排序
+//            $atime=array_column($cartInfo,'add_time');
+//            dd($atime);
+//            array_multisort($atime,SORT_DESC,SORT_REGULAR,$cartInfo);
+//            dd($cartInfo);
+
+//            #循环根据商品id 查询商品表中的数据
+//            $cartInfo=[
+//                1=>['goods_id'=>1],
+//                2=>['goods_id'=>2],
+//                3=>['goods_id'=>3],
+//            ];
+//            dd($cartInfo);
+            $shop = [];
+            foreach ($cartInfo as $k=>$v){
+
+                $shop[] =$v['goods_id'];
+//                $goods_id=$k['goods_id'];
+//                dd($goods_id);
+            }
+//            $goods_id = $shop['goods_id'];
+//            $buy_number = $shop['buy_number'];
+//            $add_time = $shop['add_time'];
+            dd(1);
+            $cartInfo = collect(Goods::whereIn("goods_id",$shop)->get())->toArray();
+//            $cartInfo = Goods::whereIn("goods_id",$shop)->get();
+            dd($cartInfo);
+
+            return $cartInfo;
+        }
+    }
+
 
     //购物车的加减
     public function cart_num(Request $request)
@@ -196,7 +251,10 @@ class CartController extends Controller
         }
     }
 
-    //批量删除
+    /**
+     * 批量删除
+     * @return string
+     */
     public function cart_dels(){
         $xx=request()->all();
         $a1=array_key_exists('cary_id',$xx);

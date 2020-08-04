@@ -124,10 +124,10 @@ class CartController extends Controller
 //            $goods_id = $shop['goods_id'];
 //            $buy_number = $shop['buy_number'];
 //            $add_time = $shop['add_time'];
-            dd(1);
+//            dd(1);
             $cartInfo = collect(Goods::whereIn("goods_id",$shop)->get())->toArray();
 //            $cartInfo = Goods::whereIn("goods_id",$shop)->get();
-            dd($cartInfo);
+//            dd($cartInfo);
 
             return $cartInfo;
         }

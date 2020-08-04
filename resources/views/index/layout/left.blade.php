@@ -14,24 +14,24 @@
                         <dl>
 							<dt><i>·</i> 订单中心</dt>
 							<dd ><a href="{{url('/index/user_index')}}" >我的订单</a></dd>
-							<dd><a href="home-order-pay.html" >待付款</a></dd>
-							<dd><a href="home-order-send.html"  >待发货</a></dd>
-							<dd><a href="home-order-receive.html" >待收货</a></dd>
-							<dd><a href="home-order-evaluate.html" >待评价</a></dd>
+							<dd><a href="home-order-pay.html" ></a></dd>
+							<dd><a href="home-order-send.html"  ></a></dd>
+							<dd><a href="home-order-receive.html" ></a></dd>
+							<dd><a href="home-order-evaluate.html" ></a></dd>
 						</dl>
 						<dl>
-							<dt><i>·</i> 我的中心</dt>
-							<dd><a href="home-person-collect.html">我的收藏</a></dd>
-							<dd><a href="home-person-footmark.html">我的足迹</a></dd>
+							<dt><i>·</i> </dt>
+							<dd><a href="home-person-collect.html"></a></dd>
+							<dd><a href="home-person-footmark.html"></a></dd>
 						</dl>
 						<dl>
-							<dt><i>·</i> 物流消息</dt>
+							<dt><i>·</i> </dt>
 						</dl>
 						<dl>
-							<dt><i>·</i> 设置</dt>
+							<dt><i></i> 设置</dt>
 							<dd><a href="{{url('/user/user_info')}}">个人信息</a></dd>
 							<dd><a href="{{url('user/user_address')}}"  >地址管理</a></dd>
-							<dd><a href="home-setting-safe.html" >安全管理</a></dd>
+							
 						</dl>
                     </div>
                 </div>

@@ -232,7 +232,7 @@
 				data:data,
 				dataType:"json",
 				success:function(res){
-					// console.log(res)
+					console.log(res)
 					if(res.success==true){
 						alert(res.message);
 						var order_id=res.result

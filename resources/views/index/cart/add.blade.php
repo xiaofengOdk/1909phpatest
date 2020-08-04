@@ -205,7 +205,8 @@
 												<span>{{$vv->goods_price}}</span>
 											</div>
 											<div class="incar">
-												<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default">
+												<a href="/index/goods_desc/{{$vv->goods_id}}"
+												   class="sui-btn btn-bordered btn-xlarge btn-default">
 													<i class="car"></i><span class="cartxt">查看详情</span>
 												</a>
 											</div>

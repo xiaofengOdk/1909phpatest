@@ -26,7 +26,7 @@ class AddressController extends Controller
         $cart=count($cart);
         $nav = NavModel::get();//导航
         $footInfo=FootModel::get();//底部导航
-        $brand = BrandModel::where("brand_show",1)->get();//热卖
+        $brand = BrandModel::limit(7)->get();//热卖
       return view('index.address.address',['nav'=>$nav,
                   'footInfo'=>$footInfo,
                   'brand'=>$brand,

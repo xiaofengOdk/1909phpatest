@@ -35,6 +35,9 @@ class AdminController extends Controller
         $reg=$AdminModel->where('is_del',1)->paginate(2);
         $RoleModel=new RoleModel();
         $regs=$RoleModel->get();
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         return view('admin.user.ushow',['reg'=>$reg,'regs'=>$regs]);
    }

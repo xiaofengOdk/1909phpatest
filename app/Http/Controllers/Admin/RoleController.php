@@ -117,6 +117,9 @@ class RoleController extends Controller
         return json_encode($message,JSON_UNESCAPED_UNICODE);
     }
     
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     //即点即改
     public function pth(){
@@ -176,6 +179,9 @@ class RoleController extends Controller
     }
 =======
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }
 

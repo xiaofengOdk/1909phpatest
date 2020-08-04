@@ -52,6 +52,9 @@ class BrandController extends Controller
         // dd($info);
 >>>>>>> 1d51503d5359745f47718cac0f4ebae98f92980f
         return view('admin/goods/brand',['info'=>$info]);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
     }

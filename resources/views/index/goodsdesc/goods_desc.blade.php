@@ -147,8 +147,8 @@
 								<li>
 									@foreach($goods_hot as $k=>$v)
 									<div class="list-wrap" style="border-top:2px solid  #ededed;">
-										<div class="p-img">
-											<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 150px;height: 255px; border-bottom-style: solid red ; " />
+										<div class="p-img"><a href="/index/nav_hot/{{$v->brand_id}}">
+											<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 150px;height: 255px; border-bottom-style: solid red ; " /></a>
 										</div>
 										<div class="attr">
 											<em>{{$v->goods_name}}</em>
@@ -171,7 +171,7 @@
 							@foreach($goods_hot as $k=>$v)
 							<div class="list-wrap">
 										<div class="p-img">
-											<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width:188px;height:154px;"/>
+										<a href="/index/goods_desc/{{$v->goods_id}}">						<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width:188px;height:154px;"/></a>
 										</div>
 										<div class="attr">
 											<em>{{$v->goods_name}}</em>
@@ -210,6 +210,7 @@
 										@if($k<=3)
 									<li class="" >
 										<div id="">
+											<a href="/index/goods_desc/.{}"></a>
 										<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 100px;height: 124px;" />
 										</div>
 										<i>{{$v->goods_name}}</i>
@@ -298,7 +299,8 @@
 						<li class="yui3-u-1-6">
 							<div class="list-wrap">
 								<div class="p-img">
-									<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" />
+										<a href="/index/goods_desc/{{$v->goods_id}}">
+									<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" /></a>
 								</div>
 									<p>
 										<div class="attr">
@@ -556,7 +558,7 @@
              url:url,
              dataType:'json',
              success:function(reg){
-                 alert(reg.message)
+                 // alert(reg.message)
                  location.href="/index/cart_list"
              }
          })

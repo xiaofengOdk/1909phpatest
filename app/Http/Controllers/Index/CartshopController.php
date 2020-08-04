@@ -23,7 +23,7 @@ class CartshopController extends Controller
             // $buy_number = 1;
             $goods = Goods::where("goods_id",$goods_id)->first();
             // 判断库存
-            if($goods->goods_store<$buy_number){
+            if($goods['goods_store']<$buy_number){
                 return $message=[
                         "code"=>00001,
                         "message"=>"库存不足",
@@ -54,8 +54,8 @@ class CartshopController extends Controller
                 $cookie=json_decode($cookie);
             if(array_key_exists("goods_id_".$id,$cookie)){
                 // dd(1);
-                if($goods->goods_store<$buy_number){
-                    $carts = $goods->goods_store;
+                if($goods['goods_store']<$buy_number){
+                    $carts = $goods['goods_store'];
                 }else{
                     // dd($cookie->buy_number+$buy_number);
                     $cart = $cookie->buy_number+$buy_number;
@@ -107,7 +107,7 @@ class CartshopController extends Controller
             $cart2 = Cary::where(["user_id"=>$user_id,"goods_id"=>$goods_id,"is_del"=>2])->first();
             if($cart2){
                 $buy_number = $buy_number;
-                if($goods->goods_store<$buy_number){
+                if($goods['goods_store']<$buy_number){
                     $buy_number = $goods->goods_store;
                 }
                 $res3 = Cary::where(["user_id"=>$user_id,"goods_id"=>$goods_id,"is_del"=>2])->update(['buy_number'=>$buy_number,'add_time'=>time(),"is_del"=>1]);
@@ -124,7 +124,7 @@ class CartshopController extends Controller
             }
             if($cart){
                 $buy_number = $cart->buy_number+$buy_number;
-                if($goods->goods_store<$buy_number){
+                if($goods['goods_store']<$buy_number){
                     $buy_number = $goods->goods_store;
                 }
                 

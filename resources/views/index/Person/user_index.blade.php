@@ -94,14 +94,14 @@ $(function(){
                                             <td width="39%">
                                                 <div class="typographic"><img src="/static/index/img/goods.png" />
                                                
-                                                    <a href="#"  class="block-text"> <font size="2">包邮 {{$v->goods_name}}</font></a>
+                                                    <a href="#"  class="block-text"> <font size="2">{{$v->order_sn}}</font></a>
                                                     <span class="guige"><font size="2">规格：温泉喷雾150ml</font></span>
                                                 </div>
                                             </td>
                                             <td width="5%" class="center">
                                                 <ul class="unstyled">
-                                                    <li class="o-price"><font size="2">¥599.00</li>
-                                                    <li><font size="2">¥{{$v->goods_price}}</font></li>
+                                                    <li class="o-price"><font size="2">{{$v->shipping_status}}</li>
+                                                    <li><font size="2">{{$v->pay_status}}</font></li>
                                                 </ul>
                                             </td>
                                             <td width="5%" class="center"><font size="2">1</font></td>

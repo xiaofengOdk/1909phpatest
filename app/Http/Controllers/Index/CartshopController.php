@@ -92,11 +92,6 @@ class CartshopController extends Controller
                     $cartdata=json_encode($cartdata);
                  }
                 }
-<<<<<<< HEAD
-                 dd($cartdata);
-=======
-                //  dd($cartdata);
->>>>>>> f0def2403cd2c16d46c8e44bed2f22af7924cd5f
                 Cookie::queue("test",$cartdata);
                     return $message=[
                         "code"=>00001,

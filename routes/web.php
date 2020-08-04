@@ -179,6 +179,9 @@ Route::prefix("/user")->group(function(){
     Route::any('/del/{id}','Index\AddressController@del');
     Route::any('/default/{id}','Index\AddressController@default');
     Route::any('/getCity','Index\AddressController@getCity');
+    Route::any('/answer','Index\AnswerController@answer');
+    Route::any('/answer_add','Index\AnswerController@answer_add');
+    Route::any('/answer_list','Index\AnswerController@answer_list');
 }); 
 Route::any('/payMoney1/{id}','Index\Test@payMoney1');
 Route::any('/return_url','Index\Test@return_url');

@@ -24,7 +24,7 @@ class LoginController extends Controller
               'admin_pwd'=>md5($data['admin_pwd'])
         ];
         $reg=$AdminModel->where($where)->first();
-        //dd($reg);
+        // dd($reg);
         $time=date("Y-m-d");
         if($reg){
             session(['regs'=>$reg,'time'=>$time]);

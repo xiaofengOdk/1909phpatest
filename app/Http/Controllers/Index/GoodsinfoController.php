@@ -34,7 +34,10 @@ class GoodsinfoController extends Controller
         // dd($user_like);
 	$attrval=Attrval::get();
 		// return view('index.goodsdesc.goods_desc');
-        return view('index.goodsdesc.goods_desc',["nav"=>$nav,"user_like"=>$user_like,"goods_hot"=>$goods_hot,"attr"=>$attr,"attrval"=>$attrval,"brand"=>$brand,"footInfo"=>$footInfo,"cart"=>$cart,'brandInfo'=>$brandInfo,'goodsInfo'=>$goodsInfo]);
+        return view('index.goodsdesc.goods_desc',
+            ["nav"=>$nav,"user_like"=>$user_like,"goods_hot"=>$goods_hot,
+                "attr"=>$attr,"attrval"=>$attrval,"brand"=>$brand,"footInfo"=>$footInfo,
+                "cart"=>$cart,'brandInfo'=>$brandInfo,'goodsInfo'=>$goodsInfo]);
 	}
         public function sku(){
                 // dd(request()->goods_id);

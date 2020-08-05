@@ -27,4 +27,23 @@ class PersonController extends Controller
         // dd($order_info);
         return view("index.person.user_index",compact("nav","brand","footInfo","cart","order","order_info"));
     }
+    public function order_info($id){
+        $nav = NavModel::get();//导航
+        $brand = BrandModel::limit(7)->get();//热卖
+        $footInfo=FootModel::get();
+        $cart=Cary::get();
+        $cart=count($cart);
+        $res = Order_goods::where("order_id",$id)->get();
+        // print_R($res['goods_id']);
+        // dd($res);
+        $goods_info=[];
+        foreach($res as $k=>$v){
+            // echo $v['goods_  id'];
+            $goods_info[$k]=Goods::where("goods_id",$v['goods_id'])->first();
+            
+            // $goods_info[]=$goods_info;
+        }
+        // dd($goods_info);
+        return view('index.person.order_info',compact("goods_info","nav","brand","footInfo","cart"));
+    }
 }

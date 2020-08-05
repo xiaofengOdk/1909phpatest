@@ -28,14 +28,14 @@ class OrderinfoController extends Controller
         $reg = session("reg");
         $user_id = $reg['user_id'];
         $order = Order_goods::where(["order_t"=>1,"user_id"=>$user_id])->leftjoin("goods","order_goods.goods_id","=","goods.goods_id")->get();
-        // dd($order);
+        // dd();
       
        $score = Score::where("user_id",$user_id)->first();
        $score2 = $score['score'];
        $score3 = $score2/10;
     //    dd($score3);
-        $price = Order_goods::get();
-
+        $price = Order_goods::where(["order_t"=>1,"user_id"=>$user_id])->get();
+// dd($price);
         $shop =0;
         foreach($price as $k=>$v){
             $shop=$shop+$v['order_price'];
@@ -50,7 +50,7 @@ class OrderinfoController extends Controller
         // exit;
         $goodsss_id=implode(",",$goodsss_id);
         $num = $shop-$score3;
-    //    dd($num);
+       // dd($order);
         // 收货地址
        
         $address = User_Address::where(["user_id"=>$user_id,"is_del"=>1])->get();
@@ -115,6 +115,15 @@ class OrderinfoController extends Controller
     }
     public function index_do(){
         // print_R(request()->all());
+        $reg = session("reg");
+        $user_id = $reg['user_id'];
+        if($user_id==null){
+            return [
+                "success"=>false,
+                'code'=>"00000",
+                "msg"=>"登录后结算"
+            ];
+        }
             $goods_id=request()->goods_id;
             // dd($goods_id);
         $goods_id=explode(",",$goods_id);
@@ -128,11 +137,9 @@ class OrderinfoController extends Controller
            $goods_info= Cary::leftjoin("goods","cary.goods_id","=","goods.goods_id")->where("cary_id",$v)->first();
            // dd($v);
             $cary['user_id']=$user_id;
-            $cary['goods_id']=$v;
+            $cary['goods_id']=$goods_info['goods_id'];
             $cary['buy_number']=$goods_info['buy_number'];
             $cary['order_price']=$goods_info['buy_number']*$goods_info['goods_price'];
-            // $cary['number']=1;
-            // $cary['goods_price_one']=$goods_info['goods_price'];
             $result=Order_goods::insert($cary);
         }
         // print_R($cary);

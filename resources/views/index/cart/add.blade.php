@@ -66,7 +66,7 @@
 
 		<!--All goods-->
 		<div class="allgoods">
-			<h4>全部商品<span>11</span></h4>
+			{{--<h4>全部商品<span>11</span></h4>--}}
 			<div class="cart-main">
 				<div class="yui3-g cart-th">
 					<div class="yui3-u-1-4"><input type="checkbox" name="qx_0.2" id="check_all" value="" /> 全部</div>
@@ -82,22 +82,22 @@
 						<div class="cart-list"  id='ul_id'>
 							<ul class="goods-list yui3-g">
 								<li class="yui3-u-1-24">
-									<input type="checkbox" name="qx_0.1" cary_id="{{$v->cary_id}}" id="" value="{{$v->goods_id}}" />
+									<input type="checkbox" name="qx_0.1" cary_id="{{$v['cary_id']}}" id="" value="{{$v['goods_id']}}" />
 								</li>
 								<li class="yui3-u-11-24">
 									<div class="good-item">
-										<div class="item-img"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" /></div>
+										<div class="item-img"><img src="{{env('UPLOADS_URL')}}{{$v['goods_img']}}" /></div>
 										<div class="item-msg">
-											<a href="{{url('/index/goods_desc',$v->goods_id)}}">{{$v->goods_name}}</a>
+											<a href="{{url('/index/goods_desc',$v['goods_id'])}}">{{$v['goods_name']}}</a>
 										</div>
 
 									</div>
 								</li>
-								<li class="yui3-u-1-8"><span class="price">{{$v->goods_price}}</span></li>
+								<li class="yui3-u-1-8"><span class="price">{{$v['goods_price']}}</span></li>
 								<li class="yui3-u-1-8">
-									<a href="javascript:void(0)" class="increment mins" id="num_jian" cary_id="{{$v->cary_id}}" sku_id="{{$v->id}}">-</a>
-									<input autocomplete="off" type="text" id='vl' cary_id="{{$v->cary_id}}" sku_id="{{$v->id}}" value="{{$v->buy_number}}" minnum="1" class="itxt" />
-									<a href="javascript:void(0)" class="increment plus" id="num_jia" cary_id="{{$v->cary_id}}" sku_id="{{$v->id}}">+</a>
+									<a href="javascript:void(0)" class="increment mins" id="num_jian" cary_id="{{$v['cary_id']}}" sku_id="{{$v['id']}}">-</a>
+									<input autocomplete="off" type="text" id='vl' cary_id="{{$v['cary_id']}}" sku_id="{{$v['id']}}" value="{{$v['buy_number']}}" minnum="1" class="itxt" />
+									<a href="javascript:void(0)" class="increment plus" id="num_jia" cary_id="{{$v['cary_id']}}" sku_id="{{$v['id']}}">+</a>
 									<span class="tishi" style="display:none; color:red;">缺货</span>
 								</li>
 								<li class="yui3-u-1-8"><span class="sum" id='num_zong'>
@@ -105,7 +105,7 @@
 									</span>
 								</li>
 								<li class="yui3-u-1-8">
-									<a href="#none" cary_id="{{$v->cary_id}}" id="del_one">删除</a>
+									<a href="#none" cary_id="{{$v['cary_id']}}" id="del_one">删除</a>
 									{{--<br />--}}
 									{{--<a href="#none">移到我的关注</a>--}}
 								</li>
@@ -205,7 +205,8 @@
 												<span>{{$vv->goods_price}}</span>
 											</div>
 											<div class="incar">
-												<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default">
+												<a href="/index/goods_desc/{{$vv->goods_id}}"
+												   class="sui-btn btn-bordered btn-xlarge btn-default">
 													<i class="car"></i><span class="cartxt">查看详情</span>
 												</a>
 											</div>
@@ -552,6 +553,10 @@
 					if(result.code=='00000'){
 						location.href="http://www.1909a3.com/order/index";
 					}
+					if(result.success==false){
+						location.href="http://www.1909a3.com/index/login";
+					}
+					
 				}
 			})
 	})

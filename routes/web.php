@@ -185,3 +185,4 @@ Route::prefix("/user")->group(function(){
 }); 
 Route::any('/payMoney1/{id}','Index\Test@payMoney1');
 Route::any('/return_url','Index\Test@return_url');
+Route::any('/notice_url','Index\Test@notice_url');

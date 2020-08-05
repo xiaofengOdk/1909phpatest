@@ -89,7 +89,7 @@ class CartController extends Controller
     //未登录 展示cookie中的值
     public function getCookie($request)
     {
-        #取cookie的值
+     #   取cookie的值
         $cartInfo=request()->cookie('test');
         $cartInfo = json_decode($cartInfo,true);
 //    dd($cartInfo);

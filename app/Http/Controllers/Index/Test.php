@@ -12,12 +12,12 @@ class Test extends Controller
         $user_id=session('reg');
         $user_id=$user_id['user_id'];
         $order_info=Order_info::where(["order_id"=>$id,"user_id"=>$user_id])->first();
-    require_once app_path('libs/alipay/wappay/service/AlipayTradeService.php');
-    require_once app_path('libs/alipay/wappay/buildermodel/AlipayTradeWapPayContentBuilder.php');
-    $config=config('alipay');
-    // dd($config);
-    // if (!empty($order_no)&& trim($order_no!="")){
-        // 商户订单号，商户网站订单系统中唯一订单号，必填
+        require_once app_path('libs/alipay/wappay/service/AlipayTradeService.php');
+        require_once app_path('libs/alipay/wappay/buildermodel/AlipayTradeWapPayContentBuilder.php');
+        $config=config('alipay');
+        // dd($config);
+        // if (!empty($order_no)&& trim($order_no!="")){
+            // 商户订单号，商户网站订单系统中唯一订单号，必填
         $out_trade_no = $order_info['order_sn'];
         //订单名称，必填
         $subject = "奥利给";
@@ -91,7 +91,7 @@ class Test extends Controller
         $alipaySevice = new \AlipayTradeService($config); 
         $alipaySevice->writeLog(var_export($arr,true));
         $result = $alipaySevice->check($arr);
-        dd($result);
+        // dd($result);
         /* 实际验证过程建议商户添加以下校验。
         1、商户需要验证该通知数据中的out_trade_no是否为商户系统中创建的订单号，
         2、判断total_amount是否确实为该订单的实际金额（即商户订单创建时的金额），

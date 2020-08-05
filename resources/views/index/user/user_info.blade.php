@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
-    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-    <title>设置-个人信息</title>
-     <link rel="icon" href="/assets/img/favicon.ico">
-     <link rel="stylesheet" type="text/css" href="/static/index/css/webbase.css" />
-
-    <link rel="stylesheet" type="text/css" href="/static/index/css/pages-seckillOrder.css" />
-</head>
-
-<body>
-    <!-- 头部栏位 -->
-    @extends("index.layout.public")
+@extends("index.layout.public")
 @section("content")
 @include("index.layout.top")
     <!--页面顶部-->
@@ -160,7 +144,6 @@ $(function(){
     <!--页面底部-->
 
 <!--页面底部END-->
-</html>
 
 <script>
     $(document).on("click",".add",function(){

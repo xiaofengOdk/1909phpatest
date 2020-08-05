@@ -115,6 +115,15 @@ class OrderinfoController extends Controller
     }
     public function index_do(){
         // print_R(request()->all());
+        $reg = session("reg");
+        $user_id = $reg['user_id'];
+        if($user_id==null){
+            return [
+                "success"=>false,
+                'code'=>"00000",
+                "msg"=>"登录后结算"
+            ];
+        }
             $goods_id=request()->goods_id;
             // dd($goods_id);
         $goods_id=explode(",",$goods_id);

@@ -44,6 +44,7 @@ class CartController extends Controller
         if(empty($reg)){
 //            dd(json_decode($request->cookie('test'),true));
             $cartinfo=$this->getCookie(request());
+//            dd($cartinfo);
                 if(empty($cartinfo)){
                     return redirect('/index/login');
                 }
@@ -98,11 +99,27 @@ class CartController extends Controller
             $shop = [];
             foreach ($cartInfo as $k=>$v){
                 $shop[] =$v['goods_id'];
+<<<<<<< HEAD
+//                $goods_id=$k['goods_id'];
+//                dd($goods_id);
+            }
+//            $goods_id = $shop['goods_id'];
+//            $buy_number = $shop['buy_number'];
+//            $add_time = $shop['add_time'];
+//            dd(1);
+//            $cartInfo = collect(Goods::whereIn("goods_id",$shop)->get())->toArray();
+            $cartInfo = collect(Goods::leftjoin("cary","goods.goods_id","=","cary.goods_id")->whereIn("goods.goods_id",$shop)->get())->toArray();
+
+//            $cartInfo = Goods::whereIn("goods_id",$shop)->get();
+//            dd($cartInfo);
+//
+=======
         }
             $cartInfo = collect(Goods::leftjoin("cary","goods.goods_id","=","cary.goods_id")
                 ->whereIn("goods.goods_id",$shop)
                 ->get())
                 ->toArray();
+>>>>>>> 398cc288c85e23c63e168338014b90445dca5283
             return $cartInfo;
         }
     }

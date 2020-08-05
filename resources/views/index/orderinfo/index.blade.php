@@ -6,15 +6,59 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 	<title>结算页</title>
-
+	<link rel="stylesheet" type="text/css" href="/static/index/css/webbase.css" />
+<link rel="stylesheet" type="text/css" href="/static/index/css/pages-cart.css" />
+<script type="text/javascript" src="/static/index/js/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/static/index/js/plugins/jquery.easing/jquery.easing.min.js"></script>
+<script type="text/javascript" src="/static/index/js/plugins/sui/sui.min.js"></script>
+<script type="text/javascript" src="/static/index/js/widget/nav.js"></script>
     <link rel="stylesheet" type="text/css" href="/static/index/css/pages-getOrderInfo.css" />
 </head>
 
 <body>
+<div class="top">
+	<div class="py-container">
+		<div class="shortcut">
+			<ul class="fl">
+
+				@if(session('reg')=='')
+					<li class="f-item">品优购欢迎您！</li>
+					<li class="f-item">请<a href="/index/login" target="_blank">登录</a>　<span><a href="/index/reg" target="_blank">免费注册</a></span></li>
+
+				@else
+					<li class="f-item">欢迎</li>
+					<li class="f-item" style="margin-left:10px;"><a >@php echo session('reg')->user_name@endphp</a>　<span><a href="/index/quit" target="_blank">退出</a></span></li>
+				@endif
+			</ul>
+			<ul class="fr">
+				<li class="f-item"><a href="http://www.1909a3.com/index/user_index" style="text-decoration: none; color:black;">我的订单</a></li>
+				<li class="f-item space"></li>
+				<li class="f-item"><a href="home.html" target="_blank">我的品优购</a></li>
+				<li class="f-item space"></li>
+				<li class="f-item">品优购会员</li>
+				<li class="f-item space"></li>
+				<li class="f-item">企业采购</li>
+				<li class="f-item space"></li>
+				<li class="f-item">关注品优购</li>
+				<li class="f-item space"></li>
+				<li class="f-item" id="service">
+					<span>客户服务</span>
+					<ul class="service">
+						<li><a href="cooperation.html" target="_blank">合作招商</a></li>
+						<li><a href="shoplogin.html" target="_blank">商家后台</a></li>
+						<li><a href="cooperation.html" target="_blank">合作招商</a></li>
+						<li><a href="#">商家后台</a></li>
+					</ul>
+				</li>
+				<li class="f-item space"></li>
+				<li class="f-item"><a href="/"style="text-decoration: none; color:black;" >网站导航</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
 	<!--head-->
     @extends("index.layout.public")
-@section("content")
-@include("index.layout.top")
+
 	<!-- <div class="cart py-container"> -->
 		<!--logoArea-->
 	
@@ -119,7 +163,7 @@
 					</div>
 					<div class="step-cont">
 						<ul class="payType">
-							<li class="selected">支付宝<span title="点击取消选择"></span></li>
+							<li class="selected">支付宝</li>
 							
 						</ul>
 					</div>

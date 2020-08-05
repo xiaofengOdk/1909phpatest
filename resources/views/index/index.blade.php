@@ -207,7 +207,8 @@
 				<div class="yui3-u row-405 Interest-conver">
 					@foreach($goods_info as $k=>$v)
 						@if($k==0)
-					<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 405px;height: 405px;"  />
+						<a href="/index/goods_desc/{{$v->goods_id}}">
+					<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 405px;height: 405px;"  /></a>
 						@endif
 					@endforeach
 				</div>
@@ -215,7 +216,8 @@
 					<h5>好东西</h5>
 						@foreach($goods_info as $k=>$v)
 							@if($k<=1)
-						<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 226px;height: 200px;"  />
+							<a href="/index/goods_desc/{{$v->goods_id}}">
+						<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 226px;height: 200px;"  /></a>
 							@endif
 						@endforeach
 				</div>
@@ -224,14 +226,18 @@
 					<div class="split-bt">
 						@foreach($brand as $k=>$v)
 							@if($k==0)
+							<a href="/index/nav_hot/{{$v->brand_id}}">
 						<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}"  style="width: 404px;height: 206px;" />
+						    </a>
 							@endif
 						@endforeach
 					</div>
 					<div class="x-img fl">
 						@foreach($brand as $k=>$v)
 							@if($k<=1)
+							<a href="/index/nav_hot/{{$v->brand_id}}">
 						<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 203px;height: 158px;" />
+						  </a>
 							@endif
 						@endforeach
 					</div>
@@ -241,7 +247,9 @@
 					<ul class="yui3-g brand-list">
 						@foreach($brand as $k=>$v)
 						<li class="yui3-u-1-2 brand-pit">
+						<a href="/index/nav_hot/{{$v->brand_id}}">
 							<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}"style="width: 82px;height: 49px;"  />
+						</a>
 						</li>
 						@endforeach
 					</ul>
@@ -276,12 +284,16 @@
 						<div class="yui3-u Left blockgary">
 							<ul class="jd-list">
 							@foreach($brand as $k=>$v)
+							  <a href="/index/nav_hot/{{$v->brand_id}}">
 								<li>{{$v->brand_name}}</li>
+								</a>
 							@endforeach
 							</ul>
 							@foreach($brand as $k=>$v)
 								@if($k==0)
+								 <a href="/index/nav_hot/{{$v->brand_id}}">
 								<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 187px; height: 227px;" />
+								  </a>
 								@endif
 							@endforeach
 						</div>
@@ -296,11 +308,13 @@
 									@foreach($brand as $k=>$v)
 										@if($k==0)
 									<div class="active item">
-										<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 329px; height: 360px;" />
+									<a href="/index/nav_hot/{{$v->brand_id}}">
+										<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 329px; height: 360px;" /></a>
 									</div>
 										@else
 									<div class="item">
-										<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 329px; height: 360px;" />
+									<a href="/index/nav_hot/{{$v->brand_id}}">
+										<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 329px; height: 360px;" /></a>
 									</div>
 										@endif
 									@endforeach
@@ -314,7 +328,8 @@
 							<div class="floor-conver-pit">
 							@foreach($brand as $k=>$v)
 								@if($k<=1)
-									<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 219px; height: 180px;" />
+								<a href="/index/nav_hot/{{$v->brand_id}}">
+									<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 219px; height: 180px;" /></a>
 								@endif
 							@endforeach
 							</div>
@@ -322,7 +337,8 @@
 						<div class="yui3-u row-218 split">
 							@foreach($brand as $k=>$v)
 								@if($k==0)
-									<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 218px; height: 356px;" />
+								<a href="/index/nav_hot/{{$v->brand_id}}">
+									<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 218px; height: 356px;" /></a>
 								@endif
 							@endforeach
 						</div>
@@ -331,7 +347,8 @@
 							<div class="floor-conver-pit">
 							@foreach($brand as $k=>$v)
 								@if($k<=1)		
-									<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 220px; height: 180px;" />
+								<a href="/index/nav_hot/{{$v->brand_id}}">
+									<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 220px; height: 180px;" /></a>
 								@endif
 							@endforeach
 							</div>

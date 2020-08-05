@@ -42,9 +42,6 @@
                     {{--<div class="cu">--}}
                     {{--<em><span>促</span>满一件可参加超值换购</em>--}}
                     {{--</div>--}}
-                    <div class="commit">
-                        <i class="command">已有2000人评价</i>
-                    </div>
                     <div class="operate">
                         <a href="javascript:;" goods_id="{{$v['goods_id']}}" class="sui-btn btn-bordered btn-danger jia">加入购物车</a>
                         <a href="javascript:void(0);" class="sui-btn btn-bordered">收藏</a>
@@ -56,8 +53,8 @@
     </div>
     <div class="fr page">
         <div class="sui-pagination pagination-large">
-            <ul>
-
+            <ul class="pages">
+                {{--{{$goodsInfo->links()}}--}}
             </ul>
         </div>
     </div>

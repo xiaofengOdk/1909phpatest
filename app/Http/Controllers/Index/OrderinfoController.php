@@ -140,8 +140,6 @@ class OrderinfoController extends Controller
             $cary['goods_id']=$goods_info['goods_id'];
             $cary['buy_number']=$goods_info['buy_number'];
             $cary['order_price']=$goods_info['buy_number']*$goods_info['goods_price'];
-            // $cary['number']=1;
-            // $cary['goods_price_one']=$goods_info['goods_price'];
             $result=Order_goods::insert($cary);
         }
         // print_R($cary);

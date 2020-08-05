@@ -66,7 +66,7 @@
 
 		<!--All goods-->
 		<div class="allgoods">
-			<h4>全部商品<span>11</span></h4>
+			{{--<h4>全部商品<span>11</span></h4>--}}
 			<div class="cart-main">
 				<div class="yui3-g cart-th">
 					<div class="yui3-u-1-4"><input type="checkbox" name="qx_0.2" id="check_all" value="" /> 全部</div>
@@ -205,7 +205,8 @@
 												<span>{{$vv->goods_price}}</span>
 											</div>
 											<div class="incar">
-												<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default">
+												<a href="/index/goods_desc/{{$vv->goods_id}}"
+												   class="sui-btn btn-bordered btn-xlarge btn-default">
 													<i class="car"></i><span class="cartxt">查看详情</span>
 												</a>
 											</div>

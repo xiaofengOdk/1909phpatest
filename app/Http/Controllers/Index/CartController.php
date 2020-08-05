@@ -43,7 +43,6 @@ class CartController extends Controller
         #判断用户是否登录(展示cookie中的值)
         if(empty($reg)){
 //            dd(json_decode($request->cookie('test'),true));
-
             $cartinfo=$this->getCookie(request());
 //            dd($cartinfo);
                 if(empty($cartinfo)){
@@ -58,17 +57,12 @@ class CartController extends Controller
                 ->where($where)
                 ->where($where2)
                 ->get();
-//        dd($cartinfo);
-
         }
-
         $cate_id=$request->cate_id;
         $history_goods=Goods::where([
             ["cate_id"=>$cate_id],
             ['is_show','1'],['is_del','1']
-        ])
-            ->limit(8)
-            ->get();
+        ])->limit(8)->get();
         $dels_vl=Cary::where('user_id',4)->where('is_del','2')->get();
         $sum_up=count($dels_vl);
         foreach($dels_vl as $r1=>$r2){
@@ -82,7 +76,6 @@ class CartController extends Controller
             $goods=Goods::where([['goods_id',$r2['goods_id']],['is_del','1']])->first();
             $r2['goods_id']=$goods;
         }
-
         return view('index.cart.add',
             [
                 'nav'=>$nav,
@@ -102,23 +95,11 @@ class CartController extends Controller
         $cartInfo = json_decode($cartInfo,true);
 //    dd($cartInfo);
         if(!empty($cartInfo)){
-            #将cookie中的数据 根据时间进行排序
-//            $atime=array_column($cartInfo,'add_time');
-//            dd($atime);
-//            array_multisort($atime,SORT_DESC,SORT_REGULAR,$cartInfo);
-//            dd($cartInfo);
-
-//            #循环根据商品id 查询商品表中的数据
-//            $cartInfo=[
-//                1=>['goods_id'=>1],
-//                2=>['goods_id'=>2],
-//                3=>['goods_id'=>3],
-//            ];
-//            dd($cartInfo);
+            #循环根据商品id 查询商品表中的数据
             $shop = [];
             foreach ($cartInfo as $k=>$v){
-
                 $shop[] =$v['goods_id'];
+<<<<<<< HEAD
 //                $goods_id=$k['goods_id'];
 //                dd($goods_id);
             }
@@ -132,11 +113,16 @@ class CartController extends Controller
 //            $cartInfo = Goods::whereIn("goods_id",$shop)->get();
 //            dd($cartInfo);
 //
+=======
+        }
+            $cartInfo = collect(Goods::leftjoin("cary","goods.goods_id","=","cary.goods_id")
+                ->whereIn("goods.goods_id",$shop)
+                ->get())
+                ->toArray();
+>>>>>>> 398cc288c85e23c63e168338014b90445dca5283
             return $cartInfo;
         }
     }
-
-
     //购物车的加减
     public function cart_num(Request $request)
     {

@@ -100,13 +100,11 @@
                     </div>
                     <div class="pull-left info">
                         <p> 用户</p>
-                        @if(session('reg')=='')
+                        @if(session('regs')=='')
                         <a href="#" style='color:red;'><i class="fa fa-circle text-success"></i>未在线</a>
                                        @else
                          <a href="#" style='color:green; font-size:16px;'><i class="fa fa-circle text-success"></i>在线</a>
                                        @endif
-                                       
-                      
                     </div>
                 </div>
 

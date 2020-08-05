@@ -62,6 +62,7 @@ class GoodsController extends Controller
             $start=$one_price*$i;
             // dump($start);
             $end=$one_price*($i+1)-1;
+//            $price[]=$start.'-'.$end;
             // dump($end);
             // number_format — 以千位分隔符方式格式化一个数字
             $price[]=number_format($start,0).'-'.number_format($end,0);
@@ -109,6 +110,8 @@ class GoodsController extends Controller
             if(substr_count($price,'-')>0){
                 //根据-分割
                 $price=explode('-',$price);
+                $price[0]=str_replace(',','',$price[0]);
+                $price[1]=str_replace(',','',$price[1]);
 //                dd($price);
                 $where[]=['goods.goods_price','>=',$price[0]];
                 $where[]=['goods.goods_price','<=',$price[1]];

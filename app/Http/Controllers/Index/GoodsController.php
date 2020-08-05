@@ -14,6 +14,7 @@ use App\Models\NavModel;
 use App\Models\FootModel;
 use App\Models\BrandModel;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\Console\Input\Input;
 
 class GoodsController extends Controller
 {
@@ -123,21 +124,18 @@ class GoodsController extends Controller
         if(!empty($field)){
             $where[]=["goods.$field",'=',1];
         }
-        //分页  待完成
-        $page = $request->page;
         //sku 待完成
         $sku = $request->sku;
         if(!empty($sku)){
 //            echo $sku;exit;
             $where[]= ['sku.sku','like',"%$sku%"];
         }
-//        print_r($where);
-//        echo count($price);
-//        dd($price);
+
+        //分页  待完成
         $goodsInfo = Goods::leftjoin('sku','goods.goods_id','=','sku.goods_id')->where($where)
             ->paginate(10,['goods.goods_price','goods.goods_id','goods.goods_img','goods.goods_name','sku.sku'])->toArray();
-//        $goodsInfo = Goods::join('sku','goods.goods_id','=','sku.goods_id')->where($where)
-//            ->paginate(10)->toArray();
+//        dd($goodsInfo);
+
         if(!empty($price)){
             if(is_array($price)){
                 $price=implode($price,'-');

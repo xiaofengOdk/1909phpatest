@@ -45,6 +45,7 @@ class CartController extends Controller
 //            dd(json_decode($request->cookie('test'),true));
 
             $cartinfo=$this->getCookie(request());
+//            dd($cartinfo);
                 if(empty($cartinfo)){
                     return redirect('/index/login');
                 }
@@ -125,10 +126,12 @@ class CartController extends Controller
 //            $buy_number = $shop['buy_number'];
 //            $add_time = $shop['add_time'];
 //            dd(1);
-            $cartInfo = collect(Goods::whereIn("goods_id",$shop)->get())->toArray();
+//            $cartInfo = collect(Goods::whereIn("goods_id",$shop)->get())->toArray();
+            $cartInfo = collect(Goods::leftjoin("cary","goods.goods_id","=","cary.goods_id")->whereIn("goods.goods_id",$shop)->get())->toArray();
+
 //            $cartInfo = Goods::whereIn("goods_id",$shop)->get();
 //            dd($cartInfo);
-
+//
             return $cartInfo;
         }
     }

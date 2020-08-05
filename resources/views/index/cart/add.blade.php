@@ -552,6 +552,10 @@
 					if(result.code=='00000'){
 						location.href="http://www.1909a3.com/order/index";
 					}
+					if(result.success==false){
+						location.href="http://www.1909a3.com/index/login";
+					}
+					
 				}
 			})
 	})

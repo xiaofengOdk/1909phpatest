@@ -197,13 +197,17 @@ class RegController extends Controller
                         // $data = [
                         //     $k=>$v,
                         // ];
-                            $shop[$k] =$v;
+                            $shop['goods_id'] =$v['goods_id'];
+                            $shop['buy_number'] =$v['buy_number'];
+                            $shop['add_time'] =$v['add_time'];
+                            // $shop = $v['goods_id'];
                             
                     }
+                   
                     $goods_id = $shop['goods_id'];
                     $buy_number = $shop['buy_number'];
                     $add_time = $shop['add_time'];
-                    
+                    // dd($goods_id);
                     // exit;
                     $goods = Goods::where("goods_id",$goods_id)->first();
                     

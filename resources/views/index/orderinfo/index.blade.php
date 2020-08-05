@@ -35,12 +35,7 @@
 				<li class="f-item space"></li>
 				<li class="f-item"><a href="home.html" target="_blank">我的品优购</a></li>
 				<li class="f-item space"></li>
-				<li class="f-item">品优购会员</li>
-				<li class="f-item space"></li>
-				<li class="f-item">企业采购</li>
-				<li class="f-item space"></li>
-				<li class="f-item">关注品优购</li>
-				<li class="f-item space"></li>
+				
 				<li class="f-item" id="service">
 					<span>客户服务</span>
 					<ul class="service">
@@ -52,6 +47,8 @@
 				</li>
 				<li class="f-item space"></li>
 				<li class="f-item"><a href="/"style="text-decoration: none; color:black;" >网站导航</a></li>
+				<li class="f-item space"></li>
+				<li class="f-item"><a href="http://www.1909a3.com/user/answer"style="text-decoration: none; color:black;" >网站导航</a></li>
 			</ul>
 		</div>
 	</div>

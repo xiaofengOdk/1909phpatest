@@ -119,8 +119,8 @@
 					</div>
 					<div class="step-cont">
 						<ul class="payType">
-							<li class="selected">微信付款<span title="点击取消选择"></span></li>
-							<li>货到付款<span title="点击取消选择"></span></li>
+							<li class="selected">支付宝<span title="点击取消选择"></span></li>
+							
 						</ul>
 					</div>
 					<div class="hr"></div>

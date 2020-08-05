@@ -171,6 +171,7 @@ class RegController extends Controller
                     "code"=>"00000",
                     "message"=>"登录成功"
                 ];
+                session(['reg'=>$reg]);
                 return json_encode($message,JSON_UNESCAPED_UNICODE);
                 exit;
             }

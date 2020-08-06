@@ -17,7 +17,6 @@ class PhoneCode extends Model
     $querys = "phone=$user_tel&templateId=TP18040314&variable=code:".$code;
     $bodys = "";
     $url = $host . $path . "?" . $querys;
-
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);
     curl_setopt($curl, CURLOPT_URL, $url);

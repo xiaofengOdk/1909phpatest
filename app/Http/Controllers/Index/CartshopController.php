@@ -20,6 +20,13 @@ class CartshopController extends Controller
 //        dd($reg);
         $user_id = $reg['user_id'];
         if($user_id==null){
+            return $message=[
+                "code"=>00001,
+                "url"=>"{{url('/index/login')}}",
+                "success"=>false,
+            ];exit;
+        }
+        if($user_id==null){
                 $cartdata = cookie("cartdata");
                 // $buy_number = 1;
                 $goods = Goods::where("goods_id",$goods_id)->first();

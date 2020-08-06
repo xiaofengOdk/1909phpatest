@@ -25,12 +25,7 @@
 				<li class="f-item space"></li>
 				<li class="f-item"><a href="home.html" target="_blank">我的品优购</a></li>
 				<li class="f-item space"></li>
-				<li class="f-item">品优购会员</li>
-				<li class="f-item space"></li>
-				<li class="f-item">企业采购</li>
-				<li class="f-item space"></li>
-				<li class="f-item">关注品优购</li>
-				<li class="f-item space"></li>
+
 				<li class="f-item" id="service">
 					<span>客户服务</span>
 					<ul class="service">
@@ -42,6 +37,8 @@
 				</li>
 				<li class="f-item space"></li>
 				<li class="f-item"><a href="/"style="text-decoration: none; color:black;" >网站导航</a></li>
+				<li class="f-item space"></li>
+				<li class="f-item"><a href="http://www.1909a3.com/user/answer"style="text-decoration: none; color:black;" >网站导航</a></li>
 			</ul>
 		</div>
 	</div>
@@ -86,7 +83,7 @@
 								</li>
 								<li class="yui3-u-11-24">
 									<div class="good-item">
-										<div class="item-img"><img src="{{env('UPLOADS_URL')}}{{$v['goods_img']}}" /></div>
+										<div class="item-img"><img src="{{env('UPLOADS_URL')}}{{$v['goods_img']}}" style="height: 82px; width: 82px;" /></div>
 										<div class="item-msg">
 											<a href="{{url('/index/goods_desc',$v['goods_id'])}}">{{$v['goods_name']}}</a>
 										</div>
@@ -197,7 +194,7 @@
 									<ul>
 										@foreach($history_goods as $kk=>$vv)
 										<li>
-											<img src="{{env('UPLOADS_URL')}}{{$vv->goods_img}}" />
+											<img src="{{env('UPLOADS_URL')}}{{$vv->goods_img}}" style="height: 92px;width: 92px;" />
 											<div class="intro">
 												<i>{{$vv->goods_name}}</i>
 											</div>
@@ -556,7 +553,7 @@
 					if(result.success==false){
 						location.href="http://www.1909a3.com/index/login";
 					}
-					
+
 				}
 			})
 	})

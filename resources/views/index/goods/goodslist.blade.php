@@ -26,9 +26,10 @@
             <div class="type-wrap logo">
                 <div class="fl key brand">品牌</div>
                 <div class="value logos">
+
                     <ul class="logo-list">
                         @foreach($brandInfo as $k=>$v)
-                            <li class="brand" cate_id="{{$cate->cate_id}}" brand_id="{{$v->brand_id}}" brand_name="{{$v->brand_name}}"><img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" /></li>
+                            <li class="brand" cate_id="{{$cate->cate_id}}" brand_id="{{$v->brand_id}}" brand_name="{{$v->brand_name}}"><img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width:105px;height:43px;"/></li>
                         @endforeach
                     </ul>
                 </div>

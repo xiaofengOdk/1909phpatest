@@ -18,7 +18,7 @@ class AnswerController extends Controller{
         $footInfo=FootModel::get();//底部导航
         $brand = BrandModel::limit(7)->get();//热卖
         $AnswerModel=new Answer();
-        $reg=$AnswerModel->where('is_del',1)->get();
+        $reg=$AnswerModel->where('is_del',1)->orderBy('add_time','desc')->get();
       
         return view('index.answer.answer',
                   ['cart'=>$cart,'nav'=>$nav,'footInfo'=>$footInfo,'brand'=>$brand,

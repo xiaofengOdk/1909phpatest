@@ -26,12 +26,13 @@ class GoodsinfoController extends Controller
         leftjoin("gimgs","goods.goods_id","=","gimgs.goods_id")
         ->where("goods.goods_id",$id)
         ->first();
+        $goodsInfo['goods_id']=$id;
         $goods_hot=Goods::orderBy("add_time",'desc')->limit(5)->get();
         // dd($goods_hot);
         $attr=Attr::get();
         // dd($goodsInfo['cate_id']);
         $user_like=Goods::where("cate_id",$goodsInfo['cate_id'])->get();
-        // dd($user_like);
+        // dd($goodsInfo);
 	$attrval=Attrval::get();
 		// return view('index.goodsdesc.goods_desc');
         return view('index.goodsdesc.goods_desc',
@@ -42,18 +43,29 @@ class GoodsinfoController extends Controller
         public function sku(){
                 // dd(request()->goods_id);
                // $num=Sku::rightjoin('goods',"sku.goods_id","=","goods.goods_id")->where("sku",request()->sku)->first();
-               $num=Goods::leftjoin("sku","goods.goods_id","=","sku.goods_id")->where(["sku"=>request()->sku,"sku.goods_id"=>request()->goods_id])->first();
-                // dd($num);
-               if($num){
-                return [
-                        "code"=>"00000",
-                        "message"=>$num
-                        ];
-               }else{
-                   return [
-                        "code"=>"00004",
-                        "message"=>"正在补货中"
-                        ];
-               }
+              $goods = Sku::where("goods_id",request()->goods_id)->get();
+              // dd($goods);
+              $sku=request()->sku;
+              // dd($sku);
+                    foreach($goods as $k=>$v){
+                        // print_R(request()->sku);
+                        // print_r( $sku);
+                        $result=Sku::where("sku",$sku)->first();
+                           // dd($result);
+                            if($result){
+                                    return [
+                                         "code"=>"00000",
+                                         "message"=>$result 
+                                        ];
+
+                            }else{
+                                    return [
+                                    "code"=>"00004",
+                                    "message"=>"正在补货中"
+                                    ];
+                                exit;
+                            }
+                     }
+                     // dd($result);
         }
 }

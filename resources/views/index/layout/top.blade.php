@@ -21,9 +21,11 @@ a{
 						@endif
 					</ul>
 					<ul class="fr">
+					<li class="f-item"><a href="/"style="text-decoration: none; color:black;" >网站首页</a></li>
+					    <li class="f-item space"></li>
 						<li class="f-item"><a href="http://www.1909a3.com/index/user_index" style="text-decoration: none; color:black;">我的订单</a></li>
 						<li class="f-item space"></li>
-						<li class="f-item"><a href="" target="_blank">我的品优购</a></li>
+						<li class="f-item"><a href="/index/user_index" target="_blank">个人中心</a></li>
 						
 						<li class="f-item space"></li>
 						<li class="f-item" id="service">
@@ -35,8 +37,8 @@ a{
 								<li><a href="#">商家后台</a></li>
 							</ul>
 						</li>
-						<li class="f-item space"></li>
-						<li class="f-item"><a href="/"style="text-decoration: none; color:black;" >网站导航</a></li>
+						
+						
 						<li class="f-item space"></li>
 						<li class="f-item"><a href="/user/answer" target="_blank">网站留言</a></li>
 					</ul>
@@ -97,7 +99,8 @@ a{
 							@foreach($nav as $v=>$k)
 							<li class="f-item">	<a href="{{url('/index/nav_list/'.$k->nav_id)}}" style="color:black; text-decoration:none;">{{$k->nav_name}}</a></li>
 							@endforeach
-							<li class="f-item"><a href="seckill-index.html" target="_blank" style=" text-decoration:none;">秒杀</a></li>
+							<li class="f-item"><a href="#"  style=" text-decoration:none;">秒杀</a></li>
+							<li class="f-item"><a href="#"  style=" text-decoration:none;">优惠券</a></li>
 						</ul>
 					</div>
 					<div class="yui3-u Right"></div>

@@ -33,7 +33,7 @@
 				<!-- 购物车 -->
 				<div style="visibility: hidden;" class="J-content toolbar-panel tbar-panel-cart toolbar-animate-out">
 					<h3 class="tbar-panel-header J-panel-header">
-						<a href="" class="title"><i></i><em class="title">购物车</em></a>
+						<a href="/index/cart_list" class="title"><i></i><em class="title">购物车</em></a>
 						<span class="close-panel J-close" onclick="cartPanelView.tbar_panel_close('cart');" ></span>
 					</h3>
 					<div class="tbar-panel-main">
@@ -111,26 +111,12 @@
 
 			<!-- 侧栏按钮 -->
 			<div class="toolbar-tabs J-tab">
-				<div onclick="cartPanelView.tabItemClick('cart')" class="toolbar-tab tbar-tab-cart" data="购物车" tag="cart" >
-					<i class="tab-ico"></i>
-					<em class="tab-text"></em>
-					<span class="tab-sub J-count " id="tab-sub-cart-count">0</span>
-				</div>
-				<div onclick="cartPanelView.tabItemClick('follow')" class="toolbar-tab tbar-tab-follow" data="我的关注" tag="follow" >
-					<i class="tab-ico"></i>
-					<em class="tab-text"></em>
-					<span class="tab-sub J-count hide">0</span>
-				</div>
-				<div onclick="cartPanelView.tabItemClick('history')" class="toolbar-tab tbar-tab-history" data="我的足迹" tag="history" >
-					<i class="tab-ico"></i>
-					<em class="tab-text"></em>
-					<span class="tab-sub J-count hide">0</span>
-				</div>
+			 
 			</div>
 
 			<div class="toolbar-footer">
 				<div class="toolbar-tab tbar-tab-top" > <a href="#"> <i class="tab-ico  "></i> <em class="footer-tab-text">顶部</em> </a> </div>
-				<div class="toolbar-tab tbar-tab-feedback" > <a href="#" target="_blank"> <i class="tab-ico"></i> <em class="footer-tab-text ">反馈</em> </a> </div>
+				<div class="toolbar-tab tbar-tab-feedback" > <a href="/user/answer" target="_blank"> <i class="tab-ico"></i> <em class="footer-tab-text ">反馈</em> </a> </div>
 			</div>
 
 			<div class="toolbar-mini"></div>

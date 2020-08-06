@@ -10,7 +10,7 @@
  <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="liuyantab">
   <form action="" method="post" name="new" id="new"></form><tbody>
   <tr>
-    <td  width="569" height="38" bgcolor="#F4F4F4" class="kkkk1"></td>
+    <td  width="569" height="38" bgcolor="#F4F4F4"  align="center" style="font-size:25px;" class="kkkk1">欢迎留言</td>
     
   </tr>
   <tr>
@@ -75,6 +75,7 @@
              </td>
           @else
           <td colspan="2">
+       
                {{$v->answer_name}}
           </td>
           @endif

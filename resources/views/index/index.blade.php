@@ -200,7 +200,7 @@
 	<div class="fun">
 		<div class="py-container">
 			<div class="title">
-				<h3 class="fl">传智播客.有趣区</h3>
+				<h3 class="fl">今日推荐</h3>
 			</div>
 			<div class="clearfix yui3-g Interest">
 				<span class="x-line"></span>
@@ -574,30 +574,6 @@
 			</ul>
 		</div>
 	</div>
-	<!-- 楼层位置 -->
-	<div id="floor-index" class="floor-index">
-		<ul>
-			<li>
-				<a class="num" href="javascript:;" style="display: none;">1F</a>
-				<a class="word" href="javascript;;" style="display: block;">家用电器</a>
-			</li>
-			<li>
-				<a class="num" href="javascript:;" style="display: none;">2F</a>
-				<a class="word" href="javascript;;" style="display: block;">手机通讯</a>
-			</li>
-			<li>
-				<a class="num" href="javascript:;" style="display: none;">3F</a>
-				<a class="word" href="javascript;;" style="display: block;">电脑办公</a>
-			</li>
-			<li>
-				<a class="num" href="javascript:;" style="display: none;">4F</a>
-				<a class="word" href="javascript;;" style="display: block;">家居家具</a>
-			</li>
-			<li>
-				<a class="num" href="javascript:;" style="display: none;">5F</a>
-				<a class="word" href="javascript;;" style="display: block;">运动户外</a>
-			</li>
-		</ul>
-	</div>
+
 
 @include("index.layout.foot")

@@ -150,24 +150,21 @@
 		var url = "{{url('/admin/cate_del')}}";
 		var data = {};
 		data.cate_del = cate_del; 
-		if(window.confirm("是否删除")){
+		// if(window.confirm("是否删除")){
 			$.ajax({
-				type:"post",
+				type:"get",
 				url:url,
 				data:data,
 				datetype:"json",
-				headers: {
-                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content'),
-                },
 				success:function(res){
-					// console.log(res)
+					console.log(res)
 					// if(res.success==true){
-						alert(res.message);
-						history.go(0);
+						// alert(res.message);
+						// history.go(0);
 					// }
 				}
 			})
-		}
+		// }
 	})
 	$(document).ready(function(){
 		$(".span_test").click(function(){

@@ -33,8 +33,16 @@ class IndexController extends Controller
         $footInfo=FootModel::get();
         //购物车
         $goods_info=Goods::limit(6)->get();
+        $goods_info2=Goods::orderBy("add_time","asc")->limit(6)->get();
         $slide_info=Slide::limit(3)->get();
+        $goods = Goods::where("is_hot",1)->limit(5)->get();
+        $goods2 = Goods::orderBy("goods_id","desc")->limit(5)->where("is_hot",1)->get();
+        $goods3 = Goods::where("is_new",1)->limit(5)->get();
+        $goods4 = Goods::orderBy("add_time","asc")->limit(5)->where("is_hot",1)->get();
+        // dd($goods_info2);
         // dd($goods_info);
+    
+
         }else{
         
       
@@ -52,10 +60,15 @@ class IndexController extends Controller
         $footInfo=FootModel::get();
         //购物车
         $goods_info=Goods::limit(6)->get();
+        $goods_info2=Goods::orderBy("add_time","asc")->limit(6)->get();
         $slide_info=Slide::limit(3)->get();
+        $goods = Goods::where("is_hot",1)->limit(5)->get();
+        $goods2 = Goods::orderBy("goods_id","desc")->limit(5)->where("is_hot",1)->get();
+        $goods3 = Goods::where("is_new",1)->limit(5)->get();
+        $goods4 = Goods::orderBy("add_time","asc")->limit(5)->where("is_hot",1)->get();
         // dd($goods_info);
     }
-    	return view('index.index',['cate_info'=>$cate_info,"goods_info"=>$goods_info,"cart"=>$cart,"nav"=>$nav,"brand"=>$brand,"footInfo"=>$footInfo,"adtr_info"=>$adtr_info,"slide_info"=>$slide_info]);
+    return view('index.index',['cate_info'=>$cate_info,"goods_info"=>$goods_info,"cart"=>$cart,"nav"=>$nav,"brand"=>$brand,"footInfo"=>$footInfo,"adtr_info"=>$adtr_info,"slide_info"=>$slide_info,"goods"=>$goods,"goods2"=>$goods2,"goods3"=>$goods3,"goods4"=>$goods4,"goods_info2"=>$goods_info2]);
          
     }
     

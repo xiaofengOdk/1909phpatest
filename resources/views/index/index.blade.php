@@ -172,9 +172,10 @@
 			</div>
 			<div class="bd">
 				<ul class="clearfix yui3-g Favourate picLB" id="picLBxxl">
-					@foreach($goods_info as $k=>$v)
+						@foreach($goods_info as $k=>$v)
 					<li class="yui3-u-1-6">
 						<dl class="picDl huozhe">
+					
 							<dd>
 								<a href="/index/goods_desc/{{$v->goods_id}}" class="pic"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" alt="" /></a>
 								<div class="like-text">
@@ -182,16 +183,25 @@
 									<h3>¥{{$v->goods_price}}</h3>
 								</div>
 							</dd>
+							@foreach($goods_info2 as $k=>$vv)
+					
+						
+					
+							
 							<dd>
-								<a href="/index/goods_desc/{{$v->goods_id}}" class="pic"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" alt="" /></a>
+								<a href="/index/goods_desc/{{$vv->goods_id}}" class="pic"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" alt="" /></a>
 								<div class="like-text">
-									<p>{{$v->goods_name}}</p>
-									<h3>¥{{$v->goods_price}}</h3>
+									<p>{{$vv->goods_name}}</p>
+									<h3>¥{{$vv->goods_price}}</h3>
 								</div>
 							</dd>
+						
+					
+					@endforeach
 						</dl>
 					</li>
 					@endforeach
+					
 				</ul>
 			</div>
 		</div>
@@ -267,11 +277,11 @@
 						@foreach($brand as $k=>$v)
 							@if($k==0)
 						<li>
-							<a href="{{url('/index/nav_hot/'.$v->brand_id)}}" >{{$v->brand_name}}</a>
+							<a href="{{url('/index/goods_desc/'.$v->brand_id)}}" >{{$v->brand_name}}</a>
 						</li>
 						@else
 						<li>
-							<a href="{{url('/index/nav_hot/'.$v->brand_id)}}" >{{$v->brand_name}}</a>
+							<a href="{{url('/index/goods_desc/'.$v->brand_id)}}" >{{$v->brand_name}}</a>
 						</li>
 						@endif
 						@endforeach
@@ -284,15 +294,15 @@
 						<div class="yui3-u Left blockgary">
 							<ul class="jd-list">
 							@foreach($brand as $k=>$v)
-							  <a href="/index/nav_hot/{{$v->brand_id}}">
+							  <a href="/index/goods_desc/{{$v->brand_id}}">
 								<li>{{$v->brand_name}}</li>
 								</a>
 							@endforeach
 							</ul>
-							@foreach($brand as $k=>$v)
+							@foreach($goods as $k=>$v)
 								@if($k==0)
-								 <a href="/index/nav_hot/{{$v->brand_id}}">
-								<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 187px; height: 227px;" />
+								 <a href="/index/goods_desc/{{$v->goods_id}}">
+								<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 187px; height: 227px;" />
 								  </a>
 								@endif
 							@endforeach
@@ -305,16 +315,16 @@
 									<li data-target="#floorCarousel" data-slide-to="2"></li>
 								</ol>
 								<div class="carousel-inner">
-									@foreach($brand as $k=>$v)
+									@foreach($goods as $k=>$v)
 										@if($k==0)
 									<div class="active item">
-									<a href="/index/nav_hot/{{$v->brand_id}}">
-										<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 329px; height: 360px;" /></a>
+									<a href="/index/goods_desc/{{$v->goods_id}}">
+										<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 329px; height: 360px;" /></a>
 									</div>
 										@else
 									<div class="item">
-									<a href="/index/nav_hot/{{$v->brand_id}}">
-										<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 329px; height: 360px;" /></a>
+									<a href="/index/goods_desc/{{$v->goods_id}}">
+										<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 329px; height: 360px;" /></a>
 									</div>
 										@endif
 									@endforeach
@@ -326,29 +336,29 @@
 						<div class="yui3-u row-220 split">
 							<span class="floor-x-line"></span>
 							<div class="floor-conver-pit">
-							@foreach($brand as $k=>$v)
+							@foreach($goods as $k=>$v)
 								@if($k<=1)
-								<a href="/index/nav_hot/{{$v->brand_id}}">
-									<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 219px; height: 180px;" /></a>
+								<a href="/index/goods_desc/{{$v->goods_id}}">
+									<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 219px; height: 180px;" /></a>
 								@endif
 							@endforeach
 							</div>
 						</div>
 						<div class="yui3-u row-218 split">
-							@foreach($brand as $k=>$v)
+							@foreach($goods2 as $k=>$v)
 								@if($k==0)
-								<a href="/index/nav_hot/{{$v->brand_id}}">
-									<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 218px; height: 356px;" /></a>
+								<a href="/index/goods_desc/{{$v->goods_id}}">
+									<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 218px; height: 356px;" /></a>
 								@endif
 							@endforeach
 						</div>
 						<div class="yui3-u row-220 split">
 							<span class="floor-x-line"></span>
 							<div class="floor-conver-pit">
-							@foreach($brand as $k=>$v)
+							@foreach($goods2 as $k=>$v)
 								@if($k<=1)		
-								<a href="/index/nav_hot/{{$v->brand_id}}">
-									<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 220px; height: 180px;" /></a>
+								<a href="/index/goods_desc/{{$v->goods_id}}">
+									<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 220px; height: 180px;" /></a>
 								@endif
 							@endforeach
 							</div>
@@ -500,9 +510,10 @@
 								<li>{{$v->brand_name}}</li>
 							@endforeach
 							</ul>
-							@foreach($brand as $k=>$v)
+							@foreach($goods3 as $k=>$v)
 								@if($k==0)
-								<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 187px; height: 227px;" />
+								<a href="/index/goods_desc/{{$v->goods_id}}">
+								<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 187px; height: 227px;" /></a>
 								@endif
 							@endforeach
 						</div>
@@ -514,14 +525,16 @@
 									<li data-target="#floorCarousel" data-slide-to="2"></li>
 								</ol>
 								<div class="carousel-inner">
-									@foreach($brand as $k=>$v)
+									@foreach($goods3 as $k=>$v)
 										@if($k==0)
 									<div class="active item">
-										<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 329px; height: 360px;" />
+									<a href="/index/goods_desc/{{$v->goods_id}}">
+										<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 329px; height: 360px;" /></a>
 									</div>
 										@else
 									<div class="item">
-										<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 329px; height: 360px;" />
+									<a href="/index/goods_desc/{{$v->goods_id}}">
+										<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 329px; height: 360px;" /></a>
 									</div>
 										@endif
 									@endforeach
@@ -533,26 +546,29 @@
 						<div class="yui3-u row-220 split">
 							<span class="floor-x-line"></span>
 							<div class="floor-conver-pit">
-							@foreach($brand as $k=>$v)
+							@foreach($goods3 as $k=>$v)
 								@if($k<=1)
-									<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 219px; height: 180px;" />
+								<a href="/index/goods_desc/{{$v->goods_id}}">
+									<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 219px; height: 180px;" /></a>
 								@endif
 							@endforeach
 							</div>
 						</div>
 						<div class="yui3-u row-218 split">
-							@foreach($brand as $k=>$v)
+							@foreach($goods4 as $k=>$v)
 								@if($k==0)
-									<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 218px; height: 356px;" />
+								<a href="/index/goods_desc/{{$v->goods_id}}">
+									<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 218px; height: 356px;" /></a>
 								@endif
 							@endforeach
 						</div>
 						<div class="yui3-u row-220 split">
 							<span class="floor-x-line"></span>
 							<div class="floor-conver-pit">
-							@foreach($brand as $k=>$v)
+							@foreach($goods4 as $k=>$v)
 								@if($k<=1)		
-									<img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width: 220px; height: 180px;" />
+								<a href="/index/goods_desc/{{$v->goods_id}}">
+									<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 220px; height: 180px;" /></a>
 								@endif
 							@endforeach
 							</div>
@@ -568,7 +584,8 @@
 			<ul class="Brand-list blockgary">
 				@foreach($goods_info as $k=>$v)
 				<li class="Brand-item">
-					<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 150px; height: 63px;" />
+				<a href="/index/goods_desc/{{$v->goods_id}}">
+					<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 150px; height: 63px;" /></a>
 				</li>
 				@endforeach
 			</ul>

@@ -22,6 +22,7 @@
             <div class="clearfix"></div>
         </div>
         <!--selector-->
+        @if(!empty($goodsdata))
         <div class="clearfix selector">
 
             <div class="type-wrap logo">
@@ -33,10 +34,6 @@
                             <li class="brand" cate_id="{{$cate->cate_id}}" brand_id="{{$v->brand_id}}" brand_name="{{$v->brand_name}}"><img src="{{env('UPLOAD_URL')}}{{$v->brand_log}}" style="width:105px;height:43px;"/></li>
                         @endforeach
                     </ul>
-                </div>
-                <div class="ext">
-                    <a href="javascript:void(0);" class="sui-btn">多选</a>
-                    <a href="javascript:void(0);">更多</a>
                 </div>
             </div>
             @foreach($attr as $k=>$v)
@@ -85,7 +82,6 @@
                 <input type="hidden" id="sku"  value="">
                 <input type="hidden" id="goods_price"  value="">
                 {{--<input type="hidden" id="attr_2"  value="">--}}
-
                 <div class="navbar-inner filter">
                     <ul class="sui-nav" >
                         <li class="active">
@@ -103,7 +99,7 @@
                     </ul>
                 </div>
             </div>
-            @if(!empty($goodsdata))
+
             <div class="goods-list">
                 <ul class="yui3-g">
                     @foreach($goodsInfo as $k=>$v)
@@ -158,14 +154,13 @@
                         {{--</span></div>--}}
                 </div>
             </div>
-            @else
-                <li class="yui3-u-1-5">
 
-                    <h2>该分类下没有商品....</h2>
-
-                </li>
-            @endif
         </div>
+        @else
+            <div style="height:80px;">
+            <h2>该分类下还没有商品，去看看其他分类吧!</h2>
+                </div>
+            @endif
         <!--hotsale-->
         <div class="clearfix hot-sale">
             <h4 class="title">热卖商品</h4>
@@ -193,7 +188,6 @@
                 </ul>
             </div>
         </div>
-
     </div>
 </div>
 <script src="/static/admin/js/plugins/jquery/jquery.min.js"></script>

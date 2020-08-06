@@ -36,8 +36,8 @@ class LoginController extends Controller
     }
 
     public function quit(){
-        session(['reg'=>null,'time'=>null]);
-        return redirect('/admin/login')->with('msg','请登录');
-        
+        session(['regs'=>null,'time'=>null]);
+        return redirect('/admin/login');
+      
     }
 }

@@ -29,10 +29,7 @@
                                 </div>
                             </div>
                             <!--工具栏/-->
-                            <form action=""  >
-								<input type="text"  style="height:35px"name="admin_name" style="margin-left:150px;">
-								<input type="submit" style="height:35px" class="btn bg-olive btn-xs" value="搜索">
-							</form>
+                            
 			                  <!--数据列表-->
 			                  <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
 			                      <thead>
@@ -182,7 +179,7 @@
     $(document).on('click',".ro",function(){
        var admin_id= $("input[name='admin_id']").val();
        var rid=$("select[name='role']").val();
-       var url="http://www.1909a3.com/admin/udo"
+       var url="/admin/udo"
         var data={rid:rid,admin_id:admin_id}
               $.ajax({
                   data:data,
@@ -211,7 +208,7 @@
            
         // console.log(admin_id)
         // return false
-        var url="http://www.1909a3.com/admin/del"
+        var url="/admin/del"
         var data={admin_id:admin_id}
               $.ajax({
                   data:data,
@@ -223,7 +220,7 @@
                        if(reg.code=='00000'){
                            alert(reg.message);
                             //  history.go(0);
-                            location.href="http://www.1909a3.com/admin/ushow?page=1"
+                            location.href="/admin/ushow?page=1"
                        }
                        if(reg.code=='00001'){
                            alert(reg.message);

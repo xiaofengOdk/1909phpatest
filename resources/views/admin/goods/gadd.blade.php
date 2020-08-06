@@ -333,7 +333,7 @@ $(document).on("click",".attr_info",function(){
                          //console.log(reg);
                         if(reg.code=='000000'){
                              alert(reg.message);
-                             location.href="http://www.1909a3.com/admin/goods_show";
+                             location.href="/admin/goods_show";
                             // return false;
 
                          }

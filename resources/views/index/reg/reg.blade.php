@@ -109,7 +109,7 @@
                     return false;
               }else{
                  $.ajax({
-                      type:'get',
+                      type:'post',
                       data:{'user_tel':user_tel},
                       url:url,
                       dataType:'json',

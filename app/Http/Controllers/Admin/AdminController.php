@@ -16,21 +16,20 @@ class AdminController extends Controller
 
    public function ushow(){
         $admin_name=request()->admin_name;
+       
         $where=[];
         if($admin_name){
              $where[]=['admin_name','like',"%$admin_name%"];
         }
         $where[]=['is_del','=',1];
+      
         $AdminModel=new Admin();
 
         $reg=$AdminModel->where($where)->paginate(2);
+      
         $RoleModel=new RoleModel();
         $regs=$RoleModel->get();
-        // $page=request()->page??1;
-        // echo $page;exit;
-        // if(request()->ajax()){
-        //     return view('admin.user.ajaxpag',['reg'=>$reg,'regs'=>$regs]);
-        // }
+        
 
         $reg=$AdminModel->where('is_del',1)->paginate(2);
         $RoleModel=new RoleModel();

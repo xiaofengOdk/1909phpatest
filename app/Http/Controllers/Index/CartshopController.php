@@ -28,9 +28,10 @@ class CartshopController extends Controller
         $user_id = $reg['user_id'];
         if($user_id==null){
             return $message=[
-                "code"=>00001,
+                "code"=>00004,
                 "url"=>"/index/login",
                 "message"=>"请登录",
+                "success"=>false,
             ];exit;
         }
         if($user_id==null){

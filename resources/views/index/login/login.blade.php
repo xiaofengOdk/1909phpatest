@@ -46,27 +46,14 @@
 								<div class="input-prepend"><span class="add-on loginpwd"></span>
 									<input id="prependedInput" type="password" name="user_pwd" placeholder="请输入密码" class="span2 input-xfat">
 								</div>
-								<div class="setting">
-									<label class="checkbox inline">
-          <input name="m1" type="checkbox" value="2" checked=""> 
-          自动登录
-        </label>
-									<span class="forget">忘记密码？</span>
-								</div>
+					
 								<div class="logined">
 									<a class="sui-btn btn-block btn-xlarge btn-danger log"  >登&nbsp;&nbsp;录</a>
 								</div>
 							</form>
 							<div class="otherlogin">
-								<div class="types">
-									<ul>
-										<li><img src="/static/index/img/qq.png" width="35px" height="35px" /></li>
-										<li><img src="/static/index/img/sina.png" /></li>
-										<li><img src="/static/index/img/ali.png" /></li>
-										<li><img src="/static/index/img/weixin.png" /></li>
-									</ul>
-								</div>
-								<span class="register"><a href="/index/reg" target="_blank">立即注册</a></span>
+								
+								<span class="register" style="margin-top:-12px;"><a href="/index/reg" target="_blank">立即注册</a></span>
 							</div>
 						</div>
 					</div>

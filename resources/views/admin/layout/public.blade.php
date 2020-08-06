@@ -63,7 +63,7 @@
 
                                     <p>
                                        @if(session('regs')=='')
-                                          <a href="http://www.1909a3.com/index.php/admin/login" style="font-size: 15px; color:white;">登录</a>
+                                          <a href="/admin/login" style="font-size: 15px; color:white;">登录</a>
                                        @else
                                        @php echo session('regs')->admin_name @endphp
                                        <small>登录时间:@php echo session('time')@endphp</small>
@@ -75,7 +75,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">修改密码</a>
+                                      
                                     </div>
                                     <div class="pull-right">
                                         <a href="/admin/quit" class="btn btn-default btn-flat">退出</a>

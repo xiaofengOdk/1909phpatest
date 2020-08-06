@@ -14,7 +14,7 @@
 
        
         <div class="banner">
-            <img src="/static/index/img/_/shop-intro.png" alt="">
+           
         </div>
 
         <div class="default-list">

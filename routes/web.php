@@ -26,7 +26,7 @@ Route::prefix("/admin")->group(function(){
     Route::any("/login","Admin\LoginController@login");//后台登录;
     Route::any("/quit","Admin\LoginController@quit");//后台退出;
     Route::any("/logdo","Admin\LoginController@logDo");//后台执行登录;
-    Route::any("/ushow","Admin\AdminController@uShow");//后台执行登录;
+    Route::any("/ushow","Admin\AdminController@uShow")->middleware('checklogin');//后台执行登录;
     Route::any("/udo","Admin\AdminController@udo");//用户赋予角色;
     Route::any("/del","Admin\AdminController@del");//删除;
     Route::any("/jupdo","Admin\AdminController@jupdo");//即点击改;
@@ -61,7 +61,7 @@ Route::prefix("/admin")->group(function(){
 	Route::any('/editbrand_show','Admin\BrandController@editbrand_show');
 	##########################商品模块###############################
 	Route::any('/jup', 'Admin\RoleController@jup');//即点即改
-    Route::any('/gadd', 'Admin\GoodsController@gadd');//商品添加   李彤
+    Route::any('/gadd', 'Admin\GoodsController@gadd')->middleware('checklogin');//商品添加   李彤
     Route::any('/gdo', 'Admin\GoodsController@gdo');//商品添加执行   李彤
     Route::any('/goods_show', 'Admin\GoodsController@goods_show');//商品添加   李彤
     Route::any('/uploadadd', 'Admin\GoodsController@uploadadd');//商品添加   李彤
@@ -70,7 +70,7 @@ Route::prefix("/admin")->group(function(){
 
 
 
-    Route::any('/adtg_add', 'Admin\AdtgController@adtg_add');//广告展示   
+    Route::any('/adtg_add', 'Admin\AdtgController@adtg_add')->middleware('checklogin');//广告展示   
     Route::any('/adtg_adds', 'Admin\AdtgController@adtg_adds');//广告添加   
     Route::any('/adtg_del', 'Admin\AdtgController@adtg_del');//广告删除   
     Route::any('/pol', 'Admin\AdtgController@pol');//广告即点即改   
@@ -79,7 +79,7 @@ Route::prefix("/admin")->group(function(){
 
 
 
-    Route::any('/attr_add', 'Admin\SkuController@attr_add');//attr展示   
+    Route::any('/attr_add', 'Admin\SkuController@attr_add')->middleware('checklogin');//attr展示   
     Route::any('/attrval_add', 'Admin\SkuController@attrval_add');//attrval展示   
     Route::any('/attr_adds', 'Admin\SkuController@attr_adds');//attr添加   
     Route::any('/attrval_adds', 'Admin\SkuController@attrval_adds');//attrval添加   
@@ -96,13 +96,13 @@ Route::prefix("/admin")->group(function(){
    
 
 
-    Route::any('/category', 'Admin\CategoryController@category');//分类展示  邢慧峰
+    Route::any('/category', 'Admin\CategoryController@category')->middleware('checklogin');//分类展示  邢慧峰
     Route::any('/cate_adds', 'Admin\CategoryController@cate_adds');//分类添加  邢慧峰
     Route::any('/cate_del', 'Admin\CategoryController@cate_del');//分类删除  邢慧峰
     Route::any('/cate_ji', 'Admin\CategoryController@cate_ji');//分类即点即改  邢慧峰
 
 
-    Route::any('/nav_add', 'Admin\NavController@nav_add');//导航添加   阴晓菲
+    Route::any('/nav_add', 'Admin\NavController@nav_add')->middleware('checklogin');//导航添加   阴晓菲
     Route::any('/nav_adds', 'Admin\NavController@nav_adds');//导航执行方法   阴晓菲
     Route::any('/nav_jidian', 'Admin\NavController@nav_jidian');//即点即改   阴晓菲
     Route::any('/nav_dels', 'Admin\NavController@nav_dels');//导航删除  阴晓菲
@@ -110,18 +110,18 @@ Route::prefix("/admin")->group(function(){
     Route::any('/nav_updo/{id}', 'Admin\NavController@nav_updo');//修改执行   阴晓菲
     Route::any('/foot_add', 'Admin\FootController@foot_add');//添加  阴晓菲
     Route::any('/foot_adds', 'Admin\FootController@foot_adds');//执行  阴晓菲
-    Route::any('/foot_show', 'Admin\FootController@foot_show');//展示  阴晓菲
+    Route::any('/foot_show', 'Admin\FootController@foot_show')->middleware('checklogin');//展示  阴晓菲
     Route::any('/foot_del', 'Admin\FootController@foot_del');//删除 阴晓菲
 
 
-    Route::any('/gimgs_adds', 'Admin\GimgsController@gimgs_adds');//商品添加   刘远浩
+    Route::any('/gimgs_adds', 'Admin\GimgsController@gimgs_adds')->middleware('checklogin');//商品添加   刘远浩
     Route::any('/gimgs_add', 'Admin\GimgsController@gimgs_add');//商品添加   刘远浩
     Route::any('/gimgs_del', 'Admin\GimgsController@gimgs_del');//商品删除 刘远浩
     Route::any('/gimgs_upd/{id}', 'Admin\GimgsController@gimgs_upd');//商品删除 刘远浩
     Route::any('/gimgs_upddo/{id}', 'Admin\GimgsController@gimgs_upddo');//商品添加   刘远浩
 
     Route::any('/slide_add', 'Admin\SlideController@slide_add');//轮播图添加   刘远浩
-    Route::any('/slide_show', 'Admin\SlideController@slide_show');//轮播图展示   刘远浩
+    Route::any('/slide_show', 'Admin\SlideController@slide_show')->middleware('checklogin');//轮播图展示   刘远浩
     Route::any('/slide_del', 'Admin\SlideController@slide_del');//轮播删除   刘远浩
     Route::any('/slide_upd/{id}', 'Admin\SlideController@slide_upd');//轮播图修改 刘远浩
     Route::any('/slide_upddo/{id}', 'Admin\SlideController@slide_upddo');//轮播图修改执行 刘远浩

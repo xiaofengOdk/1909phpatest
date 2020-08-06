@@ -25,8 +25,8 @@ class GoodsController extends Controller
 //        echo "<script>alert('添加成功');location.href='/'</script>";
 //        echo $id;
         $nav = NavModel::get();//导航
-        $footInfo=FootModel::get();//底部导航
-        $brand = BrandModel::where("brand_show",1)->limit(7)->get();//热卖
+        $footInfo=FootModel::where('is_del',1)->limit(9)->get();//底部导航
+        $brand = BrandModel::where("brand_show",1)->where('is_del',1)->limit(7)->get();//热卖
         $brandInfo = BrandModel::where('cate_id',$id)->get();
         $cate = Cate::where('cate_id',$id)->first();
         $goodsdata = Goods::where('cate_id',$id)->get()->toArray();

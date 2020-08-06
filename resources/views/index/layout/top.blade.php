@@ -83,7 +83,12 @@ a{
 								<span class="car"></span>
 								<a class="sui-btn btn-default btn-xlarge" href="/index/cart_list" target="_blank">
 									<span>我的购物车</span>
-									<i class="shopnum">{{$cart}}</i>
+									 @if(session('reg')=='')
+										<i class="shopnum">0</i>
+									 @else
+                                        <i class="shopnum">{{$cart}}</i>
+									 
+									@endif
 								</a>
 							</div>
 						</div>

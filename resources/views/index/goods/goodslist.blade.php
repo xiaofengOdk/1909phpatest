@@ -332,7 +332,7 @@
             _this.parent('li').addClass('active');
             _this.parent('li').siblings('li').removeClass('active');
             var field = _this.attr('field');
-            var brand_id=_this.attr('brand_id');
+            var brand_id=$('#brand_id').val();
             var cate_id="{{$cate->cate_id}}";
             var goods_price=$('#goods_price').val();
             var sku=$('#sku').val();

@@ -20,7 +20,7 @@
 						<li class="yui3-u-1-6" style="margin-left:125px;">
 							<div class="list-wrap">
 								<div class="p-img">
-									<img src="{{env('UPLOAD_URL')}}{{$v->goods_img}}" />
+									<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" />
 								</div>
 								<div class="attr">
 									<em>{{$v->goods_name}}</em>

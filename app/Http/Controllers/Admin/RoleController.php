@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use App\Models\Role_right;
 use App\models\RoleModel;
 use App\models\Right;
 use Illuminate\Http\Request;
@@ -108,10 +109,10 @@ class RoleController extends Controller
     //角色赋予权限
     public function upd(){
          $data=request()->all();
-         //dd($data);
+//         dd($data);
          $RgModel=new Role_right();
          $reg=$RgModel->insert($data);
-          //dd($reg);
+//          dd($reg);
         if($reg){
             return [
                 'code'=>'000000',

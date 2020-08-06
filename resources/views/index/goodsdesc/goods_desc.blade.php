@@ -485,34 +485,43 @@
 	  	  }
 		$(document).on("click","#ys",function(){
 			var _this=$(this);
-			_this.parents('dl').find("[name='yanshi']").prop("class",'');
+			   // var _this =  $(this);
+            if(_this.hasClass("selected")){
+            	 _this.removeClass("selected");
+            }else{
+            	_this.parents('dl').find("[name='yanshi']").prop("class",'');
 			_this.prop("class",'selected');
+            }
 			var num=$("#dd").attr("num");
 			//获取本页面的id
 			var goods_id=_this.attr("goods_id");
 			//获取sku
 			var sku="";
-			for(var i=1;i<=num;i++){
+			for(var i=0;i<=num-1;i++){
 				var attr_id=$("#attr_id_"+i).attr("attr_id");
 				var val_id=$("#val_id_"+i).parents("#dl").find("[name='yanshi'][class='selected']").attr('val_id');
 				if(!val_id==""){
 					sku=sku+'['+attr_id+':'+val_id+'],';
 				}
 			}
+			// console.log(sku)
+			// return false
 			var cd=sku.length;
 			sku=sku.substr(0,cd-1);
+			// console.log(goods_id)
+			// return false
 			$.ajax({
 				url:'/index/sku',
 				data:{"sku":sku,"goods_id":goods_id},
 				dataType:"json",
 				success:function(res){
-					// console.log(res.message.goods_img)
+					console.log(res)
 					var price=res.message.goods_price
 					var img=res.message.goods_img
-					var video_str='<img   jqimg="'+img+'"        src="'+img+'" controls="controls"     style="width:412px; height: 412px; ">';
+					// var video_str='<img   jqimg="'+img+'"        src="'+img+'" controls="controls"     style="width:412px; height: 412px; ">';
 					if(res.code=='00000'){
 						$("#ssss").text(price);
-						$('.jqzoom').find('img').hide()
+						// $('.jqzoom').find('img').hide()
 						$(".jqzoom").append(video_str)					}
 					if(res.code=='00004'){
 						alert(res.message);
@@ -543,13 +552,27 @@
 				
 		  })
 	  	$(document).on("click","#addshopcars",function(){
+	  		var num=$("#dd").attr("num");
         	 var _this=$(this);
 	   	var _val=parseInt($(".itxt").val())
 	 	 var goods_id=$(".goods_id").val()
          var attrddd=_this.parents("div").find(".selected").text()
+         var sku="";
+			for(var i=0;i<=num-1;i++){
+				var attr_id=$("#attr_id_"+i).attr("attr_id");
+				var val_id=$("#val_id_"+i).parents("#dl").find("[name='yanshi'][class='selected']").attr('val_id');
+				if(!val_id==""){
+					sku=sku+'['+attr_id+':'+val_id+'],';
+				}
+			}
+			// console.log(sku)
+			// return false;
+			var cd=sku.length;
+			sku=sku.substr(0,cd-1);
 	      var data ={};
         data.goods_id = goods_id;
         data.buy_number = _val;
+        data.sku = sku;
 	    var url="/index/cart_add"
 	     $.ajax({
              type:'post',
@@ -557,8 +580,18 @@
              url:url,
              dataType:'json',
              success:function(reg){
-                 // alert(reg.message)
-                 location.href="/index/cart_list"
+                 // console.log(reg.message)
+                 if(reg.code=='00004'){
+                 	alert(reg.message)
+	                 location.href="/index/login"                	                 	
+                 }
+                 if(reg.success==false){
+                 	alert(reg.message)
+             		return false
+                 }
+                 if(reg.success==true){
+	                 location.href="/index/cart_list"                 	
+                 }
              }
          })
 	  	})

@@ -140,8 +140,8 @@ class OrderinfoController extends Controller
         // dd($user_id);
         $cary=[];
         foreach($goods_id as $k=>$v){
-           $goods_info= Cary::leftjoin("goods","cary.goods_id","=","goods.goods_id")->where("cary_id",$v)->first();
-           // dd($v);
+           $goods_info= Cary::leftjoin("sku","cary.goods_id","=","sku.goods_id")->where(["cary_id"=>$v,"user_id"=>$user_id])->first();
+           // dd($goods_info);
             $cary['user_id']=$user_id;
             $cary['goods_id']=$goods_info['goods_id'];
             $cary['buy_number']=$goods_info['buy_number'];

@@ -69,7 +69,7 @@
 	  </p>
       <div style="border:1px solid #ccc; width:1200px; height:450px; background:#fff;margin:0 auto;">
           <h2 style="text-align:center; margin-top:30px;">{{$reg->g_name}}</h2>
-         <div align="center"> <p style="text-align:left; margin-top:20px; width:600px;   font-size: 15px; text-indent:2em;">{{$reg->g_desc}}</p></div>
+         <div align="center"> <p style="text-align:left; margin-top:20px; width:600px;   font-size: 13px; text-indent:2em;">{{$reg->g_desc}}</p></div>
 		  {{--图片--}}
 		  <div class="like" style="margin-top:25px;" align="center">
 			  <div class="like-list" >
@@ -77,7 +77,7 @@
 					  @foreach($gInfo as $k=>$v)
 						  <li class="yui3-u-1-6" style="margin-left:125px;">
 							  <div class="list-wrap">
-								  <div class="p-img">
+								  <div class="p-img" style="margin-top: 25px;">
 									  <img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}"  style="height: 110px;width: 110px;"/>
 								  </div>
 								  <div class="attr">

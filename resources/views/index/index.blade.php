@@ -507,7 +507,7 @@
 						<div class="yui3-u Left blockgary">
 							<ul class="jd-list">
 							@foreach($brand as $k=>$v)
-							<a href="{{url('/index/nav_hot/'.$v->brand_id)}}" ><li>{{$v->brand_name}}</li></a>
+								<li>{{$v->brand_name}}</li>
 							@endforeach
 							</ul>
 							@foreach($goods3 as $k=>$v)

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use App\Models\Cary;
+use App\Models\Sku;
 use App\Models\Goods;
 use App\Models\NavModel;
 use App\Models\BrandModel;
@@ -15,28 +16,55 @@ class CartshopController extends Controller
     public function cart_add(Request $request){
         $goods_id = $request->goods_id;
         $buy_number = $request->buy_number;
-//        dd($buy_number);
+       // dd(request()->all());
         $reg = session("reg");
-//        dd($reg);
+        $sku=request()->sku;
+        $sku_info=Sku::where(["sku"=>$sku,"goods_id"=>$goods_id])->first();
+       // dd($sku_info);
+        // $sku=explode(",",$sku);
+        // dd($sku_info);
+
+        // exit;
         $user_id = $reg['user_id'];
         if($user_id==null){
             return $message=[
-                "code"=>00001,
-                "url"=>"{{url('/index/login')}}",
+                "code"=>00004,
+                "url"=>"/index/login",
+                "message"=>"请登录",
                 "success"=>false,
             ];exit;
         }
         if($user_id==null){
                 $cartdata = cookie("cartdata");
                 // $buy_number = 1;
-                $goods = Goods::where("goods_id",$goods_id)->first();
+                $goods = Sku::where(["goods_id"=>$goods_id])->get();
                 // 判断库存
+                    foreach($goods as $k=>$v){
+                        // print_R($v['sku']);
+                        // print_r( $sku);
+                            if($v['sku']==$sku){
+                                return $message=[
+                                         "code"=>00001,
+                                        "message"=>"已加入购物车",
+                                        "success"=>true,
+                                        ];
+                            }else{
+                                return $message=[
+                                    "code"=>00004,
+                                    "message"=>"库存不足",
+                                    "success"=>false,
+                                ];
+                                exit;
+                            }
+                     }
+                // dd(1);
                 if($goods['goods_store']<$buy_number){
                     return $message=[
                             "code"=>00001,
                             "message"=>"库存不足",
                             "success"=>false,
                         ];
+                            exit;
                 }
 
                 $id=request()->goods_id;
@@ -73,9 +101,10 @@ class CartshopController extends Controller
                         if($goods['goods_store']<$cart){
                             return [
                                 "code"=>00002,
-                                "message"=>"库存不足2",
+                                "message"=>"库存不足",
                                 "success"=>false,
                             ];
+                                exit;
                         }
                     }
                     $cartdata[$goods_id] = [
@@ -106,6 +135,7 @@ class CartshopController extends Controller
                         "success"=>true,
                     ];
 
+
         }else{
             // 登录后
             // $buy_number = 1;
@@ -117,6 +147,7 @@ class CartshopController extends Controller
                         "message"=>"库存不足",
                         "success"=>false,
                     ];
+                        exit;
             }
             $cart = Cary::where(["user_id"=>$user_id,"goods_id"=>$goods_id,"is_del"=>1])->first();
             $cart2 = Cary::where(["user_id"=>$user_id,"goods_id"=>$goods_id,"is_del"=>2])->first();
@@ -158,6 +189,7 @@ class CartshopController extends Controller
                     "goods_id"=>$request->goods_id,
                     "buy_number"=>$buy_number,
                     "add_time"=>time(),
+                    "id"=>$sku_info['id'],
                 ];
                     $res2 = Cary::insert($data);
                     if($res2){

@@ -12,8 +12,42 @@
    
 
 
+<<<<<<< HEAD
  
 		
+=======
+ <div class="like" style="margin-top:25px;" align="center">
+			
+				<div class="like-list" >
+					<ul class="yui3-g" >
+                       @foreach($gInfo as $k=>$v)
+						<li class="yui3-u-1-6" style="margin-left:125px;">
+							<div class="list-wrap">
+								<div class="p-img">
+									<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" />
+								</div>
+								<div class="attr">
+									<em>{{$v->goods_name}}</em>
+								</div>
+								<div class="price"  style="margin-top:20px;">
+									<strong>
+											<em>¥</em>
+											<i>{{$v->goods_price}}</i>
+										</strong>
+								</div>
+                                <div class="commit">
+                                <a href="/index/goods_desc/{{$v->goods_id}}" class="sui-btn btn-bordered btn-danger">立即购买</a>
+                            </div>
+							</div>
+						</li>
+						@endforeach
+					
+						
+						
+					</ul>
+				</div>
+			</div>
+>>>>>>> 5d117501fece228e92ed2cd5efe1ab92ef85dd38
 		</div>
         </div>
         </div>

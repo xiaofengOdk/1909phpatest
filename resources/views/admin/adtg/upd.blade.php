@@ -17,7 +17,13 @@
             </tr>
             <tr>
                 <td style="width:150px;">广告描述</td><!--form-control-->
-                <td><input  class="" style="width:200px;height:34px; border:1px solid #d2d6de"  name="g_desc" id="g_desc" value="{{$info->g_desc}}"></td>
+                <td>
+                    <textarea style="width:800px;height:150px;
+                     border:1px solid #d2d6de"  name="g_desc"
+                              id="g_desc">
+                        {{$info->g_desc}}
+						</textarea>
+                </td>
             </tr>
             <tr>
                 <td style="width:150px;">跳转地址</td><!--form-control-->

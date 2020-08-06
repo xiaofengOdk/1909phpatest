@@ -67,20 +67,31 @@
 		  艾蒂妲快报 &nbsp;:&nbsp;
 		  <b style="color:#b1191a; font-size:15px;">{{$reg->g_name}}</b>
 	  </p>
-      <div style="border:1px solid #ccc; width:1200px; height:450px; background:#fff;margin:0 auto;">
+      <div style="border:1px solid #ccc; width:1200px; height:500px; background:#fff;margin:0 auto;">
           <h2 style="text-align:center; margin-top:30px;">{{$reg->g_name}}</h2>
-         <div align="center"> <p style="text-align:left; margin-top:20px; width:600px;   font-size: 15px; text-indent:2em;">{{$reg->g_desc}}</p></div>
+         <div align="center"> <p style="text-align:left; margin-top:20px; width:600px;   font-size: 13px; text-indent:2em;">{{$reg->g_desc}}</p></div>
 		  {{--图片--}}
 		  <div class="like" style="margin-top:25px;" align="center">
 			  <div class="like-list" >
 				  <ul class="yui3-g" >
 					  @foreach($gInfo as $k=>$v)
-						  <li class="yui3-u-1-6" style="margin-left:125px; ">
+						  <li class="yui3-u-1-6" style="margin-left:125px;">
 							  <div class="list-wrap">
-								  <div class="p-img">
-									  <img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="height: 150px; width: 150px;"/>
+								  <div class="p-img" style="margin-top: 25px;">
+									  <img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}"  style="height: 110px;width: 110px;"/>
+								  </div>
+								  <div class="attr">
+									  <em>{{$v->goods_name}}</em>
 								  </div>
 								  <div class="price"  style="margin-top:20px;">
+									  <strong>
+										  <em>¥</em>
+										  <i>{{$v->goods_price}}</i>
+									  </strong>
+								  </div>
+								  <div class="commit">
+									  <a href="/index/goods_desc/{{$v->goods_id}}"
+										 class="sui-btn btn-bordered btn-danger">查看详情</a>
 								  </div>
 							  </div>
 						  </li>
@@ -88,6 +99,6 @@
 				  </ul>
 			  </div>
 		  </div>
-	  </div>
-        </div>
-        </div>
+</div>
+</div>
+</div>

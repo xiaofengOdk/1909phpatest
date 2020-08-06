@@ -46,7 +46,7 @@ class Test extends Controller
         $arr=$_GET;
         $alipaySevice = new \AlipayTradeService($config); 
         $result = $alipaySevice->check($arr);
-
+        // dd($config);
         /* 实际验证过程建议商户添加以下校验。
         1、商户需要验证该通知数据中的out_trade_no是否为商户系统中创建的订单号，
         2、判断total_amount是否确实为该订单的实际金额（即商户订单创建时的金额），
@@ -79,19 +79,16 @@ class Test extends Controller
             echo "验证失败";
         }
     }
-    public function notice_url(){
-        // echo 11111;
-        // dd(request()->all());
-      require_once app_path('libs/alipay/wappay/service/AlipayTradeService.php');
+    public function notify_url(){
+        $config=config("alipay");
+        require_once app_path('libs/alipay/wappay/service/AlipayTradeService.php');
         require_once app_path('libs/alipay/wappay/buildermodel/AlipayTradeWapPayContentBuilder.php');
-        $config=config('alipay');
-      // dd($config);
-         $arr=request()->all();
-         dd($arr);
+        $arr=$_POST;
         $alipaySevice = new \AlipayTradeService($config); 
-        $alipaySevice->writeLog(var_export($arr,true));
+        $alipaySevice->writeLog(var_export($_POST,true));
         $result = $alipaySevice->check($arr);
-        // dd($result);
+        
+        dd($result);
         /* 实际验证过程建议商户添加以下校验。
         1、商户需要验证该通知数据中的out_trade_no是否为商户系统中创建的订单号，
         2、判断total_amount是否确实为该订单的实际金额（即商户订单创建时的金额），

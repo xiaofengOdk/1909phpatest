@@ -12,11 +12,11 @@ a{
 					<ul class="fl">
 						
 						 @if(session('reg')=='')
-						 <li class="f-item">品优购欢迎您！</li>
+						 <li class="f-item">艾蒂妲欢迎您！</li>
 						<li class="f-item">请<a href="/index/login" target="_blank">登录</a>　<span><a href="/index/reg" target="_blank">免费注册</a></span></li>
 
 						@else
-						<li class="f-item">欢迎</li>
+						<li class="f-item">艾蒂妲欢迎您！</li>
 						<li class="f-item" style="margin-left:10px;"><a >@php echo session('reg')->user_name@endphp</a>　<span><a href="/index/quit" target="_blank">退出</a></span></li>
 						@endif
 					</ul>
@@ -27,16 +27,8 @@ a{
 						<li class="f-item space"></li>
 						<li class="f-item"><a href="/index/user_index" target="_blank">个人中心</a></li>
 						
-						<li class="f-item space"></li>
-						<li class="f-item" id="service">
-							<span>客户服务</span>
-							<ul class="service">
-								<li><a href="cooperation.html" target="_blank">合作招商</a></li>
-								<li><a href="shoplogin.html" target="_blank">商家后台</a></li>
-								<li><a href="cooperation.html" target="_blank">合作招商</a></li>
-								<li><a href="#">商家后台</a></li>
-							</ul>
-						</li>
+						
+						
 						
 						
 						<li class="f-item space"></li>

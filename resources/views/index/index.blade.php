@@ -56,7 +56,7 @@
 				</div>
 				<div class="yui3-u Right">
 					<div class="news">
-						<h4><em class="fl">品优购快报</em><span class="fr tip">更多 ></span></h4>
+						<h4><em class="fl">品优购快报</em><span class="fr tip"></span></h4>
 						<div class="clearix"></div>
 						<ul class="news-list unstyled">
 							@foreach($adtr_info as $k=>$v)
@@ -189,7 +189,7 @@
 					
 							
 							<dd>
-								<a href="/index/goods_desc/{{$vv->goods_id}}" class="pic"><img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" alt="" /></a>
+								<a href="/index/goods_desc/{{$vv->goods_id}}" class="pic"><img src="{{env('UPLOADS_URL')}}{{$vv->goods_img}}" alt="" /></a>
 								<div class="like-text">
 									<p>{{$vv->goods_name}}</p>
 									<h3>¥{{$vv->goods_price}}</h3>

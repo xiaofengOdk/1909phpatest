@@ -53,20 +53,20 @@
 			                      <tbody>
 								  @foreach($data as $k=>$v)
 									  <tr g_id="{{$v['g_id']}}">
-										  <td>{{$v['g_id']}}</td>
-										  <td pub="g_name">
+										  <td style="width: 80px;">{{$v['g_id']}}</td>
+										  <td pub="g_name" style="width: 80px;">
 											  <span class="jd">
 													{{$v['g_name']}}
 											  </span>
 											  <input type="text" class="jds" style="display: none;" value="{{$v->g_name}}"/>
 										  </td>
-										  <td pub="g_desc">
+										  <td pub="g_desc" style="width: 350px;">
 											  <span class="jd">
 													{{$v['g_desc']}}
 											  </span>
 											  <input type="text" class="jds" style="display: none;" value="{{$v->g_desc}}"/>
 										  </td>
-										  <td pub="g_url">
+										  <td pub="g_url" style="width: 80px;">
 											  <span class="jd">
 													{{$v['g_url']}}
 											  </span>
@@ -108,7 +108,9 @@
 		      	</tr>
 		      	<tr>
 		      		<td>广告描述</td>
-		      		<td><input  class="form-control" id="g_desc" placeholder="广告描述"></td>
+		      		<td ><textarea id="g_desc" style="height: 50px;width: 500px;" >
+						</textarea>
+					</td>
 		      	</tr>	
 			    <tr>
 		      		<td>跳转地址</td>

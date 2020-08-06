@@ -75,12 +75,23 @@
 			  <div class="like-list" >
 				  <ul class="yui3-g" >
 					  @foreach($gInfo as $k=>$v)
-						  <li class="yui3-u-1-6" style="margin-left:125px; ">
+						  <li class="yui3-u-1-6" style="margin-left:125px;">
 							  <div class="list-wrap">
 								  <div class="p-img">
-									  <img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="height: 150px; width: 150px;"/>
+									  <img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}"  style="height: 110px;width: 110px;"/>
+								  </div>
+								  <div class="attr">
+									  <em>{{$v->goods_name}}</em>
 								  </div>
 								  <div class="price"  style="margin-top:20px;">
+									  <strong>
+										  <em>¥</em>
+										  <i>{{$v->goods_price}}</i>
+									  </strong>
+								  </div>
+								  <div class="commit">
+									  <a href="/index/goods_desc/{{$v->goods_id}}"
+										 class="sui-btn btn-bordered btn-danger">查看详情</a>
 								  </div>
 							  </div>
 						  </li>
@@ -88,6 +99,6 @@
 				  </ul>
 			  </div>
 		  </div>
-	  </div>
-        </div>
-        </div>
+</div>
+</div>
+</div>

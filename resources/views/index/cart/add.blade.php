@@ -47,7 +47,7 @@
 	<!--logoArea-->
 	<div class="logoArea">
 		<div class="yui3-u Left logoArea">
-			<a class="logo-bd" title="品优购" href="JD-index.html" target="_blank"></a>
+			<a class="logo-bd" title="品优购" href="{{url('/')}}" target="_blank"></a>
 		</div>
 		<div class="fr search">
 			<form class="sui-form form-inline">

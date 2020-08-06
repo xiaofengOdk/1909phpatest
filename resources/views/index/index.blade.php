@@ -277,11 +277,11 @@
 						@foreach($brand as $k=>$v)
 							@if($k==0)
 						<li>
-							<a href="{{url('/index/goods_desc/'.$v->brand_id)}}" >{{$v->brand_name}}</a>
+							<a href="{{url('/index/nav_hot/'.$v->brand_id)}}" >{{$v->brand_name}}</a>
 						</li>
 						@else
 						<li>
-							<a href="{{url('/index/goods_desc/'.$v->brand_id)}}" >{{$v->brand_name}}</a>
+							<a href="{{url('/index/nav_hot/'.$v->brand_id)}}" >{{$v->brand_name}}</a>
 						</li>
 						@endif
 						@endforeach

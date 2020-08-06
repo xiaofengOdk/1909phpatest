@@ -13,8 +13,8 @@
 			<ul class="fl">
 
 				@if(session('reg')=='')
-					<li class="f-item">品优购欢迎您！</li>
-					<li class="f-item">请<a href="/index/login" target="_blank">登录</a>　<span><a href="/index/reg" target="_blank">免费注册</a></span></li>
+					<li class="f-item">艾蒂妲欢迎您！</li>
+					<li class="f-item">请&nbsp;<a href="/index/login" target="_blank">登录</a>　<span><a href="/index/reg" target="_blank">免费注册</a></span></li>
 
 				@else
 					<li class="f-item">欢迎</li>
@@ -54,7 +54,7 @@
 			<form class="sui-form form-inline">
 				<div class="input-append">
 					<input type="text" class="input-error input-xxlarge"
-						   style="height:30px" placeholder="品优购自营" name="goods_name" value="" />
+						   style="height:30px" placeholder="艾蒂妲快报" name="goods_name" value="" />
 					<input type="submit" class="sui-btn btn-xlarge btn-danger" value="搜索">
 				</div>
 			</form>

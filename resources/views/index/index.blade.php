@@ -578,7 +578,6 @@
 			</div>
 		</div>
 	</div>
-<<<<<<< HEAD
 	<!--商标-->
 	<div class="brand">
 		<div class="py-container">
@@ -592,9 +591,6 @@
 			</ul>
 		</div>
 	</div>
-=======
-	
->>>>>>> 279e88fb0713f8e44082e184fcaaf1d4c1691d62
 
 
 @include("index.layout.foot")

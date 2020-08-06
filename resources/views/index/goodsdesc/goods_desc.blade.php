@@ -47,7 +47,7 @@
 				</div>
 				<div class="fr itemInfo-wrap">
 					<div class="sku-name">
-						<h5>{{$goodsInfo['goods_name']}}</h5>
+						<h3 style="color: red;">{{$goodsInfo['goods_name']}}</h3>
 					</div>
 				<div class="summary">
 						<div class="summary-wrap" style="margin-top:-10px;">

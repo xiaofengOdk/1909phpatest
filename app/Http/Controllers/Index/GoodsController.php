@@ -150,4 +150,27 @@ class GoodsController extends Controller
 //        dd($price);
         return view('index/goods/newinfo',['goodsInfo'=>$goodsInfo,'field'=>$field,'sku'=>$sku,'price'=>$price,'brand_id'=>$brand_id]);
     }
+    public function sousuo(){
+        // dd(request()->goods_name);
+        $where=[];
+        $goods_name=request()->goods_name;
+        if($goods_name!=""){
+            $where[]=["goods_name","like","%$goods_name%"];
+        }
+       $goods_info= Goods::where($where)->first();
+       $cate_id= $goods_info['cate_id'];
+       // $sou_info=Goods::where("cate_id",$cate_id)->get();
+        // dd($sou_info);
+       if($cate_id){
+            return [
+                "code"=>"00000",
+                "cate_id"=>$cate_id
+            ];
+       }else{
+          return [
+                "code"=>"00004",
+                "cate_id"=>1
+            ];
+       }
+    }
 }

@@ -62,7 +62,7 @@ a{
 								<!--searchAutoComplete-->
 								<div class="input-append">
 									<input type="text" id="autocomplete" type="text" class="input-error input-xxlarge"  style="height:32px;" />
-									<button class="sui-btn btn-xlarge btn-danger"  type="button">搜索</button>
+									<button class="sui-btn btn-xlarge btn-danger btn"  type="button" >搜索</button>
 								</div>
 							</form>
 						</div>
@@ -113,3 +113,23 @@ a{
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="/static/index/js/plugins/jquery/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).on("click",".btn",function(){
+			// alert(1)
+			var _this=$(this)
+			var goods_name=_this.prev("input").val()
+			// console.log(goods_name)
+			var url="/index/sousuo"
+			    $.ajax({
+                      type:'get',
+                      data:{'goods_name':goods_name},
+                      url:url,
+                      dataType:'json',
+                      success:function(reg){
+                          // console.log(reg);
+                          location.href="/index/goods_list/"+reg.cate_id
+                      }
+                 })
+		})
+	</script>

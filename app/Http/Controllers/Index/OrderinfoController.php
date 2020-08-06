@@ -122,9 +122,15 @@ class OrderinfoController extends Controller
                 "success"=>false,
                 'code'=>"00000",
                 "msg"=>"登录后结算"
-            ];
+            ];exit;
         }
             $goods_id=request()->goods_id;
+            if(empty($goods_id)){
+            return [
+                  'code'=>"00004",
+                  "msg"=>"商品不能为空"
+                ];exit;
+            }
             // dd($goods_id);
         $goods_id=explode(",",$goods_id);
         // dd(trim(request()->goods_price));

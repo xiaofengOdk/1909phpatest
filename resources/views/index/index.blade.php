@@ -358,7 +358,7 @@
 			</div>
 		</div>
 	</div>
-<!-- 	<div id="floor-2" class="floor">
+	<div id="floor-2" class="floor">
 		<div class="py-container">
 			<div class="title floors">
 				<h3 class="fl">手机通讯</h3>
@@ -470,7 +470,7 @@
 				</div>
 			</div>
 		</div>
-	</div> -->
+	</div>
 <div id="floor-2" class="floor">
 		<div class="py-container">
 			<div class="title floors">
@@ -562,18 +562,7 @@
 			</div>
 		</div>
 	</div>
-	<!--商标-->
-	<div class="brand">
-		<div class="py-container">
-			<ul class="Brand-list blockgary">
-				@foreach($goods_info as $k=>$v)
-				<li class="Brand-item">
-					<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" style="width: 150px; height: 63px;" />
-				</li>
-				@endforeach
-			</ul>
-		</div>
-	</div>
+	
 
 
 @include("index.layout.foot")

@@ -102,6 +102,7 @@
                     </ul>
                 </div>
             </div>
+            @if(!empty($goodsdata))
             <div class="goods-list">
                 <ul class="yui3-g">
                     @foreach($goodsInfo as $k=>$v)
@@ -156,6 +157,13 @@
                         {{--</span></div>--}}
                 </div>
             </div>
+            @else
+                <li class="yui3-u-1-5">
+
+                    <h2>该分类下没有商品....</h2>
+
+                </li>
+            @endif
         </div>
         <!--hotsale-->
         <div class="clearfix hot-sale">

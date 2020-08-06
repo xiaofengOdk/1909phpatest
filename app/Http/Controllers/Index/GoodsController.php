@@ -29,6 +29,8 @@ class GoodsController extends Controller
         $brand = BrandModel::where("brand_show",1)->limit(7)->get();//热卖
         $brandInfo = BrandModel::where('cate_id',$id)->get();
         $cate = Cate::where('cate_id',$id)->first();
+        $goodsdata = Goods::where('cate_id',$id)->get()->toArray();
+//        dd($goodsdata);
         $cart=Cary::get();
         $cart=count($cart);
         $where=[
@@ -50,7 +52,7 @@ class GoodsController extends Controller
         $attrval = AttrVal::get();
         $max_price = Goods::where($where)->max('goods_price');
         $price=$this->getSectionPrice($max_price);
-        return view('index/goods/goodslist',["nav"=>$nav,"brand"=>$brand,"footInfo"=>$footInfo,'brandInfo'=>$brandInfo,'goodsInfo'=>$goodsInfo,'cate'=>$cate,'goods_hot'=>$goods_hot,'attr'=>$attr,'attrval'=>$attrval,'price'=>$price,'cart'=>$cart]);
+        return view('index/goods/goodslist',["nav"=>$nav,"brand"=>$brand,"footInfo"=>$footInfo,'brandInfo'=>$brandInfo,'goodsInfo'=>$goodsInfo,'cate'=>$cate,'goods_hot'=>$goods_hot,'attr'=>$attr,'attrval'=>$attrval,'price'=>$price,'cart'=>$cart,'goodsdata'=>$goodsdata]);
     }
     //获取价格区间字段
     public function getSectionPrice($max_price){

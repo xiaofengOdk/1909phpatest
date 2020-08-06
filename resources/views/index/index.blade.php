@@ -277,11 +277,11 @@
 						@foreach($brand as $k=>$v)
 							@if($k==0)
 						<li>
-							<a href="{{url('/index/goods_desc/'.$v->brand_id)}}" >{{$v->brand_name}}</a>
+							<a href="{{url('/index/nav_hot/'.$v->brand_id)}}" >{{$v->brand_name}}</a>
 						</li>
 						@else
 						<li>
-							<a href="{{url('/index/goods_desc/'.$v->brand_id)}}" >{{$v->brand_name}}</a>
+							<a href="{{url('/index/nav_hot/'.$v->brand_id)}}" >{{$v->brand_name}}</a>
 						</li>
 						@endif
 						@endforeach
@@ -578,7 +578,6 @@
 			</div>
 		</div>
 	</div>
-<<<<<<< HEAD
 	<!--商标-->
 	<div class="brand">
 		<div class="py-container">
@@ -592,9 +591,6 @@
 			</ul>
 		</div>
 	</div>
-=======
-	
->>>>>>> 279e88fb0713f8e44082e184fcaaf1d4c1691d62
 
 
 @include("index.layout.foot")

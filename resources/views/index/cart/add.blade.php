@@ -46,7 +46,9 @@
 <div class="cart py-container">
 	<!--logoArea-->
 	<div class="logoArea">
-		<div class="fl logo"><span class="title">购物车</span></div>
+		<div class="yui3-u Left logoArea">
+			<a class="logo-bd" title="品优购" href="JD-index.html" target="_blank"></a>
+		</div>
 		<div class="fr search">
 			<form class="sui-form form-inline">
 				<div class="input-append">

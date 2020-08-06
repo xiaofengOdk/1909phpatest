@@ -194,7 +194,7 @@
 									<ul>
 										@foreach($history_goods as $kk=>$vv)
 										<li>
-											<img src="{{env('UPLOADS_URL')}}{{$vv->goods_img}}" />
+											<img src="{{env('UPLOADS_URL')}}{{$vv->goods_img}}" style="height: 92px;width: 92px;" />
 											<div class="intro">
 												<i>{{$vv->goods_name}}</i>
 											</div>

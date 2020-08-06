@@ -22,6 +22,7 @@ class CartController extends Controller
         $cart=Cary::get();
         $cart=count($cart);
         $xx=request()->all();
+        // dd($xx);
         $reg=session('reg');
         $user_id = $reg['user_id'];
         $footInfo=FootModel::get();
@@ -75,6 +76,7 @@ class CartController extends Controller
             $goods=Goods::where([['goods_id',$r2['goods_id']],['is_del','1']])->first();
             $r2['goods_id']=$goods;
         }
+        // dd($cartinfo);
         return view('index.cart.add',
             [
                 'nav'=>$nav,

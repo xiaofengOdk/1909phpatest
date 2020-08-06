@@ -136,7 +136,7 @@
 						</div>
 					</div>
 					<div class="ads">
-						<img src="/static/index/img/ad1.png" />
+						<img src="http://lqcp.lyfn.top/uploads/nxmlglbFBU22dye3aUzNflizJJJbDSMpwnQkCDML.jpeg" />
 					</div>
 				</div>
 			</div>

@@ -54,7 +54,7 @@
 			<form class="sui-form form-inline">
 				<div class="input-append">
 					<input type="text" class="input-error input-xxlarge"
-						   style="height:30px" placeholder="品优购自营" name="goods_name" value="" />
+						   style="height:30px" placeholder="艾蒂妲快报" name="goods_name" value="" />
 					<input type="submit" class="sui-btn btn-xlarge btn-danger" value="搜索">
 				</div>
 			</form>

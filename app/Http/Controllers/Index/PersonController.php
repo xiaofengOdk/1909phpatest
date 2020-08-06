@@ -19,7 +19,7 @@ class PersonController extends Controller
     public function user_index(){
         $nav = NavModel::get();//导航
         $brand = BrandModel::limit(7)->get();//热卖
-        $footInfo=FootModel::get();
+        $footInfo=FootModel::where('is_del',1)->get();
         $cart=Cary::get();
         $cart=count($cart);
         $order = Order_info::get();

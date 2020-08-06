@@ -30,10 +30,10 @@ class IndexController extends Controller
         $cart=count($cart);
         
           $adtr_info=AdtgModel::where("is_del",1)->limit(5)->get();
-        $footInfo=FootModel::get();
+        $footInfo=FootModel::where('is_del',1)->get();
         //购物车
         $goods_info=Goods::limit(6)->get();
-        $goods_info2=Goods::orderBy("add_time","asc")->limit(6)->get();
+        $goods_info2=Goods::orderBy("add_time","desc")->limit(6)->get();
         $slide_info=Slide::limit(3)->get();
         $goods = Goods::where("is_hot",1)->limit(5)->get();
         $goods2 = Goods::orderBy("goods_id","desc")->limit(5)->where("is_hot",1)->get();
@@ -57,7 +57,7 @@ class IndexController extends Controller
         $cart=count($cart);
         
           $adtr_info=AdtgModel::where("is_del",1)->limit(5)->get();
-        $footInfo=FootModel::get();
+        $footInfo=FootModel::where('is_del',1)->get();
         //购物车
         $goods_info=Goods::limit(6)->get();
         $goods_info2=Goods::orderBy("add_time","asc")->limit(6)->get();

@@ -60,19 +60,19 @@
 											  </span>
 											  <input type="text" class="jds" style="display: none;" value="{{$v->g_name}}"/>
 										  </td>
-										  <td pub="g_desc" style="width: 350px;">
+										  <td pub="g_desc" style="width: 500px;">
 											  <span class="jd">
 													{{$v['g_desc']}}
 											  </span>
 											  <input type="text" class="jds" style="display: none;" value="{{$v->g_desc}}"/>
 										  </td>
-										  <td pub="g_url" style="width: 80px;">
+										  <td pub="g_url" style="width: 150px;">
 											  <span class="jd">
 													{{$v['g_url']}}
 											  </span>
 											  <input type="text" class="jds" style="display: none;" value="{{$v->g_url}}"/>
 										  </td>
-										  <td>{{date("Y-m-d H:i:s",$v['add_time'])}}</td>
+										  <td style="width: 200px;">{{date("Y-m-d H:i:s",$v['add_time'])}}</td>
 										  <td class="text-center">
 											  <a href="/admin/adtg_upd/{{$v->g_id}}">
 												  <button type="button" class="btn btn-success">修改</button>

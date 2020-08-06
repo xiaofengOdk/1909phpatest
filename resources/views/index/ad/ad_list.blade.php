@@ -2,9 +2,9 @@
 @section("content")
 @include("index.layout.top")
 <div style="margin-top:20px;">
-      <p style="color:#000; font-size:15px;">品优购快报><a style="color:red; font-size:12px;">{{$reg->g_name}}</a></p>
+      <p style="color:#000; font-size:13px; padding-left:15px;">艾蒂妲快报 》》》<b style="color:#b1191a; font-size:12px;">{{$reg->g_name}}</b></p>
       <div style="border:1px solid #ccc; width:1200px; height:450px; background:#fff;margin:0 auto;">
-          <h2 style="text-align:center;">{{$reg->g_name}}</h2>
+          <h2 style="text-align:center; margin-top:30px;">{{$reg->g_name}}</h2>
          <div align="center"> <p style="text-align:left; margin-top:20px; width:600px;  text-indent:2em;">{{$reg->g_desc}}</p></div>
         
         
@@ -12,6 +12,10 @@
    
 
 
+<<<<<<< HEAD
+ 
+		
+=======
  <div class="like" style="margin-top:25px;" align="center">
 			
 				<div class="like-list" >
@@ -20,7 +24,7 @@
 						<li class="yui3-u-1-6" style="margin-left:125px;">
 							<div class="list-wrap">
 								<div class="p-img">
-									<img src="{{env('UPLOAD_URL')}}{{$v->goods_img}}" />
+									<img src="{{env('UPLOADS_URL')}}{{$v->goods_img}}" />
 								</div>
 								<div class="attr">
 									<em>{{$v->goods_name}}</em>
@@ -43,6 +47,7 @@
 					</ul>
 				</div>
 			</div>
+>>>>>>> 5d117501fece228e92ed2cd5efe1ab92ef85dd38
 		</div>
         </div>
         </div>

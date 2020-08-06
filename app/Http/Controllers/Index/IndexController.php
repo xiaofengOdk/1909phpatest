@@ -15,23 +15,20 @@ use App\Models\BrandModel;
 class IndexController extends Controller
 {
     public function index(){
-        // $time=1595818318-3600;
-        // // echo $time;
-        // $times=($time+7200);
-        // echo (time()-$times)/60;die;
-	$res=Cate::get();
+        $uu=session('reg');
+        $user_id=$uu['user_id'];
+        if(empty($user_id)){
+           
+	    $res=Cate::get();
         // dd(request()->all());
     	$cate_info=self::getleftInfo($res);     
-    	// dd($cate_info);
-    	// foreach($cate_info as $k=>$v){
-    	// 	print_R($v['child']);
-    	// }
-        // exit;
+    	
         $nav = NavModel::get();//导航
         $brand = BrandModel::limit(7)->get();//热卖
         // dd($nav);
         $cart=Cary::get();
         $cart=count($cart);
+        
           $adtr_info=AdtgModel::where("is_del",1)->limit(5)->get();
         $footInfo=FootModel::get();
         //购物车
@@ -44,8 +41,35 @@ class IndexController extends Controller
         $goods4 = Goods::orderBy("add_time","asc")->limit(5)->where("is_hot",1)->get();
         // dd($goods_info2);
         // dd($goods_info);
-    	return view('index.index',['cate_info'=>$cate_info,"goods_info"=>$goods_info,"cart"=>$cart,"nav"=>$nav,"brand"=>$brand,"footInfo"=>$footInfo,"adtr_info"=>$adtr_info,"slide_info"=>$slide_info,"goods"=>$goods,"goods2"=>$goods2,"goods3"=>$goods3,"goods4"=>$goods4,"goods_info2"=>$goods_info2]);
+    
 
+        }else{
+        
+      
+	    $res=Cate::get();
+        // dd(request()->all());
+    	$cate_info=self::getleftInfo($res);     
+    	
+        $nav = NavModel::get();//导航
+        $brand = BrandModel::limit(7)->get();//热卖
+        // dd($nav);
+        $cart=Cary::where('user_id',$user_id)->get();
+        $cart=count($cart);
+        
+          $adtr_info=AdtgModel::where("is_del",1)->limit(5)->get();
+        $footInfo=FootModel::get();
+        //购物车
+        $goods_info=Goods::limit(6)->get();
+        $goods_info2=Goods::orderBy("add_time","asc")->limit(6)->get();
+        $slide_info=Slide::limit(3)->get();
+        $goods = Goods::where("is_hot",1)->limit(5)->get();
+        $goods2 = Goods::orderBy("goods_id","desc")->limit(5)->where("is_hot",1)->get();
+        $goods3 = Goods::where("is_new",1)->limit(5)->get();
+        $goods4 = Goods::orderBy("add_time","asc")->limit(5)->where("is_hot",1)->get();
+        // dd($goods_info);
+    }
+    return view('index.index',['cate_info'=>$cate_info,"goods_info"=>$goods_info,"cart"=>$cart,"nav"=>$nav,"brand"=>$brand,"footInfo"=>$footInfo,"adtr_info"=>$adtr_info,"slide_info"=>$slide_info,"goods"=>$goods,"goods2"=>$goods2,"goods3"=>$goods3,"goods4"=>$goods4,"goods_info2"=>$goods_info2]);
+         
     }
     
     public function show(){

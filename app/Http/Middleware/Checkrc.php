@@ -17,7 +17,7 @@ class Checkrc
      */
     public function handle($request, Closure $next)
     {
-     $user=session('reg');
+     $user=session('regs');
      // dd($user['admin_id']);
         if(!$user){
             return redirect('/admin/login');
@@ -47,10 +47,10 @@ class Checkrc
         // print_R($p_url);exit;
         // exit;
         if(empty($p_url)){
-            echo "<script>alert('抱歉，您没有权限访问,请找管理员添加权限');window.history.go(-1);</script>";
+            echo "<script>alert('抱歉，您没有权限访问,请找管理员添加权限');window.history.go(-1);</script>";exit;
         }
         if(!in_array($url,$p_url)){
-            echo "<script>alert('没有权限访问');window.history.go(-1);</script>";
+            echo "<script>alert('没有权限访问');window.history.go(-1);</script>";exit;
         }
 
 

@@ -368,7 +368,7 @@
 			</div>
 		</div>
 	</div>
-<!-- 	<div id="floor-2" class="floor">
+	<!-- <div id="floor-2" class="floor">
 		<div class="py-container">
 			<div class="title floors">
 				<h3 class="fl">手机通讯</h3>
@@ -578,6 +578,7 @@
 			</div>
 		</div>
 	</div>
+<<<<<<< HEAD
 	<!--商标-->
 	<div class="brand">
 		<div class="py-container">
@@ -591,6 +592,9 @@
 			</ul>
 		</div>
 	</div>
+=======
+	
+>>>>>>> 279e88fb0713f8e44082e184fcaaf1d4c1691d62
 
 
 @include("index.layout.foot")

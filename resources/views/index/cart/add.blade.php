@@ -1,3 +1,4 @@
+<title>Atido购物车</title>
 <link rel="stylesheet" type="text/css" href="/static/index/css/webbase.css" />
 <link rel="stylesheet" type="text/css" href="/static/index/css/pages-cart.css" />
 <script type="text/javascript" src="/static/index/js/plugins/jquery/jquery.min.js"></script>
@@ -21,11 +22,13 @@
 				@endif
 			</ul>
 			<ul class="fr">
+				<li class="f-item"><a href="/"style="text-decoration: none; color:black;" >网站首页</a></li>
+				<li class="f-item space"></li>
 				<li class="f-item"><a href="http://www.1909a3.com/index/user_index" style="text-decoration: none; color:black;">我的订单</a></li>
 				<li class="f-item space"></li>
-				<li class="f-item"><a href="home.html" target="_blank">我的品优购</a></li>
-				<li class="f-item space"></li>
+				<li class="f-item"><a href="/index/user_index" target="_blank">个人中心</a></li>
 
+				<li class="f-item space"></li>
 				<li class="f-item" id="service">
 					<span>客户服务</span>
 					<ul class="service">
@@ -35,10 +38,10 @@
 						<li><a href="#">商家后台</a></li>
 					</ul>
 				</li>
+
+
 				<li class="f-item space"></li>
-				<li class="f-item"><a href="/"style="text-decoration: none; color:black;" >网站导航</a></li>
-				<li class="f-item space"></li>
-				<li class="f-item"><a href="http://www.1909a3.com/user/answer"style="text-decoration: none; color:black;" >网站导航</a></li>
+				<li class="f-item"><a href="/user/answer" target="_blank">网站留言</a></li>
 			</ul>
 		</div>
 	</div>
@@ -46,7 +49,9 @@
 <div class="cart py-container">
 	<!--logoArea-->
 	<div class="logoArea">
-		<div class="fl logo"><span class="title">购物车</span></div>
+		<div class="yui3-u Left logoArea">
+			<a class="logo-bd" title="品优购" href="{{url('/')}}" target="_blank"></a>
+		</div>
 		<div class="fr search">
 			<form class="sui-form form-inline">
 				<div class="input-append">
@@ -63,7 +68,7 @@
 
 		<!--All goods-->
 		<div class="allgoods">
-			{{--<h4>全部商品<span>11</span></h4>--}}
+			{{--<h4>全部商品<span></span></h4>--}}
 			<div class="cart-main">
 				<div class="yui3-g cart-th">
 					<div class="yui3-u-1-4"><input type="checkbox" name="qx_0.2" id="check_all" value="" /> 全部</div>
@@ -546,7 +551,7 @@
 				type:'post',
 				dataType:'json',
 				success:function(result){
-						// console.log(result)
+						alert(result.msg)
 					if(result.code=='00000'){
 						location.href="http://www.1909a3.com/order/index";
 					}

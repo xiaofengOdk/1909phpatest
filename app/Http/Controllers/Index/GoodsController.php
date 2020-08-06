@@ -29,6 +29,8 @@ class GoodsController extends Controller
         $brand = BrandModel::where("brand_show",1)->limit(7)->get();//热卖
         $brandInfo = BrandModel::where('cate_id',$id)->get();
         $cate = Cate::where('cate_id',$id)->first();
+        $goodsdata = Goods::where('cate_id',$id)->get()->toArray();
+//        dd($goodsdata);
         $cart=Cary::get();
         $cart=count($cart);
         $where=[
@@ -50,7 +52,7 @@ class GoodsController extends Controller
         $attrval = AttrVal::get();
         $max_price = Goods::where($where)->max('goods_price');
         $price=$this->getSectionPrice($max_price);
-        return view('index/goods/goodslist',["nav"=>$nav,"brand"=>$brand,"footInfo"=>$footInfo,'brandInfo'=>$brandInfo,'goodsInfo'=>$goodsInfo,'cate'=>$cate,'goods_hot'=>$goods_hot,'attr'=>$attr,'attrval'=>$attrval,'price'=>$price,'cart'=>$cart]);
+        return view('index/goods/goodslist',["nav"=>$nav,"brand"=>$brand,"footInfo"=>$footInfo,'brandInfo'=>$brandInfo,'goodsInfo'=>$goodsInfo,'cate'=>$cate,'goods_hot'=>$goods_hot,'attr'=>$attr,'attrval'=>$attrval,'price'=>$price,'cart'=>$cart,'goodsdata'=>$goodsdata]);
     }
     //获取价格区间字段
     public function getSectionPrice($max_price){
@@ -147,5 +149,28 @@ class GoodsController extends Controller
 
 //        dd($price);
         return view('index/goods/newinfo',['goodsInfo'=>$goodsInfo,'field'=>$field,'sku'=>$sku,'price'=>$price,'brand_id'=>$brand_id]);
+    }
+    public function sousuo(){
+        // dd(request()->goods_name);
+        $where=[];
+        $goods_name=request()->goods_name;
+        if($goods_name!=""){
+            $where[]=["goods_name","like","%$goods_name%"];
+        }
+       $goods_info= Goods::where($where)->first();
+       $cate_id= $goods_info['cate_id'];
+       // $sou_info=Goods::where("cate_id",$cate_id)->get();
+        // dd($sou_info);
+       if($cate_id){
+            return [
+                "code"=>"00000",
+                "cate_id"=>$cate_id
+            ];
+       }else{
+          return [
+                "code"=>"00004",
+                "cate_id"=>1
+            ];
+       }
     }
 }

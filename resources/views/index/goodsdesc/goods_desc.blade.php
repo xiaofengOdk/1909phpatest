@@ -47,10 +47,9 @@
 				</div>
 				<div class="fr itemInfo-wrap">
 					<div class="sku-name">
-						<h4>{{$goodsInfo['goods_name']}}</h4>
+						<h5>{{$goodsInfo['goods_name']}}</h5>
 					</div>
-					<div class="news"><span>推荐选择下方[优惠购] 买买买卖买买</span></div>
-					<div class="summary">
+				<div class="summary">
 						<div class="summary-wrap" style="margin-top:-10px;">
 							<div class="fl title">
 							<i>价　　格</i>

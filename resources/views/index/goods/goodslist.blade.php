@@ -16,6 +16,7 @@
                 <li class="tag" style="display:none;" id="first">全网通<i class="sui-icon icon-tb-close"></i></li>
                 <li class="tag" style="display:none;" id="two">63G<i class="sui-icon icon-tb-close"></i></li>
                 <li class="tag" style="display:none;" id="three">63G<i class="sui-icon icon-tb-close"></i></li>
+                <li class="tag" style="display:none;" id="four">63G<i class="sui-icon icon-tb-close"></i></li>
             </ul>
 
             <div class="clearfix"></div>
@@ -125,7 +126,7 @@
                                 {{--</div>--}}
                                 <div class="operate">
                                     <a href="javascript:;"  goods_id="{{$v->goods_id}}" class="sui-btn btn-bordered btn-danger jia">加入购物车</a>
-                                    <a href="javascript:void(0);" class="sui-btn btn-bordered">收藏</a>
+                                    <a href="/index/goods_desc/{{$v->goods_id}}" class="sui-btn btn-bordered">查看详情</a>
                                 </div>
                             </div>
                         </li>
@@ -370,6 +371,7 @@
             var _this=$(this);
             if(_this.hasClass("redhover")){
                 _this.removeClass("redhover");
+                $('#three').hide();
 //                return false;
                 var sku=null;
                 var brand_id=$('#brand_id').val();
@@ -404,6 +406,9 @@
                 var sku = "["+attr_id+':'+attrval_id+"]";
                 _this.addClass("redhover");
                 $(this).parent('li').siblings('li').find('a').removeClass('redhover');
+
+                $('#three').show();
+                $('#three').text(attrval_name);
 //            getInfo(sku);
                 var brand_id=$('#brand_id').val();
                 var cate_id="{{$cate->cate_id}}";

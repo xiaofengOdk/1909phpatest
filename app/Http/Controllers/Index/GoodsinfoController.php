@@ -42,7 +42,7 @@ class GoodsinfoController extends Controller
         public function sku(){
                 // dd(request()->goods_id);
                // $num=Sku::rightjoin('goods',"sku.goods_id","=","goods.goods_id")->where("sku",request()->sku)->first();
-               $num=Goods::leftjoin("sku","goods.goods_id","=","sku.goods_id")->where("sku",request()->sku)->first();
+               $num=Goods::leftjoin("sku","goods.goods_id","=","sku.goods_id")->where(["sku"=>request()->sku,"sku.goods_id"=>request()->goods_id])->first();
                 // dd($num);
                if($num){
                 return [

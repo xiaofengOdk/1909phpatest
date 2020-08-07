@@ -23,7 +23,13 @@ class PersonController extends Controller
         $cart=Cary::get();
         $cart=count($cart);
         $order = Order_info::get();
-        $order_info = Order_info::get();
+       
+        $reg = session("reg");
+        $user_id = $reg['user_id'];
+        $order_info = Order_info::where("user_id",$user_id)->get();
+        if($reg==null){
+            return redirect("/index/login");
+        }
         // dd($order_info);
         return view("index.person.user_index",compact("nav","brand","footInfo","cart","order","order_info"));
     }

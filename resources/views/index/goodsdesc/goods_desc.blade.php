@@ -159,7 +159,7 @@
 										</strong>
 										</div>
 										<div class="operate">
-											<a href="javascript:void(0);" class="sui-btn btn-bordered"  >购物车</a>
+											<a href="/index/nav_hot/{{$v->brand_id}}" class="sui-btn btn-bordered"  >购物车</a>
 										</div>
 									</div>
 									@endforeach
@@ -182,7 +182,7 @@
 										</strong>
 										</div>
 										<div class="operate">
-											<a href="javascript:void(0);" class="sui-btn btn-bordered" style="height: 24px; ">加入购物车</a>
+											<a href="/index/goods_desc/{{$v->goods_id}}" class="sui-btn btn-bordered" style="height: 24px; ">加入购物车</a>
 										</div>
 									</div>
 									@endforeach
@@ -515,7 +515,7 @@
 				data:{"sku":sku,"goods_id":goods_id},
 				dataType:"json",
 				success:function(res){
-					console.log(res)
+					// console.log(res)
 					var price=res.message.goods_price
 					var img=res.message.goods_img
 					// var video_str='<img   jqimg="'+img+'"        src="'+img+'" controls="controls"     style="width:412px; height: 412px; ">';
@@ -580,7 +580,7 @@
              url:url,
              dataType:'json',
              success:function(reg){
-                 // console.log(reg.message)
+                 console.log(reg)
                  if(reg.code=='00004'){
                  	alert(reg.message)
 	                 location.href="/index/login"                	                 	

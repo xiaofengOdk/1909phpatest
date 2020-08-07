@@ -19,7 +19,12 @@ class CartshopController extends Controller
        // dd(request()->all());
         $reg = session("reg");
         $sku=request()->sku;
-        $sku_info=Sku::where(["sku"=>$sku,"goods_id"=>$goods_id])->first();
+        // dd(count($sku));
+        if(empty($sku)){
+                   $sku_info=Sku::where(["goods_id"=>$goods_id])->first();
+        }else{
+                    $sku_info=Sku::where(["sku"=>$sku,"goods_id"=>$goods_id])->first();            
+        }
        // dd($sku_info);
         // $sku=explode(",",$sku);
         // dd($sku_info);
@@ -40,8 +45,6 @@ class CartshopController extends Controller
                 $goods = Sku::where(["goods_id"=>$goods_id])->get();
                 // 判断库存
                     foreach($goods as $k=>$v){
-                        // print_R($v['sku']);
-                        // print_r( $sku);
                             if($v['sku']==$sku){
                                 return $message=[
                                          "code"=>00001,
@@ -149,14 +152,14 @@ class CartshopController extends Controller
                     ];
                         exit;
             }
-            $cart = Cary::where(["user_id"=>$user_id,"goods_id"=>$goods_id,"is_del"=>1])->first();
-            $cart2 = Cary::where(["user_id"=>$user_id,"goods_id"=>$goods_id,"is_del"=>2])->first();
+            $cart = Cary::where(["user_id"=>$user_id,"id"=>$sku_info['id'],"goods_id"=>$goods_id,"is_del"=>1])->first();
+            $cart2 = Cary::where(["user_id"=>$user_id,"id"=>$sku_info['id'],"goods_id"=>$goods_id,"is_del"=>2])->first();
             if($cart2){
                 $buy_number = $buy_number;
                 if($goods['goods_store']<$buy_number){
                     $buy_number = $goods->goods_store;
                 }
-                $res3 = Cary::where(["user_id"=>$user_id,"goods_id"=>$goods_id,"is_del"=>2])->update(['buy_number'=>$buy_number,'add_time'=>time(),"is_del"=>1]);
+                $res3 = Cary::where(["user_id"=>$user_id,"goods_id"=>$goods_id,"id"=>$sku_info['id'],"is_del"=>2])->update(['buy_number'=>$buy_number,'add_time'=>time(),"is_del"=>1]);
             // dd($res2);
                 
                 if($res3){
@@ -190,6 +193,7 @@ class CartshopController extends Controller
                     "buy_number"=>$buy_number,
                     "add_time"=>time(),
                     "id"=>$sku_info['id'],
+                    "goods_price_one"=>$sku_info['goods_price'],
                 ];
                     $res2 = Cary::insert($data);
                     if($res2){

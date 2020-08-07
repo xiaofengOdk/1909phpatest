@@ -168,7 +168,7 @@
 			<div class="title">
 				<h3 class="fl">猜你喜欢</h3>
 				<b class="border"></b>
-				<a href="javascript:;" class="fr tip changeBnt" id="xxlChg"><i></i>换一换</a>
+				<!-- <a href="" class="fr tip" id="xxlChg"><i></i>下面</a> -->
 			</div>
 			<div class="bd">
 				<ul class="clearfix yui3-g Favourate picLB" id="picLBxxl">
@@ -183,21 +183,6 @@
 									<h3>¥{{$v->goods_price}}</h3>
 								</div>
 							</dd>
-							@foreach($goods_info2 as $k=>$vv)
-					
-						
-					
-							
-							<dd>
-								<a href="/index/goods_desc/{{$vv->goods_id}}" class="pic"><img src="{{env('UPLOADS_URL')}}{{$vv->goods_img}}" alt="" /></a>
-								<div class="like-text">
-									<p>{{$vv->goods_name}}</p>
-									<h3>¥{{$vv->goods_price}}</h3>
-								</div>
-							</dd>
-						
-					
-					@endforeach
 						</dl>
 					</li>
 					@endforeach

@@ -36,19 +36,24 @@
                     </ul>
                 </div>
             </div>
+            <div id="dd" num={{sizeof($attr)}}></div>
             @foreach($attr as $k=>$v)
-            <div class="type-wrap attrs">
+                <input type="hidden" id="attr_id_{{$k}}" attr_id="{{$v->attr_id}}" value="{{$v->attr_name}}">
+                <div class="type-wrap attrs">
                 <div class="fl key">
                     {{$v->attr_name}}
                 </div>
 
                 <div class="fl value">
 
-                    <ul class="type-list">
+                    <ul class="type-list"  id="dl" >
+                        <input type="hidden" class="col-md-10 data"  id="val_id_{{$k}}"  value="{{$v->val_name}}">
                         @foreach($attrval as $kk=>$vv)
                             @if($v->attr_id == $vv->attr_id)
                         <li>
-                            <a attr_id="{{$vv->attr_id}}" attrval_id="{{$vv->id}}" class="attrval">{{$vv->attrval_name}}</a>
+                            <a attr_ids="{{$vv->attr_id}}" attrval_id="{{$vv->id}}"name="yanshi"  id="ys"     val_id="{{$vv['id']}}"goods_id="{{$goodsInfo['goods_id']}}"     class="attrval">{{$vv->attrval_name}}</a>
+                            {{--<a href="javascript:;" name="yanshi"  id="ys" goods_id="{{$goodsInfo['goods_id']}}"  class="{{$kk==0?'selected':''}}" val_id="{{$vv['id']}}">{{$vv['attrval_name']}}--}}
+                            </a>
                         </li>
                             @endif
                         @endforeach
@@ -81,6 +86,7 @@
                 <input type="hidden" id="field"  value="">
                 <input type="hidden" id="sku"  value="">
                 <input type="hidden" id="goods_price"  value="">
+                <input type="hidden" id="sku_2" value="">
                 {{--<input type="hidden" id="attr_2"  value="">--}}
                 <div class="navbar-inner filter">
                     <ul class="sui-nav" >
@@ -367,7 +373,20 @@
                 _this.removeClass("redhover");
                 $('#three').hide();
 //                return false;
-                var sku=null;
+//                var sku=$("#sku").val();
+//                var num=$("#dd").attr("num");
+//                var sku_del="";
+//                for(var i=0;i<=num-1;i++){
+////                    console.log(i);
+//                    var attr_id=$("#attr_id_"+i).attr("attr_id");
+//                    var val_id=$("#val_id_"+i).parents("#dl").find("[name='yanshi'][class='attrval']").attr('val_id');
+//                    console.log(_id);
+//                    if(!val_id==""){
+//                        sku_del=sku_del+'['+attr_id+':'+val_id+'],';
+//                    }
+//                }
+//                console.log(sku_del);
+//                return false;
                 var brand_id=$('#brand_id').val();
                 var cate_id="{{$cate->cate_id}}";
                 var field = $('#field').val();
@@ -382,7 +401,7 @@
                     brand_id=null;
                 }
                 var url='/index/getnewinfo';
-                var data={brand_id:brand_id,goods_price:goods_price,field:field,cate_id:cate_id,sku:sku};
+                var data={brand_id:brand_id,goods_price:goods_price,field:field,cate_id:cate_id,sku:sku,sku_del:sku_del};
                 $.ajax({
                     url:url,
                     data:data,
@@ -394,15 +413,26 @@
                     }
                 })
             }else{
-                var attr_id = _this.attr('attr_id');
-                var attrval_id = _this.attr('attrval_id');
+//                console.log(2222);
                 var attrval_name = _this.text();
-                var sku = "["+attr_id+':'+attrval_id+"]";
                 _this.addClass("redhover");
                 $(this).parent('li').siblings('li').find('a').removeClass('redhover');
-
                 $('#three').show();
                 $('#three').text(attrval_name);
+                var num=$("#dd").attr("num");
+                var sku="";
+                for(var i=0;i<=num-1;i++){
+                    var attr_id=$("#attr_id_"+i).attr("attr_id");
+                    var val_id=$("#val_id_"+i).parents("#dl").find("[name='yanshi'][class='attrval redhover']").attr('val_id');
+//                    console.log(val_id)
+                    if(!val_id==""){
+                        sku=sku+'['+attr_id+':'+val_id+'],';
+                    }
+                }
+                var cd=sku.length;
+                sku=sku.substr(0,cd-1);
+//                console.log(sku)
+//                return false;
 //            getInfo(sku);
                 var brand_id=$('#brand_id').val();
                 var cate_id="{{$cate->cate_id}}";

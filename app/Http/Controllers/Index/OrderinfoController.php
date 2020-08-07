@@ -62,6 +62,7 @@ class OrderinfoController extends Controller
 
     public function order_sub(){
         $info = request()->all();
+        // echo 111111;
         $a = rand(99999,000001);
         $sn = time().$a; //订单号
         $reg = session("reg");
@@ -82,9 +83,10 @@ class OrderinfoController extends Controller
         // dd($order_id);
         foreach($goods_id as $k=>$v){
            $order = Order_goods::where("goods_id",$v)->update(['order_id'=>$order_id,"order_t"=>2]);
-            // dump($v['goods_id']);
+            // dd($v['goods_id']);
         }
-        if($order){
+        // dd($order);
+        if($order!=false){
            return $message = [
                 "code"=>00003,
                 "success"=>true,
@@ -145,7 +147,7 @@ class OrderinfoController extends Controller
             $cary['user_id']=$user_id;
             $cary['goods_id']=$goods_info['goods_id'];
             $cary['buy_number']=$goods_info['buy_number'];
-            $cary['order_price']=$goods_info['buy_number']*$goods_info['goods_price'];
+            $cary['order_price']=$goods_info['buy_number']*$goods_info['goods_price_one'];
             $result=Order_goods::insert($cary);
         }
         // print_R($cary);

@@ -44,14 +44,13 @@ class GoodsinfoController extends Controller
                 // dd(request()->goods_id);
                // $num=Sku::rightjoin('goods',"sku.goods_id","=","goods.goods_id")->where("sku",request()->sku)->first();
               $goods = Sku::where("goods_id",request()->goods_id)->get();
-              // dd($goods);
+              // dd(request()->goods_id);
               $sku=request()->sku;
-              // dd($sku);
+              // dd($goods);
                     foreach($goods as $k=>$v){
-                        // print_R(request()->sku);
-                        // print_r( $sku);
-                        $result=Sku::where("sku",$sku)->first();
-                           // dd($result);
+                      // print_R($v['goods_id']);
+                        $result=Sku::where(["sku"=>$sku,"goods_id"=>$v['goods_id']])->first();
+                           // print_R($result);
                             if($result){
                                     return [
                                          "code"=>"00000",

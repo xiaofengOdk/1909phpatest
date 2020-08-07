@@ -50,19 +50,7 @@
 
 
         <!--回到顶部-->
-        <div class="cd-top">
-            <div class="top">
-                <img src="/static/index/img/_/gotop.png" />
-                <b>TOP</b>
-            </div>
-            <div class="code" id="code">
-                <span><img src="/static/index/img/_/code.png"/></span>
-            </div>
-            <div class="erweima">
-                <img src="/static/index/img/_/erweima.jpg" alt="">
-                <s></s>
-            </div>
-        </div>
+       
     </div>
 </div>
 

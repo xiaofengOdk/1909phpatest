@@ -19,7 +19,12 @@ class CartshopController extends Controller
        // dd(request()->all());
         $reg = session("reg");
         $sku=request()->sku;
-        $sku_info=Sku::where(["sku"=>$sku,"goods_id"=>$goods_id])->first();
+        // dd(count($sku));
+        if(empty($sku)){
+                   $sku_info=Sku::where(["goods_id"=>$goods_id])->first();
+        }else{
+                    $sku_info=Sku::where(["sku"=>$sku,"goods_id"=>$goods_id])->first();            
+        }
        // dd($sku_info);
         // $sku=explode(",",$sku);
         // dd($sku_info);
@@ -40,8 +45,6 @@ class CartshopController extends Controller
                 $goods = Sku::where(["goods_id"=>$goods_id])->get();
                 // 判断库存
                     foreach($goods as $k=>$v){
-                        // print_R($v['sku']);
-                        // print_r( $sku);
                             if($v['sku']==$sku){
                                 return $message=[
                                          "code"=>00001,

@@ -159,7 +159,7 @@
 										</strong>
 										</div>
 										<div class="operate">
-											<a href="javascript:void(0);" class="sui-btn btn-bordered"  >购物车</a>
+											<a href="/index/nav_hot/{{$v->brand_id}}" class="sui-btn btn-bordered"  >购物车</a>
 										</div>
 									</div>
 									@endforeach
@@ -182,7 +182,7 @@
 										</strong>
 										</div>
 										<div class="operate">
-											<a href="javascript:void(0);" class="sui-btn btn-bordered" style="height: 24px; ">加入购物车</a>
+											<a href="/index/goods_desc/{{$v->goods_id}}" class="sui-btn btn-bordered" style="height: 24px; ">加入购物车</a>
 										</div>
 									</div>
 									@endforeach

@@ -152,14 +152,14 @@ class CartshopController extends Controller
                     ];
                         exit;
             }
-            $cart = Cary::where(["user_id"=>$user_id,"goods_id"=>$goods_id,"is_del"=>1])->first();
-            $cart2 = Cary::where(["user_id"=>$user_id,"goods_id"=>$goods_id,"is_del"=>2])->first();
+            $cart = Cary::where(["user_id"=>$user_id,"id"=>$sku_info['id'],"goods_id"=>$goods_id,"is_del"=>1])->first();
+            $cart2 = Cary::where(["user_id"=>$user_id,"id"=>$sku_info['id'],"goods_id"=>$goods_id,"is_del"=>2])->first();
             if($cart2){
                 $buy_number = $buy_number;
                 if($goods['goods_store']<$buy_number){
                     $buy_number = $goods->goods_store;
                 }
-                $res3 = Cary::where(["user_id"=>$user_id,"goods_id"=>$goods_id,"is_del"=>2])->update(['buy_number'=>$buy_number,'add_time'=>time(),"is_del"=>1]);
+                $res3 = Cary::where(["user_id"=>$user_id,"goods_id"=>$goods_id,"id"=>$sku_info['id'],"is_del"=>2])->update(['buy_number'=>$buy_number,'add_time'=>time(),"is_del"=>1]);
             // dd($res2);
                 
                 if($res3){
@@ -193,6 +193,7 @@ class CartshopController extends Controller
                     "buy_number"=>$buy_number,
                     "add_time"=>time(),
                     "id"=>$sku_info['id'],
+                    "goods_price_one"=>$sku_info['goods_price'],
                 ];
                     $res2 = Cary::insert($data);
                     if($res2){

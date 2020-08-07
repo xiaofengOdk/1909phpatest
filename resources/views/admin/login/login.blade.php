@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-	<title>品优购运营商运营管理后台</title>
+	<title>Atido</title>
 	 <link rel="icon" href="../assets/img/favicon.ico">
 
 
@@ -17,7 +17,7 @@
 <input type="hidden" name="meg" value="{{session('msg')}}"/ >
 	<div class="loginmanage">
 		<div class="py-container">
-			<h4 class="manage-title">品优购运营商运营管理后台</h4>
+			<h4 class="manage-title">Atido登录中心</h4>
 			<div class="loginform">
 
 				<ul class="sui-nav nav-tabs tab-wraped">
@@ -34,8 +34,7 @@
 				</ul>
 				<div class="tab-content tab-wraped">
 					<div id="index" class="tab-pane">
-						<p>二维码登录，暂为官网二维码</p>
-						<img src="/static/admin/img/wx_cz.jpg" />
+						<p>功能暂未开放</p>
 					</div>
 					<div id="profile" class="tab-pane  active">
 						<form class="sui-form" action="/admin/logdo" method="post">

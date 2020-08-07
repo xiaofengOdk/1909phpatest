@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-	<title>品优购，欢迎登录</title>
+	<title>Adtio</title>
 
     <link rel="stylesheet" type="text/css" href="/static/index/css/webbase.css" />
     <link rel="stylesheet" type="text/css" href="/static/index/css/pages-login.css" />
@@ -35,8 +35,7 @@
 					</ul>
 					<div class="tab-content tab-wraped">
 						<div id="index" class="tab-pane">
-							<p>二维码登录，暂为官网二维码</p>
-							<img src="/static/index/img/wx_cz.jpg" />
+							<p>功能暂未开放</p>
 						</div>
 						<div id="profile" class="tab-pane  active">
 							<form class="sui-form">

@@ -273,12 +273,12 @@
 				data:data,
 				dataType:"json",
 				success:function(res){
-					console.log(res)
-					if(res.success==true){
-						alert(res.message);
+					// console.log(res)
+					// if(res.success==true){
+						// alert(res.message);
 						var order_id=res.result
 						location.href="/payMoney1/"+order_id
-					}
+					// }
 				}
 			})
 	

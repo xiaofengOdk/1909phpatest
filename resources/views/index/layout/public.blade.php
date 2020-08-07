@@ -7,8 +7,8 @@
 	 <link rel="icon" href="/static/index/img/assets/img/favicon.ico">
     <link rel="stylesheet" type="text/css" href="/static/index/css/webbase.css" />
     <link rel="stylesheet" type="text/css" href="/static/index/css/pages-JD-index.css" />
-        <link rel="stylesheet" type="text/css" href="/static/index/css/webbase.css" />
-    <link rel="stylesheet" type="text/css" href="/static/index/css/pages-paysuccess.css" />
+        <!-- <link rel="stylesheet" type="text/css" href="/static/index/css/webbase.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="/static/index/css/pages-paysuccess.css" /> -->
       <link rel="stylesheet" type="text/css" href="/static/index/css/pages-list.css" />
       <script type="text/javascript" src="components/ui-modules/nav/nav-portal-top.js"></script>
     <link rel="stylesheet" type="text/css" href="/static/index/css/widget-jquery.autocomplete.css" />

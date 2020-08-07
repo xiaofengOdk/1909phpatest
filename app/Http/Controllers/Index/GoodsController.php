@@ -131,15 +131,44 @@ class GoodsController extends Controller
         }
         //sku 待完成
         $sku = $request->sku;
+//        dd($sku);
         if(!empty($sku)){
-//            echo $sku;exit;
-            $where[]= ['sku.sku','like',"%$sku%"];
+            $where[]=['sku.sku','like',"%$sku%"];
         }
-
-        //分页  待完成
+//        dd($where);
         $goodsInfo = Goods::leftjoin('sku','goods.goods_id','=','sku.goods_id')->where($where)
-            ->paginate(10,['goods.goods_price','goods.goods_id','goods.goods_img','goods.goods_name','sku.sku'])->toArray();
+            ->paginate(10,['goods.goods_price','goods.goods_id','goods.goods_img','goods.goods_name'])->toArray();
+        foreach($goodsInfo['data'] as $k=>$v){
+            $goodsInfo['data'][$k]=json_encode($v);
+        }
+        $goodsInfo['data']=array_unique($goodsInfo['data']);
 //        dd($goodsInfo);
+        foreach($goodsInfo['data'] as $k=>$v){
+            $goodsInfo['data'][$k]=json_decode($v,true);
+        }
+//        dd($goodsInfo);
+//            if(!empty($brand_id) || !empty($price) || !empty($field)){
+//                $goodsInfo=Goods::where($where)->paginate(10)->toArray();
+//            }else if(!empty($sku)){
+//                $where1=[
+//                    ['sku','like',"%$sku%"]
+//                ];
+//                $sku_data = Sku::where($where1)->get();
+//                $goods_id=[];
+//                foreach($sku_data as $k=>$v){
+//                    $goods_id[]=$v->goods_id;
+//                }
+////
+//                $goods_id = array_unique($goods_id);
+////            $where[]=['goods_id','=',$goods_id];
+//                $goodsInfo = Goods::where('cate_id',$cate_id)->whereIn('goods_id',$goods_id)->paginate(10)->toArray();
+//            }else{
+//                $goodsInfo=Goods::where($where)->paginate(10)->toArray();
+//            }
+
+//        dd($goodsInfo);
+        //分页  待完成
+
 
         if(!empty($price)){
             if(is_array($price)){

@@ -44,7 +44,7 @@
                     {{--</div>--}}
                     <div class="operate">
                         <a href="javascript:;" goods_id="{{$v['goods_id']}}" class="sui-btn btn-bordered btn-danger jia">加入购物车</a>
-                        <a href="javascript:void(0);" class="sui-btn btn-bordered">收藏</a>
+                        <a href="/index/goods_desc/{{$v['goods_id']}}" class="sui-btn btn-bordered">查看详情</a>
                     </div>
                 </div>
             </li>
